@@ -42,6 +42,9 @@ TRANSLATION_FEED_ATOM = None
 AUTHOR_FEED_ATOM = None
 AUTHOR_FEED_RSS = None
 
+PLUGIN_PATHS = ["plugins"]
+PLUGINS = ["cjk-auto-spacing", "related_posts", "photos"]
+
 # Blogroll
 LINKS = (('Pelican', 'http://getpelican.com/'),
          ('Python.org', 'http://python.org/'),
