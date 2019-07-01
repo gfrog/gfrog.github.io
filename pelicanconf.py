@@ -4,6 +4,7 @@ from __future__ import unicode_literals
 
 AUTHOR = 'gfrog'
 SITENAME = 'My Life, My Love!'
+SITESUBTITLE = '指点江山 激昂文字 修身隆德 自然自我'
 SITEURL = ''
 
 PATH = 'content'
@@ -44,6 +45,21 @@ AUTHOR_FEED_RSS = None
 
 PLUGIN_PATHS = ["plugins"]
 PLUGINS = ["cjk-auto-spacing", "related_posts", "photos"]
+
+THEME = "themes/foundation-default-colours"
+FOUNDATION_FRONT_PAGE_FULL_ARTICLES = False
+FOUNDATION_ALTERNATE_FONTS = False
+FOUNDATION_TAGS_IN_MOBILE_SIDEBAR = False
+FOUNDATION_NEW_ANALYTICS = False
+FOUNDATION_ANALYTICS_DOMAIN = ''
+FOUNDATION_FOOTER_TEXT = '''
+Copyright © 2007-2019 - gfrog.net
+ - Powered by <a href="http://getpelican.com">Pelican</a>
+ and <a href="http://foundation.zurb.com/">Zurb Foundation</a>.
+ Theme by <a href="http://hamaluik.com">Kenton Hamaluik</a>.
+'''
+
+FOUNDATION_PYGMENT_THEME = 'default'
 
 # Blogroll
 LINKS = (('Pelican', 'http://getpelican.com/'),
