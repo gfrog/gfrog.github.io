@@ -44,7 +44,14 @@ AUTHOR_FEED_ATOM = None
 AUTHOR_FEED_RSS = None
 
 PLUGIN_PATHS = ["plugins"]
-PLUGINS = ["cjk-auto-spacing", "related_posts", "photos"]
+PLUGINS = [
+           "cjk-auto-spacing",
+           "related_posts",
+           "photos",
+           "liquid_tags.video",
+           "liquid_tags.gram",
+           "liquid_tags.youtube"
+          ]
 
 THEME = "themes/foundation-default-colours"
 FOUNDATION_FRONT_PAGE_FULL_ARTICLES = False
