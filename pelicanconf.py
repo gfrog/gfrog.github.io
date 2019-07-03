@@ -58,23 +58,24 @@ PLUGINS = [
            "photos",
            "liquid_tags.video",
            "liquid_tags.gram",
-           "liquid_tags.youtube"
+           "liquid_tags.youtube",
+           "i18n_subsites"
           ]
 
-THEME = "themes/foundation-default-colours"
-FOUNDATION_FRONT_PAGE_FULL_ARTICLES = False
-FOUNDATION_ALTERNATE_FONTS = False
-FOUNDATION_TAGS_IN_MOBILE_SIDEBAR = False
-FOUNDATION_NEW_ANALYTICS = False
-FOUNDATION_ANALYTICS_DOMAIN = ''
-FOUNDATION_FOOTER_TEXT = '''
-Copyright © 2007-2019 - gfrog.net
- - Powered by <a href="http://getpelican.com">Pelican</a>
- and <a href="http://foundation.zurb.com/">Zurb Foundation</a>.
- Theme by <a href="http://hamaluik.com">Kenton Hamaluik</a>.
-'''
 
-FOUNDATION_PYGMENT_THEME = 'default'
+THEME = "themes/pelican-bootstrap3/"
+JINJA_ENVIRONMENT = {'extensions': ['jinja2.ext.i18n']}
+PYGMENTS_STYLE = "default"
+DISPLAY_PAGES_ON_MENU = False
+DISPLAY_CATEGORIES_ON_MENU = False
+SHOW_ARTICLE_CATEGORY = True
+BOOTSTRAP_NAVBAR_INVERSE = True
+DISPLAY_ARTICLE_INFO_ON_INDEX = True
+DISPLAY_CATEGORIES_ON_SIDEBAR = True
+DISPLAY_TAGS_ON_SIDEBAR = True
+DISABLE_SIDEBAR_TITLE_ICONS = True
+CC_LICENSE = "CC-BY-NC-SA"
+
 
 # Blogroll
 LINKS = (('Pelican', 'http://getpelican.com/'),
