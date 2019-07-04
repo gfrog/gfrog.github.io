@@ -59,7 +59,8 @@ PLUGINS = [
            "liquid_tags.video",
            "liquid_tags.gram",
            "liquid_tags.youtube",
-           "i18n_subsites"
+           "i18n_subsites",
+           "pelican-gist"
           ]
 
 
