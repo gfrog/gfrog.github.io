@@ -34,6 +34,14 @@ EXTRA_PATH_METADATA = {'extra/CNAME': {'path': 'CNAME'},
                        'extra/robots.txt': {'path': 'robots.txt'},
                       }
 
+
+# set all post to draft by default, set `Status: published`
+# when want to publish it.
+DEFAULT_METADATA = {
+    'status': 'draft',
+}
+
+
 # Feed generation is usually not desired when developing
 FEED_ALL_ATOM = None
 FEED_ALL_RSS = None
