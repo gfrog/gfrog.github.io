@@ -61,7 +61,8 @@ PLUGINS = [
             "liquid_tags.youtube",
             "i18n_subsites",
             "pelican-gist",
-            "pelican-cover-image"
+            "pelican-cover-image",
+            "liquid_tags.gmap"
           ]
 
 
@@ -77,6 +78,13 @@ DISPLAY_CATEGORIES_ON_SIDEBAR = True
 DISPLAY_TAGS_ON_SIDEBAR = True
 DISABLE_SIDEBAR_TITLE_ICONS = True
 CC_LICENSE = "CC-BY-NC-SA"
+
+GMAPS_API_KEY = ""
+try:
+    with open("private/gmaps_api.key", 'r') as file:
+        GMAPS_API_KEY = file.readline().strip()
+except FileNotFoundError:
+    pass
 
 
 # Blogroll
