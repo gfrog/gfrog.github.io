@@ -20,6 +20,8 @@ CATEGORY_FEED_ATOM = 'feeds/{slug}.atom.xml'
 AUTHOR_FEED_RSS = 'feeds/{slug}.rss.xml'
 RSS_FEED_SUMMARY_ONLY = False
 
+GMAPS_API_KEY = "AIzaSyB63YDb3SVNe84KeNXPh5zIjJ_uwr5vsII"
+
 DELETE_OUTPUT_DIRECTORY = True
 
 # Following items are often useful when publishing
