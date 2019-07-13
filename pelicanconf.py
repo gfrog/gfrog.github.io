@@ -28,10 +28,12 @@ ARTICLE_LANG_SAVE_AS = '{date:%Y}/{date:%m}/{slug}-{lang}.html'
 STATIC_PATHS = ['extra/CNAME',
                 'extra/favicon.ico',
                 'extra/robots.txt',
+                'js/',
                ]
 EXTRA_PATH_METADATA = {'extra/CNAME': {'path': 'CNAME'},
                        'extra/favicon.ico': {'path': 'favicon.ico'},
                        'extra/robots.txt': {'path': 'robots.txt'},
+                       'js/': {'path': 'js/'},
                       }
 
 
