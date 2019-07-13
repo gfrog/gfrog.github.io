@@ -90,6 +90,23 @@ Enjoy posting!
 [gist:id=a13b27768172f40d20632cadd8614061,file=gmap.py]
 
 
+**Update: 2019-07-13**
+
+青蛙翻了几天google map API文档，给这个plugin山寨了一个同时显示多个地点的参数。
+
+不过并没有最终完成，所以先不放出完整代码了。大概效果是这个样子：
+
+<script>
+var locations = [
+['1', 'remmin park, shanghai', '#location 1'],
+['2', 'shanghai museum, shanghai', '#location 2'],
+['3', 'lippo plaza, shanghai', '#location 3'],
+];
+</script>
+
+{% gmap_places %}
+
+
 参考文档：
 
 \[1\] [Google Embed](http://iza.ac/posts/2014/03/google-embed/)
@@ -98,5 +115,6 @@ Enjoy posting!
 
 \[3\] [Liquid-style Tags](https://github.com/getpelican/pelican-plugins/blob/master/liquid_tags/Readme.md)
 
+\[4\] [Geocoding Service | Maps JavaScript API | Google Developers](https://developers.google.com/maps/documentation/javascript/examples/geocoding-simple)
 
 
