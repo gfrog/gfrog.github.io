@@ -13,6 +13,8 @@ tags: travel, train, qingdao, shandong, pictures, navy, museum
 不过腿着走就发现了好东西 —— 海军博物馆。
 虽然青蛙不是个军事迷，但是有大军舰在这摆着，还是很想去看看的。
 
+{% gmap "Naval Museum, Qingdao" place roadmap left 640 480 %}
+
 ![1](https://lh6.googleusercontent.com/-B98oG0Oma4o/UjLkNZt-OcI/AAAAAAAAOAc/s3DAdTOpYB8/s640/IMG_1338.JPG)
 
 门前的古炮，虽然牌子上写的是道光年间的，但是青蛙猜测真的文物估计不会就这么摆在大门口吧。
@@ -28,7 +30,7 @@ tags: travel, train, qingdao, shandong, pictures, navy, museum
 
 ![4](https://lh3.googleusercontent.com/-wm5oS8exx48/UjLkNcRPbJI/AAAAAAAAOAc/GtyUttHOPz4/s640/IMG_1341.JPG)
 
-105舰，就是“济南”舰，是051型驱逐舰的首舰，Wiki page 在\[1\]
+105舰，就是“济南”舰，是051型驱逐舰的首舰，Wiki page 在<a href='#ref1'>\[1\]</a>
 
 ![5](https://lh6.googleusercontent.com/-ozkpQXAldPg/UjLkNWsibhI/AAAAAAAAOAc/icQZAW9CeA4/s640/IMG_1342.JPG)
 
@@ -39,7 +41,7 @@ tags: travel, train, qingdao, shandong, pictures, navy, museum
 105退役的时候把能拆的都拆了，能剪的线也都剪了，于是驾驶仓一片乱糟糟，青蛙也就不拍了。
 来一张坐在驾驶台上眺望的照片算了。
 
-![7](https://lh3.googleusercontent.com/-FP87WUzc09Y/UjLkNZsrEMI/AAAAAAAAOAc/HtruSYnC2O4/s640/IMG_1347.JPG)
+![7](https://lh3.googleusercontent.com/-FP87WUzc09Y/UjLkNZsrEMI/AAAAAAAAOAc/HtruSYnC2O4/w640/IMG_1347.JPG)
 
 正面的火箭发射器和主炮。
 
@@ -53,7 +55,7 @@ tags: travel, train, qingdao, shandong, pictures, navy, museum
 
 ![10](https://lh5.googleusercontent.com/-jQpUw5v_r2A/UjLkNVQtiXI/AAAAAAAAOAc/4InhbHOqRK8/s640/IMG_1352.JPG)
 
-531舰舷号。531是我国第一艘携带舰对空导弹的护卫舰， Wiki page 在\[2\]
+531舰舷号。531是我国第一艘携带舰对空导弹的护卫舰， Wiki page 在<a href='#ref2'>\[2\]</a>
 
 ![11](https://lh5.googleusercontent.com/-L7WBdk6mc_Q/UjLkNWRRSlI/AAAAAAAAOAc/LBmuDemKxzQ/s640/IMG_1345.JPG)
 
@@ -65,17 +67,21 @@ tags: travel, train, qingdao, shandong, pictures, navy, museum
 
 从105舰上下来，太阳已经快落山了，于是青蛙只能匆匆在101舰上转一圈。
 
-101舰说明介绍，Wiki page 在\[3\]
+101舰说明介绍，Wiki page 在<a href='#ref3'>\[3\]</a>
 
 ![13](https://lh4.googleusercontent.com/-_BR58ACpz4M/UjLkNe3MAhI/AAAAAAAAOAc/_Wj0WXtlyWw/s640/IMG_1353.JPG)
 
 未完待续...
-[上篇](/2013/09/tour-of-qingdao-a/)  [下篇](/2013/09/tour-of-qingdao-c/)
+
+[青岛两日游 上篇](/2013/09/tour-of-qingdao-a/)
+
+[青岛两日游 下篇](/2013/09/tour-of-qingdao-c/)
 
 
+**参考资料：**
 
-\[1\] [051型驱逐舰](http://zh.wikipedia.org/wiki/051%E5%9E%8B%E9%A9%B1%E9%80%90%E8%88%B0)
+\[<a name='ref1'>1</a>\] [051型驱逐舰](http://zh.wikipedia.org/wiki/051%E5%9E%8B%E9%A9%B1%E9%80%90%E8%88%B0)
 
-\[2\] [053K型护卫舰](http://zh.wikipedia.org/wiki/053K%E5%9E%8B%E6%8A%A4%E5%8D%AB%E8%88%B0)
+\[<a name='ref2'>2</a>\] [053K型护卫舰](http://zh.wikipedia.org/wiki/053K%E5%9E%8B%E6%8A%A4%E5%8D%AB%E8%88%B0)
 
-\[3\] [鞍山级驱逐舰](http://zh.wikipedia.org/wiki/%E9%9E%8D%E5%B1%B1%E7%BA%A7%E9%A9%B1%E9%80%90%E8%88%B0)
+\[<a name='ref3'>3</a>\] [鞍山级驱逐舰](http://zh.wikipedia.org/wiki/%E9%9E%8D%E5%B1%B1%E7%BA%A7%E9%A9%B1%E9%80%90%E8%88%B0)
