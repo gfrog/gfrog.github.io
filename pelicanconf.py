@@ -64,7 +64,8 @@ PLUGINS = [
             "i18n_subsites",
             "pelican-gist",
             "pelican-cover-image",
-            "liquid_tags.gmap"
+            "liquid_tags.gmap",
+            "sitemap"
           ]
 
 
@@ -88,6 +89,24 @@ try:
 except FileNotFoundError:
     pass
 
+
+SITEMAP = {
+    'format': 'xml',
+    'priorities': {
+        'articles': 0.5,
+        'indexes': 0.5,
+        'pages': 0.5
+    },
+    'changefreqs': {
+        'articles': 'monthly',
+        'indexes': 'daily',
+        'pages': 'monthly'
+    },
+    'exclude': [
+        'tag/',
+        'category/'
+    ]
+}
 
 # Blogroll
 LINKS = (('Pelican', 'http://getpelican.com/'),
