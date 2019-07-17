@@ -89,6 +89,7 @@ try:
 except FileNotFoundError:
     pass
 
+IGNORE_FILES = ['.#*', '*posts*']
 
 SITEMAP = {
     'format': 'xml',
