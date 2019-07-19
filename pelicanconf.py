@@ -55,7 +55,7 @@ AUTHOR_FEED_RSS = None
 
 PLUGIN_PATHS = ["plugins"]
 PLUGINS = [
-            "cjk-auto-spacing",
+            #"cjk-auto-spacing",
             "related_posts",
             "photos",
             "liquid_tags.video",
