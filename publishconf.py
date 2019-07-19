@@ -26,6 +26,7 @@ GMAPS_API_KEY = "AIzaSyB63YDb3SVNe84KeNXPh5zIjJ_uwr5vsII"
 DELETE_OUTPUT_DIRECTORY = True
 
 IGNORE_FILES = ['.#*', '*drafts*']
+PAGE_PATHS= ['pages']
 
 # Following items are often useful when publishing
 

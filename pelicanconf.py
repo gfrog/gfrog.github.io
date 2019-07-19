@@ -89,7 +89,8 @@ try:
 except FileNotFoundError:
     pass
 
-IGNORE_FILES = ['.#*', '*posts*']
+IGNORE_FILES = ['.#*', '*posts*', '*pages*']
+PAGE_PATHS= []
 
 SITEMAP = {
     'format': 'xml',
