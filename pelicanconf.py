@@ -116,7 +116,10 @@ LINKS = (('Pelican', 'http://getpelican.com/'),
         )
 
 # Social widget
-SOCIAL = (('Twitter', 'https://twitter.com/gfrog'),
+SOCIAL = (
+    ('Twitter', 'https://twitter.com/gfrog'),
+    ('Tweets Archive', '/pages/tweets-archive.html'),
+    ('Instagram Archive', '/pages/instagram-archive.html'),
          )
 
 DEFAULT_PAGINATION = 7
