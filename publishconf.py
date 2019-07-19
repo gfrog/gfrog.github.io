@@ -30,4 +30,4 @@ IGNORE_FILES = ['.#*', '*drafts*']
 # Following items are often useful when publishing
 
 DISQUS_SITENAME = "gfrog"
-#GOOGLE_ANALYTICS = ""
+GOOGLE_ANALYTICS = "UA-769172-3"
