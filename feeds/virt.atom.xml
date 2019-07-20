@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>My Life, My Love! - Virt</title><link href="https://www.gfrog.net/" rel="alternate"></link><link href="https://www.gfrog.net/feeds/virt.atom.xml" rel="self"></link><id>https://www.gfrog.net/</id><updated>2013-12-05T17:27:19+08:00</updated><subtitle>指点江山 激昂文字 修身隆德 自然自我</subtitle><entry><title>QEMU中的 pvpanic设备</title><link href="https://www.gfrog.net/2013/12/new-device-pvpanic-in-qemu/" rel="alternate"></link><published>2013-12-05T17:27:19+08:00</published><updated>2013-12-05T17:27:19+08:00</updated><author><name>gfrog</name></author><id>tag:www.gfrog.net,2013-12-05:/2013/12/new-device-pvpanic-in-qemu/</id><summary type="html">&lt;p&gt;pvpanic设备是在Qemu-1.5的时候引入的一个ISA设备[1]，
+旨在让hypervisor可以感知guest kernel panic，并作出相应的处理。
+在目前的实现中，pvpanic使用了一个固定的I/O端口（默认为0x505），
+向这个端口的bit 0写入1的时候，即意味着guest kernel panic发生了。&lt;/p&gt;
+&lt;p&gt;首先，先来玩一玩这个设备，看看它到底会干点啥。&lt;/p&gt;
+&lt;p&gt;青蛙目前用的Ubuntu Saucy 系统上面的 Qemu 版本是1.6.0。
+由于pvpanic设备在设计过程中并没有过多的考虑windows guest的情况，
+并且libvirt支持这个设备也遇到了困难，所以qemu的开发者们曾经就这个设备发生了一大串的讨论[2]。
+所以在现在的Qemu 1.7.*, 1.6.*, 1.5.4+中，这个功能都是默认关闭的，
+要使用这个pvpanic，还需要几条额外的选项：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;qemu-system-x86_64 -name test-pvpanic -nodefaults -cpu host -m …&lt;/pre&gt;&lt;/div&gt;</summary><content type="html">&lt;p&gt;pvpanic设备是在Qemu-1.5的时候引入的一个ISA设备[1]，
+旨在让hypervisor可以感知guest kernel panic，并作出相应的处理。
+在目前的实现中，pvpanic使用了一个固定的I/O端口（默认为0x505），
+向这个端口的bit 0写入1的时候，即意味着guest kernel panic发生了。&lt;/p&gt;
+&lt;p&gt;首先，先来玩一玩这个设备，看看它到底会干点啥。&lt;/p&gt;
+&lt;p&gt;青蛙目前用的Ubuntu Saucy 系统上面的 Qemu 版本是1.6.0。
+由于pvpanic设备在设计过程中并没有过多的考虑windows guest的情况，
+并且libvirt支持这个设备也遇到了困难，所以qemu的开发者们曾经就这个设备发生了一大串的讨论[2]。
+所以在现在的Qemu 1.7.*, 1.6.*, 1.5.4+中，这个功能都是默认关闭的，
+要使用这个pvpanic，还需要几条额外的选项：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;qemu-system-x86_64 -name test-pvpanic -nodefaults -cpu host -m &lt;span class="m"&gt;1024&lt;/span&gt; -M pc &lt;span class="se"&gt;\&lt;/span&gt;
+-smp &lt;span class="m"&gt;1&lt;/span&gt;,sockets&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="m"&gt;1&lt;/span&gt;,cores&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="m"&gt;1&lt;/span&gt;,threads&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="m"&gt;1&lt;/span&gt; &lt;span class="se"&gt;\&lt;/span&gt;
+-chardev socket,id&lt;span class="o"&gt;=&lt;/span&gt;charmonitor,path&lt;span class="o"&gt;=&lt;/span&gt;/tmp/monitor-test-pvpanic.sock,server,nowait &lt;span class="se"&gt;\&lt;/span&gt;
+-mon &lt;span class="nv"&gt;chardev&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;charmonitor,id&lt;span class="o"&gt;=&lt;/span&gt;monitor,mode&lt;span class="o"&gt;=&lt;/span&gt;control &lt;span class="se"&gt;\&lt;/span&gt;
+-drive &lt;span class="nv"&gt;file&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;test-pvpanic.qcow2,if&lt;span class="o"&gt;=&lt;/span&gt;none,id&lt;span class="o"&gt;=&lt;/span&gt;drive-virtio-disk0,format&lt;span class="o"&gt;=&lt;/span&gt;qcow2 &lt;span class="se"&gt;\&lt;/span&gt;
+-device virtio-blk-pci,scsi&lt;span class="o"&gt;=&lt;/span&gt;off,bus&lt;span class="o"&gt;=&lt;/span&gt;pci.0,addr&lt;span class="o"&gt;=&lt;/span&gt;0x5,drive&lt;span class="o"&gt;=&lt;/span&gt;drive-virtio-disk0,id&lt;span class="o"&gt;=&lt;/span&gt;virtio-disk0 &lt;span class="se"&gt;\&lt;/span&gt;
+-vnc :0 &lt;span class="se"&gt;\&lt;/span&gt;
+-device cirrus-vga,id&lt;span class="o"&gt;=&lt;/span&gt;video0,bus&lt;span class="o"&gt;=&lt;/span&gt;pci.0,addr&lt;span class="o"&gt;=&lt;/span&gt;0x2 &lt;span class="se"&gt;\&lt;/span&gt;
+-
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;strong&gt;Links&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;[1] https://github.com/qemu/qemu/blob/master/docs/specs/pvpanic.txt&lt;/p&gt;
+&lt;p&gt;[2] pvpanic plans?&lt;a href="http://thread.gmane.org/gmane.comp.emulators.qemu/229289"&gt;http://thread.gmane.org/gmane.comp.emulators.qemu/229289&lt;/a&gt;&lt;/p&gt;</content><category term="virt"></category><category term="qemu"></category><category term="command"></category><category term="shell"></category><category term="device"></category></entry><entry><title>注册Amazon EC2账户一枚</title><link href="https://www.gfrog.net/2010/12/setup-an-amazon-ec2-account/" rel="alternate"></link><published>2010-12-16T00:02:38+08:00</published><updated>2010-12-16T00:02:38+08:00</updated><author><name>gfrog</name></author><id>tag:www.gfrog.net,2010-12-16:/2010/12/setup-an-amazon-ec2-account/</id><summary type="html">&lt;p&gt;青蛙今天在水木社区LinuxApp版看到有人推荐Amazon EC2，没有忍住诱惑，去注册了一个帐号。&lt;/p&gt;
+&lt;p&gt;每个EC2帐号可以免费使用1年，试用的配置(每月)&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;750 hours of EC2 running Linux/Unix Micro instance usage &lt;br /&gt;
+750 hours of Elastic Load Balancing plus 15GB data processing &lt;br /&gt;
+10GB EBS存储空间、100万次IO操作 &lt;br /&gt;
+1GB 快照存储、10,000 snapshot Get Requests and 1,000 snapshot Put Requests &lt;br /&gt;
+全部服务合计15GB流入和15GB流出带宽.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;今天晚上帐号Active了，上去看了一下，实际上EC2就是一个特别一点的VPS。
+再加上Amazon的工具套件，可以很方便的启动/关闭虚拟机实例 …&lt;/p&gt;</summary><content type="html">&lt;p&gt;青蛙今天在水木社区LinuxApp版看到有人推荐Amazon EC2，没有忍住诱惑，去注册了一个帐号。&lt;/p&gt;
+&lt;p&gt;每个EC2帐号可以免费使用1年，试用的配置(每月)&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;750 hours of EC2 running Linux/Unix Micro instance usage &lt;br /&gt;
+750 hours of Elastic Load Balancing plus 15GB data processing &lt;br /&gt;
+10GB EBS存储空间、100万次IO操作 &lt;br /&gt;
+1GB 快照存储、10,000 snapshot Get Requests and 1,000 snapshot Put Requests &lt;br /&gt;
+全部服务合计15GB流入和15GB流出带宽.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;今天晚上帐号Active了，上去看了一下，实际上EC2就是一个特别一点的VPS。
+再加上Amazon的工具套件，可以很方便的启动/关闭虚拟机实例，
+这样网站就完全不用考虑硬件的问题，负载不够马上再开一个实例就是了。&lt;/p&gt;
+&lt;p&gt;另外，AWS上提供的虚拟化方案是基于XEN的，传言EC2的IO性能不够好，这可能跟XEN的实现也有关。&lt;/p&gt;
+&lt;p&gt;青蛙还发现AWS界面上的大堆bug，虚拟机启动信息里的大堆oops信息，
+看来领先的虚拟化提供商提供的服务也不是完美的，虚拟化的发展之路还很漫长。&lt;/p&gt;
+&lt;p&gt;附记，申请EC2的攻略（似乎图片不太稳定，大家凑合看吧 ：P）：&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://www.imtnt.net/amazon-ec2-micro-instance-and-tunnel-guide/"&gt;http://www.imtnt.net/amazon-ec2-micro-instance-and-tunnel-guide/&lt;/a&gt;&lt;/p&gt;</content><category term="amazon"></category><category term="aws"></category><category term="ec2"></category><category term="setup"></category><category term="account"></category></entry></feed>

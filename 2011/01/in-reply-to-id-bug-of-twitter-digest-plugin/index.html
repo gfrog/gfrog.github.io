@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="zh_cn" prefix="og: http://ogp.me/ns# fb: https://www.facebook.com/2008/fbml">
+<head>
+    <title>修复twitter digest插件的无法正确显示in-reply-to-id的bug - My Life, My Love!</title>
+    <!-- Using the latest rendering mode for IE -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+
+<link rel="canonical" href="../../../2011/01/in-reply-to-id-bug-of-twitter-digest-plugin/">
+
+        <meta name="author" content="gfrog" />
+        <meta name="keywords" content="php,twitter,wordpress,plugin,patch" />
+        <meta name="description" content="青蛙一直在用twitter digest插件来把tweets同步到wordpress上。 今天检查同步过来的tweets的时候，青蛙发现所有回复其他人的推中， in reply to的链接都失效了，tweet id变成了科学计数法的形式。 这个问题是由于twitter digest没有正确处理这么大的tweet id造成的， 青蛙在网上搜了一下处理php大整数的方法[1]，发现只需要把这个整数sprintf成一个string就好了。 具体的修改方法： --- twitter-digest-old.php 2011-01-07 17:35:01.000000000 +0000 +++ twitter-digest.php 2011-01-07 17:16:34.000000000 +0000 @@ -281,7 +281,7 @@ $output .= ws_make_clickable(wp_specialchars($tweet-&gt;text)); if (!empty($tweet-&gt;in_reply_to_screen_name) &amp;&amp; (!empty($tweet-&gt;in_reply_to_status_id))) { - $output .= &#39; &lt;a …" />
+
+        <meta property="og:site_name" content="My Life, My Love!" />
+        <meta property="og:type" content="article"/>
+        <meta property="og:title" content="修复twitter digest插件的无法正确显示in-reply-to-id的bug"/>
+        <meta property="og:url" content="../../../2011/01/in-reply-to-id-bug-of-twitter-digest-plugin/"/>
+        <meta property="og:description" content="青蛙一直在用twitter digest插件来把tweets同步到wordpress上。 今天检查同步过来的tweets的时候，青蛙发现所有回复其他人的推中， in reply to的链接都失效了，tweet id变成了科学计数法的形式。 这个问题是由于twitter digest没有正确处理这么大的tweet id造成的， 青蛙在网上搜了一下处理php大整数的方法[1]，发现只需要把这个整数sprintf成一个string就好了。 具体的修改方法： --- twitter-digest-old.php 2011-01-07 17:35:01.000000000 +0000 +++ twitter-digest.php 2011-01-07 17:16:34.000000000 +0000 @@ -281,7 +281,7 @@ $output .= ws_make_clickable(wp_specialchars($tweet-&gt;text)); if (!empty($tweet-&gt;in_reply_to_screen_name) &amp;&amp; (!empty($tweet-&gt;in_reply_to_status_id))) { - $output .= &#39; &lt;a …"/>
+        <meta property="article:published_time" content="2011-01-08" />
+            <meta property="article:section" content="Site" />
+            <meta property="article:tag" content="php" />
+            <meta property="article:tag" content="twitter" />
+            <meta property="article:tag" content="wordpress" />
+            <meta property="article:tag" content="plugin" />
+            <meta property="article:tag" content="patch" />
+            <meta property="article:author" content="gfrog" />
+
+
+
+    <!-- Bootstrap -->
+        <link rel="stylesheet" href="../../../theme/css/bootstrap.min.css" type="text/css"/>
+    <link href="../../../theme/css/font-awesome.min.css" rel="stylesheet">
+
+    <link href="../../../theme/css/pygments/default.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../../theme/css/style.css" type="text/css"/>
+
+        <link href="../../../feeds/all.atom.xml" type="application/atom+xml" rel="alternate"
+              title="My Life, My Love! ATOM Feed"/>
+
+        <link href="../../../feeds/all.rss.xml" type="application/rss+xml" rel="alternate"
+              title="My Life, My Love! RSS Feed"/>
+        <link href="../../../feeds/site.atom.xml" type="application/atom+xml" rel="alternate"
+              title="My Life, My Love! Site ATOM Feed"/>
+</head>
+<body>
+
+<div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+        <div class="navbar-header">
+            <a href="../../../" class="navbar-brand">
+My Life, My Love!            </a>
+        </div>
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+            <ul class="nav navbar-nav">
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+</div> <!-- /.navbar -->
+
+<!-- Banner -->
+<!-- End Banner -->
+
+<!-- Content Container -->
+<div class="container">
+    <div class="row">
+        <div class="col-sm-9">
+    <section id="content">
+        <article>
+            <header class="page-header">
+                <h1>
+                    <a href="../../../2011/01/in-reply-to-id-bug-of-twitter-digest-plugin/"
+                       rel="bookmark"
+                       title="Permalink to 修复twitter digest插件的无法正确显示in-reply-to-id的bug">
+                        修复twitter digest插件的无法正确显示in-reply-to-id的bug
+                    </a>
+                </h1>
+            </header>
+            <div class="entry-content">
+                <div class="panel">
+                    <div class="panel-body">
+<footer class="post-info">
+    <span class="label label-default">Date</span>
+    <span class="published">
+        <i class="fa fa-calendar"></i><time datetime="2011-01-08T01:41:07+08:00"> Sat 08 January 2011</time>
+    </span>
+
+
+
+        <span class="label label-default">Category</span>
+        <a href="../../../category/site.html">Site</a>
+
+
+<span class="label label-default">Tags</span>
+	<a href="../../../tag/php.html">php</a>
+        /
+	<a href="../../../tag/twitter.html">twitter</a>
+        /
+	<a href="../../../tag/wordpress.html">wordpress</a>
+        /
+	<a href="../../../tag/plugin.html">plugin</a>
+        /
+	<a href="../../../tag/patch.html">patch</a>
+    
+</footer><!-- /.post-info -->                    </div>
+                </div>
+                <p>青蛙一直在用twitter digest插件来把tweets同步到wordpress上。
+今天检查同步过来的tweets的时候，青蛙发现所有回复其他人的推中，
+in reply to的链接都失效了，tweet id变成了科学计数法的形式。</p>
+<p>这个问题是由于twitter digest没有正确处理这么大的tweet id造成的，
+青蛙在网上搜了一下处理php大整数的方法[1]，发现只需要把这个整数sprintf成一个string就好了。
+具体的修改方法：</p>
+<div class="highlight"><pre><span></span><span class="x">    --- twitter-digest-old.php  2011-01-07 17:35:01.000000000 +0000</span>
+<span class="x">    +++ twitter-digest.php     2011-01-07 17:16:34.000000000 +0000</span>
+<span class="x">    @@ -281,7 +281,7 @@</span>
+<span class="x">        $output .= ws_make_clickable(wp_specialchars($tweet-&gt;text));</span>
+<span class="x">        if (!empty($tweet-&gt;in_reply_to_screen_name)</span>
+<span class="x">            &amp;&amp; (!empty($tweet-&gt;in_reply_to_status_id))) {</span>
+<span class="x">    -    $output .=         &#39; &lt;a href=&quot;&#39;.ws_status_url($tweet-&gt;in_reply_to_screen_name, $tweet-&gt;in_reply_to_status_id).&#39;&quot;&gt;&#39;.sprintf(__(&#39;in reply to %s&#39;, &#39;twitter-digest&#39;), $tweet-&gt;in_reply_to_screen_name).&#39;&lt;/a&gt;&#39;;</span>
+<span class="x">    +    $output .=         &#39; &lt;a href=&quot;&#39;.ws_status_url($tweet-&gt;in_reply_to_screen_name, sprintf(&#39;%1.0f&#39;, $tweet-&gt;in_reply_to_status_id)).&#39;&quot;&gt;&#39;.sprintf(__(&#39;in reply to %s&#39;, &#39;twitter-digest&#39;), $tweet-&gt;in_reply_to_screen_name).&#39;&lt;/a&gt;&#39;;</span>
+<span class="x">        }</span>
+<span class="x">        // Show the date/time if the options are selected</span>
+</pre></div>
+
+
+<p>参考资料：</p>
+<p>[1] PHP 大数自动转换为科学计数法的无耻问题 <a href="http://mifunny.info/big-number-convert-to-scientific-notation-of-php-341.html">http://mifunny.info/big-number-convert-to-scientific-notation-of-php-341.html</a></p>
+            </div>
+            <!-- /.entry-content -->
+<section class="well" id="related-posts">
+    <h4>Related Posts:</h4>
+    <ul>
+        <li><a href="../../../2011/12/expand-tco-link-in-twip/">在Twip中转换t.co链接</a></li>
+        <li><a href="../../../2010/12/recommend-plugin-wp-super-cache/">推荐插件： wp-super-cache</a></li>
+        <li><a href="../../../2010/12/enable-smtp-send-mail-in-wordpress/">配置wordpress的邮件发送功能</a></li>
+        <li><a href="../../../2013/03/convert-wordpress-to-octopress/">Wordpress转换到Octopress</a></li>
+        <li><a href="../../../2010/12/nowhere-to-place-the-pictures/">无处安放的图片</a></li>
+    </ul>
+</section>
+    <hr/>
+    <section class="comments" id="comments">
+        <h2>Comments</h2>
+
+        <div id="disqus_thread"></div>
+        <script type="text/javascript">
+            /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+            var disqus_shortname = 'gfrog'; // required: replace example with your forum shortname
+
+            var disqus_config = function () {
+                this.language = "zh_cn";
+
+                        this.page.identifier = '2011-01-08-in-reply-to-id-bug-of-twitter-digest-plugin';
+                        this.page.url = 'https://www.gfrog.net/2011/01/in-reply-to-id-bug-of-twitter-digest-plugin/';
+                    this.page.title = '修复twitter digest插件的无法正确显示in-reply-to-id的bug';
+            };
+
+            /* * * DON'T EDIT BELOW THIS LINE * * */
+            (function () {
+                var dsq = document.createElement('script');
+                dsq.type = 'text/javascript';
+                dsq.async = true;
+                dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+            })();
+        </script>
+        <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by
+            Disqus.</a></noscript>
+        <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+    </section>
+        </article>
+    </section>
+
+        </div>
+        <div class="col-sm-3" id="sidebar">
+            <aside>
+<!-- Sidebar -->
+<section class="well well-sm">
+  <ul class="list-group list-group-flush">
+
+<!-- Sidebar/Social -->
+<li class="list-group-item">
+  <h4>Social</h4>
+  <ul class="list-group" id="social">
+    <li class="list-group-item"><a href="https://twitter.com/gfrog"><i class="fa fa-twitter-square fa-lg"></i> Twitter</a></li>
+    <li class="list-group-item"><a href="/pages/tweets-archive.html"><i class="fa fa-tweets-archive-square fa-lg"></i> Tweets Archive</a></li>
+    <li class="list-group-item"><a href="/pages/instagram-archive.html"><i class="fa fa-instagram-archive-square fa-lg"></i> Instagram Archive</a></li>
+  </ul>
+</li>
+<!-- End Sidebar/Social -->
+
+<!-- Sidebar/Categories -->
+<li class="list-group-item">
+  <h4>Categories</h4>
+  <ul class="list-group" id="categories">
+    <li class="list-group-item">
+      <a href="../../../category/cyclone.html">Cyclone</a>
+    </li>
+    <li class="list-group-item">
+      <a href="../../../category/instagram.html">Instagram</a>
+    </li>
+    <li class="list-group-item">
+      <a href="../../../category/linux.html">Linux</a>
+    </li>
+    <li class="list-group-item">
+      <a href="../../../category/misc.html">Misc</a>
+    </li>
+    <li class="list-group-item">
+      <a href="../../../category/mobile.html">Mobile</a>
+    </li>
+    <li class="list-group-item">
+      <a href="../../../category/networking.html">Networking</a>
+    </li>
+    <li class="list-group-item">
+      <a href="../../../category/pictures.html">Pictures</a>
+    </li>
+    <li class="list-group-item">
+      <a href="../../../category/programming.html">Programming</a>
+    </li>
+    <li class="list-group-item">
+      <a href="../../../category/site.html">Site</a>
+    </li>
+    <li class="list-group-item">
+      <a href="../../../category/travel.html">Travel</a>
+    </li>
+    <li class="list-group-item">
+      <a href="../../../category/vim.html">VIM</a>
+    </li>
+    <li class="list-group-item">
+      <a href="../../../category/virt.html">Virt</a>
+    </li>
+  </ul>
+</li>
+<!-- End Sidebar/Categories -->
+
+<!-- Sidebar/Links -->
+<li class="list-group-item">
+  <h4>Links</h4>
+  <ul class="list-group" id="links">
+    <li class="list-group-item">
+      <a href="http://getpelican.com/" target="_blank">Pelican</a>
+    </li>
+    <li class="list-group-item">
+      <a href="http://python.org/" target="_blank">Python.org</a>
+    </li>
+    <li class="list-group-item">
+      <a href="http://jinja.pocoo.org/" target="_blank">Jinja2</a>
+    </li>
+  </ul>
+</li>
+<!-- End Sidebar/Links -->
+  </ul>
+</section>
+<!-- End Sidebar -->            </aside>
+        </div>
+    </div>
+</div>
+<!-- End Content Container -->
+
+<footer>
+   <div class="container">
+      <hr>
+      <div class="row">
+         <div class="col-xs-10">&copy; 2019 gfrog
+            &middot; Powered by <a href="https://github.com/getpelican/pelican-themes/tree/master/pelican-bootstrap3" target="_blank">pelican-bootstrap3</a>,
+            <a href="http://docs.getpelican.com/" target="_blank">Pelican</a>,
+            <a href="http://getbootstrap.com" target="_blank">Bootstrap</a>                <p><small>  <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh_cn"><img alt="Creative Commons License" style="border-width:0" src="//i.creativecommons.org/l/by-nc-sa/4.0/80x15.png" /></a>
+    Content
+  licensed under a <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh_cn">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>, except where indicated otherwise.
+</small></p>
+         </div>
+         <div class="col-xs-2"><p class="pull-right"><i class="fa fa-arrow-up"></i> <a href="#">Back to top</a></p></div>
+      </div>
+   </div>
+</footer>
+<script src="../../../theme/js/jquery.min.js"></script>
+
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="../../../theme/js/bootstrap.min.js"></script>
+
+<!-- Enable responsive features in IE8 with Respond.js (https://github.com/scottjehl/Respond) -->
+<script src="../../../theme/js/respond.min.js"></script>
+
+
+    <!-- Disqus -->
+    <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = 'gfrog'; // required: replace example with your forum shortname
+
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function () {
+            var s = document.createElement('script');
+            s.async = true;
+            s.type = 'text/javascript';
+            s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+            (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+        }());
+    </script>
+    <!-- End Disqus Code -->
+    <!-- Google Analytics -->
+    <script type="text/javascript">
+
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-769172-3']);
+        _gaq.push(['_trackPageview']);
+
+        (function () {
+            var ga = document.createElement('script');
+            ga.type = 'text/javascript';
+            ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(ga, s);
+        })();
+    </script>
+    <!-- End Google Analytics Code -->
+
+
+</body>
+</html>

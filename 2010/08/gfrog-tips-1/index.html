@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="zh_cn" prefix="og: http://ogp.me/ns# fb: https://www.facebook.com/2008/fbml">
+<head>
+    <title>一堆小Tips （1） - My Life, My Love!</title>
+    <!-- Using the latest rendering mode for IE -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+
+<link rel="canonical" href="../../../2010/08/gfrog-tips-1/">
+
+        <meta name="author" content="gfrog" />
+        <meta name="keywords" content="IPSec,Linux,vpn,configuration" />
+        <meta name="description" content="青蛙离职在即，在东软混了三年，在工作中积累的一些小技巧。 估计这些技巧到了其他公司基本上用不到了。 记录一下，方便后来人。 青蛙准备分几天写完，每天一个小Tips。 今天要说的是IPsec VPN的密码问题。 搞安全的部门自然有安全部门的特色，所有的服务器都需要拨VPN才能访问。 用Windows的童鞋们都很幸福，第一次连接的时候输入帐号密码，然后选保存密码，下次就可以直接登录了。 但是Linux的童鞋就比较麻烦了，按照部门攻略上的办法，每次都要输入密码。 青蛙在ipsec.conf(5)里面找到了这个问题的解决办法。 首先要编辑一下/etc/ipsec.conf conn work left=10.x.x.xxx leftnexthop=10.x.x.1 leftid=&#34;C=cn,ST=liaoning,O=neusoft,OU=nsd,CN=xxx_l …" />
+
+        <meta property="og:site_name" content="My Life, My Love!" />
+        <meta property="og:type" content="article"/>
+        <meta property="og:title" content="一堆小Tips （1）"/>
+        <meta property="og:url" content="../../../2010/08/gfrog-tips-1/"/>
+        <meta property="og:description" content="青蛙离职在即，在东软混了三年，在工作中积累的一些小技巧。 估计这些技巧到了其他公司基本上用不到了。 记录一下，方便后来人。 青蛙准备分几天写完，每天一个小Tips。 今天要说的是IPsec VPN的密码问题。 搞安全的部门自然有安全部门的特色，所有的服务器都需要拨VPN才能访问。 用Windows的童鞋们都很幸福，第一次连接的时候输入帐号密码，然后选保存密码，下次就可以直接登录了。 但是Linux的童鞋就比较麻烦了，按照部门攻略上的办法，每次都要输入密码。 青蛙在ipsec.conf(5)里面找到了这个问题的解决办法。 首先要编辑一下/etc/ipsec.conf conn work left=10.x.x.xxx leftnexthop=10.x.x.1 leftid=&#34;C=cn,ST=liaoning,O=neusoft,OU=nsd,CN=xxx_l …"/>
+        <meta property="article:published_time" content="2010-08-06" />
+            <meta property="article:section" content="Linux" />
+            <meta property="article:tag" content="IPSec" />
+            <meta property="article:tag" content="Linux" />
+            <meta property="article:tag" content="vpn" />
+            <meta property="article:tag" content="configuration" />
+            <meta property="article:author" content="gfrog" />
+
+
+
+    <!-- Bootstrap -->
+        <link rel="stylesheet" href="../../../theme/css/bootstrap.min.css" type="text/css"/>
+    <link href="../../../theme/css/font-awesome.min.css" rel="stylesheet">
+
+    <link href="../../../theme/css/pygments/default.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../../theme/css/style.css" type="text/css"/>
+
+        <link href="../../../feeds/all.atom.xml" type="application/atom+xml" rel="alternate"
+              title="My Life, My Love! ATOM Feed"/>
+
+        <link href="../../../feeds/all.rss.xml" type="application/rss+xml" rel="alternate"
+              title="My Life, My Love! RSS Feed"/>
+        <link href="../../../feeds/linux.atom.xml" type="application/atom+xml" rel="alternate"
+              title="My Life, My Love! Linux ATOM Feed"/>
+</head>
+<body>
+
+<div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+        <div class="navbar-header">
+            <a href="../../../" class="navbar-brand">
+My Life, My Love!            </a>
+        </div>
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+            <ul class="nav navbar-nav">
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+</div> <!-- /.navbar -->
+
+<!-- Banner -->
+<!-- End Banner -->
+
+<!-- Content Container -->
+<div class="container">
+    <div class="row">
+        <div class="col-sm-9">
+    <section id="content">
+        <article>
+            <header class="page-header">
+                <h1>
+                    <a href="../../../2010/08/gfrog-tips-1/"
+                       rel="bookmark"
+                       title="Permalink to 一堆小Tips （1）">
+                        一堆小Tips （1）
+                    </a>
+                </h1>
+            </header>
+            <div class="entry-content">
+                <div class="panel">
+                    <div class="panel-body">
+<footer class="post-info">
+    <span class="label label-default">Date</span>
+    <span class="published">
+        <i class="fa fa-calendar"></i><time datetime="2010-08-06T10:17:49+08:00"> Fri 06 August 2010</time>
+    </span>
+
+
+
+        <span class="label label-default">Category</span>
+        <a href="../../../category/linux.html">Linux</a>
+
+
+<span class="label label-default">Tags</span>
+	<a href="../../../tag/ipsec.html">IPSec</a>
+        /
+	<a href="../../../tag/linux.html">Linux</a>
+        /
+	<a href="../../../tag/vpn.html">vpn</a>
+        /
+	<a href="../../../tag/configuration.html">configuration</a>
+    
+</footer><!-- /.post-info -->                    </div>
+                </div>
+                <p>青蛙离职在即，在东软混了三年，在工作中积累的一些小技巧。
+估计这些技巧到了其他公司基本上用不到了。
+记录一下，方便后来人。
+青蛙准备分几天写完，每天一个小Tips。</p>
+<p>今天要说的是IPsec VPN的密码问题。</p>
+<p>搞安全的部门自然有安全部门的特色，所有的服务器都需要拨VPN才能访问。
+用Windows的童鞋们都很幸福，第一次连接的时候输入帐号密码，然后选保存密码，下次就可以直接登录了。
+但是Linux的童鞋就比较麻烦了，按照部门攻略上的办法，每次都要输入密码。</p>
+<p>青蛙在ipsec.conf(5)里面找到了这个问题的解决办法。</p>
+<p>首先要编辑一下/etc/ipsec.conf</p>
+<div class="highlight"><pre><span></span><span class="n">conn</span><span class="w"> </span><span class="k">work</span><span class="w"></span>
+
+<span class="nf">left</span><span class="o">=</span><span class="mf">10.</span><span class="n">x</span><span class="p">.</span><span class="n">x</span><span class="p">.</span><span class="n">xxx</span><span class="w"></span>
+<span class="n">leftnexthop</span><span class="o">=</span><span class="mf">10.</span><span class="n">x</span><span class="p">.</span><span class="n">x</span><span class="mf">.1</span><span class="w"></span>
+<span class="n">leftid</span><span class="o">=</span><span class="ss">&quot;C=cn,ST=liaoning,O=neusoft,OU=nsd,CN=xxx_l/emailAddress=xxx_l@neusoft.com&quot;</span><span class="w"></span>
+<span class="n">leftcert</span><span class="o">=</span><span class="n">cert</span><span class="p">.</span><span class="n">pem</span><span class="w"></span>
+<span class="n">leftxauthclient</span><span class="o">=</span><span class="n">yes</span><span class="w"></span>
+<span class="n">leftmodecfgclient</span><span class="o">=</span><span class="n">yes</span><span class="w"></span>
+<span class="n">leftxauthusername</span><span class="o">=</span><span class="n">xxx_linux</span><span class="w"></span>
+<span class="n">modecfgpull</span><span class="o">=</span><span class="k">no</span><span class="w"></span>
+<span class="nf">right</span><span class="o">=</span><span class="mf">10.</span><span class="n">x</span><span class="p">.</span><span class="n">x</span><span class="mf">.254</span><span class="w"></span>
+<span class="n">rightsubnet</span><span class="o">=</span><span class="mf">10.</span><span class="n">xxx</span><span class="p">.</span><span class="n">x</span><span class="mf">.0</span><span class="o">/</span><span class="mi">24</span><span class="w"></span>
+<span class="n">rightxauthserver</span><span class="o">=</span><span class="n">yes</span><span class="w"></span>
+<span class="n">rightmodecfgserver</span><span class="o">=</span><span class="n">yes</span><span class="w"></span>
+<span class="n">rightid</span><span class="o">=</span><span class="ss">&quot;C=cn,ST=liaoning,O=neusoft,OU=nsd,CN=vpnser,E=vpnser@neusoft.com&quot;</span><span class="w"></span>
+<span class="n">auto</span><span class="o">=</span><span class="k">add</span><span class="w"></span>
+</pre></div>
+
+
+<p>注意leftxauthusername=xxx_linux这行，关键就在这里了，这句话就指定了这个vpn 连接所用的用户名。</p>
+<p>然后再编辑一下/etc/ipsec.secrets</p>
+<div class="highlight"><pre><span></span><span class="err">:</span><span class="w"> </span><span class="n">RSA</span><span class="w"> </span><span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">ipsec</span><span class="p">.</span><span class="n">d</span><span class="o">/</span><span class="n">private</span><span class="o">/</span><span class="k">key</span><span class="p">.</span><span class="n">pem</span><span class="w"></span>
+<span class="nv">@xxx_linux</span><span class="w"> </span><span class="err">:</span><span class="w"> </span><span class="n">XAUTH</span><span class="w"> </span><span class="ss">&quot;password&quot;</span><span class="w"></span>
+</pre></div>
+
+
+<p>@xxx_linux : XAUTH "password" 这行指定了用户名对应的密码。</p>
+<p>修改完这两个文件以后，下次再连接VPN的时候就会自动连接了。</p>
+<p><strong>PS</strong>.
+/etc/ipsec.conf 还有一句auto=add，加上这句话之后，
+就可以使用</p>
+<blockquote>
+<p># ipsec auto --up connname</p>
+</blockquote>
+<p>这种命令格式连接vpn了，命令格式简单些。</p>
+<p><strong>PS2</strong>.
+为了更进一步达到偷懒的目的，继续包装一下连接vpn的流程，建立一个alias：</p>
+<blockquote>
+<p>alias vpn='/etc/init.d/ipsec restart &amp;&amp; ipsec auto --up work'</p>
+</blockquote>
+<p>然后每次sudo vpn就成了，偷懒目的达到。</p>
+            </div>
+            <!-- /.entry-content -->
+<section class="well" id="related-posts">
+    <h4>Related Posts:</h4>
+    <ul>
+        <li><a href="../../../2011/10/procmail-kdialog-mail-notifyer/">procmail + kdialog 构建邮件提醒脚本</a></li>
+        <li><a href="../../../2010/08/gfrog-tips-2/">一堆小Tips （2）</a></li>
+        <li><a href="../../../2009/06/ultravpn-a-free-vpn/">UltraVPN - A Free VPN</a></li>
+        <li><a href="../../../2013/01/foward-dns-packet-with-tunnel/">我们来打洞：转发DNS包</a></li>
+        <li><a href="../../../2010/12/install-xmind-in-fedora-with-deb-package/">Install Xmind in Fedora with deb package</a></li>
+    </ul>
+</section>
+    <hr/>
+    <section class="comments" id="comments">
+        <h2>Comments</h2>
+
+        <div id="disqus_thread"></div>
+        <script type="text/javascript">
+            /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+            var disqus_shortname = 'gfrog'; // required: replace example with your forum shortname
+
+            var disqus_config = function () {
+                this.language = "zh_cn";
+
+                        this.page.identifier = '2010-08-06-gfrog-tips-1';
+                        this.page.url = 'https://www.gfrog.net/2010/08/gfrog-tips-1/';
+                    this.page.title = '一堆小Tips （1）';
+            };
+
+            /* * * DON'T EDIT BELOW THIS LINE * * */
+            (function () {
+                var dsq = document.createElement('script');
+                dsq.type = 'text/javascript';
+                dsq.async = true;
+                dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+            })();
+        </script>
+        <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by
+            Disqus.</a></noscript>
+        <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+    </section>
+        </article>
+    </section>
+
+        </div>
+        <div class="col-sm-3" id="sidebar">
+            <aside>
+<!-- Sidebar -->
+<section class="well well-sm">
+  <ul class="list-group list-group-flush">
+
+<!-- Sidebar/Social -->
+<li class="list-group-item">
+  <h4>Social</h4>
+  <ul class="list-group" id="social">
+    <li class="list-group-item"><a href="https://twitter.com/gfrog"><i class="fa fa-twitter-square fa-lg"></i> Twitter</a></li>
+    <li class="list-group-item"><a href="/pages/tweets-archive.html"><i class="fa fa-tweets-archive-square fa-lg"></i> Tweets Archive</a></li>
+    <li class="list-group-item"><a href="/pages/instagram-archive.html"><i class="fa fa-instagram-archive-square fa-lg"></i> Instagram Archive</a></li>
+  </ul>
+</li>
+<!-- End Sidebar/Social -->
+
+<!-- Sidebar/Categories -->
+<li class="list-group-item">
+  <h4>Categories</h4>
+  <ul class="list-group" id="categories">
+    <li class="list-group-item">
+      <a href="../../../category/cyclone.html">Cyclone</a>
+    </li>
+    <li class="list-group-item">
+      <a href="../../../category/instagram.html">Instagram</a>
+    </li>
+    <li class="list-group-item">
+      <a href="../../../category/linux.html">Linux</a>
+    </li>
+    <li class="list-group-item">
+      <a href="../../../category/misc.html">Misc</a>
+    </li>
+    <li class="list-group-item">
+      <a href="../../../category/mobile.html">Mobile</a>
+    </li>
+    <li class="list-group-item">
+      <a href="../../../category/networking.html">Networking</a>
+    </li>
+    <li class="list-group-item">
+      <a href="../../../category/pictures.html">Pictures</a>
+    </li>
+    <li class="list-group-item">
+      <a href="../../../category/programming.html">Programming</a>
+    </li>
+    <li class="list-group-item">
+      <a href="../../../category/site.html">Site</a>
+    </li>
+    <li class="list-group-item">
+      <a href="../../../category/travel.html">Travel</a>
+    </li>
+    <li class="list-group-item">
+      <a href="../../../category/vim.html">VIM</a>
+    </li>
+    <li class="list-group-item">
+      <a href="../../../category/virt.html">Virt</a>
+    </li>
+  </ul>
+</li>
+<!-- End Sidebar/Categories -->
+
+<!-- Sidebar/Links -->
+<li class="list-group-item">
+  <h4>Links</h4>
+  <ul class="list-group" id="links">
+    <li class="list-group-item">
+      <a href="http://getpelican.com/" target="_blank">Pelican</a>
+    </li>
+    <li class="list-group-item">
+      <a href="http://python.org/" target="_blank">Python.org</a>
+    </li>
+    <li class="list-group-item">
+      <a href="http://jinja.pocoo.org/" target="_blank">Jinja2</a>
+    </li>
+  </ul>
+</li>
+<!-- End Sidebar/Links -->
+  </ul>
+</section>
+<!-- End Sidebar -->            </aside>
+        </div>
+    </div>
+</div>
+<!-- End Content Container -->
+
+<footer>
+   <div class="container">
+      <hr>
+      <div class="row">
+         <div class="col-xs-10">&copy; 2019 gfrog
+            &middot; Powered by <a href="https://github.com/getpelican/pelican-themes/tree/master/pelican-bootstrap3" target="_blank">pelican-bootstrap3</a>,
+            <a href="http://docs.getpelican.com/" target="_blank">Pelican</a>,
+            <a href="http://getbootstrap.com" target="_blank">Bootstrap</a>                <p><small>  <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh_cn"><img alt="Creative Commons License" style="border-width:0" src="//i.creativecommons.org/l/by-nc-sa/4.0/80x15.png" /></a>
+    Content
+  licensed under a <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh_cn">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>, except where indicated otherwise.
+</small></p>
+         </div>
+         <div class="col-xs-2"><p class="pull-right"><i class="fa fa-arrow-up"></i> <a href="#">Back to top</a></p></div>
+      </div>
+   </div>
+</footer>
+<script src="../../../theme/js/jquery.min.js"></script>
+
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="../../../theme/js/bootstrap.min.js"></script>
+
+<!-- Enable responsive features in IE8 with Respond.js (https://github.com/scottjehl/Respond) -->
+<script src="../../../theme/js/respond.min.js"></script>
+
+
+    <!-- Disqus -->
+    <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = 'gfrog'; // required: replace example with your forum shortname
+
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function () {
+            var s = document.createElement('script');
+            s.async = true;
+            s.type = 'text/javascript';
+            s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+            (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+        }());
+    </script>
+    <!-- End Disqus Code -->
+    <!-- Google Analytics -->
+    <script type="text/javascript">
+
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-769172-3']);
+        _gaq.push(['_trackPageview']);
+
+        (function () {
+            var ga = document.createElement('script');
+            ga.type = 'text/javascript';
+            ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(ga, s);
+        })();
+    </script>
+    <!-- End Google Analytics Code -->
+
+
+</body>
+</html>

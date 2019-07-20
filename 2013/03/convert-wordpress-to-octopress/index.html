@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="zh_cn" prefix="og: http://ogp.me/ns# fb: https://www.facebook.com/2008/fbml">
+<head>
+    <title>Wordpress转换到Octopress - My Life, My Love!</title>
+    <!-- Using the latest rendering mode for IE -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+
+<link rel="canonical" href="../../../2013/03/convert-wordpress-to-octopress/">
+
+        <meta name="author" content="gfrog" />
+        <meta name="keywords" content="site,setup,configuration,wordpress,octopress,ruby,git,github" />
+        <meta name="description" content="今天青蛙下定决心干掉Wordpress了，不为别的，就因为 在大天朝访问Openshift不靠谱的连接状态。 把Wordpress转换到Octopress这件事，对于天天泡在github 上的青蛙来说，实在是简单到爆了。github账户有了，ruby 运行环境有了，只要简单几步就够了： 按照 http://octopress.org/docs/setup/ git clone回octopress代码，安装bundler，安装默认主题。 按照 http://octopress.org/docs/deploying/github/ 在github上新建一个repo，名字取为&#34;your_github_id.github.com&#34;，在Octopress的目录中执行 rake setup_github_pages， 在提示符中填入这个新建的repo的git地址。 然后 rake generate rake deploy 用浏览器访问&#34;http://your_github_id.github.com&#34;，应该就能看到Octopress的页面了。 记得要把源码 …" />
+
+        <meta property="og:site_name" content="My Life, My Love!" />
+        <meta property="og:type" content="article"/>
+        <meta property="og:title" content="Wordpress转换到Octopress"/>
+        <meta property="og:url" content="../../../2013/03/convert-wordpress-to-octopress/"/>
+        <meta property="og:description" content="今天青蛙下定决心干掉Wordpress了，不为别的，就因为 在大天朝访问Openshift不靠谱的连接状态。 把Wordpress转换到Octopress这件事，对于天天泡在github 上的青蛙来说，实在是简单到爆了。github账户有了，ruby 运行环境有了，只要简单几步就够了： 按照 http://octopress.org/docs/setup/ git clone回octopress代码，安装bundler，安装默认主题。 按照 http://octopress.org/docs/deploying/github/ 在github上新建一个repo，名字取为&#34;your_github_id.github.com&#34;，在Octopress的目录中执行 rake setup_github_pages， 在提示符中填入这个新建的repo的git地址。 然后 rake generate rake deploy 用浏览器访问&#34;http://your_github_id.github.com&#34;，应该就能看到Octopress的页面了。 记得要把源码 …"/>
+        <meta property="article:published_time" content="2013-03-08" />
+            <meta property="article:section" content="Site" />
+            <meta property="article:tag" content="site" />
+            <meta property="article:tag" content="setup" />
+            <meta property="article:tag" content="configuration" />
+            <meta property="article:tag" content="wordpress" />
+            <meta property="article:tag" content="octopress" />
+            <meta property="article:tag" content="ruby" />
+            <meta property="article:tag" content="git" />
+            <meta property="article:tag" content="github" />
+            <meta property="article:author" content="gfrog" />
+
+
+
+    <!-- Bootstrap -->
+        <link rel="stylesheet" href="../../../theme/css/bootstrap.min.css" type="text/css"/>
+    <link href="../../../theme/css/font-awesome.min.css" rel="stylesheet">
+
+    <link href="../../../theme/css/pygments/default.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../../theme/css/style.css" type="text/css"/>
+
+        <link href="../../../feeds/all.atom.xml" type="application/atom+xml" rel="alternate"
+              title="My Life, My Love! ATOM Feed"/>
+
+        <link href="../../../feeds/all.rss.xml" type="application/rss+xml" rel="alternate"
+              title="My Life, My Love! RSS Feed"/>
+        <link href="../../../feeds/site.atom.xml" type="application/atom+xml" rel="alternate"
+              title="My Life, My Love! Site ATOM Feed"/>
+</head>
+<body>
+
+<div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+        <div class="navbar-header">
+            <a href="../../../" class="navbar-brand">
+My Life, My Love!            </a>
+        </div>
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+            <ul class="nav navbar-nav">
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+</div> <!-- /.navbar -->
+
+<!-- Banner -->
+<!-- End Banner -->
+
+<!-- Content Container -->
+<div class="container">
+    <div class="row">
+        <div class="col-sm-9">
+    <section id="content">
+        <article>
+            <header class="page-header">
+                <h1>
+                    <a href="../../../2013/03/convert-wordpress-to-octopress/"
+                       rel="bookmark"
+                       title="Permalink to Wordpress转换到Octopress">
+                        Wordpress转换到Octopress
+                    </a>
+                </h1>
+            </header>
+            <div class="entry-content">
+                <div class="panel">
+                    <div class="panel-body">
+<footer class="post-info">
+    <span class="label label-default">Date</span>
+    <span class="published">
+        <i class="fa fa-calendar"></i><time datetime="2013-03-08T21:11:00+08:00"> Fri 08 March 2013</time>
+    </span>
+
+
+
+        <span class="label label-default">Category</span>
+        <a href="../../../category/site.html">Site</a>
+
+
+<span class="label label-default">Tags</span>
+	<a href="../../../tag/site.html">site</a>
+        /
+	<a href="../../../tag/setup.html">setup</a>
+        /
+	<a href="../../../tag/configuration.html">configuration</a>
+        /
+	<a href="../../../tag/wordpress.html">wordpress</a>
+        /
+	<a href="../../../tag/octopress.html">octopress</a>
+        /
+	<a href="../../../tag/ruby.html">ruby</a>
+        /
+	<a href="../../../tag/git.html">git</a>
+        /
+	<a href="../../../tag/github.html">github</a>
+    
+</footer><!-- /.post-info -->                    </div>
+                </div>
+                <p>今天青蛙下定决心干掉Wordpress了，不为别的，就因为
+在大天朝访问Openshift不靠谱的连接状态。</p>
+<p>把Wordpress转换到Octopress这件事，对于天天泡在github
+上的青蛙来说，实在是简单到爆了。github账户有了，ruby
+运行环境有了，只要简单几步就够了：</p>
+<ol>
+<li>按照 <a href="http://octopress.org/docs/setup/">http://octopress.org/docs/setup/</a>
+    git clone回octopress代码，安装bundler，安装默认主题。</li>
+<li>按照 <a href="http://octopress.org/docs/deploying/github/">http://octopress.org/docs/deploying/github/</a> 
+    在github上新建一个repo，名字取为"your_github_id.github.com"，在Octopress的目录中执行
+    <code>rake setup_github_pages</code>， 在提示符中填入这个新建的repo的git地址。</li>
+<li>然后
+        rake generate
+        rake deploy</li>
+<li>用浏览器访问"http://your_github_id.github.com"，应该就能看到Octopress的页面了。</li>
+<li>
+<p>记得要把源码（包括blog的markdown文件）提交到git repo里： 包括blog的markdown文件
+        git add .
+        git commit -m 'your message'
+        git push origin source
+    之后每次写完新post都需要做这个操作，以便保留原始文档方便日后编辑。</p>
+</li>
+<li>
+<p>编辑_config.yml文件，修改blog的title、author、email等等信息。
+    <a href="http://octopress.org/docs/configuring/">http://octopress.org/docs/configuring/</a></p>
+</li>
+<li>Octopress 配置好之后就是把Wordpress迁移过来了，青蛙找到了一个exitwp的工具：
+    <a href="https://github.com/thomasf/exitwp">https://github.com/thomasf/exitwp</a>
+    按照exitwp的README安装好之后，从wordpress导出xml格式的文章备份，首先用xmllint检查
+    一下这个xml文档是不是有语法错误，特别是特殊字符之类。因为exitwp用了python的xml module，
+    这个模块对某些错误极度敏感，所以要修正xmllint报出的所有错误才行。</li>
+<li>把这个xml扔进exitwp里面的wordpress-xml目录，执行exitwp，所有的wp post就会被转换成
+    一个个markdown文件了。
+    把这些markdown复制到octopress目录里的source/_posts下面，然后运行
+    <code>rake generate &amp;&amp; rake deploy</code> 就可以把Wordpress的post内容都迁移到Octopress上了。</li>
+<li>最后记得把这些markdown都扔进source branch里。</li>
+</ol>
+<p>目前青蛙还没解决的几个问题：</p>
+<ol>
+<li>Category的英文名字似乎没法编辑，青蛙还没找到相关的文档。</li>
+<li>Draft和private状态的文档还不清楚怎么转换。</li>
+<li>当post很多时（&gt;1000），<code>rake generate</code>需要运行相当长的时间，青蛙每次执行这个命令都需要2分钟+。</li>
+</ol>
+<p><strong>Update 2013-03-16:</strong></p>
+<p>Category的问题据说在Octopress2.1里面被解决了。</p>
+<p>青蛙从2.1的branch上backport了一个patch到master，终于解决了中文category名字的问题。
+patch在：</p>
+<p><a href="https://github.com/gfrog/gfrog.github.com/commit/60212ee17766e8ba84f81cfdc3f36ef992ae6fb1">https://github.com/gfrog/gfrog.github.com/commit/60212ee17766e8ba84f81cfdc3f36ef992ae6fb1</a>
+没有经过完整测试，不过目前使用状况良好。</p>
+<p>目前Category的写法为 <code>- Category link[Category Name]</code>，从而完美搞定中文分类名的问题。</p>
+<p><strong>Update 2013-04-03:</strong></p>
+<p>补充一些Octopress用法的问题：</p>
+<ol>
+<li>新建post： <code>rake new_post["Post标题"]</code>，
+    不过permalink似乎比较难修改，在markdown里写slug似乎无效，只能修改markdown文件名。</li>
+<li>codeblock 的用法： <a href="http://octopress.org/docs/plugins/codeblock/">http://octopress.org/docs/plugins/codeblock/</a></li>
+<li>修改header menu： 编辑 source/_includes/custom/navigation.html</li>
+<li>添加Header image： 编辑 sass/custom/_styles.scss，加入：</li>
+</ol>
+<div class="highlight"><pre><span></span><span class="nt">header</span><span class="o">[</span><span class="nt">role</span><span class="o">=</span><span class="s2">&quot;banner&quot;</span><span class="o">]</span> <span class="p">{</span>
+     <span class="k">background-image</span><span class="p">:</span> <span class="nb">url</span><span class="p">(</span><span class="sx">/images/header_bg.png</span><span class="p">);</span>
+     <span class="k">background-repeat</span><span class="p">:</span> <span class="kc">no-repeat</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+            </div>
+            <!-- /.entry-content -->
+<section class="well" id="related-posts">
+    <h4>Related Posts:</h4>
+    <ul>
+        <li><a href="../../../2010/12/nowhere-to-place-the-pictures/">无处安放的图片</a></li>
+        <li><a href="../../../2010/12/notice-site-is-unstable/">通告：目前本博客正在进行调整</a></li>
+        <li><a href="../../../2019/07/this-blog-recovered-on-github/">本站重新恢复</a></li>
+        <li><a href="../../../2012/08/this-blog-has-transfered-to-openshift/">本blog已经迁移到 Openshift</a></li>
+        <li><a href="../../../2010/12/recommend-plugin-wp-super-cache/">推荐插件： wp-super-cache</a></li>
+    </ul>
+</section>
+    <hr/>
+    <section class="comments" id="comments">
+        <h2>Comments</h2>
+
+        <div id="disqus_thread"></div>
+        <script type="text/javascript">
+            /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+            var disqus_shortname = 'gfrog'; // required: replace example with your forum shortname
+
+            var disqus_config = function () {
+                this.language = "zh_cn";
+
+                        this.page.identifier = '2013-03-08-convert-wordpress-to-octopress';
+                        this.page.url = 'https://www.gfrog.net/2013/03/convert-wordpress-to-octopress/';
+                    this.page.title = 'Wordpress转换到Octopress';
+            };
+
+            /* * * DON'T EDIT BELOW THIS LINE * * */
+            (function () {
+                var dsq = document.createElement('script');
+                dsq.type = 'text/javascript';
+                dsq.async = true;
+                dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+            })();
+        </script>
+        <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by
+            Disqus.</a></noscript>
+        <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+    </section>
+        </article>
+    </section>
+
+        </div>
+        <div class="col-sm-3" id="sidebar">
+            <aside>
+<!-- Sidebar -->
+<section class="well well-sm">
+  <ul class="list-group list-group-flush">
+
+<!-- Sidebar/Social -->
+<li class="list-group-item">
+  <h4>Social</h4>
+  <ul class="list-group" id="social">
+    <li class="list-group-item"><a href="https://twitter.com/gfrog"><i class="fa fa-twitter-square fa-lg"></i> Twitter</a></li>
+    <li class="list-group-item"><a href="/pages/tweets-archive.html"><i class="fa fa-tweets-archive-square fa-lg"></i> Tweets Archive</a></li>
+    <li class="list-group-item"><a href="/pages/instagram-archive.html"><i class="fa fa-instagram-archive-square fa-lg"></i> Instagram Archive</a></li>
+  </ul>
+</li>
+<!-- End Sidebar/Social -->
+
+<!-- Sidebar/Categories -->
+<li class="list-group-item">
+  <h4>Categories</h4>
+  <ul class="list-group" id="categories">
+    <li class="list-group-item">
+      <a href="../../../category/cyclone.html">Cyclone</a>
+    </li>
+    <li class="list-group-item">
+      <a href="../../../category/instagram.html">Instagram</a>
+    </li>
+    <li class="list-group-item">
+      <a href="../../../category/linux.html">Linux</a>
+    </li>
+    <li class="list-group-item">
+      <a href="../../../category/misc.html">Misc</a>
+    </li>
+    <li class="list-group-item">
+      <a href="../../../category/mobile.html">Mobile</a>
+    </li>
+    <li class="list-group-item">
+      <a href="../../../category/networking.html">Networking</a>
+    </li>
+    <li class="list-group-item">
+      <a href="../../../category/pictures.html">Pictures</a>
+    </li>
+    <li class="list-group-item">
+      <a href="../../../category/programming.html">Programming</a>
+    </li>
+    <li class="list-group-item">
+      <a href="../../../category/site.html">Site</a>
+    </li>
+    <li class="list-group-item">
+      <a href="../../../category/travel.html">Travel</a>
+    </li>
+    <li class="list-group-item">
+      <a href="../../../category/vim.html">VIM</a>
+    </li>
+    <li class="list-group-item">
+      <a href="../../../category/virt.html">Virt</a>
+    </li>
+  </ul>
+</li>
+<!-- End Sidebar/Categories -->
+
+<!-- Sidebar/Links -->
+<li class="list-group-item">
+  <h4>Links</h4>
+  <ul class="list-group" id="links">
+    <li class="list-group-item">
+      <a href="http://getpelican.com/" target="_blank">Pelican</a>
+    </li>
+    <li class="list-group-item">
+      <a href="http://python.org/" target="_blank">Python.org</a>
+    </li>
+    <li class="list-group-item">
+      <a href="http://jinja.pocoo.org/" target="_blank">Jinja2</a>
+    </li>
+  </ul>
+</li>
+<!-- End Sidebar/Links -->
+  </ul>
+</section>
+<!-- End Sidebar -->            </aside>
+        </div>
+    </div>
+</div>
+<!-- End Content Container -->
+
+<footer>
+   <div class="container">
+      <hr>
+      <div class="row">
+         <div class="col-xs-10">&copy; 2019 gfrog
+            &middot; Powered by <a href="https://github.com/getpelican/pelican-themes/tree/master/pelican-bootstrap3" target="_blank">pelican-bootstrap3</a>,
+            <a href="http://docs.getpelican.com/" target="_blank">Pelican</a>,
+            <a href="http://getbootstrap.com" target="_blank">Bootstrap</a>                <p><small>  <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh_cn"><img alt="Creative Commons License" style="border-width:0" src="//i.creativecommons.org/l/by-nc-sa/4.0/80x15.png" /></a>
+    Content
+  licensed under a <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh_cn">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>, except where indicated otherwise.
+</small></p>
+         </div>
+         <div class="col-xs-2"><p class="pull-right"><i class="fa fa-arrow-up"></i> <a href="#">Back to top</a></p></div>
+      </div>
+   </div>
+</footer>
+<script src="../../../theme/js/jquery.min.js"></script>
+
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="../../../theme/js/bootstrap.min.js"></script>
+
+<!-- Enable responsive features in IE8 with Respond.js (https://github.com/scottjehl/Respond) -->
+<script src="../../../theme/js/respond.min.js"></script>
+
+
+    <!-- Disqus -->
+    <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = 'gfrog'; // required: replace example with your forum shortname
+
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function () {
+            var s = document.createElement('script');
+            s.async = true;
+            s.type = 'text/javascript';
+            s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+            (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+        }());
+    </script>
+    <!-- End Disqus Code -->
+    <!-- Google Analytics -->
+    <script type="text/javascript">
+
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-769172-3']);
+        _gaq.push(['_trackPageview']);
+
+        (function () {
+            var ga = document.createElement('script');
+            ga.type = 'text/javascript';
+            ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(ga, s);
+        })();
+    </script>
+    <!-- End Google Analytics Code -->
+
+
+</body>
+</html>

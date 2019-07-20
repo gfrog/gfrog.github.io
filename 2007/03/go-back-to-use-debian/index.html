@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="zh_cn" prefix="og: http://ogp.me/ns# fb: https://www.facebook.com/2008/fbml">
+<head>
+    <title>回归Debian的怀抱 - My Life, My Love!</title>
+    <!-- Using the latest rendering mode for IE -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+
+<link rel="canonical" href="../../../2007/03/go-back-to-use-debian/">
+
+        <meta name="author" content="gfrog" />
+        <meta name="keywords" content="debian,linux,apt,mirror" />
+        <meta name="description" content="用来用去,还是觉得debian最亲切,最自然. 虽然ubuntu有多般的好处,但是似乎跟我想要的linux差的很多. 装回debian,用它作宿主系统,研究一下lfs. 从昨天开始装debian,但是苦于没有合适的源, 直到今天也没升级完毕.真是郁闷死我了. 昨天用cn99跟geekbone,apt-get update了好久好久. 查了一下它俩的ip,竟然在电信线路上,怪不得只有10KB/s左右的速度. 今天被cn99逼的没有办法,试了下教育网的源,仍然是10KB/s. 实在没辙了,google了一下,找到了 台湾大学的debian镜像 ,速度竟然能达到150KB/s,轻松的完成了upgrade.实在是太赞了. google的时候 在linuxsir上发现了一个小tip ,就是apt-spy.这个小东西可以自动测试一个地区的源的速度, 然后自动生成一个sources.list.真是一个很好用的小东东. 这个apt-spy不是默认安装的,所以要先找到一个源来安装它. # apt-get install apt-spy # mv sources.list sources.list …" />
+
+        <meta property="og:site_name" content="My Life, My Love!" />
+        <meta property="og:type" content="article"/>
+        <meta property="og:title" content="回归Debian的怀抱"/>
+        <meta property="og:url" content="../../../2007/03/go-back-to-use-debian/"/>
+        <meta property="og:description" content="用来用去,还是觉得debian最亲切,最自然. 虽然ubuntu有多般的好处,但是似乎跟我想要的linux差的很多. 装回debian,用它作宿主系统,研究一下lfs. 从昨天开始装debian,但是苦于没有合适的源, 直到今天也没升级完毕.真是郁闷死我了. 昨天用cn99跟geekbone,apt-get update了好久好久. 查了一下它俩的ip,竟然在电信线路上,怪不得只有10KB/s左右的速度. 今天被cn99逼的没有办法,试了下教育网的源,仍然是10KB/s. 实在没辙了,google了一下,找到了 台湾大学的debian镜像 ,速度竟然能达到150KB/s,轻松的完成了upgrade.实在是太赞了. google的时候 在linuxsir上发现了一个小tip ,就是apt-spy.这个小东西可以自动测试一个地区的源的速度, 然后自动生成一个sources.list.真是一个很好用的小东东. 这个apt-spy不是默认安装的,所以要先找到一个源来安装它. # apt-get install apt-spy # mv sources.list sources.list …"/>
+        <meta property="article:published_time" content="2007-03-28" />
+            <meta property="article:section" content="Linux" />
+            <meta property="article:tag" content="debian" />
+            <meta property="article:tag" content="linux" />
+            <meta property="article:tag" content="apt" />
+            <meta property="article:tag" content="mirror" />
+            <meta property="article:author" content="gfrog" />
+
+
+
+    <!-- Bootstrap -->
+        <link rel="stylesheet" href="../../../theme/css/bootstrap.min.css" type="text/css"/>
+    <link href="../../../theme/css/font-awesome.min.css" rel="stylesheet">
+
+    <link href="../../../theme/css/pygments/default.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../../theme/css/style.css" type="text/css"/>
+
+        <link href="../../../feeds/all.atom.xml" type="application/atom+xml" rel="alternate"
+              title="My Life, My Love! ATOM Feed"/>
+
+        <link href="../../../feeds/all.rss.xml" type="application/rss+xml" rel="alternate"
+              title="My Life, My Love! RSS Feed"/>
+        <link href="../../../feeds/linux.atom.xml" type="application/atom+xml" rel="alternate"
+              title="My Life, My Love! Linux ATOM Feed"/>
+</head>
+<body>
+
+<div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+        <div class="navbar-header">
+            <a href="../../../" class="navbar-brand">
+My Life, My Love!            </a>
+        </div>
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+            <ul class="nav navbar-nav">
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+</div> <!-- /.navbar -->
+
+<!-- Banner -->
+<!-- End Banner -->
+
+<!-- Content Container -->
+<div class="container">
+    <div class="row">
+        <div class="col-sm-9">
+    <section id="content">
+        <article>
+            <header class="page-header">
+                <h1>
+                    <a href="../../../2007/03/go-back-to-use-debian/"
+                       rel="bookmark"
+                       title="Permalink to 回归Debian的怀抱">
+                        回归Debian的怀抱
+                    </a>
+                </h1>
+            </header>
+            <div class="entry-content">
+                <div class="panel">
+                    <div class="panel-body">
+<footer class="post-info">
+    <span class="label label-default">Date</span>
+    <span class="published">
+        <i class="fa fa-calendar"></i><time datetime="2007-03-28T23:43:29+08:00"> Wed 28 March 2007</time>
+    </span>
+
+
+
+        <span class="label label-default">Category</span>
+        <a href="../../../category/linux.html">Linux</a>
+
+
+<span class="label label-default">Tags</span>
+	<a href="../../../tag/debian.html">debian</a>
+        /
+	<a href="../../../tag/linux.html">linux</a>
+        /
+	<a href="../../../tag/apt.html">apt</a>
+        /
+	<a href="../../../tag/mirror.html">mirror</a>
+    
+</footer><!-- /.post-info -->                    </div>
+                </div>
+                <p>用来用去,还是觉得debian最亲切,最自然.
+虽然ubuntu有多般的好处,但是似乎跟我想要的linux差的很多.</p>
+<p>装回debian,用它作宿主系统,研究一下lfs.</p>
+<p>从昨天开始装debian,但是苦于没有合适的源,
+直到今天也没升级完毕.真是郁闷死我了.</p>
+<p>昨天用cn99跟geekbone,apt-get update了好久好久.
+查了一下它俩的ip,竟然在电信线路上,怪不得只有10KB/s左右的速度.</p>
+<p>今天被cn99逼的没有办法,试了下教育网的源,仍然是10KB/s.
+实在没辙了,google了一下,找到了
+<a href="http://debian.csie.ntu.edu.tw/">台湾大学的debian镜像</a>
+,速度竟然能达到150KB/s,轻松的完成了upgrade.实在是太赞了.</p>
+<p>google的时候
+<a href="http://www.linuxsir.org/bbs/showthread.php?t=218212">在linuxsir上发现了一个小tip</a>
+,就是apt-spy.这个小东西可以自动测试一个地区的源的速度,
+然后自动生成一个sources.list.真是一个很好用的小东东.</p>
+<p>这个apt-spy不是默认安装的,所以要先找到一个源来安装它.</p>
+<div class="highlight"><pre><span></span><span class="o">#</span> <span class="n">apt</span><span class="o">-</span><span class="k">get</span> <span class="n">install</span> <span class="n">apt</span><span class="o">-</span><span class="n">spy</span>
+<span class="o">#</span> <span class="n">mv</span> <span class="n">sources</span><span class="p">.</span><span class="n">list</span> <span class="n">sources</span><span class="p">.</span><span class="n">list</span><span class="p">.</span><span class="n">bak</span> <span class="o">//</span><span class="n">backup</span>
+<span class="o">#</span> <span class="n">man</span> <span class="n">apt</span><span class="o">-</span><span class="n">spy</span>  <span class="o">//</span><span class="err">获取详细的使用方法</span>
+<span class="o">#</span> <span class="n">apt</span><span class="o">-</span><span class="n">spy</span> <span class="k">update</span> <span class="o">//</span><span class="err">更新您的镜像列表文件</span> <span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">apt</span><span class="o">-</span><span class="n">spy</span><span class="o">/</span><span class="n">mirrors</span><span class="p">.</span><span class="n">txt</span>
+<span class="o">#</span> <span class="n">apt</span><span class="o">-</span><span class="n">spy</span> <span class="o">-</span><span class="n">d</span> <span class="n">testing</span>  <span class="o">-</span><span class="n">a</span> <span class="n">Asia</span>
+<span class="o">//</span><span class="err">在亚洲区寻找速度最快的</span><span class="n">testing版镜像</span><span class="p">,</span><span class="err">并生成</span> <span class="n">sources</span><span class="p">.</span><span class="n">list文件</span><span class="p">,</span>
+<span class="o">//</span><span class="err">也可使用</span> <span class="o">-</span><span class="n">o</span> <span class="err">参数指定写入文件</span>
+</pre></div>
+
+
+<p>正如
+<a href="http://www.linuxsir.org/bbs/showthread.php?t=218212">linuxsir那篇文章</a>
+所说,这个过程十分的漫长(在我写这篇日志的时候,这个过程还在继续),
+但是确实是一劳永逸的.
+只要不更换网络接入方式,它生成的sources.list就可以一直用下去.</p>
+<p><strong>update:</strong> apt-spy测试了半个小时以后,终于找到了http://opensource.nchc.org.tw/debian 这个站点,能达到200多KB/s的速度.</p>
+<p>最后生成的sources.list如下</p>
+<div class="highlight"><pre><span></span><span class="c"># sources.list generated by apt-spy v3.1</span>
+<span class="k">deb</span> <span class="s">ftp://opensource.nchc.org.tw/debian/</span> <span class="kp">testing</span> <span class="kp">main</span>
+<span class="k">deb-src</span> <span class="s">ftp://opensource.nchc.org.tw/debian/</span> <span class="kp">testing</span> <span class="kp">main</span>
+<span class="c">#deb http://security.debian.org/ stable/updates main</span>
+</pre></div>
+
+
+<p>去opensource.nchc.org.tw看了一下,他提供如下镜像,按照下面重新修改一下apt-spy生成的源,然后就尽情的enjoy吧. </p>
+<p><strong>Debian</strong></p>
+<p><a href="http://opensource.nchc.org.tw/sources.list.html">參考 /etc/apt/sources.list 設定</a></p>
+<div class="highlight"><pre><span></span><span class="k">deb</span> <span class="s">http://opensource.nchc.org.tw/debian</span> <span class="kp">[stable|testing|unstable]</span> <span class="kp">main</span> <span class="kp">contrib</span> <span class="kp">non-free</span>
+<span class="k">deb</span> <span class="s">http://opensource.nchc.org.tw/debian-non-US</span> <span class="kp">[stable|testing|unstable]/non-US</span> <span class="kp">main</span> <span class="kp">contrib</span> <span class="kp">non-free</span>
+<span class="k">deb</span> <span class="s">http://opensource.nchc.org.tw/debian-security</span> <span class="kp">stable/updates</span> <span class="kp">main</span> <span class="kp">contrib</span> <span class="kp">non-free</span>
+</pre></div>
+
+
+<p><strong>Unofficial APT</strong></p>
+<ul>
+<li>KDE</li>
+</ul>
+<div class="highlight"><pre><span></span><span class="k">deb</span> <span class="s">http://opensource.nchc.org.tw/apt/kde/3.1</span> <span class="kp">woody</span> <span class="kp">main</span>
+</pre></div>
+
+
+<ul>
+<li><a href="http://free.nchc.org.tw/pmwiki/pmwiki.php/Main/IPv6?action=edit">I Pv 6</a>
+    <a href="http://free.nchc.org.tw/pmwiki/pmwiki.php/Main/IPv6?action=edit">?</a></li>
+</ul>
+<div class="highlight"><pre><span></span><span class="k">deb</span> <span class="s">http://opensource.nchc.org.tw/apt/ipv6</span> <span class="kp">[stable|testing|unstable]/ipv6</span> <span class="kp">./&lt;br&gt;&lt;/br&gt;</span>
+</pre></div>
+
+
+<ul>
+<li><a href="http://free.nchc.org.tw/pmwiki/pmwiki.php/Main/XFree86?action=edit">X Free 86</a>
+    <a href="http://free.nchc.org.tw/pmwiki/pmwiki.php/Main/XFree86?action=edit">?</a> 4.3</li>
+</ul>
+<div class="highlight"><pre><span></span><span class="k">deb</span> <span class="s">http://opensource.nchc.org.tw/apt/xfree86-4.3/woody</span> <span class="kp">./</span>
+</pre></div>
+
+
+<ul>
+<li>ALSA</li>
+</ul>
+<div class="highlight"><pre><span></span><span class="k">deb</span> <span class="s">http://opensource.nchc.org.tw/apt/alsa</span> <span class="kp">woody</span> <span class="kp">sherpya&lt;br&gt;&lt;/br&gt;</span>
+</pre></div>
+
+
+<ul>
+<li><a href="http://free.nchc.org.tw/pmwiki/pmwiki.php/Main/OOo?action=edit">O Oo</a>
+    <a href="http://free.nchc.org.tw/pmwiki/pmwiki.php/Main/OOo?action=edit">?</a> Woody backport</li>
+</ul>
+<div class="highlight"><pre><span></span><span class="k">deb</span> <span class="s">http://opensource.nchc.org.tw/apt/OOo</span> <span class="kp">[stable|unstable]</span> <span class="kp">main</span> <span class="kp">contrib</span>
+</pre></div>
+
+
+<ul>
+<li><a href="http://free.nchc.org.tw/pmwiki/pmwiki.php/MPlayer/RealPlayer?action=edit">Real Player</a>
+    <a href="http://free.nchc.org.tw/pmwiki/pmwiki.php/MPlayer/RealPlayer?action=edit">?</a></li>
+</ul>
+<div class="highlight"><pre><span></span><span class="k">deb</span> <span class="s">http://opensource.nchc.org.tw/apt/marillat</span> <span class="kp">[stable|testing|unstable]</span> <span class="kp">main&lt;br&gt;&lt;/br&gt;</span>
+</pre></div>
+
+
+<ul>
+<li>DRBL</li>
+</ul>
+<div class="highlight"><pre><span></span><span class="k">deb</span> <span class="s">http://opensource.nchc.org.tw/apt/drbl</span> <span class="kp">stable</span> <span class="kp">main</span> <span class="kp">contrib&lt;br&gt;&lt;/br&gt;</span>
+</pre></div>
+            </div>
+            <!-- /.entry-content -->
+<section class="well" id="related-posts">
+    <h4>Related Posts:</h4>
+    <ul>
+        <li><a href="../../../2009/04/test-debian-boot-time-with-bootchart/">测试linux系统的启动速度</a></li>
+        <li><a href="../../../2008/03/install-eva-in-debian/">在debian sid上面安装eva</a></li>
+        <li><a href="../../../2008/01/config-file-in-debian-interfaces-1/">Debian里的配置文件：网卡配置/etc/network/interfaces（1）</a></li>
+        <li><a href="../../../2007/07/linux-usb-mod-conflict/">郁闷了2天的U盘问题,竟然是因为内核模块</a></li>
+        <li><a href="../../../2013/01/foward-dns-packet-with-tunnel/">我们来打洞：转发DNS包</a></li>
+    </ul>
+</section>
+    <hr/>
+    <section class="comments" id="comments">
+        <h2>Comments</h2>
+
+        <div id="disqus_thread"></div>
+        <script type="text/javascript">
+            /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+            var disqus_shortname = 'gfrog'; // required: replace example with your forum shortname
+
+            var disqus_config = function () {
+                this.language = "zh_cn";
+
+                        this.page.identifier = '2007-03-28-go-back-to-use-debian';
+                        this.page.url = 'https://www.gfrog.net/2007/03/go-back-to-use-debian/';
+                    this.page.title = '回归Debian的怀抱';
+            };
+
+            /* * * DON'T EDIT BELOW THIS LINE * * */
+            (function () {
+                var dsq = document.createElement('script');
+                dsq.type = 'text/javascript';
+                dsq.async = true;
+                dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+            })();
+        </script>
+        <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by
+            Disqus.</a></noscript>
+        <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+    </section>
+        </article>
+    </section>
+
+        </div>
+        <div class="col-sm-3" id="sidebar">
+            <aside>
+<!-- Sidebar -->
+<section class="well well-sm">
+  <ul class="list-group list-group-flush">
+
+<!-- Sidebar/Social -->
+<li class="list-group-item">
+  <h4>Social</h4>
+  <ul class="list-group" id="social">
+    <li class="list-group-item"><a href="https://twitter.com/gfrog"><i class="fa fa-twitter-square fa-lg"></i> Twitter</a></li>
+    <li class="list-group-item"><a href="/pages/tweets-archive.html"><i class="fa fa-tweets-archive-square fa-lg"></i> Tweets Archive</a></li>
+    <li class="list-group-item"><a href="/pages/instagram-archive.html"><i class="fa fa-instagram-archive-square fa-lg"></i> Instagram Archive</a></li>
+  </ul>
+</li>
+<!-- End Sidebar/Social -->
+
+<!-- Sidebar/Categories -->
+<li class="list-group-item">
+  <h4>Categories</h4>
+  <ul class="list-group" id="categories">
+    <li class="list-group-item">
+      <a href="../../../category/cyclone.html">Cyclone</a>
+    </li>
+    <li class="list-group-item">
+      <a href="../../../category/instagram.html">Instagram</a>
+    </li>
+    <li class="list-group-item">
+      <a href="../../../category/linux.html">Linux</a>
+    </li>
+    <li class="list-group-item">
+      <a href="../../../category/misc.html">Misc</a>
+    </li>
+    <li class="list-group-item">
+      <a href="../../../category/mobile.html">Mobile</a>
+    </li>
+    <li class="list-group-item">
+      <a href="../../../category/networking.html">Networking</a>
+    </li>
+    <li class="list-group-item">
+      <a href="../../../category/pictures.html">Pictures</a>
+    </li>
+    <li class="list-group-item">
+      <a href="../../../category/programming.html">Programming</a>
+    </li>
+    <li class="list-group-item">
+      <a href="../../../category/site.html">Site</a>
+    </li>
+    <li class="list-group-item">
+      <a href="../../../category/travel.html">Travel</a>
+    </li>
+    <li class="list-group-item">
+      <a href="../../../category/vim.html">VIM</a>
+    </li>
+    <li class="list-group-item">
+      <a href="../../../category/virt.html">Virt</a>
+    </li>
+  </ul>
+</li>
+<!-- End Sidebar/Categories -->
+
+<!-- Sidebar/Links -->
+<li class="list-group-item">
+  <h4>Links</h4>
+  <ul class="list-group" id="links">
+    <li class="list-group-item">
+      <a href="http://getpelican.com/" target="_blank">Pelican</a>
+    </li>
+    <li class="list-group-item">
+      <a href="http://python.org/" target="_blank">Python.org</a>
+    </li>
+    <li class="list-group-item">
+      <a href="http://jinja.pocoo.org/" target="_blank">Jinja2</a>
+    </li>
+  </ul>
+</li>
+<!-- End Sidebar/Links -->
+  </ul>
+</section>
+<!-- End Sidebar -->            </aside>
+        </div>
+    </div>
+</div>
+<!-- End Content Container -->
+
+<footer>
+   <div class="container">
+      <hr>
+      <div class="row">
+         <div class="col-xs-10">&copy; 2019 gfrog
+            &middot; Powered by <a href="https://github.com/getpelican/pelican-themes/tree/master/pelican-bootstrap3" target="_blank">pelican-bootstrap3</a>,
+            <a href="http://docs.getpelican.com/" target="_blank">Pelican</a>,
+            <a href="http://getbootstrap.com" target="_blank">Bootstrap</a>                <p><small>  <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh_cn"><img alt="Creative Commons License" style="border-width:0" src="//i.creativecommons.org/l/by-nc-sa/4.0/80x15.png" /></a>
+    Content
+  licensed under a <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh_cn">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>, except where indicated otherwise.
+</small></p>
+         </div>
+         <div class="col-xs-2"><p class="pull-right"><i class="fa fa-arrow-up"></i> <a href="#">Back to top</a></p></div>
+      </div>
+   </div>
+</footer>
+<script src="../../../theme/js/jquery.min.js"></script>
+
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="../../../theme/js/bootstrap.min.js"></script>
+
+<!-- Enable responsive features in IE8 with Respond.js (https://github.com/scottjehl/Respond) -->
+<script src="../../../theme/js/respond.min.js"></script>
+
+
+    <!-- Disqus -->
+    <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = 'gfrog'; // required: replace example with your forum shortname
+
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function () {
+            var s = document.createElement('script');
+            s.async = true;
+            s.type = 'text/javascript';
+            s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+            (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+        }());
+    </script>
+    <!-- End Disqus Code -->
+    <!-- Google Analytics -->
+    <script type="text/javascript">
+
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-769172-3']);
+        _gaq.push(['_trackPageview']);
+
+        (function () {
+            var ga = document.createElement('script');
+            ga.type = 'text/javascript';
+            ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(ga, s);
+        })();
+    </script>
+    <!-- End Google Analytics Code -->
+
+
+</body>
+</html>

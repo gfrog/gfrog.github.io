@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>My Life, My Love! - Networking</title><link href="https://www.gfrog.net/" rel="alternate"></link><link href="https://www.gfrog.net/feeds/networking.atom.xml" rel="self"></link><id>https://www.gfrog.net/</id><updated>2009-06-04T20:48:45+08:00</updated><subtitle>指点江山 激昂文字 修身隆德 自然自我</subtitle><entry><title>UltraVPN - A Free VPN</title><link href="https://www.gfrog.net/2009/06/ultravpn-a-free-vpn/" rel="alternate"></link><published>2009-06-04T20:48:45+08:00</published><updated>2009-06-04T20:48:45+08:00</updated><author><name>gfrog</name></author><id>tag:www.gfrog.net,2009-06-04:/2009/06/ultravpn-a-free-vpn/</id><summary type="html">&lt;p&gt;最近功夫网发飙，所以各种翻墙术也层出不穷，
+在twitter上看到有人推荐UltraVPN，很好很强大，在这里也推荐一下。
+UltraVPN基于Openvpn，简单易用，
+除了在windows上可以使用，在linnux和macox同样都用客户端。&lt;/p&gt;
+&lt;p&gt;通过UltraVPN，你可以：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;从企业网中访问被过滤的web网站&lt;/li&gt;
+&lt;li&gt;在MSN被过滤的情况下访问MSN&lt;/li&gt;
+&lt;li&gt;在被过滤的情况下使用VoIP软件（例如Skype）&lt;/li&gt;
+&lt;li&gt;保护你的邮件和浏览隐私&lt;/li&gt;
+&lt;li&gt;避免在internet中被记录&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;当然，对国人最重要的一条，就是可以穿墙。&lt;/p&gt;
+&lt;p&gt;UltraVPN使用也很简单。&lt;/p&gt;
+&lt;p&gt;首先，在&lt;a href="http://www.ultravpn.fr/account.htm"&gt;这里&lt;/a&gt;注册帐号，下载客户端后就可以直接使用了。&lt;/p&gt;
+&lt;p&gt;客户端下载：&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://www.ultravpn.fr/download/ultravpn-install.exe"&gt;Windows&lt;/a&gt;，&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://www.ultravpn.fr/download/ultravpn-install-macosx.exe"&gt;MacOS&lt;/a&gt;，&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://gfrog.net/wp-content/uploads/2009/06/ultravpn.zip"&gt;Linux&lt;/a&gt;
+（只包含配置文件，openvpn客户端在&lt;a href="http://www.openvpn.net/release/openvpn-2.1_rc17.tar.gz"&gt;这里&lt;/a&gt;）。&lt;/p&gt;</summary><content type="html">&lt;p&gt;最近功夫网发飙，所以各种翻墙术也层出不穷，
+在twitter上看到有人推荐UltraVPN，很好很强大，在这里也推荐一下。
+UltraVPN基于Openvpn，简单易用，
+除了在windows上可以使用，在linnux和macox同样都用客户端。&lt;/p&gt;
+&lt;p&gt;通过UltraVPN，你可以：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;从企业网中访问被过滤的web网站&lt;/li&gt;
+&lt;li&gt;在MSN被过滤的情况下访问MSN&lt;/li&gt;
+&lt;li&gt;在被过滤的情况下使用VoIP软件（例如Skype）&lt;/li&gt;
+&lt;li&gt;保护你的邮件和浏览隐私&lt;/li&gt;
+&lt;li&gt;避免在internet中被记录&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;当然，对国人最重要的一条，就是可以穿墙。&lt;/p&gt;
+&lt;p&gt;UltraVPN使用也很简单。&lt;/p&gt;
+&lt;p&gt;首先，在&lt;a href="http://www.ultravpn.fr/account.htm"&gt;这里&lt;/a&gt;注册帐号，下载客户端后就可以直接使用了。&lt;/p&gt;
+&lt;p&gt;客户端下载：&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://www.ultravpn.fr/download/ultravpn-install.exe"&gt;Windows&lt;/a&gt;，&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://www.ultravpn.fr/download/ultravpn-install-macosx.exe"&gt;MacOS&lt;/a&gt;，&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://gfrog.net/wp-content/uploads/2009/06/ultravpn.zip"&gt;Linux&lt;/a&gt;
+（只包含配置文件，openvpn客户端在&lt;a href="http://www.openvpn.net/release/openvpn-2.1_rc17.tar.gz"&gt;这里&lt;/a&gt;）。&lt;/p&gt;</content><category term="network"></category><category term="vpn"></category><category term="openvpn"></category><category term="windows"></category><category term="linux"></category><category term="client"></category></entry><entry><title>网络协议学习笔记（1） -- DNS基础知识</title><link href="https://www.gfrog.net/2008/03/network-protocol-learning-notes-1-basic-knowledge-of-dns/" rel="alternate"></link><published>2008-03-09T22:42:23+08:00</published><updated>2008-03-09T22:42:23+08:00</updated><author><name>gfrog</name></author><id>tag:www.gfrog.net,2008-03-09:/2008/03/network-protocol-learning-notes-1-basic-knowledge-of-dns/</id><summary type="html">&lt;p&gt;---下列 RFC 包含用来设计和实施 DNS 服务器和客户端服务的规范：&lt;/p&gt;
+&lt;p&gt;RFC     标题&lt;/p&gt;
+&lt;p&gt;1034    域名 - 概念和工具&lt;/p&gt;
+&lt;p&gt;1035    域名 - 实现和规范&lt;/p&gt;
+&lt;p&gt;1123    Internet 主机 - 应用和支持的要求&lt;/p&gt;
+&lt;p&gt;1886    支持 IP 版本 6 的 DNS 扩展名&lt;/p&gt;
+&lt;p&gt;1995    DNS 中的增量区域传输&lt;/p&gt;
+&lt;p&gt;1996    提示通知区域更改的机制 (DNS NOTIFY)&lt;/p&gt;
+&lt;p&gt;2136    域名系统中的动态更新 (DNS UPDATE)&lt;/p&gt;
+&lt;p&gt;2181    对 DNS 规范的说明&lt;/p&gt;
+&lt;p&gt;2308    DNS 查询的负缓存 (DNS NCACHE)&lt;/p&gt;
+&lt;p&gt;2535    域名系统安全扩展 (DNSSEC)&lt;/p&gt;
+&lt;p&gt;2671    DNS …&lt;/p&gt;</summary><content type="html">&lt;p&gt;---下列 RFC 包含用来设计和实施 DNS 服务器和客户端服务的规范：&lt;/p&gt;
+&lt;p&gt;RFC     标题&lt;/p&gt;
+&lt;p&gt;1034    域名 - 概念和工具&lt;/p&gt;
+&lt;p&gt;1035    域名 - 实现和规范&lt;/p&gt;
+&lt;p&gt;1123    Internet 主机 - 应用和支持的要求&lt;/p&gt;
+&lt;p&gt;1886    支持 IP 版本 6 的 DNS 扩展名&lt;/p&gt;
+&lt;p&gt;1995    DNS 中的增量区域传输&lt;/p&gt;
+&lt;p&gt;1996    提示通知区域更改的机制 (DNS NOTIFY)&lt;/p&gt;
+&lt;p&gt;2136    域名系统中的动态更新 (DNS UPDATE)&lt;/p&gt;
+&lt;p&gt;2181    对 DNS 规范的说明&lt;/p&gt;
+&lt;p&gt;2308    DNS 查询的负缓存 (DNS NCACHE)&lt;/p&gt;
+&lt;p&gt;2535    域名系统安全扩展 (DNSSEC)&lt;/p&gt;
+&lt;p&gt;2671    DNS 的扩展机制 (EDNS0)&lt;/p&gt;
+&lt;p&gt;2782    指定服务位置的 DNS RR (DNS SRV)&lt;/p&gt;
+&lt;p&gt;2930    DNS 的密钥建立 (TKEY RR)&lt;/p&gt;
+&lt;p&gt;3645    DNS (GSS-TSIG) 密钥事务身分验证的通用安全服务算法&lt;/p&gt;
+&lt;p&gt;3646    IPv6 (DHCPv6) 动态主机配置协议的 DNS 配置选项&lt;/p&gt;</content><category term="network"></category><category term="rfc"></category><category term="dns"></category><category term="protocol"></category><category term="note"></category></entry></feed>

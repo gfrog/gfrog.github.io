@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>My Life, My Love! - VIM</title><link href="https://www.gfrog.net/" rel="alternate"></link><link href="https://www.gfrog.net/feeds/vim.atom.xml" rel="self"></link><id>https://www.gfrog.net/</id><updated>2008-03-20T00:29:34+08:00</updated><subtitle>指点江山 激昂文字 修身隆德 自然自我</subtitle><entry><title>在VIM中打开Markdown文件高亮</title><link href="https://www.gfrog.net/2008/03/enable-markdown-highlight-in-vim/" rel="alternate"></link><published>2008-03-20T00:29:34+08:00</published><updated>2008-03-20T00:29:34+08:00</updated><author><name>gfrog</name></author><id>tag:www.gfrog.net,2008-03-20:/2008/03/enable-markdown-highlight-in-vim/</id><summary type="html">&lt;p&gt;&lt;a href="http://daringfireball.net/projects/Markdown/"&gt;Markdown&lt;/a&gt;
+是John Gruber设计的一个文本标记系统，相比html，它很简单，
+便于手工编写，而且它还支持
+&lt;a href="http://wordpress.org/"&gt;Wordpress&lt;/a&gt;
+，
+&lt;a href="http://michelf.com/projects/php-Markdown/"&gt;有一个用于wordpress的插件&lt;/a&gt;
+。青蛙决定用vim+Markdown来编写blog，看起来他们是一对强大的组合 :)&lt;/p&gt;
+&lt;p&gt;首先要去
+&lt;a href="http://www.vim.org/"&gt;Vim&lt;/a&gt;
+的官方网站
+&lt;a href="http://www.vim.org/scripts/script.php?script_id=1242"&gt;下载Markdown的语法高亮插件&lt;/a&gt;
+，并把它复制到"~/.vim/syntax/"目录下面。
+然后，新建一个"~/.vim/ftdetect/mkd.vim"文件，在其中加入下面的内容：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt; markdown filetype file&lt;/span&gt;
+&lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="nv"&gt;exists&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;did_load_filetypes&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;
+  &lt;span class="nv"&gt;finish&lt;/span&gt;
+&lt;span class="k"&gt;endif&lt;/span&gt;
+&lt;span class="nv"&gt;augroup&lt;/span&gt; &lt;span class="nv"&gt;markdown&lt;/span&gt;
+  &lt;span class="nv"&gt;au&lt;/span&gt;&lt;span class="o"&gt;!&lt;/span&gt; &lt;span class="nv"&gt;BufRead&lt;/span&gt;,&lt;span class="nv"&gt;BufNewFile&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt;.&lt;span class="nv"&gt;mkd&lt;/span&gt;   &lt;span class="nv"&gt;setfiletype&lt;/span&gt; &lt;span class="nv"&gt;mkd&lt;/span&gt;
+&lt;span class="nv"&gt;augroup&lt;/span&gt; &lt;span class="k"&gt;END&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;并在"~/.vimrc"文件中添加如下内容：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;Markdown …&lt;/span&gt;&lt;/pre&gt;&lt;/div&gt;</summary><content type="html">&lt;p&gt;&lt;a href="http://daringfireball.net/projects/Markdown/"&gt;Markdown&lt;/a&gt;
+是John Gruber设计的一个文本标记系统，相比html，它很简单，
+便于手工编写，而且它还支持
+&lt;a href="http://wordpress.org/"&gt;Wordpress&lt;/a&gt;
+，
+&lt;a href="http://michelf.com/projects/php-Markdown/"&gt;有一个用于wordpress的插件&lt;/a&gt;
+。青蛙决定用vim+Markdown来编写blog，看起来他们是一对强大的组合 :)&lt;/p&gt;
+&lt;p&gt;首先要去
+&lt;a href="http://www.vim.org/"&gt;Vim&lt;/a&gt;
+的官方网站
+&lt;a href="http://www.vim.org/scripts/script.php?script_id=1242"&gt;下载Markdown的语法高亮插件&lt;/a&gt;
+，并把它复制到"~/.vim/syntax/"目录下面。
+然后，新建一个"~/.vim/ftdetect/mkd.vim"文件，在其中加入下面的内容：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt; markdown filetype file&lt;/span&gt;
+&lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="nv"&gt;exists&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;did_load_filetypes&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;
+  &lt;span class="nv"&gt;finish&lt;/span&gt;
+&lt;span class="k"&gt;endif&lt;/span&gt;
+&lt;span class="nv"&gt;augroup&lt;/span&gt; &lt;span class="nv"&gt;markdown&lt;/span&gt;
+  &lt;span class="nv"&gt;au&lt;/span&gt;&lt;span class="o"&gt;!&lt;/span&gt; &lt;span class="nv"&gt;BufRead&lt;/span&gt;,&lt;span class="nv"&gt;BufNewFile&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt;.&lt;span class="nv"&gt;mkd&lt;/span&gt;   &lt;span class="nv"&gt;setfiletype&lt;/span&gt; &lt;span class="nv"&gt;mkd&lt;/span&gt;
+&lt;span class="nv"&gt;augroup&lt;/span&gt; &lt;span class="k"&gt;END&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;并在"~/.vimrc"文件中添加如下内容：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;Markdown language syntax settings&lt;/span&gt;
+&lt;span class="nv"&gt;augroup&lt;/span&gt; &lt;span class="nv"&gt;mkd&lt;/span&gt;
+  &lt;span class="nv"&gt;autocmd&lt;/span&gt; &lt;span class="nv"&gt;BufRead&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt;.&lt;span class="nv"&gt;mkd&lt;/span&gt;  &lt;span class="nv"&gt;set&lt;/span&gt; &lt;span class="nv"&gt;ai&lt;/span&gt; &lt;span class="nv"&gt;formatoptions&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="nv"&gt;tcroqn2&lt;/span&gt; &lt;span class="nv"&gt;comments&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="nv"&gt;n&lt;/span&gt;:&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
+&lt;span class="nv"&gt;augroup&lt;/span&gt; &lt;span class="k"&gt;END&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;然后，后缀名为".mkd"的文件就能被自动启用Markdown的语法高亮了。&lt;/p&gt;</content><category term="VIM"></category><category term="Markdown"></category><category term="configuration"></category><category term="vimrc"></category></entry></feed>

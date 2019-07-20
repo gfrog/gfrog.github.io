@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="zh_cn" prefix="og: http://ogp.me/ns# fb: https://www.facebook.com/2008/fbml">
+<head>
+    <title>site - My Life, My Love!</title>
+    <!-- Using the latest rendering mode for IE -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+
+
+    <meta name="author" content="gfrog" />
+    <meta name="keywords" content="site" />
+
+    <!-- Open Graph tags -->
+        <meta property="og:site_name" content="My Life, My Love!" />
+        <meta property="og:type" content="website"/>
+        <meta property="og:title" content="My Life, My Love!"/>
+        <meta property="og:url" content=".."/>
+        <meta property="og:description" content="My Life, My Love!"/>
+
+
+
+    <!-- Bootstrap -->
+        <link rel="stylesheet" href="../theme/css/bootstrap.min.css" type="text/css"/>
+    <link href="../theme/css/font-awesome.min.css" rel="stylesheet">
+
+    <link href="../theme/css/pygments/default.css" rel="stylesheet">
+    <link rel="stylesheet" href="../theme/css/style.css" type="text/css"/>
+
+        <link href="../feeds/all.atom.xml" type="application/atom+xml" rel="alternate"
+              title="My Life, My Love! ATOM Feed"/>
+
+        <link href="../feeds/all.rss.xml" type="application/rss+xml" rel="alternate"
+              title="My Life, My Love! RSS Feed"/>
+
+</head>
+<body>
+
+<div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+        <div class="navbar-header">
+            <a href="../" class="navbar-brand">
+My Life, My Love!            </a>
+        </div>
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+            <ul class="nav navbar-nav">
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+</div> <!-- /.navbar -->
+
+<!-- Banner -->
+<!-- End Banner -->
+
+<!-- Content Container -->
+<div class="container">
+    <div class="row">
+        <div class="col-sm-9">
+            <article>
+                <h2><a href="../2019/07/import-instagram-pictures-into-blog/">将Instagram内容导入Blog</a></h2>
+                    <div class="well well-sm">
+<footer class="post-info">
+    <span class="label label-default">Date</span>
+    <span class="published">
+        <i class="fa fa-calendar"></i><time datetime="2019-07-04T00:07:46+08:00"> Thu 04 July 2019</time>
+    </span>
+
+
+
+        <span class="label label-default">Category</span>
+        <a href="../category/site.html">Site</a>
+
+
+<span class="label label-default">Tags</span>
+	<a href="../tag/site.html">site</a>
+        /
+	<a href="../tag/instagram.html">instagram</a>
+        /
+	<a href="../tag/python.html">python</a>
+    
+</footer><!-- /.post-info -->                    </div>
+                <div class="summary"><p><img alt="1" src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Instagram_logo.svg/1200px-Instagram_logo.svg.png" width="400px"></p>
+<p>青蛙关站的这几年，虽然没有写blog，但是instagram和twitter发了可真不少。
+今天研究了下怎么导入instagram的照片和twitter的条目。
+看起来instagram很容易实现，因为有一个python的客户端
+<a href="https://instaloader.github.io/">Instaloader</a>
+。</p>
+<p>首先，用pip把这个客户端装上</p>
+<div class="highlight"><pre><span></span>$ pip3 install instaloader
+</pre></div>
+
+
+<p>然后，自己搞个脚本，从instagram数据里面直接生成markdown文件，写的不太好看，不过数据基本完美导入Blog了。</p>
+<div class="gist">
+    <script src='https://gist.github.com/92087c750e9293213b69f0f1765e3fad.js'></script>
+    <noscript>
+        <pre><code>import instaloader
+import os
+import time
+
+L=instaloader.Instaloader()
+L.interactive_login("gfrogcn")
+
+profile = instaloader.Profile.from_username(L.context, "gfrogcn")
+
+new_template ="""title: Instagram Picture %s
+date: %s 23:59:59
+slug: instagram-picture-%s
+category …</code></pre></noscript></div>
+                    <a class="btn btn-default btn-xs" href="../2019/07/import-instagram-pictures-into-blog/">more ...</a>
+                </div>
+            </article>
+            <hr/>
+            <article>
+                <h2><a href="../2019/07/this-blog-recovered-on-github/">本站重新恢复</a></h2>
+                    <div class="well well-sm">
+<footer class="post-info">
+    <span class="label label-default">Date</span>
+    <span class="published">
+        <i class="fa fa-calendar"></i><time datetime="2019-07-03T01:08:39+08:00"> Wed 03 July 2019</time>
+    </span>
+
+
+
+        <span class="label label-default">Category</span>
+        <a href="../category/misc.html">Misc</a>
+
+
+<span class="label label-default">Tags</span>
+	<a href="../tag/site.html">site</a>
+        /
+	<a href="../tag/github.html">github</a>
+        /
+	<a href="../tag/pelican.html">pelican</a>
+    
+</footer><!-- /.post-info -->                    </div>
+                <div class="summary"><p><img src="https://cdn.mos.cms.futurecdn.net/1e01a79c2d42ec9f16e6ffbc512e5423-650-80.jpg" width="300"></p>
+<p>目前本站已经在github上恢复，从2007-2013年的数据大部分已经可以访问。</p>
+<p>从上海出差回来之后，青蛙突然有了把blog恢复的动力。
+努力了三天，重新使用pelican构建了blog，
+然后review了一遍之前的post，修复了一大堆错误。</p>
+<p>回顾当年的老文章，感慨良多。当年青蛙也是个爱学习的好孩子，
+同时不禁感叹这些年真的没有神马进步。</p>
+<p>重新开站，不对自己做硬性指标了，希望能认真写/记录点啥。</p>
+<p>本站域名：</p>
+<h2><a href="https://www.gfrog.net/">https://www.gfrog.net/</a></h2>
+<p>源码：</p>
+<p><a href="https://github.com/gfrog/gfrog.github.io">https://github.com/gfrog/gfrog.github.io</a></p>
+                    <a class="btn btn-default btn-xs" href="../2019/07/this-blog-recovered-on-github/">more ...</a>
+                </div>
+            </article>
+            <hr/>
+            <article>
+                <h2><a href="../2013/03/convert-wordpress-to-octopress/">Wordpress转换到Octopress</a></h2>
+                    <div class="well well-sm">
+<footer class="post-info">
+    <span class="label label-default">Date</span>
+    <span class="published">
+        <i class="fa fa-calendar"></i><time datetime="2013-03-08T21:11:00+08:00"> Fri 08 March 2013</time>
+    </span>
+
+
+
+        <span class="label label-default">Category</span>
+        <a href="../category/site.html">Site</a>
+
+
+<span class="label label-default">Tags</span>
+	<a href="../tag/site.html">site</a>
+        /
+	<a href="../tag/setup.html">setup</a>
+        /
+	<a href="../tag/configuration.html">configuration</a>
+        /
+	<a href="../tag/wordpress.html">wordpress</a>
+        /
+	<a href="../tag/octopress.html">octopress</a>
+        /
+	<a href="../tag/ruby.html">ruby</a>
+        /
+	<a href="../tag/git.html">git</a>
+        /
+	<a href="../tag/github.html">github</a>
+    
+</footer><!-- /.post-info -->                    </div>
+                <div class="summary"><p>今天青蛙下定决心干掉Wordpress了，不为别的，就因为
+在大天朝访问Openshift不靠谱的连接状态。</p>
+<p>把Wordpress转换到Octopress这件事，对于天天泡在github
+上的青蛙来说，实在是简单到爆了。github账户有了，ruby
+运行环境有了，只要简单几步就够了：</p>
+<ol>
+<li>按照 <a href="http://octopress.org/docs/setup/">http://octopress.org/docs/setup/</a>
+    git clone回octopress代码，安装bundler，安装默认主题。</li>
+<li>按照 <a href="http://octopress.org/docs/deploying/github/">http://octopress.org/docs/deploying/github/</a> 
+    在github上新建一个repo，名字取为"your_github_id.github.com"，在Octopress的目录中执行
+    <code>rake setup_github_pages</code>， 在提示符中填入这个新建的repo的git地址。</li>
+<li>然后
+        rake generate
+        rake deploy</li>
+<li>用浏览器访问"http://your_github_id.github.com"，应该就能看到Octopress的页面了。</li>
+<li>
+<p>记得要把源码 …</p></li></ol>
+                    <a class="btn btn-default btn-xs" href="../2013/03/convert-wordpress-to-octopress/">more ...</a>
+                </div>
+            </article>
+            <hr/>
+            <article>
+                <h2><a href="../2012/08/this-blog-has-transfered-to-openshift/">本blog已经迁移到 Openshift</a></h2>
+                    <div class="well well-sm">
+<footer class="post-info">
+    <span class="label label-default">Date</span>
+    <span class="published">
+        <i class="fa fa-calendar"></i><time datetime="2012-08-18T11:02:31+08:00"> Sat 18 August 2012</time>
+    </span>
+
+
+
+        <span class="label label-default">Category</span>
+        <a href="../category/site.html">Site</a>
+
+
+<span class="label label-default">Tags</span>
+	<a href="../tag/site.html">site</a>
+        /
+	<a href="../tag/setup.html">setup</a>
+        /
+	<a href="../tag/vps.html">vps</a>
+        /
+	<a href="../tag/openshift.html">openshift</a>
+        /
+	<a href="../tag/pass.html">pass</a>
+    
+</footer><!-- /.post-info -->                    </div>
+                <div class="summary"><p>本Blog今天已经正式迁移到Openshift平台上了，欢迎反馈问题报告及速度报告。</p>
+<p>同时在linode的服务器已经关闭。</p>
+<p>其实linode真的很好很不错，只是青蛙的blog根本用不到一个vps来支持，
+vps上的资源几乎每天都是浪费掉的，还不如用PaaS平台低碳一些。</p>
+<p><img alt="generate_graph.png" src="https://lh6.googleusercontent.com/-BxNOTrFKcBg/UC8DnW1hxxI/AAAAAAAAHuA/qy2wpNWaReM/s800/generate_graph.png"></p>
+<p><img alt="generate_graph_mem.png" src="https://lh6.googleusercontent.com/-gN1jz58MRK8/UC8DneddYSI/AAAAAAAAHuI/h0D9R4F0kj0/s800/generate_graph_mem.png"></p>
+                    <a class="btn btn-default btn-xs" href="../2012/08/this-blog-has-transfered-to-openshift/">more ...</a>
+                </div>
+            </article>
+            <hr/>
+            <article>
+                <h2><a href="../2011/12/expand-tco-link-in-twip/">在Twip中转换t.co链接</a></h2>
+                    <div class="well well-sm">
+<footer class="post-info">
+    <span class="label label-default">Date</span>
+    <span class="published">
+        <i class="fa fa-calendar"></i><time datetime="2011-12-18T01:30:00+08:00"> Sun 18 December 2011</time>
+    </span>
+
+
+
+        <span class="label label-default">Category</span>
+        <a href="../category/programming.html">Programming</a>
+
+
+<span class="label label-default">Tags</span>
+	<a href="../tag/php.html">php</a>
+        /
+	<a href="../tag/twitter.html">twitter</a>
+        /
+	<a href="../tag/client.html">client</a>
+        /
+	<a href="../tag/patch.html">patch</a>
+        /
+	<a href="../tag/site.html">site</a>
+    
+</footer><!-- /.post-info -->                    </div>
+                <div class="summary"><p>自从Twitter强制把所有链接都转换为t.co之后，在手机上访问这些地址就成了大问题，开VPN慢，绕了一圈发现是国内地址，不开干脆访问不能。于是青蛙一直酝酿在Twip那里把短链接扩展。</p>
+<p>今天有时间，研究了一下，本来打算自己写的，但是本着不重复造轮子的态度，写之前google了一下，这不，这位同学已经写好了：
+<a href="http://hjin.me/code/727/">http://hjin.me/code/727/</a> ,
+全部修改的代码贴到了这里：
+<a href="http://pastebin.com/f4Gw0DND">http://pastebin.com/f4Gw0DND</a>
+青蛙拿过来直接扔进twip，问题解决。</p>
+<p>青蛙在这放出一个基于twip r204版本的patch吧，另外还有一个小修改的补丁，修复一些情况下的警告信息。</p>
+<p><a href="https://code.google.com/p/gfrog/downloads/detail?name=0001-twip-enable-expand-tco-link.patch&amp;can=2&amp;q=">0001-twip-enable-expand-tco-link.patch</a></p>
+<p><a href="https://code.google.com/p/gfrog/downloads/detail?name=0002-twip-fix-some-warning-msg-in-expand-tco-link-patch.patch&amp;can=2&amp;q=">0002-twip-fix-some-warning-msg-in-expand-tco-link-patch.patch</a></p>
+<p>这个修改只能解决t.co的问题，没办法解决其他被关照到的短网址服务，
+所以青蛙仍然酝酿着什么时候搞一个把所有短网址都展开的补丁。</p>
+<p>不过青蛙看php代码实在是头疼，只好下次有时间再硬着头皮读代码改吧。</p>
+                    <a class="btn btn-default btn-xs" href="../2011/12/expand-tco-link-in-twip/">more ...</a>
+                </div>
+            </article>
+            <hr/>
+            <article>
+                <h2><a href="../2010/12/shutdown-account-on-dreamhost/">青蛙的Dreamhost账户正式关闭</a></h2>
+                    <div class="well well-sm">
+<footer class="post-info">
+    <span class="label label-default">Date</span>
+    <span class="published">
+        <i class="fa fa-calendar"></i><time datetime="2010-12-29T23:10:20+08:00"> Wed 29 December 2010</time>
+    </span>
+
+
+
+        <span class="label label-default">Category</span>
+        <a href="../category/site.html">Site</a>
+
+
+<span class="label label-default">Tags</span>
+	<a href="../tag/dreamhost.html">Dreamhost</a>
+        /
+	<a href="../tag/site.html">site</a>
+        /
+	<a href="../tag/sharing.html">sharing</a>
+    
+</footer><!-- /.post-info -->                    </div>
+                <div class="summary"><p>青蛙本来想让DH欠费自动停止服务的，
+但是想了一下，还是自己清理一下痕迹然后手动关闭比较好。</p>
+<p>手工删掉了所有的域名和数据库
+（这步操作十分蛋疼，后来发现关闭账户的时候会自动删除），然后取消账户。</p>
+<p>转眼之间，青蛙的网站在DH上也开了3年了，但是仍旧是没人看的状态，
+不过也无所谓，其实就是想有一块可以自由支配的地方。</p>
+<p>3年中给很多朋友们提供了免费的空间服务，青蛙觉得很开心，
+流量闲着也是闲着，拿来给朋友们练手也是很好的。</p>
+<p>在此感谢朋友们对青蛙的支持，谢谢大家。</p>
+<p>今年年中青蛙的DH帐号终于切换成无限流量和空间的了，
+于是青蛙启动了一个免费空间共享计划，但是申请者寥寥，难道是青蛙的要求太严格？</p>
+<p>青蛙在linode上的新服务器已经基本稳定了，虽然还有些细小的问题。</p>
+<p>先使用一个月看一下资源的耗费情况，如果有可能，青蛙还是想尽量给大家多提供一些免费资源来用。</p>
+                    <a class="btn btn-default btn-xs" href="../2010/12/shutdown-account-on-dreamhost/">more ...</a>
+                </div>
+            </article>
+            <hr/>
+            <article>
+                <h2><a href="../2010/12/recommend-plugin-wp-super-cache/">推荐插件： wp-super-cache</a></h2>
+                    <div class="well well-sm">
+<footer class="post-info">
+    <span class="label label-default">Date</span>
+    <span class="published">
+        <i class="fa fa-calendar"></i><time datetime="2010-12-25T00:22:10+08:00"> Sat 25 December 2010</time>
+    </span>
+
+
+
+        <span class="label label-default">Category</span>
+        <a href="../category/site.html">Site</a>
+
+
+<span class="label label-default">Tags</span>
+	<a href="../tag/wordpress.html">wordpress</a>
+        /
+	<a href="../tag/site.html">site</a>
+        /
+	<a href="../tag/vps.html">vps</a>
+        /
+	<a href="../tag/performance.html">performance</a>
+        /
+	<a href="../tag/cache.html">cache</a>
+        /
+	<a href="../tag/plugin.html">plugin</a>
+    
+</footer><!-- /.post-info -->                    </div>
+                <div class="summary"><p>在wowubuntu！[1]上看到的wp-super-cache这个插件，青蛙立即拿来试验了一下，功效很显著。</p>
+<p>没有优化前，青蛙用pingdom[2]测试主页面载入速度，需要将近4秒的时间。</p>
+<p>优化过后是这样：</p>
+<p><a href="http://gfrog.net/wp-content/uploads/2010/12/pingdom.jpeg"><img alt="1" src="http://gfrog.net/wp-content/uploads/2010/12/pingdom.jpeg"></a></p>
+<p>接下来需要考虑的就是怎样减小那几个js文件的载入时间了，还没找到头绪，希望能得到大牛的指点 ：）</p>
+<p>另外需要注意一下的是，如果是nginx环境安装wp-super-cache插件，
+需要的rewrite规则在[1]中有提供，但是那个版本是有问题的，这里[3]的版本才是正确的。</p>
+<p>参考资料：</p>
+<p>[1] 小内存 VPS 优化建议 (LNMP+WordPress 环境) <a href="http://wowubuntu.com/vps-optimize.html">http://wowubuntu.com/vps-optimize.html</a></p>
+<p>[2] Pingdom tools <a href="http://tools.pingdom.com">http://tools.pingdom.com</a></p>
+<p>[3] Code Exchange: nginx rewrite rules for …</p>
+                    <a class="btn btn-default btn-xs" href="../2010/12/recommend-plugin-wp-super-cache/">more ...</a>
+                </div>
+            </article>
+            <hr/>
+
+        <ul class="pagination">
+                <li class="prev disabled"><a href="#">&laquo;</a></li>
+                    <li class="active"><a
+                            href="../tag/site.html">1</a></li>
+                    <li class=""><a
+                            href="../tag/site2.html">2</a></li>
+                <li class="next"><a
+                        href="../tag/site2.html">&raquo;</a></li>
+        </ul>
+        </div>
+        <div class="col-sm-3" id="sidebar">
+            <aside>
+<!-- Sidebar -->
+<section class="well well-sm">
+  <ul class="list-group list-group-flush">
+
+<!-- Sidebar/Social -->
+<li class="list-group-item">
+  <h4>Social</h4>
+  <ul class="list-group" id="social">
+    <li class="list-group-item"><a href="https://twitter.com/gfrog"><i class="fa fa-twitter-square fa-lg"></i> Twitter</a></li>
+    <li class="list-group-item"><a href="/pages/tweets-archive.html"><i class="fa fa-tweets-archive-square fa-lg"></i> Tweets Archive</a></li>
+    <li class="list-group-item"><a href="/pages/instagram-archive.html"><i class="fa fa-instagram-archive-square fa-lg"></i> Instagram Archive</a></li>
+  </ul>
+</li>
+<!-- End Sidebar/Social -->
+
+<!-- Sidebar/Categories -->
+<li class="list-group-item">
+  <h4>Categories</h4>
+  <ul class="list-group" id="categories">
+    <li class="list-group-item">
+      <a href="../category/cyclone.html">Cyclone</a>
+    </li>
+    <li class="list-group-item">
+      <a href="../category/instagram.html">Instagram</a>
+    </li>
+    <li class="list-group-item">
+      <a href="../category/linux.html">Linux</a>
+    </li>
+    <li class="list-group-item">
+      <a href="../category/misc.html">Misc</a>
+    </li>
+    <li class="list-group-item">
+      <a href="../category/mobile.html">Mobile</a>
+    </li>
+    <li class="list-group-item">
+      <a href="../category/networking.html">Networking</a>
+    </li>
+    <li class="list-group-item">
+      <a href="../category/pictures.html">Pictures</a>
+    </li>
+    <li class="list-group-item">
+      <a href="../category/programming.html">Programming</a>
+    </li>
+    <li class="list-group-item">
+      <a href="../category/site.html">Site</a>
+    </li>
+    <li class="list-group-item">
+      <a href="../category/travel.html">Travel</a>
+    </li>
+    <li class="list-group-item">
+      <a href="../category/vim.html">VIM</a>
+    </li>
+    <li class="list-group-item">
+      <a href="../category/virt.html">Virt</a>
+    </li>
+  </ul>
+</li>
+<!-- End Sidebar/Categories -->
+
+<!-- Sidebar/Links -->
+<li class="list-group-item">
+  <h4>Links</h4>
+  <ul class="list-group" id="links">
+    <li class="list-group-item">
+      <a href="http://getpelican.com/" target="_blank">Pelican</a>
+    </li>
+    <li class="list-group-item">
+      <a href="http://python.org/" target="_blank">Python.org</a>
+    </li>
+    <li class="list-group-item">
+      <a href="http://jinja.pocoo.org/" target="_blank">Jinja2</a>
+    </li>
+  </ul>
+</li>
+<!-- End Sidebar/Links -->
+  </ul>
+</section>
+<!-- End Sidebar -->            </aside>
+        </div>
+    </div>
+</div>
+<!-- End Content Container -->
+
+<footer>
+   <div class="container">
+      <hr>
+      <div class="row">
+         <div class="col-xs-10">&copy; 2019 gfrog
+            &middot; Powered by <a href="https://github.com/getpelican/pelican-themes/tree/master/pelican-bootstrap3" target="_blank">pelican-bootstrap3</a>,
+            <a href="http://docs.getpelican.com/" target="_blank">Pelican</a>,
+            <a href="http://getbootstrap.com" target="_blank">Bootstrap</a>                <p><small>  <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh_cn"><img alt="Creative Commons License" style="border-width:0" src="//i.creativecommons.org/l/by-nc-sa/4.0/80x15.png" /></a>
+    Content
+  licensed under a <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh_cn">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>, except where indicated otherwise.
+</small></p>
+         </div>
+         <div class="col-xs-2"><p class="pull-right"><i class="fa fa-arrow-up"></i> <a href="#">Back to top</a></p></div>
+      </div>
+   </div>
+</footer>
+<script src="../theme/js/jquery.min.js"></script>
+
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="../theme/js/bootstrap.min.js"></script>
+
+<!-- Enable responsive features in IE8 with Respond.js (https://github.com/scottjehl/Respond) -->
+<script src="../theme/js/respond.min.js"></script>
+
+
+    <!-- Disqus -->
+    <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = 'gfrog'; // required: replace example with your forum shortname
+
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function () {
+            var s = document.createElement('script');
+            s.async = true;
+            s.type = 'text/javascript';
+            s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+            (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+        }());
+    </script>
+    <!-- End Disqus Code -->
+    <!-- Google Analytics -->
+    <script type="text/javascript">
+
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-769172-3']);
+        _gaq.push(['_trackPageview']);
+
+        (function () {
+            var ga = document.createElement('script');
+            ga.type = 'text/javascript';
+            ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(ga, s);
+        })();
+    </script>
+    <!-- End Google Analytics Code -->
+
+
+</body>
+</html>

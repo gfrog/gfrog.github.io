@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="zh_cn" prefix="og: http://ogp.me/ns# fb: https://www.facebook.com/2008/fbml">
+<head>
+    <title>twitter - My Life, My Love!</title>
+    <!-- Using the latest rendering mode for IE -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+
+
+    <meta name="author" content="gfrog" />
+    <meta name="keywords" content="twitter" />
+
+    <!-- Open Graph tags -->
+        <meta property="og:site_name" content="My Life, My Love!" />
+        <meta property="og:type" content="website"/>
+        <meta property="og:title" content="My Life, My Love!"/>
+        <meta property="og:url" content=".."/>
+        <meta property="og:description" content="My Life, My Love!"/>
+
+
+
+    <!-- Bootstrap -->
+        <link rel="stylesheet" href="../theme/css/bootstrap.min.css" type="text/css"/>
+    <link href="../theme/css/font-awesome.min.css" rel="stylesheet">
+
+    <link href="../theme/css/pygments/default.css" rel="stylesheet">
+    <link rel="stylesheet" href="../theme/css/style.css" type="text/css"/>
+
+        <link href="../feeds/all.atom.xml" type="application/atom+xml" rel="alternate"
+              title="My Life, My Love! ATOM Feed"/>
+
+        <link href="../feeds/all.rss.xml" type="application/rss+xml" rel="alternate"
+              title="My Life, My Love! RSS Feed"/>
+
+</head>
+<body>
+
+<div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+        <div class="navbar-header">
+            <a href="../" class="navbar-brand">
+My Life, My Love!            </a>
+        </div>
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+            <ul class="nav navbar-nav">
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+</div> <!-- /.navbar -->
+
+<!-- Banner -->
+<!-- End Banner -->
+
+<!-- Content Container -->
+<div class="container">
+    <div class="row">
+        <div class="col-sm-9">
+            <article>
+                <h2><a href="../2011/12/expand-tco-link-in-twip/">在Twip中转换t.co链接</a></h2>
+                    <div class="well well-sm">
+<footer class="post-info">
+    <span class="label label-default">Date</span>
+    <span class="published">
+        <i class="fa fa-calendar"></i><time datetime="2011-12-18T01:30:00+08:00"> Sun 18 December 2011</time>
+    </span>
+
+
+
+        <span class="label label-default">Category</span>
+        <a href="../category/programming.html">Programming</a>
+
+
+<span class="label label-default">Tags</span>
+	<a href="../tag/php.html">php</a>
+        /
+	<a href="../tag/twitter.html">twitter</a>
+        /
+	<a href="../tag/client.html">client</a>
+        /
+	<a href="../tag/patch.html">patch</a>
+        /
+	<a href="../tag/site.html">site</a>
+    
+</footer><!-- /.post-info -->                    </div>
+                <div class="summary"><p>自从Twitter强制把所有链接都转换为t.co之后，在手机上访问这些地址就成了大问题，开VPN慢，绕了一圈发现是国内地址，不开干脆访问不能。于是青蛙一直酝酿在Twip那里把短链接扩展。</p>
+<p>今天有时间，研究了一下，本来打算自己写的，但是本着不重复造轮子的态度，写之前google了一下，这不，这位同学已经写好了：
+<a href="http://hjin.me/code/727/">http://hjin.me/code/727/</a> ,
+全部修改的代码贴到了这里：
+<a href="http://pastebin.com/f4Gw0DND">http://pastebin.com/f4Gw0DND</a>
+青蛙拿过来直接扔进twip，问题解决。</p>
+<p>青蛙在这放出一个基于twip r204版本的patch吧，另外还有一个小修改的补丁，修复一些情况下的警告信息。</p>
+<p><a href="https://code.google.com/p/gfrog/downloads/detail?name=0001-twip-enable-expand-tco-link.patch&amp;can=2&amp;q=">0001-twip-enable-expand-tco-link.patch</a></p>
+<p><a href="https://code.google.com/p/gfrog/downloads/detail?name=0002-twip-fix-some-warning-msg-in-expand-tco-link-patch.patch&amp;can=2&amp;q=">0002-twip-fix-some-warning-msg-in-expand-tco-link-patch.patch</a></p>
+<p>这个修改只能解决t.co的问题，没办法解决其他被关照到的短网址服务，
+所以青蛙仍然酝酿着什么时候搞一个把所有短网址都展开的补丁。</p>
+<p>不过青蛙看php代码实在是头疼，只好下次有时间再硬着头皮读代码改吧。</p>
+                    <a class="btn btn-default btn-xs" href="../2011/12/expand-tco-link-in-twip/">more ...</a>
+                </div>
+            </article>
+            <hr/>
+            <article>
+                <h2><a href="../2011/01/in-reply-to-id-bug-of-twitter-digest-plugin/">修复twitter digest插件的无法正确显示in-reply-to-id的bug</a></h2>
+                    <div class="well well-sm">
+<footer class="post-info">
+    <span class="label label-default">Date</span>
+    <span class="published">
+        <i class="fa fa-calendar"></i><time datetime="2011-01-08T01:41:07+08:00"> Sat 08 January 2011</time>
+    </span>
+
+
+
+        <span class="label label-default">Category</span>
+        <a href="../category/site.html">Site</a>
+
+
+<span class="label label-default">Tags</span>
+	<a href="../tag/php.html">php</a>
+        /
+	<a href="../tag/twitter.html">twitter</a>
+        /
+	<a href="../tag/wordpress.html">wordpress</a>
+        /
+	<a href="../tag/plugin.html">plugin</a>
+        /
+	<a href="../tag/patch.html">patch</a>
+    
+</footer><!-- /.post-info -->                    </div>
+                <div class="summary"><p>青蛙一直在用twitter digest插件来把tweets同步到wordpress上。
+今天检查同步过来的tweets的时候，青蛙发现所有回复其他人的推中，
+in reply to的链接都失效了，tweet id变成了科学计数法的形式。</p>
+<p>这个问题是由于twitter digest没有正确处理这么大的tweet id造成的，
+青蛙在网上搜了一下处理php大整数的方法[1]，发现只需要把这个整数sprintf成一个string就好了。
+具体的修改方法：</p>
+<div class="highlight"><pre><span></span><span class="x">    --- twitter-digest-old.php  2011-01-07 17:35:01.000000000 +0000</span>
+<span class="x">    +++ twitter-digest.php     2011-01-07 17:16:34.000000000 +0000</span>
+<span class="x">    @@ -281,7 +281,7 @@</span>
+<span class="x">        $output .= ws_make_clickable(wp_specialchars($tweet-&gt;text));</span>
+<span class="x">        if (!empty($tweet-&gt;in_reply_to_screen_name)</span>
+<span class="x">            &amp;&amp; (!empty($tweet-&gt;in_reply_to_status_id))) {</span>
+<span class="x">    -    $output .=         &#39; &lt;a …</span></pre></div>
+                    <a class="btn btn-default btn-xs" href="../2011/01/in-reply-to-id-bug-of-twitter-digest-plugin/">more ...</a>
+                </div>
+            </article>
+            <hr/>
+
+        </div>
+        <div class="col-sm-3" id="sidebar">
+            <aside>
+<!-- Sidebar -->
+<section class="well well-sm">
+  <ul class="list-group list-group-flush">
+
+<!-- Sidebar/Social -->
+<li class="list-group-item">
+  <h4>Social</h4>
+  <ul class="list-group" id="social">
+    <li class="list-group-item"><a href="https://twitter.com/gfrog"><i class="fa fa-twitter-square fa-lg"></i> Twitter</a></li>
+    <li class="list-group-item"><a href="/pages/tweets-archive.html"><i class="fa fa-tweets-archive-square fa-lg"></i> Tweets Archive</a></li>
+    <li class="list-group-item"><a href="/pages/instagram-archive.html"><i class="fa fa-instagram-archive-square fa-lg"></i> Instagram Archive</a></li>
+  </ul>
+</li>
+<!-- End Sidebar/Social -->
+
+<!-- Sidebar/Categories -->
+<li class="list-group-item">
+  <h4>Categories</h4>
+  <ul class="list-group" id="categories">
+    <li class="list-group-item">
+      <a href="../category/cyclone.html">Cyclone</a>
+    </li>
+    <li class="list-group-item">
+      <a href="../category/instagram.html">Instagram</a>
+    </li>
+    <li class="list-group-item">
+      <a href="../category/linux.html">Linux</a>
+    </li>
+    <li class="list-group-item">
+      <a href="../category/misc.html">Misc</a>
+    </li>
+    <li class="list-group-item">
+      <a href="../category/mobile.html">Mobile</a>
+    </li>
+    <li class="list-group-item">
+      <a href="../category/networking.html">Networking</a>
+    </li>
+    <li class="list-group-item">
+      <a href="../category/pictures.html">Pictures</a>
+    </li>
+    <li class="list-group-item">
+      <a href="../category/programming.html">Programming</a>
+    </li>
+    <li class="list-group-item">
+      <a href="../category/site.html">Site</a>
+    </li>
+    <li class="list-group-item">
+      <a href="../category/travel.html">Travel</a>
+    </li>
+    <li class="list-group-item">
+      <a href="../category/vim.html">VIM</a>
+    </li>
+    <li class="list-group-item">
+      <a href="../category/virt.html">Virt</a>
+    </li>
+  </ul>
+</li>
+<!-- End Sidebar/Categories -->
+
+<!-- Sidebar/Links -->
+<li class="list-group-item">
+  <h4>Links</h4>
+  <ul class="list-group" id="links">
+    <li class="list-group-item">
+      <a href="http://getpelican.com/" target="_blank">Pelican</a>
+    </li>
+    <li class="list-group-item">
+      <a href="http://python.org/" target="_blank">Python.org</a>
+    </li>
+    <li class="list-group-item">
+      <a href="http://jinja.pocoo.org/" target="_blank">Jinja2</a>
+    </li>
+  </ul>
+</li>
+<!-- End Sidebar/Links -->
+  </ul>
+</section>
+<!-- End Sidebar -->            </aside>
+        </div>
+    </div>
+</div>
+<!-- End Content Container -->
+
+<footer>
+   <div class="container">
+      <hr>
+      <div class="row">
+         <div class="col-xs-10">&copy; 2011 gfrog
+            &middot; Powered by <a href="https://github.com/getpelican/pelican-themes/tree/master/pelican-bootstrap3" target="_blank">pelican-bootstrap3</a>,
+            <a href="http://docs.getpelican.com/" target="_blank">Pelican</a>,
+            <a href="http://getbootstrap.com" target="_blank">Bootstrap</a>                <p><small>  <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh_cn"><img alt="Creative Commons License" style="border-width:0" src="//i.creativecommons.org/l/by-nc-sa/4.0/80x15.png" /></a>
+    Content
+  licensed under a <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh_cn">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>, except where indicated otherwise.
+</small></p>
+         </div>
+         <div class="col-xs-2"><p class="pull-right"><i class="fa fa-arrow-up"></i> <a href="#">Back to top</a></p></div>
+      </div>
+   </div>
+</footer>
+<script src="../theme/js/jquery.min.js"></script>
+
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="../theme/js/bootstrap.min.js"></script>
+
+<!-- Enable responsive features in IE8 with Respond.js (https://github.com/scottjehl/Respond) -->
+<script src="../theme/js/respond.min.js"></script>
+
+
+    <!-- Disqus -->
+    <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = 'gfrog'; // required: replace example with your forum shortname
+
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function () {
+            var s = document.createElement('script');
+            s.async = true;
+            s.type = 'text/javascript';
+            s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+            (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+        }());
+    </script>
+    <!-- End Disqus Code -->
+    <!-- Google Analytics -->
+    <script type="text/javascript">
+
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-769172-3']);
+        _gaq.push(['_trackPageview']);
+
+        (function () {
+            var ga = document.createElement('script');
+            ga.type = 'text/javascript';
+            ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(ga, s);
+        })();
+    </script>
+    <!-- End Google Analytics Code -->
+
+
+</body>
+</html>

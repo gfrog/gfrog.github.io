@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="zh_cn" prefix="og: http://ogp.me/ns# fb: https://www.facebook.com/2008/fbml">
+<head>
+    <title>google - My Life, My Love!</title>
+    <!-- Using the latest rendering mode for IE -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+
+
+    <meta name="author" content="gfrog" />
+    <meta name="keywords" content="google" />
+
+    <!-- Open Graph tags -->
+        <meta property="og:site_name" content="My Life, My Love!" />
+        <meta property="og:type" content="website"/>
+        <meta property="og:title" content="My Life, My Love!"/>
+        <meta property="og:url" content=".."/>
+        <meta property="og:description" content="My Life, My Love!"/>
+
+
+
+    <!-- Bootstrap -->
+        <link rel="stylesheet" href="../theme/css/bootstrap.min.css" type="text/css"/>
+    <link href="../theme/css/font-awesome.min.css" rel="stylesheet">
+
+    <link href="../theme/css/pygments/default.css" rel="stylesheet">
+    <link rel="stylesheet" href="../theme/css/style.css" type="text/css"/>
+
+        <link href="../feeds/all.atom.xml" type="application/atom+xml" rel="alternate"
+              title="My Life, My Love! ATOM Feed"/>
+
+        <link href="../feeds/all.rss.xml" type="application/rss+xml" rel="alternate"
+              title="My Life, My Love! RSS Feed"/>
+
+</head>
+<body>
+
+<div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+        <div class="navbar-header">
+            <a href="../" class="navbar-brand">
+My Life, My Love!            </a>
+        </div>
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+            <ul class="nav navbar-nav">
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+</div> <!-- /.navbar -->
+
+<!-- Banner -->
+<!-- End Banner -->
+
+<!-- Content Container -->
+<div class="container">
+    <div class="row">
+        <div class="col-sm-9">
+            <article>
+                <h2><a href="../2019/07/create-a-google-map-plugin-for-pelican/">Pelican 的 Google Map 插件</a></h2>
+                    <div class="well well-sm">
+<footer class="post-info">
+    <span class="label label-default">Date</span>
+    <span class="published">
+        <i class="fa fa-calendar"></i><time datetime="2019-07-09T14:27:10+08:00"> Tue 09 July 2019</time>
+    </span>
+
+
+
+        <span class="label label-default">Category</span>
+        <a href="../category/site.html">Site</a>
+
+
+<span class="label label-default">Tags</span>
+	<a href="../tag/pelican.html">pelican</a>
+        /
+	<a href="../tag/google.html">google</a>
+        /
+	<a href="../tag/map.html">map</a>
+        /
+	<a href="../tag/python.html">python</a>
+        /
+	<a href="../tag/script.html">script</a>
+        /
+	<a href="../tag/coding.html">coding</a>
+        /
+	<a href="../tag/github.html">github</a>
+    
+</footer><!-- /.post-info -->                    </div>
+                <div class="summary"><p>青蛙最近整理照片和blog的时候，一直想想在blog post里添加一个地图。
+但是pelican似乎没有靠谱的google map plugin。
+虽然有一个
+<a href="https://pypi.org/project/google_embed/">google_embed</a>
+，但是似乎现在不能用了，按照它的README写好map之后，post里面完全不会转义。</p>
+<p>于是青蛙一怒之下自己照猫画虎写了个liquid_tag版本的google map，竟然也能用了。</p>
+<p>目前这个plugin支持map和direction模式，青蛙还在考虑要不要添加街景模式。</p>
+<p>添加map的方法：</p>
+<div class="highlight"><pre><span></span><span class="w">    </span><span class="err">{</span><span class="o">%</span><span class="w"> </span><span class="n">gmap</span><span class="w"> </span><span class="ss">&quot;location&quot;</span><span class="w"> </span><span class="n">mode</span><span class="w"> </span><span class="o">[</span><span class="n">maptype</span><span class="o">]</span><span class="w"> </span><span class="o">[</span><span class="n">align</span><span class="o">]</span><span class="w"> </span><span class="o">[</span><span class="n">width</span><span class="o">]</span><span class="w"> </span><span class="o">[</span><span class="n">height</span><span class="o">]</span><span class="w"> </span><span class="o">%</span><span class="err">}</span><span class="w"></span>
+</pre></div>
+
+
+<p><code>location</code>：必选项，指定地点，必须包含双引号，支持中文。</p>
+<p><code>mode</code>：必选项，地图模式，有<code>place</code>和<code>search</code>选项，
+指定地图显示单个地点或者搜索location中的关键字</p>
+<p><code>maptype</code>：地图的显示模式，包含<code>roadmap</code>和<code>satelite</code></p>
+<p><code>align</code>：地图在页面中的对齐方式，<code>left</code>、<code>center</code>或者<code>right …</code></p>
+                    <a class="btn btn-default btn-xs" href="../2019/07/create-a-google-map-plugin-for-pelican/">more ...</a>
+                </div>
+            </article>
+            <hr/>
+            <article>
+                <h2><a href="../2008/06/something-about-google-app-engine/">关于Google App Engine的一点点东西</a></h2>
+                    <div class="well well-sm">
+<footer class="post-info">
+    <span class="label label-default">Date</span>
+    <span class="published">
+        <i class="fa fa-calendar"></i><time datetime="2008-06-01T23:41:32+08:00"> Sun 01 June 2008</time>
+    </span>
+
+
+
+        <span class="label label-default">Category</span>
+        <a href="../category/misc.html">Misc</a>
+
+
+<span class="label label-default">Tags</span>
+	<a href="../tag/google.html">google</a>
+        /
+	<a href="../tag/appengine.html">appengine</a>
+        /
+	<a href="../tag/gae.html">gae</a>
+        /
+	<a href="../tag/ptyhon.html">ptyhon</a>
+    
+</footer><!-- /.post-info -->                    </div>
+                <div class="summary"><p><img alt="1" src="https://www.google.com/accounts/ah/logo_en_appengine.gif"></p>
+<p><img alt="1" src="http://code.google.com/appengine/images/appengine_lowres.jpg"></p>
+<p><a href="http://appengine.google.com/">Google App Engine</a>
+（以下简称GAE）服务推出来有段时间了，
+最近google刚刚完全开放了GAE的注册，并且公布了GAE未来的价格（原文在
+<a href="http://googleappengine.blogspot.com/2008/05/announcing-open-signups-expected.html">这里</a>
+，被盾，需要带套访问）。</p>
+<p>GAE是google提供的一个在线应用平台，提供从数据库到应用服务器的一整套东西，
+每个GAE应用可以免费使用500M存储空间和满足5百万pv/月的CPU跟资源。</p>
+<p>Google出的东西都很赞，GAE也是这样。
+它提供了一个成型的python应用框架，外加GFS强大的存储支持，
+在上面可很方便的建立自己的web应用。
+但是，青蛙注册账号以后，一直没有在上面做什么。
+原因？很简单，</p>
+<p>Ｇ。Ｆ。Ｗ！</p>
+<p>在Ｇ。Ｆ。Ｗ的阴影下，GAE服务很有可能就被干掉了。
+特别是存在
+<a href="http://gfw.appspot.com/">这种</a>
+服务的情况下。</p>
+<p>不过，鉴于现在有稳定的免费vpn支持，青蛙决定重新启动blog DIY计划，就在GAE平台上！</p>
+<p>各位，bless me吧。</p>
+                    <a class="btn btn-default btn-xs" href="../2008/06/something-about-google-app-engine/">more ...</a>
+                </div>
+            </article>
+            <hr/>
+            <article>
+                <h2><a href="../2008/01/first-google-phone-in-ces-2008/">首部Google Phone亮相CES 2008</a></h2>
+                    <div class="well well-sm">
+<footer class="post-info">
+    <span class="label label-default">Date</span>
+    <span class="published">
+        <i class="fa fa-calendar"></i><time datetime="2008-01-12T22:09:50+08:00"> Sat 12 January 2008</time>
+    </span>
+
+
+
+        <span class="label label-default">Category</span>
+        <a href="../category/mobile.html">Mobile</a>
+
+
+<span class="label label-default">Tags</span>
+	<a href="../tag/google.html">google</a>
+        /
+	<a href="../tag/phone.html">phone</a>
+    
+</footer><!-- /.post-info -->                    </div>
+                <div class="summary"><p>真没想到第一部Google Phone竟然是国人做出来的。
+虽然只是号称的Google Phone（为啥只是号称？下面有说明），不过这还是很让人兴奋的。</p>
+<p><img alt="1" src="http://pic.yupoo.com/gfrog/147524ec3ad8/yxnbidc1.jpg"></p>
+<p>这部手机型号为GW4，由启碁科技（Wistron NeWeb Corp）制造，预计今年第二季度就可以上市。
+虽然现在这部手机搭载的是一个叫做MontaVista Linux 2.6的Linux系统（这就是只是“号称”的原因），
+但是在2008年3月的时候就会运行Google Android了。</p>
+<p><img alt="2" src="http://pic.yupoo.com/gfrog/340794ec3ada/2ioqbr66.jpg"></p>
+<p>GW4基于TI OMAP 1710芯片，处理器主频216MHz，64 MB 程序内存。
+包含wifi功能，一个2.5英寸的触摸屏，一个200万像素的摄像头，还有全尺寸键盘。
+它包含Opera Web 浏览器、可以与Outlook进行同步的邮件、日程表软件， MSN/Yahoo/AIM客户端，
+还有Office 及 PDF 文件阅读器，和一些 Widget 如天气 …</p>
+                    <a class="btn btn-default btn-xs" href="../2008/01/first-google-phone-in-ces-2008/">more ...</a>
+                </div>
+            </article>
+            <hr/>
+            <article>
+                <h2><a href="../2007/06/cute-gmail/">gmail真是满可爱</a></h2>
+                    <div class="well well-sm">
+<footer class="post-info">
+    <span class="label label-default">Date</span>
+    <span class="published">
+        <i class="fa fa-calendar"></i><time datetime="2007-06-21T22:44:17+08:00"> Thu 21 June 2007</time>
+    </span>
+
+
+
+        <span class="label label-default">Category</span>
+        <a href="../category/misc.html">Misc</a>
+
+
+<span class="label label-default">Tags</span>
+	<a href="../tag/gmail.html">Gmail</a>
+        /
+	<a href="../tag/google.html">Google</a>
+        /
+	<a href="../tag/spam.html">spam</a>
+    
+</footer><!-- /.post-info -->                    </div>
+                <div class="summary"><p>今天收到了这个所谓的PayPal Security Center 寄来的邮件.</p>
+<p>被gmail给自动spam了.</p>
+<p>gmail竟然还能识别出来钓鱼邮件,真是太赞了.</p>
+<p><a href="http://www.yupoo.com/photos/view?id=ff8080811348fca801134eca56d306fa"><img alt="1" src="http://photo8.yupoo.com/20070621/225809_659298275.jpg"></a></p>
+                    <a class="btn btn-default btn-xs" href="../2007/06/cute-gmail/">more ...</a>
+                </div>
+            </article>
+            <hr/>
+
+        </div>
+        <div class="col-sm-3" id="sidebar">
+            <aside>
+<!-- Sidebar -->
+<section class="well well-sm">
+  <ul class="list-group list-group-flush">
+
+<!-- Sidebar/Social -->
+<li class="list-group-item">
+  <h4>Social</h4>
+  <ul class="list-group" id="social">
+    <li class="list-group-item"><a href="https://twitter.com/gfrog"><i class="fa fa-twitter-square fa-lg"></i> Twitter</a></li>
+    <li class="list-group-item"><a href="/pages/tweets-archive.html"><i class="fa fa-tweets-archive-square fa-lg"></i> Tweets Archive</a></li>
+    <li class="list-group-item"><a href="/pages/instagram-archive.html"><i class="fa fa-instagram-archive-square fa-lg"></i> Instagram Archive</a></li>
+  </ul>
+</li>
+<!-- End Sidebar/Social -->
+
+<!-- Sidebar/Categories -->
+<li class="list-group-item">
+  <h4>Categories</h4>
+  <ul class="list-group" id="categories">
+    <li class="list-group-item">
+      <a href="../category/cyclone.html">Cyclone</a>
+    </li>
+    <li class="list-group-item">
+      <a href="../category/instagram.html">Instagram</a>
+    </li>
+    <li class="list-group-item">
+      <a href="../category/linux.html">Linux</a>
+    </li>
+    <li class="list-group-item">
+      <a href="../category/misc.html">Misc</a>
+    </li>
+    <li class="list-group-item">
+      <a href="../category/mobile.html">Mobile</a>
+    </li>
+    <li class="list-group-item">
+      <a href="../category/networking.html">Networking</a>
+    </li>
+    <li class="list-group-item">
+      <a href="../category/pictures.html">Pictures</a>
+    </li>
+    <li class="list-group-item">
+      <a href="../category/programming.html">Programming</a>
+    </li>
+    <li class="list-group-item">
+      <a href="../category/site.html">Site</a>
+    </li>
+    <li class="list-group-item">
+      <a href="../category/travel.html">Travel</a>
+    </li>
+    <li class="list-group-item">
+      <a href="../category/vim.html">VIM</a>
+    </li>
+    <li class="list-group-item">
+      <a href="../category/virt.html">Virt</a>
+    </li>
+  </ul>
+</li>
+<!-- End Sidebar/Categories -->
+
+<!-- Sidebar/Links -->
+<li class="list-group-item">
+  <h4>Links</h4>
+  <ul class="list-group" id="links">
+    <li class="list-group-item">
+      <a href="http://getpelican.com/" target="_blank">Pelican</a>
+    </li>
+    <li class="list-group-item">
+      <a href="http://python.org/" target="_blank">Python.org</a>
+    </li>
+    <li class="list-group-item">
+      <a href="http://jinja.pocoo.org/" target="_blank">Jinja2</a>
+    </li>
+  </ul>
+</li>
+<!-- End Sidebar/Links -->
+  </ul>
+</section>
+<!-- End Sidebar -->            </aside>
+        </div>
+    </div>
+</div>
+<!-- End Content Container -->
+
+<footer>
+   <div class="container">
+      <hr>
+      <div class="row">
+         <div class="col-xs-10">&copy; 2019 gfrog
+            &middot; Powered by <a href="https://github.com/getpelican/pelican-themes/tree/master/pelican-bootstrap3" target="_blank">pelican-bootstrap3</a>,
+            <a href="http://docs.getpelican.com/" target="_blank">Pelican</a>,
+            <a href="http://getbootstrap.com" target="_blank">Bootstrap</a>                <p><small>  <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh_cn"><img alt="Creative Commons License" style="border-width:0" src="//i.creativecommons.org/l/by-nc-sa/4.0/80x15.png" /></a>
+    Content
+  licensed under a <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh_cn">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>, except where indicated otherwise.
+</small></p>
+         </div>
+         <div class="col-xs-2"><p class="pull-right"><i class="fa fa-arrow-up"></i> <a href="#">Back to top</a></p></div>
+      </div>
+   </div>
+</footer>
+<script src="../theme/js/jquery.min.js"></script>
+
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="../theme/js/bootstrap.min.js"></script>
+
+<!-- Enable responsive features in IE8 with Respond.js (https://github.com/scottjehl/Respond) -->
+<script src="../theme/js/respond.min.js"></script>
+
+
+    <!-- Disqus -->
+    <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = 'gfrog'; // required: replace example with your forum shortname
+
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function () {
+            var s = document.createElement('script');
+            s.async = true;
+            s.type = 'text/javascript';
+            s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+            (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+        }());
+    </script>
+    <!-- End Disqus Code -->
+    <!-- Google Analytics -->
+    <script type="text/javascript">
+
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-769172-3']);
+        _gaq.push(['_trackPageview']);
+
+        (function () {
+            var ga = document.createElement('script');
+            ga.type = 'text/javascript';
+            ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(ga, s);
+        })();
+    </script>
+    <!-- End Google Analytics Code -->
+
+
+</body>
+</html>

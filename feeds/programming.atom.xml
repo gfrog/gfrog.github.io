@@ -1,0 +1,461 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>My Life, My Love! - Programming</title><link href="https://www.gfrog.net/" rel="alternate"></link><link href="https://www.gfrog.net/feeds/programming.atom.xml" rel="self"></link><id>https://www.gfrog.net/</id><updated>2019-07-17T20:48:27+08:00</updated><subtitle>指点江山 激昂文字 修身隆德 自然自我</subtitle><entry><title>修复因为 Python 升级导致的失效 virtualenv 环境</title><link href="https://www.gfrog.net/2019/07/fix-python-virtualenv-after-python-upgrade/" rel="alternate"></link><published>2019-07-17T20:48:27+08:00</published><updated>2019-07-17T20:48:27+08:00</updated><author><name>gfrog</name></author><id>tag:www.gfrog.net,2019-07-17:/2019/07/fix-python-virtualenv-after-python-upgrade/</id><summary type="html">&lt;p&gt;&lt;img alt="python and macos" src="https://i1.wp.com/www.alexwhittemore.com/wp-content/uploads/2018/08/Untitled-drawing.jpg?ssl=1"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;（图片借用
+&lt;a href="https://www.alexwhittemore.com/python-on-macos-best-practices/"&gt;PYTHON ON MACOS: BEST PRACTICES&lt;/a&gt;
+的标题图，这篇文档也是关于MacOS上面运行python和virtualenv的。）&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;（本篇日志为
+&lt;a href="http://www.jeremycade.com/python/osx/homebrew/2015/03/02/fixing-virtualenv-after-a-python-upgrade/"&gt;How to fix your Python virtualenv after a Homebrew Python upgrade&lt;/a&gt;
+的翻译文档）&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;你在使用Homebrew管理你的OS X上面的Python嘛？最近有没有升级过Python？&lt;/p&gt;
+&lt;p&gt;我遇到的情况是Python 3的一个小更新：从3.4.2到3.4.3。
+这个升级足够让virtualenv里面的符号连接（symbolic links）失效了。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;例如&lt;/strong&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;~: &lt;span class="nb"&gt;cd&lt;/span&gt; ~/src/my_app
+~/src/my_app: &lt;span class="nb"&gt;source&lt;/span&gt; venv/bin/activate
+&lt;span class="o"&gt;[&lt;/span&gt;venv&lt;span class="o"&gt;]&lt;/span&gt; ~/src/my_app: python
+dyld …&lt;/pre&gt;&lt;/div&gt;</summary><content type="html">&lt;p&gt;&lt;img alt="python and macos" src="https://i1.wp.com/www.alexwhittemore.com/wp-content/uploads/2018/08/Untitled-drawing.jpg?ssl=1"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;（图片借用
+&lt;a href="https://www.alexwhittemore.com/python-on-macos-best-practices/"&gt;PYTHON ON MACOS: BEST PRACTICES&lt;/a&gt;
+的标题图，这篇文档也是关于MacOS上面运行python和virtualenv的。）&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;（本篇日志为
+&lt;a href="http://www.jeremycade.com/python/osx/homebrew/2015/03/02/fixing-virtualenv-after-a-python-upgrade/"&gt;How to fix your Python virtualenv after a Homebrew Python upgrade&lt;/a&gt;
+的翻译文档）&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;你在使用Homebrew管理你的OS X上面的Python嘛？最近有没有升级过Python？&lt;/p&gt;
+&lt;p&gt;我遇到的情况是Python 3的一个小更新：从3.4.2到3.4.3。
+这个升级足够让virtualenv里面的符号连接（symbolic links）失效了。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;例如&lt;/strong&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;~: &lt;span class="nb"&gt;cd&lt;/span&gt; ~/src/my_app
+~/src/my_app: &lt;span class="nb"&gt;source&lt;/span&gt; venv/bin/activate
+&lt;span class="o"&gt;[&lt;/span&gt;venv&lt;span class="o"&gt;]&lt;/span&gt; ~/src/my_app: python
+dyld: Library not loaded: @executable_path/../.Python
+  Referenced from: /Users/jeremycade/src/my_app/env/bin/python
+  Reason: image not found
+Trace/BPT trap: &lt;span class="m"&gt;5&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;正如我提到的那样，virtualenv内部的符号连接都指向了Homebrew安装的Python，
+升级之后这些符号连接都指向了错误的地方。
+解决方法是删除然后重建这些符号连接。&lt;/p&gt;
+&lt;p&gt;首先，我们需要确保你的virtualenv没有生效（active）。&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="o"&gt;[&lt;/span&gt;venv&lt;span class="o"&gt;]&lt;/span&gt; ~/src/my_app: deactivate
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;然后，删除这些错误的符号连接。&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;~/src/my_app: find venv -type l -delete
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;这里我使用了OS X自带的BSD 
+&lt;a href="http://www.openbsd.org/cgi-bin/man.cgi/OpenBSD-current/man1/find.1?query=find"&gt;find&lt;/a&gt;
+命令。&lt;/p&gt;
+&lt;p&gt;最后一步，重建你的virtualenv。&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;~src/my_app: virtualenv venv
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;hr&gt;
+&lt;p&gt;&lt;strong&gt;青蛙注&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;青蛙没有详细的研究这个问题。
+但是感觉上应该是
+&lt;a href="https://virtualenv.pypa.io/"&gt;virtualenv&lt;/a&gt;
+这个包引入的，如果使用python3内建的venv module，
+&lt;code&gt;python3 -m venv VENV_DIR&lt;/code&gt;
+这种方式创建virtualenv的时候，并不会创建符号连接。&lt;/p&gt;
+&lt;p&gt;所以结论是，在MacOS上尽量使用python内置的venv模块，
+而不是使用virtualenv包。&lt;/p&gt;</content><category term="python"></category><category term="python3"></category><category term="virtualenv"></category><category term="macos"></category><category term="osx"></category><category term="homebrew"></category><category term="shell"></category></entry><entry><title>Python Exception class中的args属性</title><link href="https://www.gfrog.net/2013/05/args-in-python-exception/" rel="alternate"></link><published>2013-05-13T13:09:00+08:00</published><updated>2013-05-13T13:09:00+08:00</updated><author><name>gfrog</name></author><id>tag:www.gfrog.net,2013-05-13:/2013/05/args-in-python-exception/</id><summary type="html">&lt;p&gt;话说今天青蛙遇到了一个bug，在某个Exception里抛出了TypeError Exception，
+青蛙仔细查了半天，才想到Exception有一个内置属性args，刚好跟这个Exception
+定义中的args重名。&lt;/p&gt;
+&lt;p&gt;首先看下这个Exception的定义：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;In&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;4&lt;/span&gt;&lt;span class="p"&gt;]:&lt;/span&gt; &lt;span class="k"&gt;class&lt;/span&gt; &lt;span class="nc"&gt;E&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="ne"&gt;Exception&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+    &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="fm"&gt;__init__&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;b&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;c&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+        &lt;span class="ne"&gt;Exception&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="fm"&gt;__init__&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+        &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;a&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;a&lt;/span&gt;
+        &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;args&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;b&lt;/span&gt;
+        &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;c&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;c&lt;/span&gt;
+    &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="fm"&gt;__str__&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+        &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;a = &lt;/span&gt;&lt;span class="si"&gt;%r&lt;/span&gt;&lt;span class="s2"&gt;, b = &lt;/span&gt;&lt;span class="si"&gt;%r&lt;/span&gt;&lt;span class="s2"&gt;, c = &lt;/span&gt;&lt;span class="si"&gt;%r&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt; &lt;span class="o"&gt;%&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;args&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;c&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="o"&gt;....&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;当这个Exception被触发时，又引发了一个TypeError：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;In …&lt;/span&gt;&lt;/pre&gt;&lt;/div&gt;</summary><content type="html">&lt;p&gt;话说今天青蛙遇到了一个bug，在某个Exception里抛出了TypeError Exception，
+青蛙仔细查了半天，才想到Exception有一个内置属性args，刚好跟这个Exception
+定义中的args重名。&lt;/p&gt;
+&lt;p&gt;首先看下这个Exception的定义：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;In&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;4&lt;/span&gt;&lt;span class="p"&gt;]:&lt;/span&gt; &lt;span class="k"&gt;class&lt;/span&gt; &lt;span class="nc"&gt;E&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="ne"&gt;Exception&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+    &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="fm"&gt;__init__&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;b&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;c&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+        &lt;span class="ne"&gt;Exception&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="fm"&gt;__init__&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+        &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;a&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;a&lt;/span&gt;
+        &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;args&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;b&lt;/span&gt;
+        &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;c&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;c&lt;/span&gt;
+    &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="fm"&gt;__str__&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+        &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;a = &lt;/span&gt;&lt;span class="si"&gt;%r&lt;/span&gt;&lt;span class="s2"&gt;, b = &lt;/span&gt;&lt;span class="si"&gt;%r&lt;/span&gt;&lt;span class="s2"&gt;, c = &lt;/span&gt;&lt;span class="si"&gt;%r&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt; &lt;span class="o"&gt;%&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;args&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;c&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="o"&gt;....&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;当这个Exception被触发时，又引发了一个TypeError：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;In&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;5&lt;/span&gt;&lt;span class="p"&gt;]:&lt;/span&gt; &lt;span class="k"&gt;raise&lt;/span&gt; &lt;span class="n"&gt;E&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;1&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="bp"&gt;None&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;3&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="o"&gt;---------------------------------------------------------------------------&lt;/span&gt;
+&lt;span class="ne"&gt;TypeError&lt;/span&gt;                                 &lt;span class="n"&gt;Traceback&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;most&lt;/span&gt; &lt;span class="n"&gt;recent&lt;/span&gt; &lt;span class="n"&gt;call&lt;/span&gt; &lt;span class="n"&gt;last&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;ipython&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="nb"&gt;input&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;6&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;b57acf162917&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;module&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;span class="o"&gt;----&amp;gt;&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt; &lt;span class="k"&gt;raise&lt;/span&gt; &lt;span class="n"&gt;E&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;1&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="bp"&gt;None&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;3&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;ipython&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="nb"&gt;input&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;5&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;fac85dd51acb&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="fm"&gt;__init__&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;b&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;c&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+      &lt;span class="mi"&gt;2&lt;/span&gt;     &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="fm"&gt;__init__&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;b&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;c&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+      &lt;span class="mi"&gt;3&lt;/span&gt;         &lt;span class="ne"&gt;Exception&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="fm"&gt;__init__&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+      &lt;span class="mi"&gt;4&lt;/span&gt;         &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;a&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;a&lt;/span&gt;
+&lt;span class="o"&gt;----&amp;gt;&lt;/span&gt; &lt;span class="mi"&gt;5&lt;/span&gt;         &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;args&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;b&lt;/span&gt;
+      &lt;span class="mi"&gt;6&lt;/span&gt;         &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;c&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;c&lt;/span&gt;
+      &lt;span class="mi"&gt;7&lt;/span&gt;     &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="fm"&gt;__str__&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+
+&lt;span class="ne"&gt;TypeError&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;NoneType&amp;#39;&lt;/span&gt; &lt;span class="nb"&gt;object&lt;/span&gt; &lt;span class="ow"&gt;is&lt;/span&gt; &lt;span class="ow"&gt;not&lt;/span&gt; &lt;span class="n"&gt;iterable&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;这就是Exception的args属性在作怪了，如果把self.args的名字换一下，世界又恢复正常了。&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;In&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;]:&lt;/span&gt; &lt;span class="k"&gt;class&lt;/span&gt; &lt;span class="nc"&gt;E&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="ne"&gt;Exception&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+    &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="fm"&gt;__init__&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;b&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;c&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+        &lt;span class="ne"&gt;Exception&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="fm"&gt;__init__&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+        &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;a&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;a&lt;/span&gt;
+        &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;b&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;b&lt;/span&gt;
+        &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;c&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;c&lt;/span&gt;
+    &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="fm"&gt;__str__&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+        &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;a = &lt;/span&gt;&lt;span class="si"&gt;%r&lt;/span&gt;&lt;span class="s2"&gt;, b = &lt;/span&gt;&lt;span class="si"&gt;%r&lt;/span&gt;&lt;span class="s2"&gt;, c = &lt;/span&gt;&lt;span class="si"&gt;%r&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt; &lt;span class="o"&gt;%&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;b&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;c&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="o"&gt;....&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+
+&lt;span class="n"&gt;In&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="p"&gt;]:&lt;/span&gt; &lt;span class="k"&gt;raise&lt;/span&gt; &lt;span class="n"&gt;E&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;1&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="bp"&gt;None&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;3&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="o"&gt;---------------------------------------------------------------------------&lt;/span&gt;
+&lt;span class="n"&gt;E&lt;/span&gt;                                         &lt;span class="n"&gt;Traceback&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;most&lt;/span&gt; &lt;span class="n"&gt;recent&lt;/span&gt; &lt;span class="n"&gt;call&lt;/span&gt; &lt;span class="n"&gt;last&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;ipython&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="nb"&gt;input&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;b57acf162917&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;module&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;span class="o"&gt;----&amp;gt;&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt; &lt;span class="k"&gt;raise&lt;/span&gt; &lt;span class="n"&gt;E&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;1&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="bp"&gt;None&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;3&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+&lt;span class="n"&gt;E&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;a&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;1&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;b&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="bp"&gt;None&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;c&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;3&amp;#39;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;背后的原因呢，就是Python不管这个args是啥，都会转换成一个tuple，
+但是当args是一个NoneType，问题就来了。&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;  &lt;span class="mi"&gt;17&lt;/span&gt; &lt;span class="cm"&gt;/*&lt;/span&gt;
+&lt;span class="cm"&gt;  18  *    BaseException&lt;/span&gt;
+&lt;span class="cm"&gt;  19  */&lt;/span&gt;
+  &lt;span class="mi"&gt;20&lt;/span&gt; &lt;span class="k"&gt;static&lt;/span&gt; &lt;span class="n"&gt;PyObject&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt;
+  &lt;span class="mi"&gt;21&lt;/span&gt; &lt;span class="n"&gt;BaseException_new&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;PyTypeObject&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;type&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;PyObject&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;args&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;PyObject&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;kwds&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+  &lt;span class="mi"&gt;22&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+  &lt;span class="mi"&gt;23&lt;/span&gt;     &lt;span class="n"&gt;PyBaseExceptionObject&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;self&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+  &lt;span class="mi"&gt;24&lt;/span&gt;
+  &lt;span class="mi"&gt;25&lt;/span&gt;     &lt;span class="n"&gt;self&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;PyBaseExceptionObject&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="n"&gt;type&lt;/span&gt;&lt;span class="o"&gt;-&amp;gt;&lt;/span&gt;&lt;span class="n"&gt;tp_alloc&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;type&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+  &lt;span class="mi"&gt;26&lt;/span&gt;     &lt;span class="nf"&gt;if&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="o"&gt;!&lt;/span&gt;&lt;span class="n"&gt;self&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+  &lt;span class="mi"&gt;27&lt;/span&gt;         &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="nb"&gt;NULL&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+  &lt;span class="mi"&gt;28&lt;/span&gt;     &lt;span class="cm"&gt;/* the dict is created on the fly in PyObject_GenericSetAttr */&lt;/span&gt;
+  &lt;span class="mi"&gt;29&lt;/span&gt;     &lt;span class="n"&gt;self&lt;/span&gt;&lt;span class="o"&gt;-&amp;gt;&lt;/span&gt;&lt;span class="n"&gt;dict&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;NULL&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+  &lt;span class="mi"&gt;30&lt;/span&gt;     &lt;span class="n"&gt;self&lt;/span&gt;&lt;span class="o"&gt;-&amp;gt;&lt;/span&gt;&lt;span class="n"&gt;traceback&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;self&lt;/span&gt;&lt;span class="o"&gt;-&amp;gt;&lt;/span&gt;&lt;span class="n"&gt;cause&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;self&lt;/span&gt;&lt;span class="o"&gt;-&amp;gt;&lt;/span&gt;&lt;span class="n"&gt;context&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;NULL&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+  &lt;span class="mi"&gt;31&lt;/span&gt;
+  &lt;span class="mi"&gt;32&lt;/span&gt;     &lt;span class="n"&gt;self&lt;/span&gt;&lt;span class="o"&gt;-&amp;gt;&lt;/span&gt;&lt;span class="n"&gt;args&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;PyTuple_New&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+  &lt;span class="mi"&gt;33&lt;/span&gt;     &lt;span class="nf"&gt;if&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="o"&gt;!&lt;/span&gt;&lt;span class="n"&gt;self&lt;/span&gt;&lt;span class="o"&gt;-&amp;gt;&lt;/span&gt;&lt;span class="n"&gt;args&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+  &lt;span class="mi"&gt;34&lt;/span&gt;         &lt;span class="n"&gt;Py_DECREF&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;self&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+  &lt;span class="mi"&gt;35&lt;/span&gt;         &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="nb"&gt;NULL&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+  &lt;span class="mi"&gt;36&lt;/span&gt;     &lt;span class="p"&gt;}&lt;/span&gt;
+  &lt;span class="mi"&gt;37&lt;/span&gt;
+  &lt;span class="mi"&gt;38&lt;/span&gt;     &lt;span class="nf"&gt;return&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;PyObject&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="n"&gt;self&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+  &lt;span class="mi"&gt;39&lt;/span&gt; &lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;找到原因，解决起来就很简单了。给args换个名字，一切ok。
+当然编码时的坏习惯才是导致这种bug最大的根源，以后千万不能乱写变量名了。&lt;/p&gt;</content><category term="python"></category><category term="coding"></category><category term="script"></category><category term="programming"></category></entry><entry><title>Python中关于变量作用域的一些demo</title><link href="https://www.gfrog.net/2013/04/some-demo-for-python-varients-scope/" rel="alternate"></link><published>2013-04-15T22:41:00+08:00</published><updated>2013-04-15T22:41:00+08:00</updated><author><name>gfrog</name></author><id>tag:www.gfrog.net,2013-04-15:/2013/04/some-demo-for-python-varients-scope/</id><summary type="html">&lt;p&gt;&lt;em&gt;其实青蛙不是很想在blog里面说编程方面的东西，毕竟青蛙自己只
+是个半调子，怕言多有失。不过这次遇到了一个很常见又很有趣的
+问题，记下一笔，权当取乐。&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;话说上周一个同事在patch里面使用了一种比较hacker的方法[1]：&lt;/p&gt;
+&lt;p&gt;使用定义list成员的方式把函数的局部变量传递给sub-function并
+在sub-function修改其内容。&lt;/p&gt;
+&lt;p&gt;这种做法被其他同事猛烈的抨击，实际上在python2.x中，因为语言
+实现的问题，嵌套的子函数是没法直接写它的上层函数的变量的。&lt;/p&gt;
+&lt;p&gt;这个问题之前在Team内部没有引起足够的重视，大家习以为常的在
+子函数里直接给一个父函数的变量赋值，结果都是错的，这个赋值
+操作会直接引发异常。&lt;/p&gt;
+&lt;p&gt;有人总结了一下python嵌套子函数访问变量的行为[2]:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="nv"&gt;In&lt;/span&gt; &lt;span class="nv"&gt;Python&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt;.&lt;span class="nv"&gt;x&lt;/span&gt;, &lt;span class="nv"&gt;it&lt;/span&gt; &lt;span class="nv"&gt;is&lt;/span&gt; &lt;span class="nv"&gt;not&lt;/span&gt; &lt;span class="nv"&gt;possible&lt;/span&gt; &lt;span class="nv"&gt;to&lt;/span&gt; &lt;span class="nv"&gt;modify&lt;/span&gt; &lt;span class="nv"&gt;a&lt;/span&gt; &lt;span class="nv"&gt;non&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="nv"&gt;local&lt;/span&gt; &lt;span class="nv"&gt;variable&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+&lt;span class="nv"&gt;you&lt;/span&gt; &lt;span class="nv"&gt;have&lt;/span&gt; &lt;span class="nv"&gt;either&lt;/span&gt; &lt;span class="nv"&gt;read&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="nv"&gt;only&lt;/span&gt; &lt;span class="nv"&gt;access&lt;/span&gt; &lt;span class="nv"&gt;to&lt;/span&gt; &lt;span class="nv"&gt;a&lt;/span&gt; &lt;span class="nv"&gt;global&lt;/span&gt; &lt;span class="nv"&gt;or …&lt;/span&gt;&lt;/pre&gt;&lt;/div&gt;</summary><content type="html">&lt;p&gt;&lt;em&gt;其实青蛙不是很想在blog里面说编程方面的东西，毕竟青蛙自己只
+是个半调子，怕言多有失。不过这次遇到了一个很常见又很有趣的
+问题，记下一笔，权当取乐。&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;话说上周一个同事在patch里面使用了一种比较hacker的方法[1]：&lt;/p&gt;
+&lt;p&gt;使用定义list成员的方式把函数的局部变量传递给sub-function并
+在sub-function修改其内容。&lt;/p&gt;
+&lt;p&gt;这种做法被其他同事猛烈的抨击，实际上在python2.x中，因为语言
+实现的问题，嵌套的子函数是没法直接写它的上层函数的变量的。&lt;/p&gt;
+&lt;p&gt;这个问题之前在Team内部没有引起足够的重视，大家习以为常的在
+子函数里直接给一个父函数的变量赋值，结果都是错的，这个赋值
+操作会直接引发异常。&lt;/p&gt;
+&lt;p&gt;有人总结了一下python嵌套子函数访问变量的行为[2]:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="nv"&gt;In&lt;/span&gt; &lt;span class="nv"&gt;Python&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt;.&lt;span class="nv"&gt;x&lt;/span&gt;, &lt;span class="nv"&gt;it&lt;/span&gt; &lt;span class="nv"&gt;is&lt;/span&gt; &lt;span class="nv"&gt;not&lt;/span&gt; &lt;span class="nv"&gt;possible&lt;/span&gt; &lt;span class="nv"&gt;to&lt;/span&gt; &lt;span class="nv"&gt;modify&lt;/span&gt; &lt;span class="nv"&gt;a&lt;/span&gt; &lt;span class="nv"&gt;non&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="nv"&gt;local&lt;/span&gt; &lt;span class="nv"&gt;variable&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+&lt;span class="nv"&gt;you&lt;/span&gt; &lt;span class="nv"&gt;have&lt;/span&gt; &lt;span class="nv"&gt;either&lt;/span&gt; &lt;span class="nv"&gt;read&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="nv"&gt;only&lt;/span&gt; &lt;span class="nv"&gt;access&lt;/span&gt; &lt;span class="nv"&gt;to&lt;/span&gt; &lt;span class="nv"&gt;a&lt;/span&gt; &lt;span class="nv"&gt;global&lt;/span&gt; &lt;span class="nv"&gt;or&lt;/span&gt; &lt;span class="nv"&gt;non&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="nv"&gt;local&lt;/span&gt; &lt;span class="nv"&gt;variable&lt;/span&gt;,
+&lt;span class="nv"&gt;or&lt;/span&gt; &lt;span class="nv"&gt;read&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="nv"&gt;write&lt;/span&gt; &lt;span class="nv"&gt;access&lt;/span&gt; &lt;span class="nv"&gt;to&lt;/span&gt; &lt;span class="nv"&gt;a&lt;/span&gt; &lt;span class="nv"&gt;global&lt;/span&gt; &lt;span class="nv"&gt;variable&lt;/span&gt; &lt;span class="nv"&gt;by&lt;/span&gt; &lt;span class="nv"&gt;using&lt;/span&gt; &lt;span class="nv"&gt;the&lt;/span&gt; &lt;span class="nv"&gt;global&lt;/span&gt; &lt;span class="nv"&gt;statement&lt;/span&gt;,
+&lt;span class="nv"&gt;or&lt;/span&gt; &lt;span class="nv"&gt;read&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="nv"&gt;write&lt;/span&gt; &lt;span class="nv"&gt;access&lt;/span&gt; &lt;span class="nv"&gt;to&lt;/span&gt; &lt;span class="nv"&gt;a&lt;/span&gt; &lt;span class="nv"&gt;local&lt;/span&gt; &lt;span class="nv"&gt;variable&lt;/span&gt; &lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;the&lt;/span&gt; &lt;span class="nv"&gt;default&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;. 
+&lt;span class="nv"&gt;That&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="s"&gt;s just the way it&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="nv"&gt;s&lt;/span&gt; &lt;span class="nv"&gt;been&lt;/span&gt; &lt;span class="nv"&gt;designed&lt;/span&gt; &lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;probably&lt;/span&gt; &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="nv"&gt;performance&lt;/span&gt; &lt;span class="nv"&gt;and&lt;/span&gt; &lt;span class="nv"&gt;purity&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;.
+
+&lt;span class="nv"&gt;In&lt;/span&gt; &lt;span class="nv"&gt;Python&lt;/span&gt; &lt;span class="mi"&gt;3&lt;/span&gt;, &lt;span class="nv"&gt;the&lt;/span&gt; &lt;span class="nv"&gt;nonlocal&lt;/span&gt; &lt;span class="nv"&gt;statement&lt;/span&gt; &lt;span class="nv"&gt;has&lt;/span&gt; &lt;span class="nv"&gt;been&lt;/span&gt; &lt;span class="nv"&gt;introduced&lt;/span&gt; &lt;span class="nv"&gt;with&lt;/span&gt;
+&lt;span class="nv"&gt;a&lt;/span&gt; &lt;span class="nv"&gt;similar&lt;/span&gt; &lt;span class="nv"&gt;effect&lt;/span&gt; &lt;span class="nv"&gt;to&lt;/span&gt; &lt;span class="nv"&gt;global&lt;/span&gt;, &lt;span class="nv"&gt;but&lt;/span&gt; &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="nv"&gt;an&lt;/span&gt; &lt;span class="nv"&gt;intermediate&lt;/span&gt; &lt;span class="nv"&gt;scope&lt;/span&gt;.
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;青蛙根据上面的总结写了几个函数的demo，然后引发了更深入的讨论，
+于是终于引出了PEP-3104[3]。&lt;/p&gt;
+&lt;p&gt;这是青蛙最开始的例子，&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;f1()&lt;/code&gt;是最基本的函数调用，其中操作的foo也是f1内部的foo。&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;f2()&lt;/code&gt;用到了global关键字，声明全局的foo变量，这是f2操作的就是全局
+的foo了。&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;f3()&lt;/code&gt;是错误的操作，子函数会直接抛出异常。&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;f4()&lt;/code&gt;是使用list的方法避开命名空间的问题，因为在嵌套函数中依然可以
+读取上层函数的变量，于是&lt;code&gt;sub_func&lt;/code&gt;可以访问到那个list foo，然后可以
+进一步操作其成员。&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;f5()&lt;/code&gt;实际上操作的还是全局的foo。&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="ch"&gt;#!/usr/bin/python&lt;/span&gt;
+
+&lt;span class="n"&gt;foo&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;I&amp;#39;m global&amp;quot;&lt;/span&gt;
+
+&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;f1&lt;/span&gt;&lt;span class="p"&gt;():&lt;/span&gt;
+    &lt;span class="n"&gt;foo&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;I&amp;#39;m a string&amp;quot;&lt;/span&gt;
+    &lt;span class="k"&gt;print&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;foo in f1: &lt;/span&gt;&lt;span class="si"&gt;%s&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt; &lt;span class="o"&gt;%&lt;/span&gt; &lt;span class="n"&gt;foo&lt;/span&gt;
+
+&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;f2&lt;/span&gt;&lt;span class="p"&gt;():&lt;/span&gt;
+    &lt;span class="k"&gt;global&lt;/span&gt; &lt;span class="n"&gt;foo&lt;/span&gt;
+    &lt;span class="n"&gt;foo&lt;/span&gt; &lt;span class="o"&gt;+=&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot; and modified in f2&amp;quot;&lt;/span&gt;
+    &lt;span class="k"&gt;print&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;foo in f2: &lt;/span&gt;&lt;span class="si"&gt;%s&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt; &lt;span class="o"&gt;%&lt;/span&gt; &lt;span class="n"&gt;foo&lt;/span&gt;
+
+&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;f3&lt;/span&gt;&lt;span class="p"&gt;():&lt;/span&gt;
+    &lt;span class="n"&gt;foo&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;I&amp;#39;m in f3&amp;quot;&lt;/span&gt;
+
+    &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;sub_func&lt;/span&gt;&lt;span class="p"&gt;():&lt;/span&gt;
+        &lt;span class="k"&gt;try&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+            &lt;span class="n"&gt;foo&lt;/span&gt; &lt;span class="o"&gt;+=&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot; and modified in f3&amp;#39;s sub function&amp;quot;&lt;/span&gt;
+            &lt;span class="k"&gt;print&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;foo in sub_func of f3: &lt;/span&gt;&lt;span class="si"&gt;%s&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt; &lt;span class="o"&gt;%&lt;/span&gt; &lt;span class="n"&gt;foo&lt;/span&gt;
+        &lt;span class="k"&gt;except&lt;/span&gt; &lt;span class="ne"&gt;Exception&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;e&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+            &lt;span class="k"&gt;print&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;oops in sub_func of f3: &lt;/span&gt;&lt;span class="si"&gt;%s&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt; &lt;span class="o"&gt;%&lt;/span&gt; &lt;span class="n"&gt;e&lt;/span&gt;
+
+    &lt;span class="n"&gt;sub_func&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+    &lt;span class="k"&gt;print&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;foo in f3: &lt;/span&gt;&lt;span class="si"&gt;%s&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt; &lt;span class="o"&gt;%&lt;/span&gt; &lt;span class="n"&gt;foo&lt;/span&gt;
+
+&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;f4&lt;/span&gt;&lt;span class="p"&gt;():&lt;/span&gt;
+    &lt;span class="n"&gt;foo&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;I&amp;#39;m in f4&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+
+    &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;sub_func&lt;/span&gt;&lt;span class="p"&gt;():&lt;/span&gt;
+        &lt;span class="k"&gt;try&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+            &lt;span class="n"&gt;foo&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="o"&gt;+=&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot; and modified in f4&amp;#39;s sub function&amp;quot;&lt;/span&gt;
+            &lt;span class="k"&gt;print&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;foo in sub_func of f4: &lt;/span&gt;&lt;span class="si"&gt;%s&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt; &lt;span class="o"&gt;%&lt;/span&gt; &lt;span class="n"&gt;foo&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+        &lt;span class="k"&gt;except&lt;/span&gt; &lt;span class="ne"&gt;Exception&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;e&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+            &lt;span class="k"&gt;print&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;oops in sub_func of f4: &lt;/span&gt;&lt;span class="si"&gt;%s&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt; &lt;span class="o"&gt;%&lt;/span&gt; &lt;span class="n"&gt;e&lt;/span&gt;
+
+    &lt;span class="n"&gt;sub_func&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+    &lt;span class="k"&gt;print&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;foo in f4: &lt;/span&gt;&lt;span class="si"&gt;%s&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt; &lt;span class="o"&gt;%&lt;/span&gt; &lt;span class="n"&gt;foo&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+
+&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;f5&lt;/span&gt;&lt;span class="p"&gt;():&lt;/span&gt;
+    &lt;span class="n"&gt;foo&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;I&amp;#39;m in f5&amp;quot;&lt;/span&gt;
+
+    &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;sub_func&lt;/span&gt;&lt;span class="p"&gt;():&lt;/span&gt;
+        &lt;span class="k"&gt;global&lt;/span&gt; &lt;span class="n"&gt;foo&lt;/span&gt;
+        &lt;span class="k"&gt;try&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+            &lt;span class="n"&gt;foo&lt;/span&gt; &lt;span class="o"&gt;+=&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot; and modified in f5&amp;#39;s sub function&amp;quot;&lt;/span&gt;
+            &lt;span class="k"&gt;print&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;foo in sub_func of f5: &lt;/span&gt;&lt;span class="si"&gt;%s&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt; &lt;span class="o"&gt;%&lt;/span&gt; &lt;span class="n"&gt;foo&lt;/span&gt;
+        &lt;span class="k"&gt;except&lt;/span&gt; &lt;span class="ne"&gt;Exception&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;e&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+            &lt;span class="k"&gt;print&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;oops in sub_func of f5: &lt;/span&gt;&lt;span class="si"&gt;%s&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt; &lt;span class="o"&gt;%&lt;/span&gt; &lt;span class="n"&gt;e&lt;/span&gt;
+
+    &lt;span class="n"&gt;sub_func&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+    &lt;span class="k"&gt;print&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;foo in f5: &lt;/span&gt;&lt;span class="si"&gt;%s&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt; &lt;span class="o"&gt;%&lt;/span&gt; &lt;span class="n"&gt;foo&lt;/span&gt;
+
+&lt;span class="n"&gt;f1&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;span class="n"&gt;f2&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;span class="n"&gt;f3&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;span class="n"&gt;f4&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;span class="n"&gt;f5&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt; 
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;在PEP-3104中，定义了一个&lt;code&gt;nonlocal&lt;/code&gt;关键字，这个字的作用就是声明
+一个变量既不是&lt;code&gt;local&lt;/code&gt;的也不是&lt;code&gt;global&lt;/code&gt;的，而是上层函数（outer scope）
+中的。&lt;/p&gt;
+&lt;p&gt;但是在Python2.x中仍然没有这个&lt;code&gt;nolocal&lt;/code&gt;关键字，PEP-3104中也给出
+了两种实现来解决这类问题：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="ch"&gt;#!/usr/bin/python&lt;/span&gt;
+&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;f5&lt;/span&gt;&lt;span class="p"&gt;():&lt;/span&gt;
+     &lt;span class="n"&gt;f5&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;foo&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;I&amp;#39;m in f5&amp;quot;&lt;/span&gt;
+
+     &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;sub_func&lt;/span&gt;&lt;span class="p"&gt;():&lt;/span&gt;
+         &lt;span class="k"&gt;try&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+             &lt;span class="n"&gt;f5&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;foo&lt;/span&gt; &lt;span class="o"&gt;+=&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot; and modified in f5&amp;#39;s sub function&amp;quot;&lt;/span&gt;
+             &lt;span class="k"&gt;print&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;foo in sub_func of f5: &lt;/span&gt;&lt;span class="si"&gt;%s&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt; &lt;span class="o"&gt;%&lt;/span&gt; &lt;span class="n"&gt;f5&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;foo&lt;/span&gt;
+         &lt;span class="k"&gt;except&lt;/span&gt; &lt;span class="ne"&gt;Exception&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;e&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+             &lt;span class="k"&gt;print&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;oops in sub_func of f5: &lt;/span&gt;&lt;span class="si"&gt;%s&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt; &lt;span class="o"&gt;%&lt;/span&gt; &lt;span class="n"&gt;e&lt;/span&gt;
+
+     &lt;span class="n"&gt;sub_func&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+     &lt;span class="k"&gt;print&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;foo in f5: &lt;/span&gt;&lt;span class="si"&gt;%s&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt; &lt;span class="o"&gt;%&lt;/span&gt; &lt;span class="n"&gt;f5&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;foo&lt;/span&gt;
+
+&lt;span class="n"&gt;f5&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="ch"&gt;#!/usr/bin/python&lt;/span&gt;
+&lt;span class="k"&gt;class&lt;/span&gt; &lt;span class="nc"&gt;Namespace&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+    &lt;span class="k"&gt;pass&lt;/span&gt;
+
+&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;f5&lt;/span&gt;&lt;span class="p"&gt;():&lt;/span&gt;
+     &lt;span class="n"&gt;ns&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;Namespace&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+     &lt;span class="n"&gt;ns&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;foo&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;I&amp;#39;m in f5&amp;quot;&lt;/span&gt;
+
+     &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;sub_func&lt;/span&gt;&lt;span class="p"&gt;():&lt;/span&gt;
+         &lt;span class="k"&gt;try&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+             &lt;span class="n"&gt;ns&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;foo&lt;/span&gt; &lt;span class="o"&gt;+=&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot; and modified in f5&amp;#39;s sub function&amp;quot;&lt;/span&gt;
+             &lt;span class="k"&gt;print&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;foo in sub_func of f5: &lt;/span&gt;&lt;span class="si"&gt;%s&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt; &lt;span class="o"&gt;%&lt;/span&gt; &lt;span class="n"&gt;ns&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;foo&lt;/span&gt;
+         &lt;span class="k"&gt;except&lt;/span&gt; &lt;span class="ne"&gt;Exception&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;e&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+             &lt;span class="k"&gt;print&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;oops in sub_func of f5: &lt;/span&gt;&lt;span class="si"&gt;%s&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt; &lt;span class="o"&gt;%&lt;/span&gt; &lt;span class="n"&gt;e&lt;/span&gt;
+
+     &lt;span class="n"&gt;sub_func&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+     &lt;span class="k"&gt;print&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;foo in f5: &lt;/span&gt;&lt;span class="si"&gt;%s&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt; &lt;span class="o"&gt;%&lt;/span&gt; &lt;span class="n"&gt;ns&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;foo&lt;/span&gt;
+
+&lt;span class="n"&gt;f5&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;这两种方法本质上就是给变量bind到了其他地方（一个类成员，
+一个函数成员）。这样在嵌套函数里可以访问一个全局的类的
+成员来达到访问这个变量的目的。
+本质上还是把变量扔进了&lt;code&gt;globals()&lt;/code&gt;，随意青蛙并不推崇这种
+方式。&lt;/p&gt;
+&lt;p&gt;而在上层函数定义list或者dict的方法，看起来hacker，所以
+青蛙也不是太喜欢。&lt;/p&gt;
+&lt;p&gt;青蛙自己的方式是把上层函数的变量作为参数传入嵌套函数，
+然后在嵌套函数中把修改后的结果作为返回值返回。虽然这种
+方法看起来像C，有点不pythonic，但是免去了那些命名空间
+猜来猜去的麻烦。&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;f5&lt;/span&gt;&lt;span class="p"&gt;():&lt;/span&gt;
+    &lt;span class="n"&gt;foo&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;I&amp;#39;m in f5&amp;quot;&lt;/span&gt;
+
+    &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;sub_func&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;foo&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+        &lt;span class="k"&gt;try&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+            &lt;span class="n"&gt;foo&lt;/span&gt; &lt;span class="o"&gt;+=&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot; and modified in f5&amp;#39;s sub function&amp;quot;&lt;/span&gt;
+            &lt;span class="k"&gt;print&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;foo in sub_func of f5: &lt;/span&gt;&lt;span class="si"&gt;%s&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt; &lt;span class="o"&gt;%&lt;/span&gt; &lt;span class="n"&gt;foo&lt;/span&gt;
+        &lt;span class="k"&gt;except&lt;/span&gt; &lt;span class="ne"&gt;Exception&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;e&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+            &lt;span class="k"&gt;print&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;oops in sub_func of f5: &lt;/span&gt;&lt;span class="si"&gt;%s&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt; &lt;span class="o"&gt;%&lt;/span&gt; &lt;span class="n"&gt;e&lt;/span&gt;
+        &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;foo&lt;/span&gt;
+
+    &lt;span class="n"&gt;foo&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;sub_func&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;foo&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="k"&gt;print&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;foo in f5: &lt;/span&gt;&lt;span class="si"&gt;%s&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt; &lt;span class="o"&gt;%&lt;/span&gt; &lt;span class="n"&gt;foo&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;strong&gt;Reference&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;[1]. &lt;a href="http://stackoverflow.com/questions/6198709/how-do-i-change-nesting-functions-variable-in-the-nested-function"&gt;How do I change nesting function's variable in the nested function&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;[2]. &lt;a href="http://stackoverflow.com/questions/13282910/python-cant-access-nonlocal-variable-before-local-variable-is-defined-with-same"&gt;python can't access nonlocal variable before local variable is defined with same name&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;[3]. &lt;a href="http://www.python.org/dev/peps/pep-3104/"&gt;PEP-3104&lt;/a&gt;&lt;/p&gt;</content><category term="python"></category><category term="coding"></category><category term="script"></category><category term="programming"></category></entry><entry><title>在Twip中转换t.co链接</title><link href="https://www.gfrog.net/2011/12/expand-tco-link-in-twip/" rel="alternate"></link><published>2011-12-18T01:30:00+08:00</published><updated>2011-12-18T01:30:00+08:00</updated><author><name>gfrog</name></author><id>tag:www.gfrog.net,2011-12-18:/2011/12/expand-tco-link-in-twip/</id><summary type="html">&lt;p&gt;自从Twitter强制把所有链接都转换为t.co之后，在手机上访问这些地址就成了大问题，开VPN慢，绕了一圈发现是国内地址，不开干脆访问不能。于是青蛙一直酝酿在Twip那里把短链接扩展。&lt;/p&gt;
+&lt;p&gt;今天有时间，研究了一下，本来打算自己写的，但是本着不重复造轮子的态度，写之前google了一下，这不，这位同学已经写好了：
+&lt;a href="http://hjin.me/code/727/"&gt;http://hjin.me/code/727/&lt;/a&gt; ,
+全部修改的代码贴到了这里：
+&lt;a href="http://pastebin.com/f4Gw0DND"&gt;http://pastebin.com/f4Gw0DND&lt;/a&gt;
+青蛙拿过来直接扔进twip，问题解决。&lt;/p&gt;
+&lt;p&gt;青蛙在这放出一个基于twip r204版本的patch吧，另外还有一个小修改的补丁，修复一些情况下的警告信息。&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://code.google.com/p/gfrog/downloads/detail?name=0001-twip-enable-expand-tco-link.patch&amp;amp;can=2&amp;amp;q="&gt;0001-twip-enable-expand-tco-link.patch&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://code.google.com/p/gfrog/downloads/detail?name=0002-twip-fix-some-warning-msg-in-expand-tco-link-patch.patch&amp;amp;can=2&amp;amp;q="&gt;0002-twip-fix-some-warning-msg-in-expand-tco-link-patch.patch&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;这个修改只能解决t.co的问题，没办法解决其他被关照到的短网址服务，
+所以青蛙仍然酝酿着什么时候搞一个把所有短网址都展开的补丁。&lt;/p&gt;
+&lt;p&gt;不过青蛙看php代码实在是头疼，只好下次有时间再硬着头皮读代码改吧。&lt;/p&gt;</summary><content type="html">&lt;p&gt;自从Twitter强制把所有链接都转换为t.co之后，在手机上访问这些地址就成了大问题，开VPN慢，绕了一圈发现是国内地址，不开干脆访问不能。于是青蛙一直酝酿在Twip那里把短链接扩展。&lt;/p&gt;
+&lt;p&gt;今天有时间，研究了一下，本来打算自己写的，但是本着不重复造轮子的态度，写之前google了一下，这不，这位同学已经写好了：
+&lt;a href="http://hjin.me/code/727/"&gt;http://hjin.me/code/727/&lt;/a&gt; ,
+全部修改的代码贴到了这里：
+&lt;a href="http://pastebin.com/f4Gw0DND"&gt;http://pastebin.com/f4Gw0DND&lt;/a&gt;
+青蛙拿过来直接扔进twip，问题解决。&lt;/p&gt;
+&lt;p&gt;青蛙在这放出一个基于twip r204版本的patch吧，另外还有一个小修改的补丁，修复一些情况下的警告信息。&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://code.google.com/p/gfrog/downloads/detail?name=0001-twip-enable-expand-tco-link.patch&amp;amp;can=2&amp;amp;q="&gt;0001-twip-enable-expand-tco-link.patch&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://code.google.com/p/gfrog/downloads/detail?name=0002-twip-fix-some-warning-msg-in-expand-tco-link-patch.patch&amp;amp;can=2&amp;amp;q="&gt;0002-twip-fix-some-warning-msg-in-expand-tco-link-patch.patch&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;这个修改只能解决t.co的问题，没办法解决其他被关照到的短网址服务，
+所以青蛙仍然酝酿着什么时候搞一个把所有短网址都展开的补丁。&lt;/p&gt;
+&lt;p&gt;不过青蛙看php代码实在是头疼，只好下次有时间再硬着头皮读代码改吧。&lt;/p&gt;</content><category term="php"></category><category term="twitter"></category><category term="client"></category><category term="patch"></category><category term="site"></category></entry><entry><title>Markdown语法摘要</title><link href="https://www.gfrog.net/2008/03/markdown-syntax-basic/" rel="alternate"></link><published>2008-03-20T00:30:34+08:00</published><updated>2008-03-20T00:30:34+08:00</updated><author><name>gfrog</name></author><id>tag:www.gfrog.net,2008-03-20:/2008/03/markdown-syntax-basic/</id><summary type="html">&lt;p&gt;下面是Markdown语法的简要列表，便于以后查阅。
+以下内容主要从
+&lt;a href="http://www.leninlee.cn"&gt;牧码志&lt;/a&gt;
+整理，感谢leninlee的辛勤劳动。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;链接的添加，共有三种形式，Markdown支持相对链接。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;code&gt;&amp;lt;链接&amp;gt;&lt;/code&gt;：这种形式只是简单的标出链接； &lt;br /&gt;
+&lt;code&gt;[文字](链接 "标题")&lt;/code&gt;：给文字添加链接，其中标题是可选的； &lt;br /&gt;
+&lt;code&gt;[文字][标记]&lt;/code&gt;：给文字添加链接，链接在下面的一个以&lt;code&gt;[标记]&lt;/code&gt;开头的新行（一般是文章末尾）给出。
+或者直接以&lt;code&gt;[文字][]&lt;/code&gt;这种形式编写，在下面的新行中使用&lt;code&gt;[文字]&lt;/code&gt;:链接的形式声明链接。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;图片的添加：跟链接比起来，图片只是多了在前面多了一个叹号&lt;code&gt;!&lt;/code&gt;。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;标题格式：Markdown提供了2种方式。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;第一种是在标题前面加上1~6个&lt;code&gt;#&lt;/code&gt;表示&lt;code&gt;&amp;lt;h1&amp;gt;&lt;/code&gt;~&lt;code&gt;&amp;lt;h6&amp;gt;&lt;/code&gt;。 &lt;br /&gt;
+第二种是在标题下面另起一行，输入四个以上的等号&lt;code&gt;=&lt;/code&gt;来表示&lt;code&gt;&amp;lt;h1&amp;gt;&lt;/code&gt;，
+输入四个以上的减号&lt;code&gt;-&lt;/code&gt;来表示&lt;code&gt;&amp;lt;h2&amp;gt;&lt;/code&gt;。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;粗体和斜体：用星号"*"或者下划线 …&lt;/p&gt;&lt;/li&gt;&lt;/ul&gt;</summary><content type="html">&lt;p&gt;下面是Markdown语法的简要列表，便于以后查阅。
+以下内容主要从
+&lt;a href="http://www.leninlee.cn"&gt;牧码志&lt;/a&gt;
+整理，感谢leninlee的辛勤劳动。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;链接的添加，共有三种形式，Markdown支持相对链接。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;code&gt;&amp;lt;链接&amp;gt;&lt;/code&gt;：这种形式只是简单的标出链接； &lt;br /&gt;
+&lt;code&gt;[文字](链接 "标题")&lt;/code&gt;：给文字添加链接，其中标题是可选的； &lt;br /&gt;
+&lt;code&gt;[文字][标记]&lt;/code&gt;：给文字添加链接，链接在下面的一个以&lt;code&gt;[标记]&lt;/code&gt;开头的新行（一般是文章末尾）给出。
+或者直接以&lt;code&gt;[文字][]&lt;/code&gt;这种形式编写，在下面的新行中使用&lt;code&gt;[文字]&lt;/code&gt;:链接的形式声明链接。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;图片的添加：跟链接比起来，图片只是多了在前面多了一个叹号&lt;code&gt;!&lt;/code&gt;。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;标题格式：Markdown提供了2种方式。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;第一种是在标题前面加上1~6个&lt;code&gt;#&lt;/code&gt;表示&lt;code&gt;&amp;lt;h1&amp;gt;&lt;/code&gt;~&lt;code&gt;&amp;lt;h6&amp;gt;&lt;/code&gt;。 &lt;br /&gt;
+第二种是在标题下面另起一行，输入四个以上的等号&lt;code&gt;=&lt;/code&gt;来表示&lt;code&gt;&amp;lt;h1&amp;gt;&lt;/code&gt;，
+输入四个以上的减号&lt;code&gt;-&lt;/code&gt;来表示&lt;code&gt;&amp;lt;h2&amp;gt;&lt;/code&gt;。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;粗体和斜体：用星号"*"或者下划线"_"&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;一个表示斜体； &lt;br /&gt;
+两个表示粗体； &lt;br /&gt;
+三个表示粗斜体。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;引用内容：就是html标记的&lt;code&gt;&amp;lt;blockquote&amp;gt;&lt;/code&gt;，只要在行首用右尖括号&lt;code&gt;&amp;gt;&lt;/code&gt;就行了。如果要嵌套引用，那就多打几个&lt;code&gt;&amp;gt;&lt;/code&gt;。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;原文输出：如果不想Markdown解释某些内容，有两种方式：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;第一个是转义为html的&lt;code&gt;&amp;lt;pre&amp;gt;&lt;/code&gt;标签：要在要原样输出的内容前面加入至少4个空格或者1个tab的宽度； &lt;br /&gt;
+第二个是转义为&lt;code&gt;&amp;lt;code&amp;gt;&lt;/code&gt;标签：给要输出的内容加上```号（就是esc下头那个键）。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;无序列表：在文字前面使用星号&lt;code&gt;*&lt;/code&gt;、加号&lt;code&gt;+&lt;/code&gt;、减号&lt;code&gt;-&lt;/code&gt;中的任意一个，注意在这些符号后面要留一个空格。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;有序列表：在第一条前添加一个数字，后跟一个英文句点&lt;code&gt;.&lt;/code&gt;。无论第一个条目前加的数字是什么，列表都会从1开始计数。&lt;/li&gt;
+&lt;li&gt;转义符：&lt;code&gt;""&lt;/code&gt;。只要给不希望被转义的字符前面加上就可以了。&lt;/li&gt;
+&lt;li&gt;HTML实体：如果要在内容中输出&lt;code&gt;&amp;lt;&lt;/code&gt;或者&lt;code&gt;&amp;amp;&lt;/code&gt;符号，那么必须用&lt;code&gt;[HTML实体][]&lt;/code&gt;代替。
+    Markdown会把HTML的特殊符号直接翻译为HTML实体。&lt;/li&gt;
+&lt;li&gt;换行符：Markdown中在一行的末尾使用两个以上的空格标示HTML中的一个换行符&lt;code&gt;&amp;lt;br /&amp;gt;&lt;/code&gt;。&lt;/li&gt;
+&lt;li&gt;段落：只要两行之间有一个空行，Markdown就会把它识别为一个段落。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;（青蛙在写这篇文章的时候发现，在列表之前一定要加入一个空行，要不然Markdown是不会把&lt;code&gt;*&lt;/code&gt;识别为列表的。）&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;水平线：使用三个以上的&lt;code&gt;*&lt;/code&gt;或&lt;code&gt;-&lt;/code&gt;来表示。这些星号跟减号之间可以用空格，如果减号没有空格，
+    那它必须在单独的一个段落里，要不它会被识别为标题的。&lt;/li&gt;
+&lt;li&gt;直接使用HTML标记：有些Markdown不支持的标签可以直接写HTML标记，例如表格。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;update,2008-03-20:&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;青蛙发现直接向wordpress写Markdown格式效果真的很差，而且不方便编辑，
+所以青蛙决定还是在本地把Markdown文档转化为HTML格式再发布到blog上好了。&lt;/p&gt;</content><category term="Markdown"></category><category term="syntax"></category></entry></feed>

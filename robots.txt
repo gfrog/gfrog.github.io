@@ -1,0 +1,7 @@
+---
+layout: nil
+---
+User-agent: *
+Disallow:
+
+Sitemap: https://www.gfrog.net/sitemap.xml

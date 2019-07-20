@@ -1,0 +1,1054 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>My Life, My Love! - Site</title><link href="https://www.gfrog.net/" rel="alternate"></link><link href="https://www.gfrog.net/feeds/site.atom.xml" rel="self"></link><id>https://www.gfrog.net/</id><updated>2019-07-09T14:27:10+08:00</updated><subtitle>指点江山 激昂文字 修身隆德 自然自我</subtitle><entry><title>Pelican 的 Google Map 插件</title><link href="https://www.gfrog.net/2019/07/create-a-google-map-plugin-for-pelican/" rel="alternate"></link><published>2019-07-09T14:27:10+08:00</published><updated>2019-07-09T14:27:10+08:00</updated><author><name>gfrog</name></author><id>tag:www.gfrog.net,2019-07-09:/2019/07/create-a-google-map-plugin-for-pelican/</id><summary type="html">&lt;p&gt;青蛙最近整理照片和blog的时候，一直想想在blog post里添加一个地图。
+但是pelican似乎没有靠谱的google map plugin。
+虽然有一个
+&lt;a href="https://pypi.org/project/google_embed/"&gt;google_embed&lt;/a&gt;
+，但是似乎现在不能用了，按照它的README写好map之后，post里面完全不会转义。&lt;/p&gt;
+&lt;p&gt;于是青蛙一怒之下自己照猫画虎写了个liquid_tag版本的google map，竟然也能用了。&lt;/p&gt;
+&lt;p&gt;目前这个plugin支持map和direction模式，青蛙还在考虑要不要添加街景模式。&lt;/p&gt;
+&lt;p&gt;添加map的方法：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="err"&gt;{&lt;/span&gt;&lt;span class="o"&gt;%&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;gmap&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="ss"&gt;&amp;quot;location&amp;quot;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;mode&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;[&lt;/span&gt;&lt;span class="n"&gt;maptype&lt;/span&gt;&lt;span class="o"&gt;]&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;[&lt;/span&gt;&lt;span class="n"&gt;align&lt;/span&gt;&lt;span class="o"&gt;]&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;[&lt;/span&gt;&lt;span class="n"&gt;width&lt;/span&gt;&lt;span class="o"&gt;]&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;[&lt;/span&gt;&lt;span class="n"&gt;height&lt;/span&gt;&lt;span class="o"&gt;]&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;%&lt;/span&gt;&lt;span class="err"&gt;}&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;code&gt;location&lt;/code&gt;：必选项，指定地点，必须包含双引号，支持中文。&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;mode&lt;/code&gt;：必选项，地图模式，有&lt;code&gt;place&lt;/code&gt;和&lt;code&gt;search&lt;/code&gt;选项，
+指定地图显示单个地点或者搜索location中的关键字&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;maptype&lt;/code&gt;：地图的显示模式，包含&lt;code&gt;roadmap&lt;/code&gt;和&lt;code&gt;satelite&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;align&lt;/code&gt;：地图在页面中的对齐方式，&lt;code&gt;left&lt;/code&gt;、&lt;code&gt;center&lt;/code&gt;或者&lt;code&gt;right …&lt;/code&gt;&lt;/p&gt;</summary><content type="html">&lt;p&gt;青蛙最近整理照片和blog的时候，一直想想在blog post里添加一个地图。
+但是pelican似乎没有靠谱的google map plugin。
+虽然有一个
+&lt;a href="https://pypi.org/project/google_embed/"&gt;google_embed&lt;/a&gt;
+，但是似乎现在不能用了，按照它的README写好map之后，post里面完全不会转义。&lt;/p&gt;
+&lt;p&gt;于是青蛙一怒之下自己照猫画虎写了个liquid_tag版本的google map，竟然也能用了。&lt;/p&gt;
+&lt;p&gt;目前这个plugin支持map和direction模式，青蛙还在考虑要不要添加街景模式。&lt;/p&gt;
+&lt;p&gt;添加map的方法：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="err"&gt;{&lt;/span&gt;&lt;span class="o"&gt;%&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;gmap&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="ss"&gt;&amp;quot;location&amp;quot;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;mode&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;[&lt;/span&gt;&lt;span class="n"&gt;maptype&lt;/span&gt;&lt;span class="o"&gt;]&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;[&lt;/span&gt;&lt;span class="n"&gt;align&lt;/span&gt;&lt;span class="o"&gt;]&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;[&lt;/span&gt;&lt;span class="n"&gt;width&lt;/span&gt;&lt;span class="o"&gt;]&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;[&lt;/span&gt;&lt;span class="n"&gt;height&lt;/span&gt;&lt;span class="o"&gt;]&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;%&lt;/span&gt;&lt;span class="err"&gt;}&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;code&gt;location&lt;/code&gt;：必选项，指定地点，必须包含双引号，支持中文。&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;mode&lt;/code&gt;：必选项，地图模式，有&lt;code&gt;place&lt;/code&gt;和&lt;code&gt;search&lt;/code&gt;选项，
+指定地图显示单个地点或者搜索location中的关键字&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;maptype&lt;/code&gt;：地图的显示模式，包含&lt;code&gt;roadmap&lt;/code&gt;和&lt;code&gt;satelite&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;align&lt;/code&gt;：地图在页面中的对齐方式，&lt;code&gt;left&lt;/code&gt;、&lt;code&gt;center&lt;/code&gt;或者&lt;code&gt;right&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;width&lt;/code&gt;：地图宽度&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;height&lt;/code&gt;：地图高度&lt;/p&gt;
+&lt;p&gt;例如： &lt;code&gt;{ % gmap "东方明珠,上海" place roadmap left 600 480 % }&lt;/code&gt; 显示如下地图：&lt;/p&gt;
+&lt;p&gt;&lt;span class="mapbox"&gt;
+    &lt;iframe width="600" height="480"
+      frameborder="0" style="border:0;"
+      src="https://www.google.com/maps/embed/v1/place?key=AIzaSyB63YDb3SVNe84KeNXPh5zIjJ_uwr5vsII&amp;q=东方明珠,上海&amp;maptype=roadmap"&gt;
+    &lt;/iframe&gt;
+&lt;/span&gt;
+        &lt;/p&gt;
+&lt;p&gt;添加direction（导航）的方法：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="err"&gt;{&lt;/span&gt;&lt;span class="o"&gt;%&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;gdirection&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="ss"&gt;&amp;quot;origin&amp;quot;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="ss"&gt;&amp;quot;destination&amp;quot;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;[&lt;/span&gt;&lt;span class="n"&gt;&amp;quot;waypoints&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;]&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;mode&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;[&lt;/span&gt;&lt;span class="n"&gt;maptype&lt;/span&gt;&lt;span class="o"&gt;]&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;[&lt;/span&gt;&lt;span class="n"&gt;align&lt;/span&gt;&lt;span class="o"&gt;]&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;[&lt;/span&gt;&lt;span class="n"&gt;width&lt;/span&gt;&lt;span class="o"&gt;]&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;[&lt;/span&gt;&lt;span class="n"&gt;height&lt;/span&gt;&lt;span class="o"&gt;]&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;%&lt;/span&gt;&lt;span class="err"&gt;}&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;code&gt;origin&lt;/code&gt;：必选项，指定出发点，必须包含双引号，支持中文。&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;destination&lt;/code&gt;：必选项，指定目的地，必须包含双引号，支持中文。&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;waypoints&lt;/code&gt;：指定途经点，必须包含双引号，支持中文。&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;mode&lt;/code&gt;：必选项，导航模式，有&lt;code&gt;driving&lt;/code&gt;、&lt;code&gt;walking&lt;/code&gt;、&lt;code&gt;bicycling&lt;/code&gt;、
+&lt;code&gt;transit&lt;/code&gt;和&lt;code&gt;flying&lt;/code&gt;选项。&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;maptype&lt;/code&gt;：地图的显示模式，包含&lt;code&gt;roadmap&lt;/code&gt;和&lt;code&gt;satelite&lt;/code&gt;。&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;align&lt;/code&gt;：地图在页面中的对齐方式，&lt;code&gt;left&lt;/code&gt;、&lt;code&gt;center&lt;/code&gt;或者&lt;code&gt;right&lt;/code&gt;。&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;width&lt;/code&gt;：地图宽度。&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;height&lt;/code&gt;：地图高度。&lt;/p&gt;
+&lt;p&gt;例如： &lt;code&gt;{ % gdirection "东方明珠,上海" "人民广场,上海" driving roadmap left 600 480 % }&lt;/code&gt; 显示如下地图：&lt;/p&gt;
+&lt;p&gt;&lt;iframe width="600" height="480"
+  frameborder="0" style="border:0;"
+  src="https://www.google.com/maps/embed/v1/directions?key=AIzaSyB63YDb3SVNe84KeNXPh5zIjJ_uwr5vsII&amp;origin=东方明珠,上海&amp;destination=人民广场,上海&amp;maptype=roadmap&amp;mode=driving"&gt;
+&lt;/iframe&gt;
+        &lt;/p&gt;
+&lt;p&gt;如果你也想在pelican里面使用这个插件，可以在
+&lt;a href="https://console.cloud.google.com/projectselector2/google/maps-apis/api-list?supportedpurview=project&amp;amp;project&amp;amp;folder&amp;amp;organizationId"&gt;Google cloud plateform console&lt;/a&gt;
+申请一个MAP API key，然后在&lt;code&gt;pelicanconfig.py&lt;/code&gt;文件里加入API key配置：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;GMAPS_API_KEY&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="ss"&gt;&amp;quot;YOUR_API_KEY_HERE&amp;quot;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;然后给liquid_tag打个补丁：&lt;/p&gt;
+&lt;div class="gist"&gt;
+    &lt;script src='https://gist.github.com/a13b27768172f40d20632cadd8614061.js?file=gmap.diff'&gt;&lt;/script&gt;
+    &lt;noscript&gt;
+        &lt;pre&gt;&lt;code&gt;--- a/liquid_tags/mdx_liquid_tags.py
++++ b/liquid_tags/mdx_liquid_tags.py
+@@ -22,12 +22,14 @@ EXTRACT_TAG = re.compile(r'(?:\s*)(\S+)(?:\s*)')
+ LT_CONFIG = { 'CODE_DIR': 'code',
+               'NOTEBOOK_DIR': 'notebooks',
+               'FLICKR_API_KEY': 'flickr',
+-              'GIPHY_API_KEY': 'giphy'
++              'GIPHY_API_KEY': 'giphy',
++              'GMAPS_API_KEY': 'gmap'
+ }
+ LT_HELP = { 'CODE_DIR' : 'Code directory for include_code subplugin',
+             'NOTEBOOK_DIR' : 'Notebook directory for notebook subplugin',
+             'FLICKR_API_KEY': 'Flickr key for accessing the API',
+-            'GIPHY_API_KEY': 'Giphy key for accessing the API'
++            'GIPHY_API_KEY': 'Giphy key for accessing the API',
++            'GMAPS_API_KEY': 'Google Maps key for accessing the API'
+ }
+ 
+ class _LiquidTagsPreprocessor(markdown.preprocessors.Preprocessor):&lt;/code&gt;&lt;/pre&gt;
+    &lt;/noscript&gt;
+&lt;/div&gt;
+&lt;p&gt;接着把这个文件放进liquid_tags目录里面，然后就可以在post里添加地图了。&lt;/p&gt;
+&lt;p&gt;Enjoy posting!&lt;/p&gt;
+&lt;div class="gist"&gt;
+    &lt;script src='https://gist.github.com/a13b27768172f40d20632cadd8614061.js?file=gmap.py'&gt;&lt;/script&gt;
+    &lt;noscript&gt;
+        &lt;pre&gt;&lt;code&gt;"""
+Google maps Tag
+---------
+This implements a Liquid-style google map tag for Pelican,
+based on the google_embed plugin.
+
+Syntax
+------
+{% gmap "location" mode [maptype] [align] [width] [height] %}
+{% gdirection "origin" "destination" "waypoints" mode [maptype] [align] [width] [height] %}
+
+"""
+import re
+from .mdx_liquid_tags import LiquidTags
+
+
+MAP_SYNTAX = '{% gmap "location" mode [maptype] [align] [width] [height] %}'
+
+# Regular expression for full syntax
+map_re_str =  """(?:"(?P&lt;location&gt;[\w\s\,\.]+?)")"""
+map_re_str += """(?:\s+(?P&lt;mode&gt;\w+))?"""
+map_re_str += """(?:\s+(?P&lt;maptype&gt;\w+))?"""
+map_re_str += """(?:\s+(?P&lt;align&gt;\w+))?"""
+map_re_str += """(?:\s+(?P&lt;width&gt;\d*))?"""
+map_re_str += """(?:\s+(?P&lt;height&gt;\d*))?"""
+ReGmap = re.compile(map_re_str)
+
+def get_align(align):
+    if align == 'right':
+        align_css = "float:right;"
+    elif align == 'left':
+        align_css = ""
+    else:
+        align_css = "display: block;margin: 0 auto;"
+
+    return align_css
+
+@LiquidTags.register('gmap')
+def gmap(preprocessor, tag, markup):
+
+    GMAPS_API_KEY = preprocessor.configs.getConfig('GMAPS_API_KEY')
+
+    attrs = None
+
+    # Default setting
+    location = ""
+    mode = "place"
+    maptype = "roadmap"
+    width = 600
+    height = 400
+    align = 'center'
+
+    # Parse the markup string
+    match = ReGmap.search(markup)
+    if match:
+        attrs = dict([(key, val.strip())
+                      for (key, val) in match.groupdict().items() if val])
+    else:
+        raise ValueError('Error processing input. '
+                         'Expected syntax: {0}'.format(MAP_SYNTAX))
+
+    # Construct URI
+    location = attrs['location']
+    del attrs['location']
+    if ' ' in location:
+        location = '+'.join(location.split())
+
+    if 'mode' in attrs:
+        mode = attrs['mode']
+        del attrs['mode']
+    else:
+        raise ValueError('Error processing input. '
+                         'Expected syntax: {0}'.format(MAP_SYNTAX))
+
+    if 'maptype' in attrs:
+        maptype = attrs['maptype']
+        del attrs['maptype']
+
+    if 'width' in attrs:
+        width = attrs['width']
+        del attrs['width']
+    if 'height' in attrs:
+        height = attrs['height']
+        del attrs['height']
+    if 'align' in attrs:
+        align = attrs['align']
+        del attrs['align']
+
+    align_css = get_align(align)
+
+    linkHTML="""
+&lt;span class="mapbox"&gt;
+    &lt;iframe width="{3}" height="{4}"
+      frameborder="0" style="border:0;{6}"
+      src="https://www.google.com/maps/embed/v1/{0}?key={1}&amp;q={2}&amp;maptype={5}"&gt;
+    &lt;/iframe&gt;
+&lt;/span&gt;
+        """.format(mode,GMAPS_API_KEY,location,width,height,maptype,align_css)
+
+    return linkHTML
+
+
+DIRECTION_SYNTAX = '{% gdirection "origin" "destination" "waypoints" mode [maptype] [align] [width] [height] %}'
+# Regular expression for full syntax
+direction_re_str =  """(?:(?P&lt;directions&gt;"[\w\s\S]+"))"""
+direction_re_str += """(?:\s+(?P&lt;mode&gt;\w+))?"""
+direction_re_str += """(?:\s+(?P&lt;maptype&gt;\w+))?"""
+direction_re_str += """(?:\s+(?P&lt;align&gt;\w+))?"""
+direction_re_str += """(?:\s+(?P&lt;width&gt;\d*))?"""
+direction_re_str += """(?:\s+(?P&lt;height&gt;\d*))?"""
+ReGdirection = re.compile(direction_re_str)
+
+
+waypoints_re_str =  """(?:"(?P&lt;origin&gt;[\w\s\S]+?)")"""
+waypoints_re_str += """(?:\s+"(?P&lt;destination&gt;[\w\s\S]+?)")"""
+waypoints_re_str += """(?:\s+"(?P&lt;waypoints&gt;[\w\s\S]+?)")?"""
+ReGwaypoints = re.compile(waypoints_re_str)
+
+@LiquidTags.register('gdirection')
+def gdirection(preprocessor, tag, markup):
+
+    GMAPS_API_KEY = preprocessor.configs.getConfig('GMAPS_API_KEY')
+
+    attrs = None
+
+    # Default setting
+    origin = ""
+    destination = ""
+    waypoints  = ""
+    mode = "place"
+    maptype = "roadmap"
+    width = 600
+    height = 400
+    align = 'center'
+
+    # Parse the markup string
+    match = ReGdirection.search(markup)
+    if match:
+        attrs = dict([(key, val.strip())
+                      for (key, val) in match.groupdict().items() if val])
+    else:
+        raise ValueError('Error processing input. '
+                         'Expected syntax: {0}'.format(DIRECTION_SYNTAX))
+
+    # Construct URI
+    directions = attrs['directions']
+    del attrs['directions']
+    m = ReGwaypoints.search(directions)
+    if m:
+        attrs.update([(key, val.strip())
+                      for (key, val) in m.groupdict().items() if val])
+    else:
+        raise ValueError('Error processing input. '
+                         'Expected syntax: {0}'.format(DIRECTION_SYNTAX))
+
+    origin = attrs['origin']
+    del attrs['origin']
+    if ' ' in origin:
+        origin = '+'.join(origin.split())
+
+    destination = attrs['destination']
+    del attrs['destination']
+    if ' ' in destination:
+        destination = '+'.join(destination.split())
+
+    if 'waypoints' in attrs:
+        waypoints = attrs['waypoints']
+        del attrs['waypoints']
+        if ' ' in waypoints:
+            waypoints = '+'.join(waypoints.split())
+
+    if 'mode' in attrs:
+        mode = attrs['mode']
+        del attrs['mode']
+    if 'maptype' in attrs:
+        maptype = attrs['maptype']
+        del attrs['maptype']
+    if 'width' in attrs:
+        width = attrs['width']
+        del attrs['width']
+    if 'height' in attrs:
+        height = attrs['height']
+        del attrs['height']
+    if 'align' in attrs:
+        align = attrs['align']
+        del attrs['align']
+
+    align_css = get_align(align)
+
+    query_str = 'origin={0}&amp;destination={1}'.format(origin,destination)
+    if waypoints:
+        query_str += '&amp;waypoints={0}'.format(waypoints)
+
+    linkHTML="""
+&lt;iframe width="{3}" height="{4}"
+  frameborder="0" style="border:0;{6}"
+  src="https://www.google.com/maps/embed/v1/directions?key={1}&amp;{2}&amp;maptype={5}&amp;mode={0}"&gt;
+&lt;/iframe&gt;
+        """.format(mode,GMAPS_API_KEY,query_str,width,height,maptype,align_css)
+
+    return linkHTML
+
+
+@LiquidTags.register('gmap_places')
+def gmap_places(preprocessor, tag, markup):
+
+    GMAPS_API_KEY = preprocessor.configs.getConfig('GMAPS_API_KEY')
+
+    attrs = None
+
+    linkHTML="""
+&lt;div id="map_canvas" style="width:80%; height:480px;"&gt;&lt;/div&gt;
+&lt;script src="/js/google-map.js"&gt;&lt;/script&gt;
+&lt;script src="https://maps.googleapis.com/maps/api/js?key={0}&amp;callback=initMap" async defer&gt;&lt;/script&gt;
+        """.format(GMAPS_API_KEY)
+
+
+#----------------------------------------------------------------------
+# This import allows image tag to be a Pelican plugin
+from liquid_tags import register
+&lt;/code&gt;&lt;/pre&gt;
+    &lt;/noscript&gt;
+&lt;/div&gt;
+&lt;p&gt;&lt;strong&gt;Update: 2019-07-13&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;青蛙翻了几天google map API文档，给这个plugin山寨了一个同时显示多个地点的参数。&lt;/p&gt;
+&lt;p&gt;不过并没有最终完成，所以先不放出完整代码了。大概效果是这个样子：&lt;/p&gt;
+&lt;script&gt;
+var locations = [
+['1', 'remmin park, shanghai', '#location 1'],
+['2', 'shanghai museum, shanghai', '#location 2'],
+['3', 'lippo plaza, shanghai', '#location 3'],
+];
+&lt;/script&gt;
+
+&lt;p&gt;&lt;div id="map_canvas" style="width:80%; height:480px;"&gt;&lt;/div&gt;
+&lt;script src="/js/google-map.js"&gt;&lt;/script&gt;
+&lt;script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB63YDb3SVNe84KeNXPh5zIjJ_uwr5vsII&amp;callback=initMap" async defer&gt;&lt;/script&gt;
+        &lt;/p&gt;
+&lt;p&gt;参考文档：&lt;/p&gt;
+&lt;p&gt;[1] &lt;a href="http://iza.ac/posts/2014/03/google-embed/"&gt;Google Embed&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;[2] &lt;a href="https://pypi.org/project/google_embed/"&gt;google_embed&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;[3] &lt;a href="https://github.com/getpelican/pelican-plugins/blob/master/liquid_tags/Readme.md"&gt;Liquid-style Tags&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;[4] &lt;a href="https://developers.google.com/maps/documentation/javascript/examples/geocoding-simple"&gt;Geocoding Service | Maps JavaScript API | Google Developers&lt;/a&gt;&lt;/p&gt;</content><category term="pelican"></category><category term="google"></category><category term="map"></category><category term="python"></category><category term="script"></category><category term="coding"></category><category term="github"></category></entry><entry><title>将Instagram内容导入Blog</title><link href="https://www.gfrog.net/2019/07/import-instagram-pictures-into-blog/" rel="alternate"></link><published>2019-07-04T00:07:46+08:00</published><updated>2019-07-04T00:07:46+08:00</updated><author><name>gfrog</name></author><id>tag:www.gfrog.net,2019-07-04:/2019/07/import-instagram-pictures-into-blog/</id><summary type="html">&lt;p&gt;&lt;img alt="1" src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Instagram_logo.svg/1200px-Instagram_logo.svg.png" width="400px"&gt;&lt;/p&gt;
+&lt;p&gt;青蛙关站的这几年，虽然没有写blog，但是instagram和twitter发了可真不少。
+今天研究了下怎么导入instagram的照片和twitter的条目。
+看起来instagram很容易实现，因为有一个python的客户端
+&lt;a href="https://instaloader.github.io/"&gt;Instaloader&lt;/a&gt;
+。&lt;/p&gt;
+&lt;p&gt;首先，用pip把这个客户端装上&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ pip3 install instaloader
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;然后，自己搞个脚本，从instagram数据里面直接生成markdown文件，写的不太好看，不过数据基本完美导入Blog了。&lt;/p&gt;
+&lt;div class="gist"&gt;
+    &lt;script src='https://gist.github.com/92087c750e9293213b69f0f1765e3fad.js'&gt;&lt;/script&gt;
+    &lt;noscript&gt;
+        &lt;pre&gt;&lt;code&gt;import instaloader
+import os
+import time
+
+L=instaloader.Instaloader()
+L.interactive_login("gfrogcn")
+
+profile = instaloader.Profile.from_username(L.context, "gfrogcn")
+
+new_template ="""title: Instagram Picture %s
+date: %s 23:59:59
+slug: instagram-picture-%s
+category …&lt;/code&gt;&lt;/pre&gt;&lt;/noscript&gt;&lt;/div&gt;</summary><content type="html">&lt;p&gt;&lt;img alt="1" src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Instagram_logo.svg/1200px-Instagram_logo.svg.png" width="400px"&gt;&lt;/p&gt;
+&lt;p&gt;青蛙关站的这几年，虽然没有写blog，但是instagram和twitter发了可真不少。
+今天研究了下怎么导入instagram的照片和twitter的条目。
+看起来instagram很容易实现，因为有一个python的客户端
+&lt;a href="https://instaloader.github.io/"&gt;Instaloader&lt;/a&gt;
+。&lt;/p&gt;
+&lt;p&gt;首先，用pip把这个客户端装上&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ pip3 install instaloader
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;然后，自己搞个脚本，从instagram数据里面直接生成markdown文件，写的不太好看，不过数据基本完美导入Blog了。&lt;/p&gt;
+&lt;div class="gist"&gt;
+    &lt;script src='https://gist.github.com/92087c750e9293213b69f0f1765e3fad.js'&gt;&lt;/script&gt;
+    &lt;noscript&gt;
+        &lt;pre&gt;&lt;code&gt;import instaloader
+import os
+import time
+
+L=instaloader.Instaloader()
+L.interactive_login("gfrogcn")
+
+profile = instaloader.Profile.from_username(L.context, "gfrogcn")
+
+new_template ="""title: Instagram Picture %s
+date: %s 23:59:59
+slug: instagram-picture-%s
+category: Pictures
+comments: true
+layout: post
+
+_%s_ %s
+
+[via Instagram](https://www.instagram.com/p/%s/)
+
+%s
+"""
+append_template = """
+_%s_ %s
+
+[via Instagram](https://www.instagram.com/p/%s/)
+
+%s
+"""
+
+
+i = 0
+for post in profile.get_posts():
+    link = ""
+    post_date = post.date_local.strftime("%F")
+    post_time = post.date_local.strftime("%T")
+
+    print("%s - %s" % (post_date, post.shortcode))
+
+    if post.caption:
+        caption = post.caption.replace("\n", "\n\n")
+    else:
+        caption = ""
+
+    if post.typename == "GraphSidecar":
+        for n in post.get_sidecar_nodes():
+            if n.is_video:
+                link += "[%s][%s]\n\n" % (n.video_url, n.video_url)
+            else:
+                link += "![1](%s)\n\n" % n.display_url
+    elif post.is_video:
+        link = "[%s](%s)" % (post.video_url, post.video_url)
+    else:
+        link = "![1](%s)" % post.url
+
+    md_file = "%s-instagram-picture-%s.md" % (post_date, post_date)
+    if os.path.isfile(md_file):
+        file_open_mode = "a+"
+        output = append_template % (post_time, caption,
+                                    post.shortcode, link)
+    else:
+        file_open_mode = "w+"
+        output = new_template % (post_date, post_date, post_date,
+                                post_time, caption, post.shortcode,
+                                link)
+
+    with open(md_file, file_open_mode) as file:
+        file.write(output)
+        i += 1
+
+    if i &gt;= 12:
+        time.sleep(20)
+        i = 0&lt;/code&gt;&lt;/pre&gt;
+    &lt;/noscript&gt;
+&lt;/div&gt;
+&lt;p&gt;目前没有解决的问题有两个：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;del&gt;没办法处理视频内容，现在只是把视频文件链接留下了，但是没办法直接在blog播放。
+  之后有时间需要找一个嵌入video的办法。&lt;/del&gt;
+  &lt;strong&gt;Update:&lt;/strong&gt; 原来liquid_tags.video插件就可以插入video，只需要在post里写
+  &lt;code&gt;{ % video link width height % }&lt;/code&gt;
+  就好了。&lt;/li&gt;
+&lt;li&gt;如果有新的instagram内容，可能需要有一个daemon每天监测然后转换成markdown。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;这两点以后有时间再研究吧。&lt;/p&gt;</content><category term="site"></category><category term="instagram"></category><category term="python"></category></entry><entry><title>Wordpress转换到Octopress</title><link href="https://www.gfrog.net/2013/03/convert-wordpress-to-octopress/" rel="alternate"></link><published>2013-03-08T21:11:00+08:00</published><updated>2013-03-08T21:11:00+08:00</updated><author><name>gfrog</name></author><id>tag:www.gfrog.net,2013-03-08:/2013/03/convert-wordpress-to-octopress/</id><summary type="html">&lt;p&gt;今天青蛙下定决心干掉Wordpress了，不为别的，就因为
+在大天朝访问Openshift不靠谱的连接状态。&lt;/p&gt;
+&lt;p&gt;把Wordpress转换到Octopress这件事，对于天天泡在github
+上的青蛙来说，实在是简单到爆了。github账户有了，ruby
+运行环境有了，只要简单几步就够了：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;按照 &lt;a href="http://octopress.org/docs/setup/"&gt;http://octopress.org/docs/setup/&lt;/a&gt;
+    git clone回octopress代码，安装bundler，安装默认主题。&lt;/li&gt;
+&lt;li&gt;按照 &lt;a href="http://octopress.org/docs/deploying/github/"&gt;http://octopress.org/docs/deploying/github/&lt;/a&gt; 
+    在github上新建一个repo，名字取为"your_github_id.github.com"，在Octopress的目录中执行
+    &lt;code&gt;rake setup_github_pages&lt;/code&gt;， 在提示符中填入这个新建的repo的git地址。&lt;/li&gt;
+&lt;li&gt;然后
+        rake generate
+        rake deploy&lt;/li&gt;
+&lt;li&gt;用浏览器访问"http://your_github_id.github.com"，应该就能看到Octopress的页面了。&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;记得要把源码 …&lt;/p&gt;&lt;/li&gt;&lt;/ol&gt;</summary><content type="html">&lt;p&gt;今天青蛙下定决心干掉Wordpress了，不为别的，就因为
+在大天朝访问Openshift不靠谱的连接状态。&lt;/p&gt;
+&lt;p&gt;把Wordpress转换到Octopress这件事，对于天天泡在github
+上的青蛙来说，实在是简单到爆了。github账户有了，ruby
+运行环境有了，只要简单几步就够了：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;按照 &lt;a href="http://octopress.org/docs/setup/"&gt;http://octopress.org/docs/setup/&lt;/a&gt;
+    git clone回octopress代码，安装bundler，安装默认主题。&lt;/li&gt;
+&lt;li&gt;按照 &lt;a href="http://octopress.org/docs/deploying/github/"&gt;http://octopress.org/docs/deploying/github/&lt;/a&gt; 
+    在github上新建一个repo，名字取为"your_github_id.github.com"，在Octopress的目录中执行
+    &lt;code&gt;rake setup_github_pages&lt;/code&gt;， 在提示符中填入这个新建的repo的git地址。&lt;/li&gt;
+&lt;li&gt;然后
+        rake generate
+        rake deploy&lt;/li&gt;
+&lt;li&gt;用浏览器访问"http://your_github_id.github.com"，应该就能看到Octopress的页面了。&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;记得要把源码（包括blog的markdown文件）提交到git repo里： 包括blog的markdown文件
+        git add .
+        git commit -m 'your message'
+        git push origin source
+    之后每次写完新post都需要做这个操作，以便保留原始文档方便日后编辑。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;编辑_config.yml文件，修改blog的title、author、email等等信息。
+    &lt;a href="http://octopress.org/docs/configuring/"&gt;http://octopress.org/docs/configuring/&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;Octopress 配置好之后就是把Wordpress迁移过来了，青蛙找到了一个exitwp的工具：
+    &lt;a href="https://github.com/thomasf/exitwp"&gt;https://github.com/thomasf/exitwp&lt;/a&gt;
+    按照exitwp的README安装好之后，从wordpress导出xml格式的文章备份，首先用xmllint检查
+    一下这个xml文档是不是有语法错误，特别是特殊字符之类。因为exitwp用了python的xml module，
+    这个模块对某些错误极度敏感，所以要修正xmllint报出的所有错误才行。&lt;/li&gt;
+&lt;li&gt;把这个xml扔进exitwp里面的wordpress-xml目录，执行exitwp，所有的wp post就会被转换成
+    一个个markdown文件了。
+    把这些markdown复制到octopress目录里的source/_posts下面，然后运行
+    &lt;code&gt;rake generate &amp;amp;&amp;amp; rake deploy&lt;/code&gt; 就可以把Wordpress的post内容都迁移到Octopress上了。&lt;/li&gt;
+&lt;li&gt;最后记得把这些markdown都扔进source branch里。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;目前青蛙还没解决的几个问题：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Category的英文名字似乎没法编辑，青蛙还没找到相关的文档。&lt;/li&gt;
+&lt;li&gt;Draft和private状态的文档还不清楚怎么转换。&lt;/li&gt;
+&lt;li&gt;当post很多时（&amp;gt;1000），&lt;code&gt;rake generate&lt;/code&gt;需要运行相当长的时间，青蛙每次执行这个命令都需要2分钟+。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;strong&gt;Update 2013-03-16:&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Category的问题据说在Octopress2.1里面被解决了。&lt;/p&gt;
+&lt;p&gt;青蛙从2.1的branch上backport了一个patch到master，终于解决了中文category名字的问题。
+patch在：&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://github.com/gfrog/gfrog.github.com/commit/60212ee17766e8ba84f81cfdc3f36ef992ae6fb1"&gt;https://github.com/gfrog/gfrog.github.com/commit/60212ee17766e8ba84f81cfdc3f36ef992ae6fb1&lt;/a&gt;
+没有经过完整测试，不过目前使用状况良好。&lt;/p&gt;
+&lt;p&gt;目前Category的写法为 &lt;code&gt;- Category link[Category Name]&lt;/code&gt;，从而完美搞定中文分类名的问题。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Update 2013-04-03:&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;补充一些Octopress用法的问题：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;新建post： &lt;code&gt;rake new_post["Post标题"]&lt;/code&gt;，
+    不过permalink似乎比较难修改，在markdown里写slug似乎无效，只能修改markdown文件名。&lt;/li&gt;
+&lt;li&gt;codeblock 的用法： &lt;a href="http://octopress.org/docs/plugins/codeblock/"&gt;http://octopress.org/docs/plugins/codeblock/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;修改header menu： 编辑 source/_includes/custom/navigation.html&lt;/li&gt;
+&lt;li&gt;添加Header image： 编辑 sass/custom/_styles.scss，加入：&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="nt"&gt;header&lt;/span&gt;&lt;span class="o"&gt;[&lt;/span&gt;&lt;span class="nt"&gt;role&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;banner&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;]&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+     &lt;span class="k"&gt;background-image&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="nb"&gt;url&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="sx"&gt;/images/header_bg.png&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+     &lt;span class="k"&gt;background-repeat&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="kc"&gt;no-repeat&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;</content><category term="site"></category><category term="setup"></category><category term="configuration"></category><category term="wordpress"></category><category term="octopress"></category><category term="ruby"></category><category term="git"></category><category term="github"></category></entry><entry><title>本blog已经迁移到 Openshift</title><link href="https://www.gfrog.net/2012/08/this-blog-has-transfered-to-openshift/" rel="alternate"></link><published>2012-08-18T11:02:31+08:00</published><updated>2012-08-18T11:02:31+08:00</updated><author><name>gfrog</name></author><id>tag:www.gfrog.net,2012-08-18:/2012/08/this-blog-has-transfered-to-openshift/</id><summary type="html">&lt;p&gt;本Blog今天已经正式迁移到Openshift平台上了，欢迎反馈问题报告及速度报告。&lt;/p&gt;
+&lt;p&gt;同时在linode的服务器已经关闭。&lt;/p&gt;
+&lt;p&gt;其实linode真的很好很不错，只是青蛙的blog根本用不到一个vps来支持，
+vps上的资源几乎每天都是浪费掉的，还不如用PaaS平台低碳一些。&lt;/p&gt;
+&lt;p&gt;&lt;img alt="generate_graph.png" src="https://lh6.googleusercontent.com/-BxNOTrFKcBg/UC8DnW1hxxI/AAAAAAAAHuA/qy2wpNWaReM/s800/generate_graph.png"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="generate_graph_mem.png" src="https://lh6.googleusercontent.com/-gN1jz58MRK8/UC8DneddYSI/AAAAAAAAHuI/h0D9R4F0kj0/s800/generate_graph_mem.png"&gt;&lt;/p&gt;</summary><content type="html">&lt;p&gt;本Blog今天已经正式迁移到Openshift平台上了，欢迎反馈问题报告及速度报告。&lt;/p&gt;
+&lt;p&gt;同时在linode的服务器已经关闭。&lt;/p&gt;
+&lt;p&gt;其实linode真的很好很不错，只是青蛙的blog根本用不到一个vps来支持，
+vps上的资源几乎每天都是浪费掉的，还不如用PaaS平台低碳一些。&lt;/p&gt;
+&lt;p&gt;&lt;img alt="generate_graph.png" src="https://lh6.googleusercontent.com/-BxNOTrFKcBg/UC8DnW1hxxI/AAAAAAAAHuA/qy2wpNWaReM/s800/generate_graph.png"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="generate_graph_mem.png" src="https://lh6.googleusercontent.com/-gN1jz58MRK8/UC8DneddYSI/AAAAAAAAHuI/h0D9R4F0kj0/s800/generate_graph_mem.png"&gt;&lt;/p&gt;</content><category term="site"></category><category term="setup"></category><category term="vps"></category><category term="openshift"></category><category term="pass"></category></entry><entry><title>修复twitter digest插件的无法正确显示in-reply-to-id的bug</title><link href="https://www.gfrog.net/2011/01/in-reply-to-id-bug-of-twitter-digest-plugin/" rel="alternate"></link><published>2011-01-08T01:41:07+08:00</published><updated>2011-01-08T01:41:07+08:00</updated><author><name>gfrog</name></author><id>tag:www.gfrog.net,2011-01-08:/2011/01/in-reply-to-id-bug-of-twitter-digest-plugin/</id><summary type="html">&lt;p&gt;青蛙一直在用twitter digest插件来把tweets同步到wordpress上。
+今天检查同步过来的tweets的时候，青蛙发现所有回复其他人的推中，
+in reply to的链接都失效了，tweet id变成了科学计数法的形式。&lt;/p&gt;
+&lt;p&gt;这个问题是由于twitter digest没有正确处理这么大的tweet id造成的，
+青蛙在网上搜了一下处理php大整数的方法[1]，发现只需要把这个整数sprintf成一个string就好了。
+具体的修改方法：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="x"&gt;    --- twitter-digest-old.php  2011-01-07 17:35:01.000000000 +0000&lt;/span&gt;
+&lt;span class="x"&gt;    +++ twitter-digest.php     2011-01-07 17:16:34.000000000 +0000&lt;/span&gt;
+&lt;span class="x"&gt;    @@ -281,7 +281,7 @@&lt;/span&gt;
+&lt;span class="x"&gt;        $output .= ws_make_clickable(wp_specialchars($tweet-&amp;gt;text));&lt;/span&gt;
+&lt;span class="x"&gt;        if (!empty($tweet-&amp;gt;in_reply_to_screen_name)&lt;/span&gt;
+&lt;span class="x"&gt;            &amp;amp;&amp;amp; (!empty($tweet-&amp;gt;in_reply_to_status_id))) {&lt;/span&gt;
+&lt;span class="x"&gt;    -    $output .=         &amp;#39; &amp;lt;a …&lt;/span&gt;&lt;/pre&gt;&lt;/div&gt;</summary><content type="html">&lt;p&gt;青蛙一直在用twitter digest插件来把tweets同步到wordpress上。
+今天检查同步过来的tweets的时候，青蛙发现所有回复其他人的推中，
+in reply to的链接都失效了，tweet id变成了科学计数法的形式。&lt;/p&gt;
+&lt;p&gt;这个问题是由于twitter digest没有正确处理这么大的tweet id造成的，
+青蛙在网上搜了一下处理php大整数的方法[1]，发现只需要把这个整数sprintf成一个string就好了。
+具体的修改方法：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="x"&gt;    --- twitter-digest-old.php  2011-01-07 17:35:01.000000000 +0000&lt;/span&gt;
+&lt;span class="x"&gt;    +++ twitter-digest.php     2011-01-07 17:16:34.000000000 +0000&lt;/span&gt;
+&lt;span class="x"&gt;    @@ -281,7 +281,7 @@&lt;/span&gt;
+&lt;span class="x"&gt;        $output .= ws_make_clickable(wp_specialchars($tweet-&amp;gt;text));&lt;/span&gt;
+&lt;span class="x"&gt;        if (!empty($tweet-&amp;gt;in_reply_to_screen_name)&lt;/span&gt;
+&lt;span class="x"&gt;            &amp;amp;&amp;amp; (!empty($tweet-&amp;gt;in_reply_to_status_id))) {&lt;/span&gt;
+&lt;span class="x"&gt;    -    $output .=         &amp;#39; &amp;lt;a href=&amp;quot;&amp;#39;.ws_status_url($tweet-&amp;gt;in_reply_to_screen_name, $tweet-&amp;gt;in_reply_to_status_id).&amp;#39;&amp;quot;&amp;gt;&amp;#39;.sprintf(__(&amp;#39;in reply to %s&amp;#39;, &amp;#39;twitter-digest&amp;#39;), $tweet-&amp;gt;in_reply_to_screen_name).&amp;#39;&amp;lt;/a&amp;gt;&amp;#39;;&lt;/span&gt;
+&lt;span class="x"&gt;    +    $output .=         &amp;#39; &amp;lt;a href=&amp;quot;&amp;#39;.ws_status_url($tweet-&amp;gt;in_reply_to_screen_name, sprintf(&amp;#39;%1.0f&amp;#39;, $tweet-&amp;gt;in_reply_to_status_id)).&amp;#39;&amp;quot;&amp;gt;&amp;#39;.sprintf(__(&amp;#39;in reply to %s&amp;#39;, &amp;#39;twitter-digest&amp;#39;), $tweet-&amp;gt;in_reply_to_screen_name).&amp;#39;&amp;lt;/a&amp;gt;&amp;#39;;&lt;/span&gt;
+&lt;span class="x"&gt;        }&lt;/span&gt;
+&lt;span class="x"&gt;        // Show the date/time if the options are selected&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;参考资料：&lt;/p&gt;
+&lt;p&gt;[1] PHP 大数自动转换为科学计数法的无耻问题 &lt;a href="http://mifunny.info/big-number-convert-to-scientific-notation-of-php-341.html"&gt;http://mifunny.info/big-number-convert-to-scientific-notation-of-php-341.html&lt;/a&gt;&lt;/p&gt;</content><category term="php"></category><category term="twitter"></category><category term="wordpress"></category><category term="plugin"></category><category term="patch"></category></entry><entry><title>青蛙的Dreamhost账户正式关闭</title><link href="https://www.gfrog.net/2010/12/shutdown-account-on-dreamhost/" rel="alternate"></link><published>2010-12-29T23:10:20+08:00</published><updated>2010-12-29T23:10:20+08:00</updated><author><name>gfrog</name></author><id>tag:www.gfrog.net,2010-12-29:/2010/12/shutdown-account-on-dreamhost/</id><summary type="html">&lt;p&gt;青蛙本来想让DH欠费自动停止服务的，
+但是想了一下，还是自己清理一下痕迹然后手动关闭比较好。&lt;/p&gt;
+&lt;p&gt;手工删掉了所有的域名和数据库
+（这步操作十分蛋疼，后来发现关闭账户的时候会自动删除），然后取消账户。&lt;/p&gt;
+&lt;p&gt;转眼之间，青蛙的网站在DH上也开了3年了，但是仍旧是没人看的状态，
+不过也无所谓，其实就是想有一块可以自由支配的地方。&lt;/p&gt;
+&lt;p&gt;3年中给很多朋友们提供了免费的空间服务，青蛙觉得很开心，
+流量闲着也是闲着，拿来给朋友们练手也是很好的。&lt;/p&gt;
+&lt;p&gt;在此感谢朋友们对青蛙的支持，谢谢大家。&lt;/p&gt;
+&lt;p&gt;今年年中青蛙的DH帐号终于切换成无限流量和空间的了，
+于是青蛙启动了一个免费空间共享计划，但是申请者寥寥，难道是青蛙的要求太严格？&lt;/p&gt;
+&lt;p&gt;青蛙在linode上的新服务器已经基本稳定了，虽然还有些细小的问题。&lt;/p&gt;
+&lt;p&gt;先使用一个月看一下资源的耗费情况，如果有可能，青蛙还是想尽量给大家多提供一些免费资源来用。&lt;/p&gt;</summary><content type="html">&lt;p&gt;青蛙本来想让DH欠费自动停止服务的，
+但是想了一下，还是自己清理一下痕迹然后手动关闭比较好。&lt;/p&gt;
+&lt;p&gt;手工删掉了所有的域名和数据库
+（这步操作十分蛋疼，后来发现关闭账户的时候会自动删除），然后取消账户。&lt;/p&gt;
+&lt;p&gt;转眼之间，青蛙的网站在DH上也开了3年了，但是仍旧是没人看的状态，
+不过也无所谓，其实就是想有一块可以自由支配的地方。&lt;/p&gt;
+&lt;p&gt;3年中给很多朋友们提供了免费的空间服务，青蛙觉得很开心，
+流量闲着也是闲着，拿来给朋友们练手也是很好的。&lt;/p&gt;
+&lt;p&gt;在此感谢朋友们对青蛙的支持，谢谢大家。&lt;/p&gt;
+&lt;p&gt;今年年中青蛙的DH帐号终于切换成无限流量和空间的了，
+于是青蛙启动了一个免费空间共享计划，但是申请者寥寥，难道是青蛙的要求太严格？&lt;/p&gt;
+&lt;p&gt;青蛙在linode上的新服务器已经基本稳定了，虽然还有些细小的问题。&lt;/p&gt;
+&lt;p&gt;先使用一个月看一下资源的耗费情况，如果有可能，青蛙还是想尽量给大家多提供一些免费资源来用。&lt;/p&gt;</content><category term="Dreamhost"></category><category term="site"></category><category term="sharing"></category></entry><entry><title>推荐插件： wp-super-cache</title><link href="https://www.gfrog.net/2010/12/recommend-plugin-wp-super-cache/" rel="alternate"></link><published>2010-12-25T00:22:10+08:00</published><updated>2010-12-25T00:22:10+08:00</updated><author><name>gfrog</name></author><id>tag:www.gfrog.net,2010-12-25:/2010/12/recommend-plugin-wp-super-cache/</id><summary type="html">&lt;p&gt;在wowubuntu！[1]上看到的wp-super-cache这个插件，青蛙立即拿来试验了一下，功效很显著。&lt;/p&gt;
+&lt;p&gt;没有优化前，青蛙用pingdom[2]测试主页面载入速度，需要将近4秒的时间。&lt;/p&gt;
+&lt;p&gt;优化过后是这样：&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://gfrog.net/wp-content/uploads/2010/12/pingdom.jpeg"&gt;&lt;img alt="1" src="http://gfrog.net/wp-content/uploads/2010/12/pingdom.jpeg"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;接下来需要考虑的就是怎样减小那几个js文件的载入时间了，还没找到头绪，希望能得到大牛的指点 ：）&lt;/p&gt;
+&lt;p&gt;另外需要注意一下的是，如果是nginx环境安装wp-super-cache插件，
+需要的rewrite规则在[1]中有提供，但是那个版本是有问题的，这里[3]的版本才是正确的。&lt;/p&gt;
+&lt;p&gt;参考资料：&lt;/p&gt;
+&lt;p&gt;[1] 小内存 VPS 优化建议 (LNMP+WordPress 环境) &lt;a href="http://wowubuntu.com/vps-optimize.html"&gt;http://wowubuntu.com/vps-optimize.html&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;[2] Pingdom tools &lt;a href="http://tools.pingdom.com"&gt;http://tools.pingdom.com&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;[3] Code Exchange: nginx rewrite rules for …&lt;/p&gt;</summary><content type="html">&lt;p&gt;在wowubuntu！[1]上看到的wp-super-cache这个插件，青蛙立即拿来试验了一下，功效很显著。&lt;/p&gt;
+&lt;p&gt;没有优化前，青蛙用pingdom[2]测试主页面载入速度，需要将近4秒的时间。&lt;/p&gt;
+&lt;p&gt;优化过后是这样：&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://gfrog.net/wp-content/uploads/2010/12/pingdom.jpeg"&gt;&lt;img alt="1" src="http://gfrog.net/wp-content/uploads/2010/12/pingdom.jpeg"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;接下来需要考虑的就是怎样减小那几个js文件的载入时间了，还没找到头绪，希望能得到大牛的指点 ：）&lt;/p&gt;
+&lt;p&gt;另外需要注意一下的是，如果是nginx环境安装wp-super-cache插件，
+需要的rewrite规则在[1]中有提供，但是那个版本是有问题的，这里[3]的版本才是正确的。&lt;/p&gt;
+&lt;p&gt;参考资料：&lt;/p&gt;
+&lt;p&gt;[1] 小内存 VPS 优化建议 (LNMP+WordPress 环境) &lt;a href="http://wowubuntu.com/vps-optimize.html"&gt;http://wowubuntu.com/vps-optimize.html&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;[2] Pingdom tools &lt;a href="http://tools.pingdom.com"&gt;http://tools.pingdom.com&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;[3] Code Exchange: nginx rewrite rules for Wordpress + WP Super Cache &lt;a href="http://forum.slicehost.com/comments.php?DiscussionID=2087"&gt;http://forum.slicehost.com/comments.php?DiscussionID=2087&lt;/a&gt;&lt;/p&gt;</content><category term="wordpress"></category><category term="site"></category><category term="vps"></category><category term="performance"></category><category term="cache"></category><category term="plugin"></category></entry><entry><title>配置wordpress的邮件发送功能</title><link href="https://www.gfrog.net/2010/12/enable-smtp-send-mail-in-wordpress/" rel="alternate"></link><published>2010-12-22T23:53:26+08:00</published><updated>2010-12-22T23:53:26+08:00</updated><author><name>gfrog</name></author><id>tag:www.gfrog.net,2010-12-22:/2010/12/enable-smtp-send-mail-in-wordpress/</id><summary type="html">&lt;p&gt;青蛙继续倒腾vps，今天的主题是调教wordpress发送邮件。&lt;/p&gt;
+&lt;p&gt;之前在Dreamhost上面，邮件系统已经配置好了，wordpress不需要任何设置就可以直接发送邮件。
+到了vps上之后，青蛙为了节省资源，没有安装邮件服务器，所以想要发送邮件，还需要自己折腾。&lt;/p&gt;
+&lt;p&gt;青蛙首先是想到了配置一个轻量级的MTA，例如msmtp之类的，
+然后修改php.ini的sendmail_path参数，使它指向msmtp。
+这样php程序就具有邮件发送能力了，但是这样产生的问题就是邮件的发送服务器是固定的，
+而且需要配置一个帐号来做登录服务器，如果某个用户希望使用自己的服务器发送某些邮件，
+这样配置就无法实现了。&lt;/p&gt;
+&lt;p&gt;为了实现完美的解决方案，青蛙又搜了一圈，发现了wordpress已经集成了一个PHPMailer[1]类，
+并且提供了一个wp_mail函数[2]来发送邮件，
+有很多设置SMTP的插件[3]方便我们配置SMTP服务器和外发邮件帐号信息。&lt;/p&gt;
+&lt;p&gt;青蛙选择了WP Mail SMTP插件，非常简单，把所有参数填好，wordpress就可以发送邮件了。&lt;/p&gt;
+&lt;p&gt;参考资料：&lt;/p&gt;
+&lt;p&gt;[1] PHPMailer &lt;a href="http://phpmailer.worxware.com/"&gt;http://phpmailer.worxware.com/&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;[2] Function Reference/wp_mail &lt;a href="http://codex.wordpress.org/Function_Reference/wp_mail"&gt;http://codex …&lt;/a&gt;&lt;/p&gt;</summary><content type="html">&lt;p&gt;青蛙继续倒腾vps，今天的主题是调教wordpress发送邮件。&lt;/p&gt;
+&lt;p&gt;之前在Dreamhost上面，邮件系统已经配置好了，wordpress不需要任何设置就可以直接发送邮件。
+到了vps上之后，青蛙为了节省资源，没有安装邮件服务器，所以想要发送邮件，还需要自己折腾。&lt;/p&gt;
+&lt;p&gt;青蛙首先是想到了配置一个轻量级的MTA，例如msmtp之类的，
+然后修改php.ini的sendmail_path参数，使它指向msmtp。
+这样php程序就具有邮件发送能力了，但是这样产生的问题就是邮件的发送服务器是固定的，
+而且需要配置一个帐号来做登录服务器，如果某个用户希望使用自己的服务器发送某些邮件，
+这样配置就无法实现了。&lt;/p&gt;
+&lt;p&gt;为了实现完美的解决方案，青蛙又搜了一圈，发现了wordpress已经集成了一个PHPMailer[1]类，
+并且提供了一个wp_mail函数[2]来发送邮件，
+有很多设置SMTP的插件[3]方便我们配置SMTP服务器和外发邮件帐号信息。&lt;/p&gt;
+&lt;p&gt;青蛙选择了WP Mail SMTP插件，非常简单，把所有参数填好，wordpress就可以发送邮件了。&lt;/p&gt;
+&lt;p&gt;参考资料：&lt;/p&gt;
+&lt;p&gt;[1] PHPMailer &lt;a href="http://phpmailer.worxware.com/"&gt;http://phpmailer.worxware.com/&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;[2] Function Reference/wp_mail &lt;a href="http://codex.wordpress.org/Function_Reference/wp_mail"&gt;http://codex.wordpress.org/Function_Reference/wp_mail&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;[3] 让 WordPress 通过 SMTP 发送邮件 &lt;a href="http://goto8848.net/2008/04/wordpress-mail-via-smtp/"&gt;http://goto8848.net/2008/04/wordpress-mail-via-smtp/&lt;/a&gt;&lt;/p&gt;</content><category term="mail"></category><category term="plugin"></category><category term="smtp"></category><category term="wordpress"></category><category term="setup"></category><category term="server"></category></entry><entry><title>无处安放的图片</title><link href="https://www.gfrog.net/2010/12/nowhere-to-place-the-pictures/" rel="alternate"></link><published>2010-12-16T00:16:35+08:00</published><updated>2010-12-16T00:16:35+08:00</updated><author><name>gfrog</name></author><id>tag:www.gfrog.net,2010-12-16:/2010/12/nowhere-to-place-the-pictures/</id><summary type="html">&lt;p&gt;青蛙的blog经过无数次迁移，图片已经挂的挂，丢的丢，能保存到今天的所剩无几。
+为blog选择图床是一个让人头大的问题。&lt;/p&gt;
+&lt;p&gt;现在有几个选择，青蛙还没有最终确定，如果您有什么好的方法，记得告诉青蛙。&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;跟blog放在一起。这个方法最简单，折腾最少，wordpress完全不用修改，可以用内置的上传方法。
+     但是这样会增大备份网站的负担，如果有盗链，主机的流量恐怕顶不住。&lt;/li&gt;
+&lt;li&gt;flickr、picasa。几乎完美的解法，用几乎就是因为有大墙的存在。&lt;/li&gt;
+&lt;li&gt;国内图床。这种方法也不错，青蛙曾经在yupoo上放过一阵图片，现在仍然可用。
+     但是，国内的图床免费流量很少，限制超多，而且还有被删图的危险。&lt;/li&gt;
+&lt;li&gt;GAE。青蛙不知道现在是否有可用的相册程序，大概需要大量折腾。
+     而且也有大墙的存在，比较危险。&lt;/li&gt;
+&lt;li&gt;Amazon S3/EC2。这是一个很好的解决方法，而且Amazon的服务不像GAE那么吸引大墙的注意力，
+     可以保证稳定。不过流量仍然是一个让人担心的问题。&lt;/li&gt;
+&lt;li&gt;Dropbox、SugarSync。Dropbox被墙的很彻底，SugarSync有没有外链的能力还有待考察，
+     如果可以外链，这应该是最靠谱的一个方案，除了空间比较小，但是可以通过注册多个帐号解决。&lt;/li&gt;
+&lt;/ol&gt;</summary><content type="html">&lt;p&gt;青蛙的blog经过无数次迁移，图片已经挂的挂，丢的丢，能保存到今天的所剩无几。
+为blog选择图床是一个让人头大的问题。&lt;/p&gt;
+&lt;p&gt;现在有几个选择，青蛙还没有最终确定，如果您有什么好的方法，记得告诉青蛙。&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;跟blog放在一起。这个方法最简单，折腾最少，wordpress完全不用修改，可以用内置的上传方法。
+     但是这样会增大备份网站的负担，如果有盗链，主机的流量恐怕顶不住。&lt;/li&gt;
+&lt;li&gt;flickr、picasa。几乎完美的解法，用几乎就是因为有大墙的存在。&lt;/li&gt;
+&lt;li&gt;国内图床。这种方法也不错，青蛙曾经在yupoo上放过一阵图片，现在仍然可用。
+     但是，国内的图床免费流量很少，限制超多，而且还有被删图的危险。&lt;/li&gt;
+&lt;li&gt;GAE。青蛙不知道现在是否有可用的相册程序，大概需要大量折腾。
+     而且也有大墙的存在，比较危险。&lt;/li&gt;
+&lt;li&gt;Amazon S3/EC2。这是一个很好的解决方法，而且Amazon的服务不像GAE那么吸引大墙的注意力，
+     可以保证稳定。不过流量仍然是一个让人担心的问题。&lt;/li&gt;
+&lt;li&gt;Dropbox、SugarSync。Dropbox被墙的很彻底，SugarSync有没有外链的能力还有待考察，
+     如果可以外链，这应该是最靠谱的一个方案，除了空间比较小，但是可以通过注册多个帐号解决。&lt;/li&gt;
+&lt;/ol&gt;</content><category term="site"></category><category term="setup"></category><category term="picture"></category><category term="wordpress"></category></entry><entry><title>通告：目前本博客正在进行调整</title><link href="https://www.gfrog.net/2010/12/notice-site-is-unstable/" rel="alternate"></link><published>2010-12-12T08:25:06+08:00</published><updated>2010-12-12T08:25:06+08:00</updated><author><name>gfrog</name></author><id>tag:www.gfrog.net,2010-12-12:/2010/12/notice-site-is-unstable/</id><summary type="html">&lt;p&gt;青蛙纠结了很久，终于决定把dreamhost换成vps。
+但是麻烦就随之而来，dremahost上自己什么都不需要管，
+wordpress传上去，简单配置一下就可以用。
+vps上就需要自己搞定web服务器，数据库，等等一大堆。&lt;/p&gt;
+&lt;p&gt;希望dreamhost到期之前青蛙可以搞定vps的问题。&lt;/p&gt;
+&lt;p&gt;Posted from WordPress for Android&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Update 2010-12-14 from web&lt;/strong&gt;:&lt;/p&gt;
+&lt;p&gt;青蛙已经基本上恢复了wordpress，中间遇到很多小问题，都是迁移之前没有想到的。
+青蛙会专门写一篇日志记录这次迁移经验。&lt;/p&gt;</summary><content type="html">&lt;p&gt;青蛙纠结了很久，终于决定把dreamhost换成vps。
+但是麻烦就随之而来，dremahost上自己什么都不需要管，
+wordpress传上去，简单配置一下就可以用。
+vps上就需要自己搞定web服务器，数据库，等等一大堆。&lt;/p&gt;
+&lt;p&gt;希望dreamhost到期之前青蛙可以搞定vps的问题。&lt;/p&gt;
+&lt;p&gt;Posted from WordPress for Android&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Update 2010-12-14 from web&lt;/strong&gt;:&lt;/p&gt;
+&lt;p&gt;青蛙已经基本上恢复了wordpress，中间遇到很多小问题，都是迁移之前没有想到的。
+青蛙会专门写一篇日志记录这次迁移经验。&lt;/p&gt;</content><category term="site"></category><category term="wordpress"></category><category term="dreamhost"></category><category term="vps"></category><category term="setup"></category></entry><entry><title>Dreamhost主机共享计划</title><link href="https://www.gfrog.net/2010/04/dreamhost-host-sharing-plan-free/" rel="alternate"></link><published>2010-04-23T14:22:57+08:00</published><updated>2010-04-23T14:22:57+08:00</updated><author><name>gfrog</name></author><id>tag:www.gfrog.net,2010-04-23:/2010/04/dreamhost-host-sharing-plan-free/</id><summary type="html">&lt;p&gt;最近青蛙的DH帐号迁移到了一台没有磁盘和流量限制的主机上。
+所以，为了避免DH资源的浪费，青蛙准备开放主机共享计划。&lt;/p&gt;
+&lt;p&gt;首批准备开放10个共享名额。
+过一段时间，如果发现开放的空间没有被使用，青蛙将酌情收回并再次开放申请。&lt;/p&gt;
+&lt;p&gt;这个计划是免费的，只提供搭建个人博客所需要的必要资源。
+目前青蛙的帐号已经续费到2010年底，如果不出意外的话，还会继续续费。&lt;/p&gt;
+&lt;p&gt;详细计划如下：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;免费；&lt;/li&gt;
+&lt;li&gt;提供5G硬盘空间，流量不限； 似乎在无限空间的主机上已经没有设置账户空间的地方了，那么用户空间跟流量一样也是无限的。&lt;/li&gt;
+&lt;li&gt;只限一个站点使用，只绑定一个域名；&lt;/li&gt;
+&lt;li&gt;ftp和mysql帐号各一个，没有shell和email提供&lt;/li&gt;
+&lt;li&gt;提供gmail/google app；&lt;/li&gt;
+&lt;li&gt;可以提供python支持（青蛙对于配置python有点陌生，对于python的支持需要青蛙探索一下）。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;对于参与者有如下要求：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;只能做个人主页/个人博客用途；&lt;/li&gt;
+&lt;li&gt;禁止做下载站、放置盗版内容，禁止做采集；&lt;/li&gt;
+&lt;li&gt;在不违反以上几条的前提下，可以放置广告；&lt;/li&gt;
+&lt;li&gt;对于博客搭建、站点备份的问题请自己解决。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;有意者请在twitter上联系
+&lt;a href="http://twitter.com/gfrog"&gt;@gfrog&lt;/a&gt; 
+，介绍一下你的情况和计划，并自备域名一个。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Update: 目前参与本计划的成员：&lt;/strong&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;爱自在 &lt;a href="http://www.izizai.tk/"&gt;http://www.izizai.tk …&lt;/a&gt;&lt;/li&gt;&lt;/ol&gt;</summary><content type="html">&lt;p&gt;最近青蛙的DH帐号迁移到了一台没有磁盘和流量限制的主机上。
+所以，为了避免DH资源的浪费，青蛙准备开放主机共享计划。&lt;/p&gt;
+&lt;p&gt;首批准备开放10个共享名额。
+过一段时间，如果发现开放的空间没有被使用，青蛙将酌情收回并再次开放申请。&lt;/p&gt;
+&lt;p&gt;这个计划是免费的，只提供搭建个人博客所需要的必要资源。
+目前青蛙的帐号已经续费到2010年底，如果不出意外的话，还会继续续费。&lt;/p&gt;
+&lt;p&gt;详细计划如下：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;免费；&lt;/li&gt;
+&lt;li&gt;提供5G硬盘空间，流量不限； 似乎在无限空间的主机上已经没有设置账户空间的地方了，那么用户空间跟流量一样也是无限的。&lt;/li&gt;
+&lt;li&gt;只限一个站点使用，只绑定一个域名；&lt;/li&gt;
+&lt;li&gt;ftp和mysql帐号各一个，没有shell和email提供&lt;/li&gt;
+&lt;li&gt;提供gmail/google app；&lt;/li&gt;
+&lt;li&gt;可以提供python支持（青蛙对于配置python有点陌生，对于python的支持需要青蛙探索一下）。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;对于参与者有如下要求：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;只能做个人主页/个人博客用途；&lt;/li&gt;
+&lt;li&gt;禁止做下载站、放置盗版内容，禁止做采集；&lt;/li&gt;
+&lt;li&gt;在不违反以上几条的前提下，可以放置广告；&lt;/li&gt;
+&lt;li&gt;对于博客搭建、站点备份的问题请自己解决。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;有意者请在twitter上联系
+&lt;a href="http://twitter.com/gfrog"&gt;@gfrog&lt;/a&gt; 
+，介绍一下你的情况和计划，并自备域名一个。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Update: 目前参与本计划的成员：&lt;/strong&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;爱自在 &lt;a href="http://www.izizai.tk/"&gt;http://www.izizai.tk/&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;</content><category term="site"></category><category term="dreamhost"></category><category term="free"></category><category term="account"></category><category term="sharing"></category></entry><entry><title>测试ScribeFire</title><link href="https://www.gfrog.net/2009/11/test-from-scribefire/" rel="alternate"></link><published>2009-11-30T15:25:50+08:00</published><updated>2009-11-30T15:25:50+08:00</updated><author><name>gfrog</name></author><id>tag:www.gfrog.net,2009-11-30:/2009/11/test-from-scribefire/</id><summary type="html">&lt;p&gt;选来选去，Linux下最靠谱的blog客户端还是ScribeFire，
+其他的不是没有所见即所得的编辑方式，就是经常crash，
+或者就是很久很久不更新。&lt;/p&gt;
+&lt;p&gt;青蛙以前试用过ScribeFire，这次再装上，
+发现这个小东东的可用性明显增强了，很好很强大啊。
+除了没有windows live writer那么多的插件，其他都很完美。
+借着这样顺手的工具，青蛙正在慢慢恢复blog的状态。：P&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;update:&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;发表这篇日志的时候，青蛙发现ScribeFire竟然可以直接编辑slug，那么青蛙在
+&lt;a href="https://www.gfrog.net/2009/11/test-blogging-from-blackberry/"&gt;上一篇日志&lt;/a&gt;
+里说到的在标题栏里些slug的问题也不存在了，ScribeFire真好。&lt;/p&gt;
+&lt;p&gt;&lt;img alt="1" src="http://img.zemanta.com/pixy.gif?x-id=8e7934b7-e28d-8a36-9b30-c2199958536f"&gt;&lt;/p&gt;</summary><content type="html">&lt;p&gt;选来选去，Linux下最靠谱的blog客户端还是ScribeFire，
+其他的不是没有所见即所得的编辑方式，就是经常crash，
+或者就是很久很久不更新。&lt;/p&gt;
+&lt;p&gt;青蛙以前试用过ScribeFire，这次再装上，
+发现这个小东东的可用性明显增强了，很好很强大啊。
+除了没有windows live writer那么多的插件，其他都很完美。
+借着这样顺手的工具，青蛙正在慢慢恢复blog的状态。：P&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;update:&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;发表这篇日志的时候，青蛙发现ScribeFire竟然可以直接编辑slug，那么青蛙在
+&lt;a href="https://www.gfrog.net/2009/11/test-blogging-from-blackberry/"&gt;上一篇日志&lt;/a&gt;
+里说到的在标题栏里些slug的问题也不存在了，ScribeFire真好。&lt;/p&gt;
+&lt;p&gt;&lt;img alt="1" src="http://img.zemanta.com/pixy.gif?x-id=8e7934b7-e28d-8a36-9b30-c2199958536f"&gt;&lt;/p&gt;</content><category term="blog"></category><category term="site"></category><category term="wordpress"></category><category term="client"></category><category term="browser"></category></entry><entry><title>测试黑莓手机发博</title><link href="https://www.gfrog.net/2009/11/test-blogging-from-blackberry/" rel="alternate"></link><published>2009-11-25T04:40:28+08:00</published><updated>2009-11-25T04:40:28+08:00</updated><author><name>gfrog</name></author><id>tag:www.gfrog.net,2009-11-25:/2009/11/test-blogging-from-blackberry/</id><summary type="html">&lt;p&gt;虽然青蛙的黑莓上早就安装了wordpress客户端，但是它对中文的支持真是一塌糊涂，所以青蛙一直也没用。&lt;/p&gt;
+&lt;p&gt;再后来，这个客户端的官方网站被封，没办法升级，青蛙就把这个客户端扔到一边去了。
+今天无意中找到一个国内提供OTA安装的网站。
+赶快升级试用。这不，这个可爱的客户端已经完美支持中文了。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;update:&lt;/strong&gt; 2009-11-24&lt;/p&gt;
+&lt;p&gt;青蛙试用完黑莓版本的wordpress客户端以后，
+又试验了一下Android上的WP客户端，用起来也不错，速度很快。
+但是没有BB上的功能全面，只能编辑blog，没有处理评论和page的能力。
+看来BB用户还是很有福的。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;update:&lt;/strong&gt; 2009-11-25&lt;/p&gt;
+&lt;p&gt;在live writer里面，直接在标题后面加入@@固定链接，
+WP就可以将我发布的blog设置为我指定的固定链接了。
+但是BB客户端么有这么做。具体原因，需要调查一下。 &lt;/p&gt;
+&lt;p&gt;发现问题在哪里了，前几天青蛙给WP的插件做了一次大规模升级，
+其中就包括了从标题读取slug的插件wp-slug，
+这个东东的1.5版会一直试图用google翻译我的标题，
+导致我自己设置的slug无法生效。解决方法很简单，给它降级到1.4. ：P&lt;/p&gt;</summary><content type="html">&lt;p&gt;虽然青蛙的黑莓上早就安装了wordpress客户端，但是它对中文的支持真是一塌糊涂，所以青蛙一直也没用。&lt;/p&gt;
+&lt;p&gt;再后来，这个客户端的官方网站被封，没办法升级，青蛙就把这个客户端扔到一边去了。
+今天无意中找到一个国内提供OTA安装的网站。
+赶快升级试用。这不，这个可爱的客户端已经完美支持中文了。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;update:&lt;/strong&gt; 2009-11-24&lt;/p&gt;
+&lt;p&gt;青蛙试用完黑莓版本的wordpress客户端以后，
+又试验了一下Android上的WP客户端，用起来也不错，速度很快。
+但是没有BB上的功能全面，只能编辑blog，没有处理评论和page的能力。
+看来BB用户还是很有福的。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;update:&lt;/strong&gt; 2009-11-25&lt;/p&gt;
+&lt;p&gt;在live writer里面，直接在标题后面加入@@固定链接，
+WP就可以将我发布的blog设置为我指定的固定链接了。
+但是BB客户端么有这么做。具体原因，需要调查一下。 &lt;/p&gt;
+&lt;p&gt;发现问题在哪里了，前几天青蛙给WP的插件做了一次大规模升级，
+其中就包括了从标题读取slug的插件wp-slug，
+这个东东的1.5版会一直试图用google翻译我的标题，
+导致我自己设置的slug无法生效。解决方法很简单，给它降级到1.4. ：P&lt;/p&gt;</content><category term="blackberry"></category><category term="blog"></category><category term="site"></category><category term="wordpress"></category><category term="client"></category></entry><entry><title>成功升级wordpress</title><link href="https://www.gfrog.net/2009/08/successfully-upgrade-wordpress/" rel="alternate"></link><published>2009-08-25T01:12:27+08:00</published><updated>2009-08-25T01:12:27+08:00</updated><author><name>gfrog</name></author><id>tag:www.gfrog.net,2009-08-25:/2009/08/successfully-upgrade-wordpress/</id><summary type="html">&lt;p&gt;&lt;img alt="wordpress-logo" src="http://gfrog.net/pic/albums/logo/wordpress-logo.png"&gt;&lt;/p&gt;
+&lt;p&gt;这wordpress的自动升级功能是越来越好用了。&lt;/p&gt;
+&lt;p&gt;想想看，几个月前在wp的后台里点升级还会直接跑去
+&lt;a href="http://www.wordpress.org"&gt;www.wordpress.org&lt;/a&gt;，必须手工下载安装包。&lt;/p&gt;
+&lt;p&gt;现在只要点一下自动升级，不到1分钟，wordpress就已经up to date了。很好，很强大。&lt;/p&gt;
+&lt;p&gt;&lt;img alt="1" src="http://img.zemanta.com/pixy.gif?x-id=c60d7932-7748-842e-9b80-f43e4e4378bc"&gt;&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;img alt="wordpress-logo" src="http://gfrog.net/pic/albums/logo/wordpress-logo.png"&gt;&lt;/p&gt;
+&lt;p&gt;这wordpress的自动升级功能是越来越好用了。&lt;/p&gt;
+&lt;p&gt;想想看，几个月前在wp的后台里点升级还会直接跑去
+&lt;a href="http://www.wordpress.org"&gt;www.wordpress.org&lt;/a&gt;，必须手工下载安装包。&lt;/p&gt;
+&lt;p&gt;现在只要点一下自动升级，不到1分钟，wordpress就已经up to date了。很好，很强大。&lt;/p&gt;
+&lt;p&gt;&lt;img alt="1" src="http://img.zemanta.com/pixy.gif?x-id=c60d7932-7748-842e-9b80-f43e4e4378bc"&gt;&lt;/p&gt;</content><category term="site"></category><category term="wordpress"></category><category term="upgrade"></category></entry><entry><title>没有了更新blog的激情</title><link href="https://www.gfrog.net/2009/04/lost-passion-on-weblog-update/" rel="alternate"></link><published>2009-04-04T13:56:29+08:00</published><updated>2009-04-04T13:56:29+08:00</updated><author><name>gfrog</name></author><id>tag:www.gfrog.net,2009-04-04:/2009/04/lost-passion-on-weblog-update/</id><summary type="html">&lt;p&gt;自从工作以后，这个blog就很少更新了。
+一方面是工作以后时间没有像在学校时那么充裕，
+另一方面，青蛙的惰性真的越来越大了，经常是想在blog上说些什么，
+但是真的坐下来要打字的时候，又不知道从何说起，然后也懒得去想，最后只得作罢。&lt;/p&gt;
+&lt;p&gt;而且，自从部门对上网进行限制以后，青蛙的这个域名竟然直接就被封了，真是倒霉到家了，
+一点机会也没有给。所以，更新的更加少了。
+有的时候真的想写了，在live writer里刷刷写了半天，也没办法更新，
+也只好扔在那放着了，放的久了，也就忘了更新。&lt;/p&gt;
+&lt;p&gt;青蛙曾经有过关闭这个blog的想法，更新的这么可怜，又没有实际内容，开着实在浪费。
+不过这里毕竟还是记录了青蛙几年的历程，所以一次次的让它自生自灭。&lt;/p&gt;
+&lt;p&gt;这个blog到底应该走向哪里？ 真是个难题。看来只能让它继续自生自灭了？&lt;/p&gt;</summary><content type="html">&lt;p&gt;自从工作以后，这个blog就很少更新了。
+一方面是工作以后时间没有像在学校时那么充裕，
+另一方面，青蛙的惰性真的越来越大了，经常是想在blog上说些什么，
+但是真的坐下来要打字的时候，又不知道从何说起，然后也懒得去想，最后只得作罢。&lt;/p&gt;
+&lt;p&gt;而且，自从部门对上网进行限制以后，青蛙的这个域名竟然直接就被封了，真是倒霉到家了，
+一点机会也没有给。所以，更新的更加少了。
+有的时候真的想写了，在live writer里刷刷写了半天，也没办法更新，
+也只好扔在那放着了，放的久了，也就忘了更新。&lt;/p&gt;
+&lt;p&gt;青蛙曾经有过关闭这个blog的想法，更新的这么可怜，又没有实际内容，开着实在浪费。
+不过这里毕竟还是记录了青蛙几年的历程，所以一次次的让它自生自灭。&lt;/p&gt;
+&lt;p&gt;这个blog到底应该走向哪里？ 真是个难题。看来只能让它继续自生自灭了？&lt;/p&gt;</content><category term="Blog"></category><category term="update"></category></entry><entry><title>公告：此空间续费完毕</title><link href="https://www.gfrog.net/2008/12/announce-this-blog-has-paid-for-next-year/" rel="alternate"></link><published>2008-12-21T23:16:29+08:00</published><updated>2008-12-21T23:16:29+08:00</updated><author><name>gfrog</name></author><id>tag:www.gfrog.net,2008-12-21:/2008/12/announce-this-blog-has-paid-for-next-year/</id><summary type="html">&lt;p&gt;思想斗争了很久，今天终于把这个空间明年的费用交了。
+虽然不怎么更新了，但是也是个没事瞎扯淡的地方。&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Dreamhost" src="https://secure.newdream.net/green5.png"&gt;&lt;/p&gt;
+&lt;p&gt;还有几件事情，&lt;/p&gt;
+&lt;p&gt;第一件，声明一点，gfrog.cn这个域名，
+由于我的疏忽，已经被别人抢注了，
+所以，这个域名已经跟我毫无关系。&lt;/p&gt;
+&lt;p&gt;好像是个什么下载站，看来又是骗点击、骗流量的了。&lt;/p&gt;
+&lt;p&gt;第二件，算是广告，由于本空间资源十分充足，
+所以开放空间共享服务，如果有需要的，可以留言，留下邮箱。
+至于费用，我想象征性的一点就可以了，
+毕竟taobao上dreamhost的空间已经超便宜了。&lt;/p&gt;
+&lt;p&gt;第三件，开放一个折扣号，"GUAGUA"，$50的折扣，有需要的尽管拿去吧。：P&lt;/p&gt;
+&lt;p&gt;好了，就这么多。另外给自己定个目标，以后争取每天更新。&lt;/p&gt;</summary><content type="html">&lt;p&gt;思想斗争了很久，今天终于把这个空间明年的费用交了。
+虽然不怎么更新了，但是也是个没事瞎扯淡的地方。&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Dreamhost" src="https://secure.newdream.net/green5.png"&gt;&lt;/p&gt;
+&lt;p&gt;还有几件事情，&lt;/p&gt;
+&lt;p&gt;第一件，声明一点，gfrog.cn这个域名，
+由于我的疏忽，已经被别人抢注了，
+所以，这个域名已经跟我毫无关系。&lt;/p&gt;
+&lt;p&gt;好像是个什么下载站，看来又是骗点击、骗流量的了。&lt;/p&gt;
+&lt;p&gt;第二件，算是广告，由于本空间资源十分充足，
+所以开放空间共享服务，如果有需要的，可以留言，留下邮箱。
+至于费用，我想象征性的一点就可以了，
+毕竟taobao上dreamhost的空间已经超便宜了。&lt;/p&gt;
+&lt;p&gt;第三件，开放一个折扣号，"GUAGUA"，$50的折扣，有需要的尽管拿去吧。：P&lt;/p&gt;
+&lt;p&gt;好了，就这么多。另外给自己定个目标，以后争取每天更新。&lt;/p&gt;</content></entry><entry><title>在Dreamhost主机上安装bugzilla</title><link href="https://www.gfrog.net/2008/03/install-bugzilla-in-dreamhost/" rel="alternate"></link><published>2008-03-22T00:23:55+08:00</published><updated>2008-03-22T00:23:55+08:00</updated><author><name>gfrog</name></author><id>tag:www.gfrog.net,2008-03-22:/2008/03/install-bugzilla-in-dreamhost/</id><summary type="html">&lt;p&gt;&lt;a href="http://www.bugzilla.org/"&gt;bugzilla&lt;/a&gt;
+是
+&lt;a href="http://www.mozilla.org/"&gt;mozilla&lt;/a&gt;
+一个很好的开源bug管理软件。
+青蛙准备在glinux的开发过程中用它来管理发现的bug。&lt;/p&gt;
+&lt;p&gt;但是dreamhost上没有bugzilla的自动安装功能，青蛙按照
+&lt;a href="http://wiki.dreamhost.com/Bugzilla#Installing_Bugzilla"&gt;dreamhost的wiki上面介绍的方法&lt;/a&gt;
+安装时，又有很多perl模块没有，而且在dreamhost的主机上也没有权限安装这些perl模块。
+所以，青蛙决定先在主机上自己搞一个perl。&lt;/p&gt;
+&lt;p&gt;perl的安装方法很简单，
+&lt;a href="http://wiki.dreamhost.com/Perl#Path_to_the_Perl_interpreter"&gt;dreamhost的wiki也有介绍&lt;/a&gt;
+。青蛙选择的是perl5.8.8，因为wiki上头说有一个针对dreamhost环境的补丁要打
+（补丁文件在
+&lt;a href="http://schwern.org/~schwern/src/dreamhost-5.8.8-cwd.patch"&gt;这里&lt;/a&gt;
+下载）。&lt;/p&gt;
+&lt;p&gt;打上补丁以后，执行：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;sh&lt;/span&gt; &lt;span class="n"&gt;Configure&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;Dusethreads&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;Duselargefiles&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;Dccflags&lt;/span&gt;&lt;span class="o"&gt;=-&lt;/span&gt;&lt;span class="n"&gt;DDEBIAN&lt;/span&gt;
+&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;Dcccdlflags&lt;/span&gt;&lt;span class="o"&gt;=-&lt;/span&gt;&lt;span class="n"&gt;fPIC&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;Darchname&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;i386&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;linux&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;Dprefix&lt;/span&gt;&lt;span class="o"&gt;=~/&lt;/span&gt;&lt;span class="n"&gt;apps&lt;/span&gt;
+&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;Dpager&lt;/span&gt;&lt;span class="o"&gt;=/&lt;/span&gt;&lt;span class="n"&gt;usr&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;bin&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;sensible&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;pager&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;Uafs&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;Ud_csh&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;Uusesfio&lt;/span&gt;
+&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;Uusenm&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;Duseshrplib&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;Dvendorlib&lt;/span&gt;&lt;span class="o"&gt;=/&lt;/span&gt;&lt;span class="n"&gt;usr&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="k"&gt;share …&lt;/span&gt;&lt;/pre&gt;&lt;/div&gt;</summary><content type="html">&lt;p&gt;&lt;a href="http://www.bugzilla.org/"&gt;bugzilla&lt;/a&gt;
+是
+&lt;a href="http://www.mozilla.org/"&gt;mozilla&lt;/a&gt;
+一个很好的开源bug管理软件。
+青蛙准备在glinux的开发过程中用它来管理发现的bug。&lt;/p&gt;
+&lt;p&gt;但是dreamhost上没有bugzilla的自动安装功能，青蛙按照
+&lt;a href="http://wiki.dreamhost.com/Bugzilla#Installing_Bugzilla"&gt;dreamhost的wiki上面介绍的方法&lt;/a&gt;
+安装时，又有很多perl模块没有，而且在dreamhost的主机上也没有权限安装这些perl模块。
+所以，青蛙决定先在主机上自己搞一个perl。&lt;/p&gt;
+&lt;p&gt;perl的安装方法很简单，
+&lt;a href="http://wiki.dreamhost.com/Perl#Path_to_the_Perl_interpreter"&gt;dreamhost的wiki也有介绍&lt;/a&gt;
+。青蛙选择的是perl5.8.8，因为wiki上头说有一个针对dreamhost环境的补丁要打
+（补丁文件在
+&lt;a href="http://schwern.org/~schwern/src/dreamhost-5.8.8-cwd.patch"&gt;这里&lt;/a&gt;
+下载）。&lt;/p&gt;
+&lt;p&gt;打上补丁以后，执行：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;sh&lt;/span&gt; &lt;span class="n"&gt;Configure&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;Dusethreads&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;Duselargefiles&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;Dccflags&lt;/span&gt;&lt;span class="o"&gt;=-&lt;/span&gt;&lt;span class="n"&gt;DDEBIAN&lt;/span&gt;
+&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;Dcccdlflags&lt;/span&gt;&lt;span class="o"&gt;=-&lt;/span&gt;&lt;span class="n"&gt;fPIC&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;Darchname&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;i386&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;linux&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;Dprefix&lt;/span&gt;&lt;span class="o"&gt;=~/&lt;/span&gt;&lt;span class="n"&gt;apps&lt;/span&gt;
+&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;Dpager&lt;/span&gt;&lt;span class="o"&gt;=/&lt;/span&gt;&lt;span class="n"&gt;usr&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;bin&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;sensible&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;pager&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;Uafs&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;Ud_csh&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;Uusesfio&lt;/span&gt;
+&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;Uusenm&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;Duseshrplib&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;Dvendorlib&lt;/span&gt;&lt;span class="o"&gt;=/&lt;/span&gt;&lt;span class="n"&gt;usr&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="k"&gt;share&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;perl5&lt;/span&gt;
+&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;Dvendorarch&lt;/span&gt;&lt;span class="o"&gt;=/&lt;/span&gt;&lt;span class="n"&gt;usr&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;lib&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;perl5&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;Dvendorprefix&lt;/span&gt;&lt;span class="o"&gt;=/&lt;/span&gt;&lt;span class="n"&gt;usr&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;Uinstallusrbinperl&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;des&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;其中Dprefix参数要设置为要安装perl的目录。
+config完毕就可以&lt;code&gt;make &amp;amp;&amp;amp; make install&lt;/code&gt;了。&lt;/p&gt;
+&lt;p&gt;下面正式开始安装bugzilla，
+（青蛙的perl在~/apps/bin目录下，这个目录要换成你自己实际的目录哦）&lt;/p&gt;
+&lt;p&gt;首先进入bugzilla的目录，执行：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="o"&gt;~/&lt;/span&gt;&lt;span class="n"&gt;apps&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;bin&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;perl&lt;/span&gt; &lt;span class="n"&gt;chechsetup&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;pl&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;这个脚本会检查当前的perl环境，如果有缺少的模块，它会给出安装命令。
+例如，在青蛙的主机上，&lt;code&gt;Email::Send&lt;/code&gt;、&lt;code&gt;Email::MIME::Modifier&lt;/code&gt;就被提示安装。
+按照这个脚本给出的命令把必须的模块安装上，然后再次执行上面的命令，
+会在bugzilla目录下生成一个localconfig文件。&lt;/p&gt;
+&lt;p&gt;修改这个localconfig文件：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="nv"&gt;$webservergroup&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;apache&amp;quot;&lt;/span&gt;&lt;span class="n"&gt;中的apache改为自己真实的组名称&lt;/span&gt;&lt;span class="err"&gt;，&lt;/span&gt;&lt;span class="n"&gt;这个组名字可以用groups命令查到&lt;/span&gt;&lt;span class="err"&gt;。&lt;/span&gt;
+&lt;span class="nv"&gt;$db_host&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;localhost&amp;quot;&lt;/span&gt; &lt;span class="n"&gt;修改为真实的mysql服务器地址&lt;/span&gt;&lt;span class="err"&gt;。&lt;/span&gt;
+&lt;span class="nv"&gt;$db_name&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;bugs&amp;quot;&lt;/span&gt; &lt;span class="n"&gt;修改为真实的数据库名&lt;/span&gt;&lt;span class="err"&gt;。&lt;/span&gt;
+&lt;span class="nv"&gt;$db_user&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;bugs&amp;quot;&lt;/span&gt; &lt;span class="n"&gt;修改为真实的用户名&lt;/span&gt;&lt;span class="err"&gt;。&lt;/span&gt;
+&lt;span class="nv"&gt;$db_pass&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;&amp;#39;&lt;/span&gt; &lt;span class="n"&gt;修改为真实的密码&lt;/span&gt;&lt;span class="err"&gt;。&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;上面几项都改完后，重新执行checksetup.pl脚本。
+这时脚本会询问管理员邮箱地址，设置管理员密码等等动作。&lt;/p&gt;
+&lt;p&gt;因为dreamhost使用suexec方式运行的cgi脚本，
+所以每次执行完checksetup.pl以后，都要执行以下命令：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="nv"&gt;i&lt;/span&gt; &lt;span class="nv"&gt;in&lt;/span&gt; &lt;span class="nv"&gt;docs&lt;/span&gt; &lt;span class="nv"&gt;graphs&lt;/span&gt; &lt;span class="nv"&gt;images&lt;/span&gt; &lt;span class="nv"&gt;js&lt;/span&gt; &lt;span class="nv"&gt;skins&lt;/span&gt;&lt;span class="c1"&gt;; do find $i -type d -exec chmod o+rx {} ; ; done&lt;/span&gt;
+&lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="nv"&gt;i&lt;/span&gt; &lt;span class="nv"&gt;in&lt;/span&gt; &lt;span class="nv"&gt;jpg&lt;/span&gt; &lt;span class="nv"&gt;gif&lt;/span&gt; &lt;span class="nv"&gt;css&lt;/span&gt; &lt;span class="nv"&gt;js&lt;/span&gt; &lt;span class="nv"&gt;png&lt;/span&gt; &lt;span class="nv"&gt;html&lt;/span&gt; &lt;span class="nv"&gt;rdf&lt;/span&gt; &lt;span class="nv"&gt;xul&lt;/span&gt;&lt;span class="c1"&gt;; do find . -name *.$i -exec chmod o+r {} ; ; done&lt;/span&gt;
+&lt;span class="nv"&gt;find&lt;/span&gt; . &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="nv"&gt;name&lt;/span&gt; .&lt;span class="nv"&gt;htaccess&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="k"&gt;exec&lt;/span&gt; &lt;span class="nv"&gt;chmod&lt;/span&gt; &lt;span class="nv"&gt;o&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="nv"&gt;r&lt;/span&gt; {} &lt;span class="c1"&gt;;&lt;/span&gt;
+&lt;span class="nv"&gt;chmod&lt;/span&gt; &lt;span class="nv"&gt;o&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="nv"&gt;x&lt;/span&gt; . &lt;span class="nv"&gt;data&lt;/span&gt; &lt;span class="nv"&gt;data&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="nv"&gt;webdot&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;完成这些后，bugzilla就算是安装成功啦。
+可以先用浏览器访问下bugzilla的地址看看效果。&lt;/p&gt;
+&lt;p&gt;接下来说一下汉化的问题，汉化包可以在
+&lt;a href="http://bugzilla-cn.googlecode.com/"&gt;这里&lt;/a&gt;
+下载到，下载、解压以后，把cn文件夹复制到bugzilla目录里的template/目录就行啦。&lt;/p&gt;</content><category term="bugzilla"></category><category term="Dreamhost"></category><category term="Linux"></category></entry><entry><title>Dreamhost主机上的用户数</title><link href="https://www.gfrog.net/2008/01/number-of-domains-on-one-dreamhost-server/" rel="alternate"></link><published>2008-01-19T22:23:55+08:00</published><updated>2008-01-19T22:23:55+08:00</updated><author><name>gfrog</name></author><id>tag:www.gfrog.net,2008-01-19:/2008/01/number-of-domains-on-one-dreamhost-server/</id><summary type="html">&lt;p&gt;ssh到我的DH主机上总感觉慢慢的，很不爽。&lt;/p&gt;
+&lt;p&gt;今天在这里发现了下面两条命令，可以分别查看主机上ssh的用户数和总用户数。&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ grep -i /home/ /etc/passwd &lt;span class="p"&gt;|&lt;/span&gt; wc -l
+
+$ grep -i /home/ /etc/passwd &lt;span class="p"&gt;|&lt;/span&gt; grep /bin/.*sh$ &lt;span class="p"&gt;|&lt;/span&gt; wc -l
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;查了一下，我的空间所在的这个主机上有108个ssh帐户，379个ftp/ssh用户。&lt;/p&gt;
+&lt;p&gt;vmstat看下负载，真的是够高。&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;procs&lt;/span&gt; &lt;span class="c1"&gt;-----------memory---------- ---swap-- -----io---- --system-- ----cpu----&lt;/span&gt;
+ &lt;span class="n"&gt;r&lt;/span&gt;  &lt;span class="n"&gt;b&lt;/span&gt;   &lt;span class="n"&gt;swpd&lt;/span&gt;   &lt;span class="k"&gt;free&lt;/span&gt;   &lt;span class="n"&gt;buff&lt;/span&gt;  &lt;span class="k"&gt;cache&lt;/span&gt;   &lt;span class="n"&gt;si&lt;/span&gt;   &lt;span class="n"&gt;so&lt;/span&gt;    &lt;span class="n"&gt;bi&lt;/span&gt;    &lt;span class="n"&gt;bo&lt;/span&gt;   &lt;span class="k"&gt;in&lt;/span&gt;    &lt;span class="n"&gt;cs&lt;/span&gt; &lt;span class="n"&gt;us&lt;/span&gt; &lt;span class="n"&gt;sy&lt;/span&gt; &lt;span class="n"&gt;id&lt;/span&gt; &lt;span class="n"&gt;wa&lt;/span&gt;
+ &lt;span class="mi"&gt;0 …&lt;/span&gt;&lt;/pre&gt;&lt;/div&gt;</summary><content type="html">&lt;p&gt;ssh到我的DH主机上总感觉慢慢的，很不爽。&lt;/p&gt;
+&lt;p&gt;今天在这里发现了下面两条命令，可以分别查看主机上ssh的用户数和总用户数。&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ grep -i /home/ /etc/passwd &lt;span class="p"&gt;|&lt;/span&gt; wc -l
+
+$ grep -i /home/ /etc/passwd &lt;span class="p"&gt;|&lt;/span&gt; grep /bin/.*sh$ &lt;span class="p"&gt;|&lt;/span&gt; wc -l
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;查了一下，我的空间所在的这个主机上有108个ssh帐户，379个ftp/ssh用户。&lt;/p&gt;
+&lt;p&gt;vmstat看下负载，真的是够高。&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;procs&lt;/span&gt; &lt;span class="c1"&gt;-----------memory---------- ---swap-- -----io---- --system-- ----cpu----&lt;/span&gt;
+ &lt;span class="n"&gt;r&lt;/span&gt;  &lt;span class="n"&gt;b&lt;/span&gt;   &lt;span class="n"&gt;swpd&lt;/span&gt;   &lt;span class="k"&gt;free&lt;/span&gt;   &lt;span class="n"&gt;buff&lt;/span&gt;  &lt;span class="k"&gt;cache&lt;/span&gt;   &lt;span class="n"&gt;si&lt;/span&gt;   &lt;span class="n"&gt;so&lt;/span&gt;    &lt;span class="n"&gt;bi&lt;/span&gt;    &lt;span class="n"&gt;bo&lt;/span&gt;   &lt;span class="k"&gt;in&lt;/span&gt;    &lt;span class="n"&gt;cs&lt;/span&gt; &lt;span class="n"&gt;us&lt;/span&gt; &lt;span class="n"&gt;sy&lt;/span&gt; &lt;span class="n"&gt;id&lt;/span&gt; &lt;span class="n"&gt;wa&lt;/span&gt;
+ &lt;span class="mi"&gt;0&lt;/span&gt;  &lt;span class="mi"&gt;0&lt;/span&gt;  &lt;span class="mi"&gt;41968&lt;/span&gt; &lt;span class="mi"&gt;213368&lt;/span&gt;  &lt;span class="mi"&gt;66372&lt;/span&gt; &lt;span class="mi"&gt;2950740&lt;/span&gt;    &lt;span class="mi"&gt;0&lt;/span&gt;    &lt;span class="mi"&gt;1&lt;/span&gt;     &lt;span class="mi"&gt;4&lt;/span&gt;     &lt;span class="mi"&gt;9&lt;/span&gt;    &lt;span class="mi"&gt;1&lt;/span&gt;     &lt;span class="mi"&gt;3&lt;/span&gt; &lt;span class="mi"&gt;27&lt;/span&gt;  &lt;span class="mi"&gt;7&lt;/span&gt; &lt;span class="mi"&gt;66&lt;/span&gt;  &lt;span class="mi"&gt;0&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;</content><category term="Dreamhost"></category><category term="hosting"></category><category term="overselling"></category></entry><entry><title>试验一下子Drivel</title><link href="https://www.gfrog.net/2008/01/try-drivel/" rel="alternate"></link><published>2008-01-16T22:40:49+08:00</published><updated>2008-01-16T22:40:49+08:00</updated><author><name>gfrog</name></author><id>tag:www.gfrog.net,2008-01-16:/2008/01/try-drivel/</id><summary type="html">&lt;p&gt;在Linux里，找一个可以用的blog客户端可真的不是一件简单的事情。
+blog客户端本来就少，能够使用
+（这也仅仅保留在能正常使用而且不出现bt问题这个层次上）的就更少。&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://www.yupoo.com/photos/view?id=ff80808117800ce60117830894ba2d61"&gt;&lt;img alt="drivel1" src="http://pic.yupoo.com/gfrog/858504f18ca2/medium.jpg"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;翻来覆去的试了几次，青蛙决定还是试下Drivel，
+这个gnome下的小东西写几个字，简单改变下格式倒是都有了，
+但是像windows live writer那样可以在客户端里修改作者，添加标签，
+设置trackback地址之类的都没有。真是简陋的够可以的。&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://www.yupoo.com/photos/view?id=ff80808117800ce60117830896ab2d63"&gt;&lt;img alt="drivel2" src="http://pic.yupoo.com/gfrog/292184f18ca3/medium.jpg"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;青蛙决定先试用一段时间。
+当然，还是要继续寻找更强大的blog客户端的。
+如果能把live writer移植到linux上来就好啦。：p&lt;/p&gt;</summary><content type="html">&lt;p&gt;在Linux里，找一个可以用的blog客户端可真的不是一件简单的事情。
+blog客户端本来就少，能够使用
+（这也仅仅保留在能正常使用而且不出现bt问题这个层次上）的就更少。&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://www.yupoo.com/photos/view?id=ff80808117800ce60117830894ba2d61"&gt;&lt;img alt="drivel1" src="http://pic.yupoo.com/gfrog/858504f18ca2/medium.jpg"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;翻来覆去的试了几次，青蛙决定还是试下Drivel，
+这个gnome下的小东西写几个字，简单改变下格式倒是都有了，
+但是像windows live writer那样可以在客户端里修改作者，添加标签，
+设置trackback地址之类的都没有。真是简陋的够可以的。&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://www.yupoo.com/photos/view?id=ff80808117800ce60117830896ab2d63"&gt;&lt;img alt="drivel2" src="http://pic.yupoo.com/gfrog/292184f18ca3/medium.jpg"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;青蛙决定先试用一段时间。
+当然，还是要继续寻找更强大的blog客户端的。
+如果能把live writer移植到linux上来就好啦。：p&lt;/p&gt;</content><category term="blog"></category><category term="drivel"></category><category term="Linux"></category></entry><entry><title>feed输出竟然有乱码</title><link href="https://www.gfrog.net/2008/01/feed-output-error-2/" rel="alternate"></link><published>2008-01-11T22:08:28+08:00</published><updated>2008-01-11T22:08:28+08:00</updated><author><name>gfrog</name></author><id>tag:www.gfrog.net,2008-01-11:/2008/01/feed-output-error-2/</id><summary type="html">&lt;p&gt;再次测试一下，看看是字符编码的问题，
+还是wordpress系统的问题，还是google reader的问题!&lt;/p&gt;
+&lt;p&gt;-------------无奈的分割线-----------&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;update: 2008-01-11 22:40&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;feed问题已经定位，出在Aizatto's Related Posts这个插件上，
+它会截取相关日志的部分内容输出到feed里，
+但是正好碰上它截取的那部分有特殊字符，所以就挂掉了。&lt;/p&gt;
+&lt;p&gt;解决办法也很简单，禁用这个插件的摘要输出功能就是了。&lt;/p&gt;
+&lt;p&gt;唉，wordpress的插件啊，好用的很多，但是真是容易出毛病!&lt;/p&gt;</summary><content type="html">&lt;p&gt;再次测试一下，看看是字符编码的问题，
+还是wordpress系统的问题，还是google reader的问题!&lt;/p&gt;
+&lt;p&gt;-------------无奈的分割线-----------&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;update: 2008-01-11 22:40&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;feed问题已经定位，出在Aizatto's Related Posts这个插件上，
+它会截取相关日志的部分内容输出到feed里，
+但是正好碰上它截取的那部分有特殊字符，所以就挂掉了。&lt;/p&gt;
+&lt;p&gt;解决办法也很简单，禁用这个插件的摘要输出功能就是了。&lt;/p&gt;
+&lt;p&gt;唉，wordpress的插件啊，好用的很多，但是真是容易出毛病!&lt;/p&gt;</content></entry><entry><title>feedsky验证码</title><link href="https://www.gfrog.net/2008/01/feedsky-verify-code/" rel="alternate"></link><published>2008-01-05T22:07:29+08:00</published><updated>2008-01-05T22:07:29+08:00</updated><author><name>gfrog</name></author><id>tag:www.gfrog.net,2008-01-05:/2008/01/feedsky-verify-code/</id><summary type="html">&lt;p&gt;fe091327&lt;/p&gt;
+&lt;p&gt;feedsky验证.&lt;/p&gt;</summary><content type="html">&lt;p&gt;fe091327&lt;/p&gt;
+&lt;p&gt;feedsky验证.&lt;/p&gt;</content></entry><entry><title>New site is online!</title><link href="https://www.gfrog.net/2008/01/new-site-is-online/" rel="alternate"></link><published>2008-01-04T22:28:38+08:00</published><updated>2008-01-04T22:28:38+08:00</updated><author><name>gfrog</name></author><id>tag:www.gfrog.net,2008-01-04:/2008/01/new-site-is-online/</id><summary type="html">&lt;p&gt;新年来了，我的新站点也终于可以用了。这次完全的换到了wordpress平台上，再加上新的域名：&lt;/p&gt;
+&lt;h2&gt;&lt;a href="https://www.gfrog.net"&gt;www.gfrog.net&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;希望也是一个全新的开始！&lt;/p&gt;
+&lt;p&gt;--------------华丽的分割线--------------&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;update,2008-01-05:&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;feed输出终于正常了,倒腾了好几天,终于发现是
+&lt;a href="http://www.feedburner.com/fb/a/help/wordpress_quickstart"&gt;FeedBurner FeedSmith&lt;/a&gt;
+插件的问题，它直接把我的feed转向到feedburner去了，
+但是feedburner又被伟大的GFW盾了，所以每次访问feed都无法显示。
+最后，只好去掉这个插件了，让我的feed裸奔吧。&lt;/p&gt;
+&lt;p&gt;现在页面左上角那个feed的连接是本站的直接输出 &lt;a href="https://www.gfrog.net/feed/"&gt;https://www.gfrog.net/feed/&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;大家还可以通过feedburner和feedsky来订阅.&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://feeds.feedburner.com/gfrog"&gt;&lt;img alt="feedburner" src="http://photo14.yupoo.com/20080105/214059_263892857_avbxamfm.jpg"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://feed.feedsky.com/gfrog"&gt;&lt;img alt="feedsky" src="http://photo15.yupoo.com/20080105/214059_236084291_gwetmjod.jpg"&gt;&lt;/a&gt;&lt;/p&gt;</summary><content type="html">&lt;p&gt;新年来了，我的新站点也终于可以用了。这次完全的换到了wordpress平台上，再加上新的域名：&lt;/p&gt;
+&lt;h2&gt;&lt;a href="https://www.gfrog.net"&gt;www.gfrog.net&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;希望也是一个全新的开始！&lt;/p&gt;
+&lt;p&gt;--------------华丽的分割线--------------&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;update,2008-01-05:&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;feed输出终于正常了,倒腾了好几天,终于发现是
+&lt;a href="http://www.feedburner.com/fb/a/help/wordpress_quickstart"&gt;FeedBurner FeedSmith&lt;/a&gt;
+插件的问题，它直接把我的feed转向到feedburner去了，
+但是feedburner又被伟大的GFW盾了，所以每次访问feed都无法显示。
+最后，只好去掉这个插件了，让我的feed裸奔吧。&lt;/p&gt;
+&lt;p&gt;现在页面左上角那个feed的连接是本站的直接输出 &lt;a href="https://www.gfrog.net/feed/"&gt;https://www.gfrog.net/feed/&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;大家还可以通过feedburner和feedsky来订阅.&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://feeds.feedburner.com/gfrog"&gt;&lt;img alt="feedburner" src="http://photo14.yupoo.com/20080105/214059_263892857_avbxamfm.jpg"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://feed.feedsky.com/gfrog"&gt;&lt;img alt="feedsky" src="http://photo15.yupoo.com/20080105/214059_236084291_gwetmjod.jpg"&gt;&lt;/a&gt;&lt;/p&gt;</content></entry><entry><title>feed输出似乎有问题</title><link href="https://www.gfrog.net/2007/07/feed-output-error/" rel="alternate"></link><published>2007-07-15T20:54:32+08:00</published><updated>2007-07-15T20:54:32+08:00</updated><author><name>gfrog</name></author><id>tag:www.gfrog.net,2007-07-15:/2007/07/feed-output-error/</id><summary type="html">&lt;p&gt;现在本播feed输出似乎一直停在说验证码的那篇日志上，问题的原因未知。&lt;/p&gt;
+&lt;p&gt;实在是懒得改了，先凑合一下，这个空间马上到期了，到时候换去wordpress。&lt;/p&gt;</summary><content type="html">&lt;p&gt;现在本播feed输出似乎一直停在说验证码的那篇日志上，问题的原因未知。&lt;/p&gt;
+&lt;p&gt;实在是懒得改了，先凑合一下，这个空间马上到期了，到时候换去wordpress。&lt;/p&gt;</content></entry><entry><title>'新域名启用: gfrog.info'</title><link href="https://www.gfrog.net/2007/06/new-domain-name-gfroginfo/" rel="alternate"></link><published>2007-06-08T03:54:23+08:00</published><updated>2007-06-08T03:54:23+08:00</updated><author><name>gfrog</name></author><id>tag:www.gfrog.net,2007-06-08:/2007/06/new-domain-name-gfroginfo/</id><summary type="html">&lt;p&gt;www.gfrog.info&lt;/p&gt;
+&lt;p&gt;1.99美刀一年.一口气买了5年的.&lt;/p&gt;
+&lt;p&gt;在http://www.stargateinc.com/上购买.
+上次bloggerwave发给我广告费一直没有想到怎么用,正好今天拿来买了一个域名.嘿嘿.&lt;/p&gt;</summary><content type="html">&lt;p&gt;www.gfrog.info&lt;/p&gt;
+&lt;p&gt;1.99美刀一年.一口气买了5年的.&lt;/p&gt;
+&lt;p&gt;在http://www.stargateinc.com/上购买.
+上次bloggerwave发给我广告费一直没有想到怎么用,正好今天拿来买了一个域名.嘿嘿.&lt;/p&gt;</content><category term="domain"></category></entry></feed>

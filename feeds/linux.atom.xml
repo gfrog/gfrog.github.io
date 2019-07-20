@@ -1,0 +1,1472 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>My Life, My Love! - Linux</title><link href="https://www.gfrog.net/" rel="alternate"></link><link href="https://www.gfrog.net/feeds/linux.atom.xml" rel="self"></link><id>https://www.gfrog.net/</id><updated>2013-01-06T22:22:44+08:00</updated><subtitle>指点江山 激昂文字 修身隆德 自然自我</subtitle><entry><title>我们来打洞：转发DNS包</title><link href="https://www.gfrog.net/2013/01/foward-dns-packet-with-tunnel/" rel="alternate"></link><published>2013-01-06T22:22:44+08:00</published><updated>2013-01-06T22:22:44+08:00</updated><author><name>gfrog</name></author><id>tag:www.gfrog.net,2013-01-06:/2013/01/foward-dns-packet-with-tunnel/</id><summary type="html">&lt;p&gt;基于某些众所周知的原因，在天朝上网非常需要勇气和技术。
+今天在跟某人聊天时了解到Chrome竟然没办法使用proxy进行DNS查询&amp;lt;1&amp;gt;， 导致DNS查询结果持续被污染。
+虽然用proxychains能把一切流量塞进代理里面，
+不过用proxychains启动浏览器的话，各种自动代理插件就失效了，所以这是个得不偿失的方法。
+青蛙晚上的时候突然想到iptables是不是可以把DNS查询流量转发进ssh tunnel呢？
+上网google一番之后，发现这是可行的，而且其实用不到iptables，只要nc就够了。&lt;/p&gt;
+&lt;p&gt;要用SSH Tunnel转发DNS流量，最大的问题是要把DNS协议使用的UDP协议转换为TCP协议，然后在proxy端还要转换回来。
+所以目前青蛙想到的方案有一个很大的缺陷，就是如果ssh服务器上不提供nc命令的话，下面的操作是没法完成的。&lt;/p&gt;
+&lt;p&gt;首先，用SSH连接ssh服务器，这里青蛙打了一套组合拳，ssh -L + -D组合，分别负责DNS流量和普通数据流量：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;ssh&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;D1080&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="nl"&gt;L5353&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="mf"&gt;127.0.0.1&lt;/span&gt;&lt;span class="err"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;5353&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;user&lt;/span&gt;&lt;span class="nv"&gt;@ssh&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;server&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;-L 参数的目的是在本地机器上打开一个5353端口，发送到这个端口的数据都会被转发到ssh服务器上的5353端口上。&lt;/p&gt;
+&lt;p&gt;然后，在ssh服务器上执行：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;server$&lt;/span&gt; &lt;span class="n"&gt;mkfifo&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;tmp&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;fifo&lt;/span&gt;
+&lt;span class="n"&gt;server …&lt;/span&gt;&lt;/pre&gt;&lt;/div&gt;</summary><content type="html">&lt;p&gt;基于某些众所周知的原因，在天朝上网非常需要勇气和技术。
+今天在跟某人聊天时了解到Chrome竟然没办法使用proxy进行DNS查询&amp;lt;1&amp;gt;， 导致DNS查询结果持续被污染。
+虽然用proxychains能把一切流量塞进代理里面，
+不过用proxychains启动浏览器的话，各种自动代理插件就失效了，所以这是个得不偿失的方法。
+青蛙晚上的时候突然想到iptables是不是可以把DNS查询流量转发进ssh tunnel呢？
+上网google一番之后，发现这是可行的，而且其实用不到iptables，只要nc就够了。&lt;/p&gt;
+&lt;p&gt;要用SSH Tunnel转发DNS流量，最大的问题是要把DNS协议使用的UDP协议转换为TCP协议，然后在proxy端还要转换回来。
+所以目前青蛙想到的方案有一个很大的缺陷，就是如果ssh服务器上不提供nc命令的话，下面的操作是没法完成的。&lt;/p&gt;
+&lt;p&gt;首先，用SSH连接ssh服务器，这里青蛙打了一套组合拳，ssh -L + -D组合，分别负责DNS流量和普通数据流量：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;ssh&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;D1080&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="nl"&gt;L5353&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="mf"&gt;127.0.0.1&lt;/span&gt;&lt;span class="err"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;5353&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;user&lt;/span&gt;&lt;span class="nv"&gt;@ssh&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;server&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;-L 参数的目的是在本地机器上打开一个5353端口，发送到这个端口的数据都会被转发到ssh服务器上的5353端口上。&lt;/p&gt;
+&lt;p&gt;然后，在ssh服务器上执行：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;server$&lt;/span&gt; &lt;span class="n"&gt;mkfifo&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;tmp&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;fifo&lt;/span&gt;
+&lt;span class="n"&gt;server$&lt;/span&gt; &lt;span class="n"&gt;nc&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;l&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;p&lt;/span&gt; &lt;span class="mi"&gt;5353&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;tmp&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;fifo&lt;/span&gt; &lt;span class="o"&gt;|&lt;/span&gt; &lt;span class="n"&gt;nc&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;u&lt;/span&gt; &lt;span class="mi"&gt;8&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;8&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;8&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;8&lt;/span&gt; &lt;span class="mi"&gt;53&lt;/span&gt; &lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;tmp&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;fifo&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;这两条命令用普通用户就可以执行，在大部分ssh服务器上应该都可以用。
+另外&amp;lt;2&amp;gt;中还提供了一个socat版本，这个东东可以省去创建fifo管道的步骤，
+看起来比较简洁，但是做的事情跟nc是一样的：
+把ssh服务器上TCP5353端口收到的包转发到8.8.8.8的UDP53端口上去。&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;socat&lt;/span&gt; &lt;span class="n"&gt;tcp4&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="k"&gt;listen&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;5353&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;reuseaddr&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;fork&lt;/span&gt; &lt;span class="n"&gt;UDP&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;8&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;8&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;8&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;8&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;53&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;接下来在本地机器上执行：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="k"&gt;local&lt;/span&gt;&lt;span class="o"&gt;#&lt;/span&gt; &lt;span class="n"&gt;mkfifo&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;tmp&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;fifo&lt;/span&gt;
+&lt;span class="k"&gt;local&lt;/span&gt;&lt;span class="o"&gt;#&lt;/span&gt; &lt;span class="n"&gt;sudo&lt;/span&gt; &lt;span class="n"&gt;nc&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;l&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;u&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;p&lt;/span&gt; &lt;span class="mi"&gt;53&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;tmp&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;fifo&lt;/span&gt; &lt;span class="o"&gt;|&lt;/span&gt; &lt;span class="n"&gt;nc&lt;/span&gt; &lt;span class="n"&gt;localhost&lt;/span&gt; &lt;span class="mi"&gt;5353&lt;/span&gt; &lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;tmp&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;fifo&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;在本地UDP53端口上监听，一旦有数据包，就转发到本地的TCP5353端口上去。&lt;/p&gt;
+&lt;p&gt;socat版本：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;socat&lt;/span&gt; &lt;span class="n"&gt;udp4&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="k"&gt;listen&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;53&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;reuseaddr&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;fork&lt;/span&gt; &lt;span class="n"&gt;tcp&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="n"&gt;localhost&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;5353&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;好了，到此打洞的部分完成，最后的包转发流程应该是：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;localhost&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="n"&gt;UDP53&lt;/span&gt; &lt;span class="o"&gt;-&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;localhost&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="n"&gt;TCP5353&lt;/span&gt; &lt;span class="o"&gt;-&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;ssh&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;server&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="n"&gt;TCP5353&lt;/span&gt; &lt;span class="o"&gt;-&amp;gt;&lt;/span&gt; &lt;span class="mf"&gt;8.8&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="mf"&gt;8.8&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="n"&gt;UDP53&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;主要就是使用nc/socat把UDP和TCP流量进行转换，以便可以把他们扔进SSH Tunnel里。&lt;/p&gt;
+&lt;p&gt;然后，修改/etc/resolv.conf：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;nameserver&lt;/span&gt; &lt;span class="mi"&gt;127&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;这样再用Chrome浏览器就应该没有该死的DNS污染问题了。&lt;/p&gt;
+&lt;p&gt;这个解法不算太好，因为需要在Server端执行命令，如果是一些不给pty的host，就没办法用这个方法了。
+可能比较好的方案还是透明代理之类的。&lt;/p&gt;
+&lt;p&gt;参考资料：&lt;/p&gt;
+&lt;p&gt;&amp;lt;1&amp;gt;. Issue 29914: DNS queries not forwarded through SOCKS v5 proxies&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://code.google.com/p/chromium/issues/detail?id=29914"&gt;https://code.google.com/p/chromium/issues/detail?id=29914&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&amp;lt;2&amp;gt;. UDP traffic through SSH tunnel&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://superuser.com/questions/53103/udp-traffic-through-ssh-tunnel"&gt;http://superuser.com/questions/53103/udp-traffic-through-ssh-tunnel&lt;/a&gt;&lt;/p&gt;</content><category term="linux"></category><category term="desktop"></category><category term="ssh"></category><category term="tunnel"></category><category term="client"></category><category term="networking"></category><category term="dns"></category><category term="shell"></category></entry><entry><title>procmail + kdialog 构建邮件提醒脚本</title><link href="https://www.gfrog.net/2011/10/procmail-kdialog-mail-notifyer/" rel="alternate"></link><published>2011-10-09T16:47:35+08:00</published><updated>2011-10-09T16:47:35+08:00</updated><author><name>gfrog</name></author><id>tag:www.gfrog.net,2011-10-09:/2011/10/procmail-kdialog-mail-notifyer/</id><summary type="html">&lt;p&gt;Mutt真的是神器，越用越觉得爽。
+可惜命令行模式的工具都有个弊端：跟X交互能力比较弱，
+例如Mutt就木有邮件提醒功能。&lt;/p&gt;
+&lt;p&gt;之前在Gnome2的年代里还有
+&lt;a href="http://www.nongnu.org/mailnotify/"&gt;mail-notification&lt;/a&gt;
+可以对付用（这玩意占用系统资源狂多，似乎是通过监视文件更改来提醒的），
+在Gnome3之后这个工具就完全不工作了，而且又没有后续版本。&lt;/p&gt;
+&lt;p&gt;青蛙抛弃Gnome，换成KDE之后，也没有找到KDE下的邮件提醒工具，于是一直酝酿着自己写一个。&lt;/p&gt;
+&lt;p&gt;实现邮件提醒功能，无非就是监控邮箱变更，可以在几个点检查：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;直接使用POP/IMAP协议检查服务器端&lt;/li&gt;
+&lt;li&gt;监视MTA动作&lt;/li&gt;
+&lt;li&gt;监视MDA动作&lt;/li&gt;
+&lt;li&gt;监视MUA动作&lt;/li&gt;
+&lt;li&gt;监视邮箱文件/目录更改&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;直接访问服务器是最直接的办法，但是既然MTA都把邮件收下来了，
+再去监视服务器就有点绕腾了，这种方法监视gmail/hotmail之类的邮箱还是很不错的。&lt;/p&gt;
+&lt;p&gt;监视MUA的动作，
+&lt;a href="http://www.adam8157.info"&gt;adam8157&lt;/a&gt;同学
+&lt;a href="http://www.adam8157.info/blog/2010/05/mutt-filter-notify/"&gt;就是这么做的&lt;/a&gt;，
+监视Mutt startusbar的特殊字符串，通过Mutt的filter发送notify消息。&lt;/p&gt;
+&lt;p&gt;监视邮箱文件/目录变化就是
+&lt;a href="http://www.nongnu.org/mailnotify/"&gt;mail-notification&lt;/a&gt;
+的做法了，但是如果不想轮询的话，大概需要内核开启inotify支持。&lt;/p&gt;
+&lt;p&gt;监视MTA动作，青蛙没有仔细研究，似乎还是需要MDA的某些行为处理，
+所以青蛙直接用了在MDA里加入提醒脚本的方法。&lt;/p&gt;
+&lt;p&gt;监视MDA动作，就是青蛙的做法 …&lt;/p&gt;</summary><content type="html">&lt;p&gt;Mutt真的是神器，越用越觉得爽。
+可惜命令行模式的工具都有个弊端：跟X交互能力比较弱，
+例如Mutt就木有邮件提醒功能。&lt;/p&gt;
+&lt;p&gt;之前在Gnome2的年代里还有
+&lt;a href="http://www.nongnu.org/mailnotify/"&gt;mail-notification&lt;/a&gt;
+可以对付用（这玩意占用系统资源狂多，似乎是通过监视文件更改来提醒的），
+在Gnome3之后这个工具就完全不工作了，而且又没有后续版本。&lt;/p&gt;
+&lt;p&gt;青蛙抛弃Gnome，换成KDE之后，也没有找到KDE下的邮件提醒工具，于是一直酝酿着自己写一个。&lt;/p&gt;
+&lt;p&gt;实现邮件提醒功能，无非就是监控邮箱变更，可以在几个点检查：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;直接使用POP/IMAP协议检查服务器端&lt;/li&gt;
+&lt;li&gt;监视MTA动作&lt;/li&gt;
+&lt;li&gt;监视MDA动作&lt;/li&gt;
+&lt;li&gt;监视MUA动作&lt;/li&gt;
+&lt;li&gt;监视邮箱文件/目录更改&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;直接访问服务器是最直接的办法，但是既然MTA都把邮件收下来了，
+再去监视服务器就有点绕腾了，这种方法监视gmail/hotmail之类的邮箱还是很不错的。&lt;/p&gt;
+&lt;p&gt;监视MUA的动作，
+&lt;a href="http://www.adam8157.info"&gt;adam8157&lt;/a&gt;同学
+&lt;a href="http://www.adam8157.info/blog/2010/05/mutt-filter-notify/"&gt;就是这么做的&lt;/a&gt;，
+监视Mutt startusbar的特殊字符串，通过Mutt的filter发送notify消息。&lt;/p&gt;
+&lt;p&gt;监视邮箱文件/目录变化就是
+&lt;a href="http://www.nongnu.org/mailnotify/"&gt;mail-notification&lt;/a&gt;
+的做法了，但是如果不想轮询的话，大概需要内核开启inotify支持。&lt;/p&gt;
+&lt;p&gt;监视MTA动作，青蛙没有仔细研究，似乎还是需要MDA的某些行为处理，
+所以青蛙直接用了在MDA里加入提醒脚本的方法。&lt;/p&gt;
+&lt;p&gt;监视MDA动作，就是青蛙的做法，利用procmail的nested block，
+把邮件pipe到一个脚本中处理，提取邮件发送者、标题和内容，然后发notify。&lt;/p&gt;
+&lt;p&gt;消息提醒的脚本已经有人做好了：&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://blargasm.com/post/7980037487/evolution-new-mail-notifier"&gt;http://blargasm.com/post/7980037487/evolution-new-mail-notifier&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;青蛙拿过来修改了一下，去掉pynotify，直接调用kdialog命令发送消息。&lt;/p&gt;
+&lt;p&gt;修改后的脚本在这里：&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://code.google.com/p/gfrog/source/browse/mail/mail-notifier.py"&gt;http://code.google.com/p/gfrog/source/browse/mail/mail-notifier.py&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;脚本有了，然后修改~/.procmailrc，在需要监视的过滤规则里面加入&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;
+&lt;span class="o"&gt;#&lt;/span&gt; &lt;span class="k"&gt;Some&lt;/span&gt; &lt;span class="n"&gt;filter&lt;/span&gt; &lt;span class="k"&gt;rule&lt;/span&gt;
+&lt;span class="err"&gt;{&lt;/span&gt;
+&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt; &lt;span class="k"&gt;c&lt;/span&gt;
+&lt;span class="o"&gt;|&lt;/span&gt; &lt;span class="o"&gt;~/&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;mail&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;notifier&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;py&lt;/span&gt;
+&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;
+&lt;span class="o"&gt;#&lt;/span&gt;&lt;span class="n"&gt;Here&lt;/span&gt; &lt;span class="k"&gt;is&lt;/span&gt; &lt;span class="n"&gt;your&lt;/span&gt; &lt;span class="n"&gt;inbox&lt;/span&gt;
+&lt;span class="n"&gt;Inbox&lt;/span&gt;
+&lt;span class="err"&gt;}&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;这样就可以监视指定邮箱的新邮件啦：&lt;/p&gt;
+&lt;p&gt;&lt;img alt="1" src="http://gfrog.net/wp-content/uploads/2011/10/mail-notify.png"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Update: 2012-06-11&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;由于这个提醒脚本最终是通过cron运行的，并且经过几次fork之后，
+它没法找到当前的dbus session了，
+于是导致kdialog 使用旧式的KPassivePopup现实消息，
+但是这玩意是hardcode了消息显示在屏幕中心，相当不爽。
+青蛙google了很久，终于还是捏着鼻子看了下kdialog的代码才发现问题。&lt;/p&gt;
+&lt;p&gt;更新：&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://code.google.com/p/gfrog/source/detail?r=fe8e9b57574529453fdb8655e0392260d39dcbfb"&gt;https://code.google.com/p/gfrog/source/detail?r=fe8e9b57574529453fdb8655e0392260d39dcbfb&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Update: 2012-06-11&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;原始的mail notify脚本对于一些中文邮件subject和mail body的处理有问题，
+导致无法提醒中文邮件。
+目前青蛙的做法是把mail body当作utf-8字符串处理。
+当然这不能从根本上解决问题，只算是个workaround吧，还好青蛙的中文邮件不多。&lt;/p&gt;
+&lt;p&gt;如果哪位读者遇到中文邮件还有问题，欢迎反馈bug。&lt;/p&gt;
+&lt;p&gt;同样，更新的代码在google code上：&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://code.google.com/p/gfrog/source/detail?r=3de26a63648944313893d74b94f54f28770bed30"&gt;https://code.google.com/p/gfrog/source/detail?r=3de26a63648944313893d74b94f54f28770bed30&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Update: 2011-10-14&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;青蛙今天忽然发现这个脚本处理某些邮件的时候发件人那部分是空的，
+调查一下发现时因为“email.Utils.parseaddr()”实际上是把发件人处理成名称和邮箱名的一个list，
+如果发件人没有名字，只有一个邮箱名的话，
+最后显示的发件人部分就是空白了。
+青蛙修改了一下脚本，仍然放在了google code上：&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://code.google.com/p/gfrog/source/detail?r=0c64c067cf047ad4390bc2e57875cacf328999f1"&gt;https://code.google.com/p/gfrog/source/detail?r=0c64c067cf047ad4390bc2e57875cacf328999f1&lt;/a&gt;&lt;/p&gt;</content><category term="linux"></category><category term="mail"></category><category term="client"></category><category term="mutt"></category><category term="configuration"></category><category term="setup"></category><category term="desktop"></category><category term="procmail"></category></entry><entry><title>Install Xmind in Fedora with deb package</title><link href="https://www.gfrog.net/2010/12/install-xmind-in-fedora-with-deb-package/" rel="alternate"></link><published>2010-12-21T23:07:05+08:00</published><updated>2010-12-21T23:07:05+08:00</updated><author><name>gfrog</name></author><id>tag:www.gfrog.net,2010-12-21:/2010/12/install-xmind-in-fedora-with-deb-package/</id><summary type="html">&lt;p&gt;&lt;img alt="Install-Xmind-in-Fedora-with-deb-package" src="http://gfrog.net/wp-content/uploads/2010/12/Install-Xmind-in-Fedora-with-deb-package.jpg"&gt;&lt;/p&gt;
+&lt;p&gt;原始文件地址：&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://www.xmind.net/share/gfrog1/install-xmind-in-fedora-with-deb-package/"&gt;http://www.xmind.net/share/gfrog1/install-xmind-in-fedora-with-deb-package/&lt;/a&gt;&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;img alt="Install-Xmind-in-Fedora-with-deb-package" src="http://gfrog.net/wp-content/uploads/2010/12/Install-Xmind-in-Fedora-with-deb-package.jpg"&gt;&lt;/p&gt;
+&lt;p&gt;原始文件地址：&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://www.xmind.net/share/gfrog1/install-xmind-in-fedora-with-deb-package/"&gt;http://www.xmind.net/share/gfrog1/install-xmind-in-fedora-with-deb-package/&lt;/a&gt;&lt;/p&gt;</content><category term="Fedora"></category><category term="Linux"></category><category term="xmind"></category><category term="desktop"></category><category term="setup"></category><category term="client"></category></entry><entry><title>在NGINX上开启https</title><link href="https://www.gfrog.net/2010/12/setup-https-in-nginx/" rel="alternate"></link><published>2010-12-18T15:45:25+08:00</published><updated>2010-12-18T15:45:25+08:00</updated><author><name>gfrog</name></author><id>tag:www.gfrog.net,2010-12-18:/2010/12/setup-https-in-nginx/</id><summary type="html">&lt;p&gt;青蛙的新VPS是基于nginx的，仅仅是因为传言nginx在小内存，大压力的时候表现好一些。&lt;/p&gt;
+&lt;p&gt;当然，为了获得这点好处，还是要付出一些代价的。
+例如nginx没有apache的htaccess，对每个目录的控制都需要写到nginx的配置文件中，
+这样对普通用户来说十分的不方便。&lt;/p&gt;
+&lt;p&gt;哦，有点跑题，继续说https的问题，其实给nginx配置https也不复杂，
+按照网上现成的模板，改一下自己的域名和目录位置就好了。&lt;/p&gt;
+&lt;p&gt;下面是一个完整的示例[1][2]：（来自&lt;a href="http://sudone.com/nginx/nginx_ssl.html"&gt;这里&lt;/a&gt;）&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="nv"&gt;upstream&lt;/span&gt; &lt;span class="nv"&gt;test&lt;/span&gt;.&lt;span class="nv"&gt;com&lt;/span&gt; {
+    &lt;span class="nv"&gt;server&lt;/span&gt; &lt;span class="mi"&gt;192&lt;/span&gt;.&lt;span class="mi"&gt;168&lt;/span&gt;.&lt;span class="mi"&gt;1&lt;/span&gt;.&lt;span class="mi"&gt;2&lt;/span&gt;:&lt;span class="mi"&gt;80&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+}
+
+&lt;span class="nv"&gt;server&lt;/span&gt; {
+    &lt;span class="nv"&gt;server_name&lt;/span&gt; &lt;span class="nv"&gt;test&lt;/span&gt;.&lt;span class="nv"&gt;com&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+    &lt;span class="k"&gt;include&lt;/span&gt; &lt;span class="nv"&gt;port&lt;/span&gt;.&lt;span class="nv"&gt;conf&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+
+    &lt;span class="nv"&gt;ssl&lt;/span&gt; &lt;span class="nv"&gt;on&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+    &lt;span class="nv"&gt;ssl_certificate&lt;/span&gt; &lt;span class="nv"&gt;server&lt;/span&gt;.&lt;span class="nv"&gt;crt&lt;/span&gt;&lt;span class="c1"&gt;; # ${nginx_install_dir}/conf/server.crt&lt;/span&gt;
+    &lt;span class="nv"&gt;ssl_certificate_key&lt;/span&gt; &lt;span class="nv"&gt;server&lt;/span&gt;.&lt;span class="nv"&gt;key&lt;/span&gt;&lt;span class="c1"&gt;; # ${nginx_install_dir}/conf …&lt;/span&gt;&lt;/pre&gt;&lt;/div&gt;</summary><content type="html">&lt;p&gt;青蛙的新VPS是基于nginx的，仅仅是因为传言nginx在小内存，大压力的时候表现好一些。&lt;/p&gt;
+&lt;p&gt;当然，为了获得这点好处，还是要付出一些代价的。
+例如nginx没有apache的htaccess，对每个目录的控制都需要写到nginx的配置文件中，
+这样对普通用户来说十分的不方便。&lt;/p&gt;
+&lt;p&gt;哦，有点跑题，继续说https的问题，其实给nginx配置https也不复杂，
+按照网上现成的模板，改一下自己的域名和目录位置就好了。&lt;/p&gt;
+&lt;p&gt;下面是一个完整的示例[1][2]：（来自&lt;a href="http://sudone.com/nginx/nginx_ssl.html"&gt;这里&lt;/a&gt;）&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="nv"&gt;upstream&lt;/span&gt; &lt;span class="nv"&gt;test&lt;/span&gt;.&lt;span class="nv"&gt;com&lt;/span&gt; {
+    &lt;span class="nv"&gt;server&lt;/span&gt; &lt;span class="mi"&gt;192&lt;/span&gt;.&lt;span class="mi"&gt;168&lt;/span&gt;.&lt;span class="mi"&gt;1&lt;/span&gt;.&lt;span class="mi"&gt;2&lt;/span&gt;:&lt;span class="mi"&gt;80&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+}
+
+&lt;span class="nv"&gt;server&lt;/span&gt; {
+    &lt;span class="nv"&gt;server_name&lt;/span&gt; &lt;span class="nv"&gt;test&lt;/span&gt;.&lt;span class="nv"&gt;com&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+    &lt;span class="k"&gt;include&lt;/span&gt; &lt;span class="nv"&gt;port&lt;/span&gt;.&lt;span class="nv"&gt;conf&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+
+    &lt;span class="nv"&gt;ssl&lt;/span&gt; &lt;span class="nv"&gt;on&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+    &lt;span class="nv"&gt;ssl_certificate&lt;/span&gt; &lt;span class="nv"&gt;server&lt;/span&gt;.&lt;span class="nv"&gt;crt&lt;/span&gt;&lt;span class="c1"&gt;; # ${nginx_install_dir}/conf/server.crt&lt;/span&gt;
+    &lt;span class="nv"&gt;ssl_certificate_key&lt;/span&gt; &lt;span class="nv"&gt;server&lt;/span&gt;.&lt;span class="nv"&gt;key&lt;/span&gt;&lt;span class="c1"&gt;; # ${nginx_install_dir}/conf/server.key&lt;/span&gt;
+    &lt;span class="nv"&gt;error_page&lt;/span&gt; &lt;span class="mi"&gt;497&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;https://$host$uri?$args&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+
+    &lt;span class="nv"&gt;location&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt; {
+        &lt;span class="nv"&gt;proxy_pass&lt;/span&gt; &lt;span class="nv"&gt;http&lt;/span&gt;:&lt;span class="o"&gt;//&lt;/span&gt;&lt;span class="nv"&gt;test&lt;/span&gt;.&lt;span class="nv"&gt;com&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+        &lt;span class="k"&gt;include&lt;/span&gt; &lt;span class="nv"&gt;proxy&lt;/span&gt;.&lt;span class="nv"&gt;conf&lt;/span&gt;&lt;span class="c1"&gt;;#&lt;/span&gt;
+        &lt;span class="nv"&gt;auth_basic&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;status&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+        &lt;span class="nv"&gt;auth_basic_user_file&lt;/span&gt; &lt;span class="nv"&gt;trac&lt;/span&gt;.&lt;span class="nv"&gt;passwd&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+    }
+}
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;strong&gt;PS&lt;/strong&gt;.
+按照
+&lt;a href="https://blog.delphij.net/2010/07/nginxtlsssl.html"&gt;delphij大神的说法&lt;/a&gt;
+[3]，nginx可以在一个IP上对使用不同证书的站点提供https支持。
+ubuntu上的nginx正好打开了这个支持。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;PS2&lt;/strong&gt;.
+有了https支持，青蛙就可以使用https方式打开wordpress后台了，
+也很简单，在wp-config.php里面加一句[4]：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;define('FORCE_SSL_ADMIN', true);&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;参考资料：&lt;/p&gt;
+&lt;p&gt;[1] &lt;a href="http://sudone.com/nginx/nginx_ssl.html"&gt;nginx ssl加密代理配置指南&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;[2] &lt;a href="http://zou.lu/nginx-https-ssl-module/"&gt;Nginx 配置 SSL 证书 + HTTPS 站点小记&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;[3] &lt;a href="https://blog.delphij.net/2010/07/nginxtlsssl.html"&gt;nginx中的TLS/SSL配置&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;[4] &lt;a href="http://www.wprecipes.com/how-to-force-using-ssl-on-wp-admin-directory"&gt;How to: Force using SSL on wp-admin directory&lt;/a&gt;&lt;/p&gt;</content><category term="linux"></category><category term="server"></category><category term="nginx"></category><category term="setup"></category><category term="vps"></category><category term="site"></category></entry><entry><title>一堆小Tips （4）</title><link href="https://www.gfrog.net/2010/08/gfrog-tips-4/" rel="alternate"></link><published>2010-08-11T16:51:15+08:00</published><updated>2010-08-11T16:51:15+08:00</updated><author><name>gfrog</name></author><id>tag:www.gfrog.net,2010-08-11:/2010/08/gfrog-tips-4/</id><summary type="html">&lt;p&gt;今天的Tip是关于虚拟化的。&lt;/p&gt;
+&lt;p&gt;问题的起因是青蛙当时使用的VirtualBox的网络配置很不方便，
+guset系统启动之后不能改网络连接类型不说（后来的版本做了改进，但是用着还是不够舒服），
+NAT模式下还不能直接跟Host系统通信。&lt;/p&gt;
+&lt;p&gt;于是青蛙痛下决心，学习了一下Linux tap和br设备的用法，
+写了一个小脚本来搞定虚拟机的网络问题。&lt;/p&gt;
+&lt;p&gt;这个脚本同样也可以用于KVM的虚拟机。&lt;/p&gt;
+&lt;p&gt;这个脚本会根据配置文件建立一系列的tap设备，
+然后桥街到几个br设备上去，然后在br上设置好IP，
+如果需要NAT功能则配置iptables规则。&lt;/p&gt;
+&lt;p&gt;脚本文件在这里：&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://gfrog.googlecode.com/hg/script/vnet.sh"&gt;http://gfrog.googlecode.com/hg/script/vnet.sh&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;配置文件如下：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="k"&gt;USER&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;gfrog&lt;/span&gt;&lt;span class="w"&gt;           &lt;/span&gt;&lt;span class="n"&gt;#指定建立tap设备时所用的用户名&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="n"&gt;VNET_NUM&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="w"&gt;         &lt;/span&gt;&lt;span class="n"&gt;#需要建立的虚拟网络数&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="n"&gt;EXITIF&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;eth0&lt;/span&gt;&lt;span class="w"&gt;           &lt;/span&gt;&lt;span class="n"&gt;#SNAT的出口接口&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+
+&lt;span class="n"&gt;#以下是每个虚拟网络的配置&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="o"&gt;[&lt;/span&gt;&lt;span class="n"&gt;vnet1&lt;/span&gt;&lt;span class="o"&gt;]&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="n"&gt;VETH_NUM&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;4&lt;/span&gt;&lt;span class="w"&gt;          &lt;/span&gt;&lt;span class="n"&gt;#虚拟网络中包含的tap设备数&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="n"&gt;VNET_IP&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mf"&gt;11.11.1.1&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="mi"&gt;24&lt;/span&gt;&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="n"&gt;#虚拟网络br设备上配置的ip地址&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="n"&gt;DONAT&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="k"&gt;no&lt;/span&gt;&lt;span class="w"&gt;                  &lt;/span&gt;&lt;span class="n"&gt;#是否需要做nat&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+
+&lt;span class="o"&gt;[&lt;/span&gt;&lt;span class="n"&gt;vnet2 …&lt;/span&gt;&lt;/pre&gt;&lt;/div&gt;</summary><content type="html">&lt;p&gt;今天的Tip是关于虚拟化的。&lt;/p&gt;
+&lt;p&gt;问题的起因是青蛙当时使用的VirtualBox的网络配置很不方便，
+guset系统启动之后不能改网络连接类型不说（后来的版本做了改进，但是用着还是不够舒服），
+NAT模式下还不能直接跟Host系统通信。&lt;/p&gt;
+&lt;p&gt;于是青蛙痛下决心，学习了一下Linux tap和br设备的用法，
+写了一个小脚本来搞定虚拟机的网络问题。&lt;/p&gt;
+&lt;p&gt;这个脚本同样也可以用于KVM的虚拟机。&lt;/p&gt;
+&lt;p&gt;这个脚本会根据配置文件建立一系列的tap设备，
+然后桥街到几个br设备上去，然后在br上设置好IP，
+如果需要NAT功能则配置iptables规则。&lt;/p&gt;
+&lt;p&gt;脚本文件在这里：&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://gfrog.googlecode.com/hg/script/vnet.sh"&gt;http://gfrog.googlecode.com/hg/script/vnet.sh&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;配置文件如下：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="k"&gt;USER&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;gfrog&lt;/span&gt;&lt;span class="w"&gt;           &lt;/span&gt;&lt;span class="n"&gt;#指定建立tap设备时所用的用户名&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="n"&gt;VNET_NUM&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="w"&gt;         &lt;/span&gt;&lt;span class="n"&gt;#需要建立的虚拟网络数&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="n"&gt;EXITIF&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;eth0&lt;/span&gt;&lt;span class="w"&gt;           &lt;/span&gt;&lt;span class="n"&gt;#SNAT的出口接口&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+
+&lt;span class="n"&gt;#以下是每个虚拟网络的配置&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="o"&gt;[&lt;/span&gt;&lt;span class="n"&gt;vnet1&lt;/span&gt;&lt;span class="o"&gt;]&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="n"&gt;VETH_NUM&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;4&lt;/span&gt;&lt;span class="w"&gt;          &lt;/span&gt;&lt;span class="n"&gt;#虚拟网络中包含的tap设备数&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="n"&gt;VNET_IP&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mf"&gt;11.11.1.1&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="mi"&gt;24&lt;/span&gt;&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="n"&gt;#虚拟网络br设备上配置的ip地址&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="n"&gt;DONAT&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="k"&gt;no&lt;/span&gt;&lt;span class="w"&gt;                  &lt;/span&gt;&lt;span class="n"&gt;#是否需要做nat&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+
+&lt;span class="o"&gt;[&lt;/span&gt;&lt;span class="n"&gt;vnet2&lt;/span&gt;&lt;span class="o"&gt;]&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="n"&gt;VETH_NUM&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;4&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="n"&gt;VNET_IP&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mf"&gt;11.11.2.1&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="mi"&gt;24&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="n"&gt;DONAT&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;yes&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="n"&gt;EXITIF&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;wlan0&lt;/span&gt;&lt;span class="w"&gt;             &lt;/span&gt;&lt;span class="n"&gt;#针对这个虚拟网络指定专门的SNAT出口&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;此配置脚本需要一个名为confget的程序解析配置文件，
+这个程序在debian/ubuntu源上有，fedora系需要自己找一下。&lt;/p&gt;
+&lt;p&gt;还要注意一点，因为每次建立tap设备的MAC地址都会变化，
+所以使用KVM虚拟机的时候需要在启动虚拟机时给网卡指定MAC地址，
+防止guest系统里的网卡名称变化。&lt;/p&gt;</content><category term="kvm"></category><category term="Linux"></category><category term="networking"></category><category term="shell"></category></entry><entry><title>一堆小Tips （3）</title><link href="https://www.gfrog.net/2010/08/gfrog-tips-3/" rel="alternate"></link><published>2010-08-10T12:07:11+08:00</published><updated>2010-08-10T12:07:11+08:00</updated><author><name>gfrog</name></author><id>tag:www.gfrog.net,2010-08-10:/2010/08/gfrog-tips-3/</id><summary type="html">&lt;p&gt;今天继续关于ssh的话题。&lt;/p&gt;
+&lt;p&gt;青蛙本来想把今天这个主题放在昨天一起讲的，但是这两个Tip的关联不大，最后决定还是分开说。&lt;/p&gt;
+&lt;p&gt;在平时上网过程中，有可能遇到某个服务器（我们叫他S）无法访问的问题。&lt;/p&gt;
+&lt;p&gt;但是如果另外一台主机（叫做P）可以访问到S，并且我们还有P上面的ssh权限，那就可以把P当作跳板，直接访问到S。&lt;/p&gt;
+&lt;p&gt;假设要访问S上面的http（80）服务，那就执行如下命令：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;ssh&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;user&lt;/span&gt;&lt;span class="nv"&gt;@P的地址&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;L&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mi"&gt;8080&lt;/span&gt;&lt;span class="err"&gt;:&lt;/span&gt;&lt;span class="nl"&gt;S的地址&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;80&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;这个命令会在本地打开8080端口，将连接转发到S的80端口上，这样就达到了从本地直接访问S的目的。&lt;/p&gt;
+&lt;p&gt;事实上ssh的-L参数主要是用来建立一条客户端到服务器之间的安全隧道，以便安全的传输数据。&lt;/p&gt;</summary><content type="html">&lt;p&gt;今天继续关于ssh的话题。&lt;/p&gt;
+&lt;p&gt;青蛙本来想把今天这个主题放在昨天一起讲的，但是这两个Tip的关联不大，最后决定还是分开说。&lt;/p&gt;
+&lt;p&gt;在平时上网过程中，有可能遇到某个服务器（我们叫他S）无法访问的问题。&lt;/p&gt;
+&lt;p&gt;但是如果另外一台主机（叫做P）可以访问到S，并且我们还有P上面的ssh权限，那就可以把P当作跳板，直接访问到S。&lt;/p&gt;
+&lt;p&gt;假设要访问S上面的http（80）服务，那就执行如下命令：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;ssh&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;user&lt;/span&gt;&lt;span class="nv"&gt;@P的地址&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;L&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mi"&gt;8080&lt;/span&gt;&lt;span class="err"&gt;:&lt;/span&gt;&lt;span class="nl"&gt;S的地址&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;80&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;这个命令会在本地打开8080端口，将连接转发到S的80端口上，这样就达到了从本地直接访问S的目的。&lt;/p&gt;
+&lt;p&gt;事实上ssh的-L参数主要是用来建立一条客户端到服务器之间的安全隧道，以便安全的传输数据。&lt;/p&gt;</content><category term="Linux"></category><category term="ssh"></category><category term="client"></category><category term="shell"></category><category term="networking"></category></entry><entry><title>一堆小Tips （2）</title><link href="https://www.gfrog.net/2010/08/gfrog-tips-2/" rel="alternate"></link><published>2010-08-09T10:01:21+08:00</published><updated>2010-08-09T10:01:21+08:00</updated><author><name>gfrog</name></author><id>tag:www.gfrog.net,2010-08-09:/2010/08/gfrog-tips-2/</id><summary type="html">&lt;p&gt;今天的Tip主题是ssh。&lt;/p&gt;
+&lt;p&gt;经常有人问，为什么Linux里面的ssh那么难用呢，
+就不能有个像secureCRT那样有地址簿的东西么。&lt;/p&gt;
+&lt;p&gt;答案是，&lt;strong&gt;有&lt;/strong&gt;，而且不需要其他的软件，ssh自己就能搞定。&lt;/p&gt;
+&lt;p&gt;要实现这个功能，首先要在~/.ssh里面建立一个config文件，并设置600权限。&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="o"&gt;`&lt;/span&gt;&lt;span class="n"&gt;touch&lt;/span&gt; &lt;span class="o"&gt;~/&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;ssh&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;config&lt;/span&gt;
+&lt;span class="n"&gt;chmod&lt;/span&gt; &lt;span class="mi"&gt;600&lt;/span&gt; &lt;span class="o"&gt;~/&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;ssh&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;config&lt;/span&gt;&lt;span class="o"&gt;`&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;然后在这个文件中加入以下内容（以10.1.1.1为例）&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="k"&gt;Host&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;                     &lt;span class="o"&gt;#&lt;/span&gt;&lt;span class="err"&gt;指定主机名，这个名称可以任意，取对自己方便的就可以&lt;/span&gt;
+&lt;span class="n"&gt;HostName&lt;/span&gt; &lt;span class="mi"&gt;10&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;    &lt;span class="o"&gt;#&lt;/span&gt;&lt;span class="err"&gt;指定主机的&lt;/span&gt;&lt;span class="n"&gt;IP&lt;/span&gt;&lt;span class="err"&gt;，这里是&lt;/span&gt;&lt;span class="mi"&gt;10&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;
+&lt;span class="k"&gt;User&lt;/span&gt; &lt;span class="n"&gt;aaa&lt;/span&gt;                  &lt;span class="o"&gt;#&lt;/span&gt;&lt;span class="err"&gt;默认登录的用户名&lt;/span&gt;
+&lt;span class="n"&gt;Port&lt;/span&gt; &lt;span class="mi"&gt;22&lt;/span&gt;                    &lt;span class="o"&gt;#&lt;/span&gt;&lt;span class="err"&gt;主机上&lt;/span&gt;&lt;span class="n"&gt;sshd的端口号&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;以后，访问10 …&lt;/p&gt;</summary><content type="html">&lt;p&gt;今天的Tip主题是ssh。&lt;/p&gt;
+&lt;p&gt;经常有人问，为什么Linux里面的ssh那么难用呢，
+就不能有个像secureCRT那样有地址簿的东西么。&lt;/p&gt;
+&lt;p&gt;答案是，&lt;strong&gt;有&lt;/strong&gt;，而且不需要其他的软件，ssh自己就能搞定。&lt;/p&gt;
+&lt;p&gt;要实现这个功能，首先要在~/.ssh里面建立一个config文件，并设置600权限。&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="o"&gt;`&lt;/span&gt;&lt;span class="n"&gt;touch&lt;/span&gt; &lt;span class="o"&gt;~/&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;ssh&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;config&lt;/span&gt;
+&lt;span class="n"&gt;chmod&lt;/span&gt; &lt;span class="mi"&gt;600&lt;/span&gt; &lt;span class="o"&gt;~/&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;ssh&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;config&lt;/span&gt;&lt;span class="o"&gt;`&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;然后在这个文件中加入以下内容（以10.1.1.1为例）&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="k"&gt;Host&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;                     &lt;span class="o"&gt;#&lt;/span&gt;&lt;span class="err"&gt;指定主机名，这个名称可以任意，取对自己方便的就可以&lt;/span&gt;
+&lt;span class="n"&gt;HostName&lt;/span&gt; &lt;span class="mi"&gt;10&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;    &lt;span class="o"&gt;#&lt;/span&gt;&lt;span class="err"&gt;指定主机的&lt;/span&gt;&lt;span class="n"&gt;IP&lt;/span&gt;&lt;span class="err"&gt;，这里是&lt;/span&gt;&lt;span class="mi"&gt;10&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;
+&lt;span class="k"&gt;User&lt;/span&gt; &lt;span class="n"&gt;aaa&lt;/span&gt;                  &lt;span class="o"&gt;#&lt;/span&gt;&lt;span class="err"&gt;默认登录的用户名&lt;/span&gt;
+&lt;span class="n"&gt;Port&lt;/span&gt; &lt;span class="mi"&gt;22&lt;/span&gt;                    &lt;span class="o"&gt;#&lt;/span&gt;&lt;span class="err"&gt;主机上&lt;/span&gt;&lt;span class="n"&gt;sshd的端口号&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;以后，访问10.1.1.1就直接执行#ssh 1就可以了，非常方便。&lt;/p&gt;
+&lt;p&gt;再继续探索一下~/.ssh/config，我们会发现更多有趣的配置。&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="k"&gt;Host&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt;
+&lt;span class="n"&gt;ControlMaster&lt;/span&gt; &lt;span class="n"&gt;auto&lt;/span&gt;
+&lt;span class="n"&gt;ControlPath&lt;/span&gt; &lt;span class="o"&gt;~/&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;ssh&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;master&lt;/span&gt;&lt;span class="o"&gt;-%&lt;/span&gt;&lt;span class="n"&gt;r&lt;/span&gt;&lt;span class="o"&gt;@%&lt;/span&gt;&lt;span class="n"&gt;h&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="o"&gt;%&lt;/span&gt;&lt;span class="n"&gt;p&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;这段配置会打开所有主机的ControlMaster的功能，
+也就是在一条ssh connection上开启多个session。&lt;/p&gt;
+&lt;p&gt;更多的配置选项，可以参考ssh_config(5)。&lt;/p&gt;</content><category term="Linux"></category><category term="ssh"></category><category term="configuration"></category></entry><entry><title>一堆小Tips （1）</title><link href="https://www.gfrog.net/2010/08/gfrog-tips-1/" rel="alternate"></link><published>2010-08-06T10:17:49+08:00</published><updated>2010-08-06T10:17:49+08:00</updated><author><name>gfrog</name></author><id>tag:www.gfrog.net,2010-08-06:/2010/08/gfrog-tips-1/</id><summary type="html">&lt;p&gt;青蛙离职在即，在东软混了三年，在工作中积累的一些小技巧。
+估计这些技巧到了其他公司基本上用不到了。
+记录一下，方便后来人。
+青蛙准备分几天写完，每天一个小Tips。&lt;/p&gt;
+&lt;p&gt;今天要说的是IPsec VPN的密码问题。&lt;/p&gt;
+&lt;p&gt;搞安全的部门自然有安全部门的特色，所有的服务器都需要拨VPN才能访问。
+用Windows的童鞋们都很幸福，第一次连接的时候输入帐号密码，然后选保存密码，下次就可以直接登录了。
+但是Linux的童鞋就比较麻烦了，按照部门攻略上的办法，每次都要输入密码。&lt;/p&gt;
+&lt;p&gt;青蛙在ipsec.conf(5)里面找到了这个问题的解决办法。&lt;/p&gt;
+&lt;p&gt;首先要编辑一下/etc/ipsec.conf&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;conn&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;work&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+
+&lt;span class="nf"&gt;left&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mf"&gt;10.&lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;xxx&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="n"&gt;leftnexthop&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mf"&gt;10.&lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="mf"&gt;.1&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="n"&gt;leftid&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="ss"&gt;&amp;quot;C=cn,ST=liaoning,O=neusoft,OU=nsd,CN=xxx_l …&lt;/span&gt;&lt;/pre&gt;&lt;/div&gt;</summary><content type="html">&lt;p&gt;青蛙离职在即，在东软混了三年，在工作中积累的一些小技巧。
+估计这些技巧到了其他公司基本上用不到了。
+记录一下，方便后来人。
+青蛙准备分几天写完，每天一个小Tips。&lt;/p&gt;
+&lt;p&gt;今天要说的是IPsec VPN的密码问题。&lt;/p&gt;
+&lt;p&gt;搞安全的部门自然有安全部门的特色，所有的服务器都需要拨VPN才能访问。
+用Windows的童鞋们都很幸福，第一次连接的时候输入帐号密码，然后选保存密码，下次就可以直接登录了。
+但是Linux的童鞋就比较麻烦了，按照部门攻略上的办法，每次都要输入密码。&lt;/p&gt;
+&lt;p&gt;青蛙在ipsec.conf(5)里面找到了这个问题的解决办法。&lt;/p&gt;
+&lt;p&gt;首先要编辑一下/etc/ipsec.conf&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;conn&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;work&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+
+&lt;span class="nf"&gt;left&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mf"&gt;10.&lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;xxx&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="n"&gt;leftnexthop&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mf"&gt;10.&lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="mf"&gt;.1&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="n"&gt;leftid&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="ss"&gt;&amp;quot;C=cn,ST=liaoning,O=neusoft,OU=nsd,CN=xxx_l/emailAddress=xxx_l@neusoft.com&amp;quot;&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="n"&gt;leftcert&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;cert&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;pem&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="n"&gt;leftxauthclient&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;yes&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="n"&gt;leftmodecfgclient&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;yes&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="n"&gt;leftxauthusername&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;xxx_linux&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="n"&gt;modecfgpull&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="k"&gt;no&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="nf"&gt;right&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mf"&gt;10.&lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="mf"&gt;.254&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="n"&gt;rightsubnet&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mf"&gt;10.&lt;/span&gt;&lt;span class="n"&gt;xxx&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="mf"&gt;.0&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="mi"&gt;24&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="n"&gt;rightxauthserver&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;yes&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="n"&gt;rightmodecfgserver&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;yes&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="n"&gt;rightid&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="ss"&gt;&amp;quot;C=cn,ST=liaoning,O=neusoft,OU=nsd,CN=vpnser,E=vpnser@neusoft.com&amp;quot;&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="n"&gt;auto&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="k"&gt;add&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;注意leftxauthusername=xxx_linux这行，关键就在这里了，这句话就指定了这个vpn 连接所用的用户名。&lt;/p&gt;
+&lt;p&gt;然后再编辑一下/etc/ipsec.secrets&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="err"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;RSA&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;etc&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;ipsec&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;d&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;private&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="k"&gt;key&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;pem&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="nv"&gt;@xxx_linux&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="err"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;XAUTH&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="ss"&gt;&amp;quot;password&amp;quot;&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;@xxx_linux : XAUTH "password" 这行指定了用户名对应的密码。&lt;/p&gt;
+&lt;p&gt;修改完这两个文件以后，下次再连接VPN的时候就会自动连接了。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;PS&lt;/strong&gt;.
+/etc/ipsec.conf 还有一句auto=add，加上这句话之后，
+就可以使用&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;# ipsec auto --up connname&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;这种命令格式连接vpn了，命令格式简单些。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;PS2&lt;/strong&gt;.
+为了更进一步达到偷懒的目的，继续包装一下连接vpn的流程，建立一个alias：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;alias vpn='/etc/init.d/ipsec restart &amp;amp;&amp;amp; ipsec auto --up work'&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;然后每次sudo vpn就成了，偷懒目的达到。&lt;/p&gt;</content><category term="IPSec"></category><category term="Linux"></category><category term="vpn"></category><category term="configuration"></category></entry><entry><title>测试linux系统的启动速度</title><link href="https://www.gfrog.net/2009/04/test-debian-boot-time-with-bootchart/" rel="alternate"></link><published>2009-04-08T20:13:36+08:00</published><updated>2009-04-08T20:13:36+08:00</updated><author><name>gfrog</name></author><id>tag:www.gfrog.net,2009-04-08:/2009/04/test-debian-boot-time-with-bootchart/</id><summary type="html">&lt;p&gt;今天看到blog一则，话说
+&lt;a href="http://linuxdesktop.cn/2009/04/08/ubuntu-904-fast-boot.html"&gt;ubuntu9.04竟然可以在14秒内启动&lt;/a&gt;
+。&lt;/p&gt;
+&lt;p&gt;于是青蛙拿&lt;a href="http://www.bootchart.org"&gt;bootchart&lt;/a&gt;测了一下自己的debian。&lt;/p&gt;
+&lt;p&gt;青蛙自己的系统用了33秒，其中有启动vmware和virtualbox的服务的时间，
+还有启动ntfs-3g、lighttpd、transmission、wicd的，比较起来，成绩还不算太差。&lt;/p&gt;
+&lt;p&gt;不过wicd是用python写的，加载确实比较耗时，
+但是network-manager的可定制性实在不高，不知道还有没有同类的软件可以替换。&lt;/p&gt;
+&lt;p&gt;另外，bootchart加载之前的一段时间应该是内核加载的时间，看来青蛙还要继续精简内核才行。&lt;/p&gt;
+&lt;p&gt;顺便记录一下bootchart的使用方法。说起来也很简单，统共分3步。&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;装好bootchart之后，配置自己的bootloader，例如grub，在内核选项里面加上一句： init=/sbin/bootchartd。&lt;/li&gt;
+&lt;li&gt;重启，bootchart自己就会在后台记录启动信息，默认保存在/var/log/bootchart.tgz中。&lt;/li&gt;
+&lt;li&gt;完成启动后，运行bootchart命令，它就会把启动信息转化为下面这张图啦。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;a href="http://gfrog.net/wp-content/uploads/2009/04/bootchart.png"&gt;&lt;img alt="bootchart" src="http://gfrog.net/wp-content/uploads/2009/04/bootchart-thumb.png"&gt;&lt;/a&gt;&lt;/p&gt;</summary><content type="html">&lt;p&gt;今天看到blog一则，话说
+&lt;a href="http://linuxdesktop.cn/2009/04/08/ubuntu-904-fast-boot.html"&gt;ubuntu9.04竟然可以在14秒内启动&lt;/a&gt;
+。&lt;/p&gt;
+&lt;p&gt;于是青蛙拿&lt;a href="http://www.bootchart.org"&gt;bootchart&lt;/a&gt;测了一下自己的debian。&lt;/p&gt;
+&lt;p&gt;青蛙自己的系统用了33秒，其中有启动vmware和virtualbox的服务的时间，
+还有启动ntfs-3g、lighttpd、transmission、wicd的，比较起来，成绩还不算太差。&lt;/p&gt;
+&lt;p&gt;不过wicd是用python写的，加载确实比较耗时，
+但是network-manager的可定制性实在不高，不知道还有没有同类的软件可以替换。&lt;/p&gt;
+&lt;p&gt;另外，bootchart加载之前的一段时间应该是内核加载的时间，看来青蛙还要继续精简内核才行。&lt;/p&gt;
+&lt;p&gt;顺便记录一下bootchart的使用方法。说起来也很简单，统共分3步。&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;装好bootchart之后，配置自己的bootloader，例如grub，在内核选项里面加上一句： init=/sbin/bootchartd。&lt;/li&gt;
+&lt;li&gt;重启，bootchart自己就会在后台记录启动信息，默认保存在/var/log/bootchart.tgz中。&lt;/li&gt;
+&lt;li&gt;完成启动后，运行bootchart命令，它就会把启动信息转化为下面这张图啦。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;a href="http://gfrog.net/wp-content/uploads/2009/04/bootchart.png"&gt;&lt;img alt="bootchart" src="http://gfrog.net/wp-content/uploads/2009/04/bootchart-thumb.png"&gt;&lt;/a&gt;&lt;/p&gt;</content><category term="debian"></category><category term="linux"></category><category term="boot"></category><category term="bootchart"></category><category term="ubuntu"></category></entry><entry><title>在debian sid上面安装eva</title><link href="https://www.gfrog.net/2008/03/install-eva-in-debian/" rel="alternate"></link><published>2008-03-26T01:03:12+08:00</published><updated>2008-03-26T01:03:12+08:00</updated><author><name>gfrog</name></author><id>tag:www.gfrog.net,2008-03-26:/2008/03/install-eva-in-debian/</id><summary type="html">&lt;p&gt;&lt;img alt="debian-ubuntu" src="http://haokanbu.s3.amazonaws.com/picture/external/c8b6c8df6df744f7af186747f25a35b3.jpeg"&gt;&lt;/p&gt;
+&lt;p&gt;自从青蛙人品爆发，在pidgin上面死活登录不上QQ以后，青蛙都是在wine上面跑QQ。
+在wine上面速度慢不说，QQ时不时的来一下非法操作就把青蛙折磨的死去活来。
+据说最近eva又升级了，于是青蛙决定换用eva。&lt;/p&gt;
+&lt;p&gt;Debian的apt里面是没有eva的。
+青蛙上网搜了一圈，也没有发现eva的升级包，连
+&lt;a href="http://sourceforge.net/projects/evaq"&gt;它的主页&lt;/a&gt;
+上也都还是很久很久以前的版本（大概eva已经转入地下了）。&lt;/p&gt;
+&lt;p&gt;青蛙最后在ubuntu的源里面终于翻倒了eva的deb包了。&lt;/p&gt;
+&lt;p&gt;eva在ubuntu源的universe里面，随便找一个ubuntu的镜像（青蛙用的是
+&lt;a href="http://debian.ustc.edu.cn/ubuntu"&gt;中科大的源&lt;/a&gt;
+），在/pool/universe/e/eva目录里找到
+&lt;a href="http://debian.ustc.edu.cn/ubuntu/pool/universe/e/eva/eva_0.4.9+svn20080215-0ubuntu1_i386.deb"&gt;eva_0.4.9+svn20080215-0ubuntu1_i386.deb&lt;/a&gt;
+，下载回来备用。&lt;/p&gt;
+&lt;p&gt;在正式安装eva之前，青蛙还要搞定它的依赖性问题。&lt;/p&gt;
+&lt;p&gt;ubuntu里面的eva是依赖于kdelibs4c2a这个包的。
+但是debian里面的kdelibs4c2a存在一个依赖性的bug：&lt;/p&gt;
+&lt;p&gt;它依赖于包libopenexr2ldbl，但是这个包在debian的i386源里面竟然没有。&lt;/p&gt;
+&lt;p&gt;于是青蛙再从ubuntu源里把
+&lt;a href="http://debian.ustc.edu.cn/ubuntu/pool/main/o/openexr/libopenexr2ldbl_1.2.2-4.4ubuntu1_i386.deb"&gt;libopenexr2ldbl&lt;/a&gt;
+给抓回来，&lt;code&gt;dpkg -i&lt;/code&gt;安装之，然后执行&lt;code&gt;# aptitude install kdelibs4c2a&lt;/code&gt;，安装一系列的依赖包。&lt;/p&gt;
+&lt;p&gt;顺便说一句，debian跟ubuntu这两个兄弟有时候还真不错，互相谁也不挑谁的 …&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;img alt="debian-ubuntu" src="http://haokanbu.s3.amazonaws.com/picture/external/c8b6c8df6df744f7af186747f25a35b3.jpeg"&gt;&lt;/p&gt;
+&lt;p&gt;自从青蛙人品爆发，在pidgin上面死活登录不上QQ以后，青蛙都是在wine上面跑QQ。
+在wine上面速度慢不说，QQ时不时的来一下非法操作就把青蛙折磨的死去活来。
+据说最近eva又升级了，于是青蛙决定换用eva。&lt;/p&gt;
+&lt;p&gt;Debian的apt里面是没有eva的。
+青蛙上网搜了一圈，也没有发现eva的升级包，连
+&lt;a href="http://sourceforge.net/projects/evaq"&gt;它的主页&lt;/a&gt;
+上也都还是很久很久以前的版本（大概eva已经转入地下了）。&lt;/p&gt;
+&lt;p&gt;青蛙最后在ubuntu的源里面终于翻倒了eva的deb包了。&lt;/p&gt;
+&lt;p&gt;eva在ubuntu源的universe里面，随便找一个ubuntu的镜像（青蛙用的是
+&lt;a href="http://debian.ustc.edu.cn/ubuntu"&gt;中科大的源&lt;/a&gt;
+），在/pool/universe/e/eva目录里找到
+&lt;a href="http://debian.ustc.edu.cn/ubuntu/pool/universe/e/eva/eva_0.4.9+svn20080215-0ubuntu1_i386.deb"&gt;eva_0.4.9+svn20080215-0ubuntu1_i386.deb&lt;/a&gt;
+，下载回来备用。&lt;/p&gt;
+&lt;p&gt;在正式安装eva之前，青蛙还要搞定它的依赖性问题。&lt;/p&gt;
+&lt;p&gt;ubuntu里面的eva是依赖于kdelibs4c2a这个包的。
+但是debian里面的kdelibs4c2a存在一个依赖性的bug：&lt;/p&gt;
+&lt;p&gt;它依赖于包libopenexr2ldbl，但是这个包在debian的i386源里面竟然没有。&lt;/p&gt;
+&lt;p&gt;于是青蛙再从ubuntu源里把
+&lt;a href="http://debian.ustc.edu.cn/ubuntu/pool/main/o/openexr/libopenexr2ldbl_1.2.2-4.4ubuntu1_i386.deb"&gt;libopenexr2ldbl&lt;/a&gt;
+给抓回来，&lt;code&gt;dpkg -i&lt;/code&gt;安装之，然后执行&lt;code&gt;# aptitude install kdelibs4c2a&lt;/code&gt;，安装一系列的依赖包。&lt;/p&gt;
+&lt;p&gt;顺便说一句，debian跟ubuntu这两个兄弟有时候还真不错，互相谁也不挑谁的，deb包拿过来一般都能直接用。&lt;/p&gt;
+&lt;p&gt;最后，执行&lt;code&gt;# dpkg -i eva_0.4.9+svn20080215-0ubuntu1_i386.deb&lt;/code&gt;，eva安装成功。&lt;/p&gt;
+&lt;p&gt;聊天去也~&lt;/p&gt;
+&lt;p&gt;&lt;img alt="eva" src="http://haokanbu.s3.amazonaws.com/picture/external/c8b6c8df6df744f7af186747f25a35b3.jpeg"&gt;&lt;/p&gt;</content><category term="linux"></category><category term="desktop"></category><category term="installation"></category><category term="debian"></category><category term="ubuntu"></category><category term="eva"></category><category term="qq"></category></entry><entry><title>世界上最小的linux</title><link href="https://www.gfrog.net/2008/03/picotux-tiny-linux-device/" rel="alternate"></link><published>2008-03-23T21:50:56+08:00</published><updated>2008-03-23T21:50:56+08:00</updated><author><name>gfrog</name></author><id>tag:www.gfrog.net,2008-03-23:/2008/03/picotux-tiny-linux-device/</id><summary type="html">&lt;p&gt;&lt;img alt="picotux" src="http://www.picotux.com/pt100a.jpg"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="2" src="http://www.picotux.com/pt112a.jpg"&gt;&lt;/p&gt;
+&lt;p&gt;上面的图片就是号称世界上最小的linux：&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://www.picotux.com/techdatae.html"&gt;picotux 100&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;（右侧为picotux 112）。&lt;/p&gt;
+&lt;p&gt;这个小东西只有35mm×19mm×19mm大小，只比一个RJ45接口大了那么一点点。&lt;/p&gt;
+&lt;p&gt;它使用32-bit ARM 7 Netsilicon NS7520处理器，主频55MHz，
+搭载2M~4M Flash和8M SDRAM，带有一个10/100M网卡，
+一个可以达到230.400 bps的串口，还有5个I/O针脚。
+使用3.3V电压供电。&lt;/p&gt;
+&lt;p&gt;软件方面，它使用uClinux 2.4.27系统，系统大小最少720KB。&lt;/p&gt;
+&lt;p&gt;Shell可以使用Busybox，使用CRAMFS、JFFS2文件系统,
+还可以使用NFS，有Webserver、Telnet等等程序。&lt;/p&gt;
+&lt;p&gt;开发工具使用GUN Toolchain，使用GCC3.4.4以上版本和ulibc0.9.26以上版本。&lt;/p&gt;
+&lt;p&gt;这东东售价最低99欧元。&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;img alt="picotux" src="http://www.picotux.com/pt100a.jpg"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="2" src="http://www.picotux.com/pt112a.jpg"&gt;&lt;/p&gt;
+&lt;p&gt;上面的图片就是号称世界上最小的linux：&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://www.picotux.com/techdatae.html"&gt;picotux 100&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;（右侧为picotux 112）。&lt;/p&gt;
+&lt;p&gt;这个小东西只有35mm×19mm×19mm大小，只比一个RJ45接口大了那么一点点。&lt;/p&gt;
+&lt;p&gt;它使用32-bit ARM 7 Netsilicon NS7520处理器，主频55MHz，
+搭载2M~4M Flash和8M SDRAM，带有一个10/100M网卡，
+一个可以达到230.400 bps的串口，还有5个I/O针脚。
+使用3.3V电压供电。&lt;/p&gt;
+&lt;p&gt;软件方面，它使用uClinux 2.4.27系统，系统大小最少720KB。&lt;/p&gt;
+&lt;p&gt;Shell可以使用Busybox，使用CRAMFS、JFFS2文件系统,
+还可以使用NFS，有Webserver、Telnet等等程序。&lt;/p&gt;
+&lt;p&gt;开发工具使用GUN Toolchain，使用GCC3.4.4以上版本和ulibc0.9.26以上版本。&lt;/p&gt;
+&lt;p&gt;这东东售价最低99欧元。&lt;/p&gt;</content><category term="linux"></category><category term="mini"></category><category term="board"></category><category term="arm"></category><category term="device"></category></entry><entry><title>glinux开发摘要(2)-构建目录结构</title><link href="https://www.gfrog.net/2008/03/glinux-setup-build-directory/" rel="alternate"></link><published>2008-03-16T23:18:34+08:00</published><updated>2008-03-16T23:18:34+08:00</updated><author><name>gfrog</name></author><id>tag:www.gfrog.net,2008-03-16:/2008/03/glinux-setup-build-directory/</id><summary type="html">&lt;p&gt;&lt;em&gt;下面的操作步骤青蛙基本上是从
+&lt;a href="http://www.linuxfromscratch.org/lfs/view/6.3"&gt;lfs6.3&lt;/a&gt;
+学来的，所以会有$LFS这个变量，如果你对lfs也有兴趣，可以
+&lt;a href="http://www.linuxfromscratch.org/"&gt;去它的官方网站&lt;/a&gt;
+看看。&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;青蛙编译完成了toolchain以后，就可以开始建造glinux的目录体系了。&lt;/p&gt;
+&lt;p&gt;首先，构造虚拟内核文件系统(Virtual Kernel File Systems)，这个东东是跟内核通信的一个途径。&lt;/p&gt;
+&lt;p&gt;执行下面的命令，来建立文件系统的挂载点：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;mkdir&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;pv&lt;/span&gt; &lt;span class="err"&gt;$&lt;/span&gt;&lt;span class="n"&gt;LFS&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="err"&gt;{&lt;/span&gt;&lt;span class="n"&gt;dev&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;proc&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;sys&lt;/span&gt;&lt;span class="err"&gt;}&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;然后，建立几个必要的设备文件，&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;mknod&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;m&lt;/span&gt; &lt;span class="mi"&gt;600&lt;/span&gt; &lt;span class="err"&gt;$&lt;/span&gt;&lt;span class="n"&gt;LFS&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;dev&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;console&lt;/span&gt; &lt;span class="k"&gt;c&lt;/span&gt; &lt;span class="mi"&gt;5&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;
+&lt;span class="n"&gt;mknod&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;m&lt;/span&gt; &lt;span class="mi"&gt;666&lt;/span&gt; &lt;span class="err"&gt;$&lt;/span&gt;&lt;span class="n"&gt;LFS&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;dev&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="k"&gt;null&lt;/span&gt; &lt;span class="k"&gt;c&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt; &lt;span class="mi"&gt;3&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;青蛙准备用udev来管理设备文件，所以只建立这两个文件就够了，
+其他文件udev会在系统启动的时候自动创建 …&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;em&gt;下面的操作步骤青蛙基本上是从
+&lt;a href="http://www.linuxfromscratch.org/lfs/view/6.3"&gt;lfs6.3&lt;/a&gt;
+学来的，所以会有$LFS这个变量，如果你对lfs也有兴趣，可以
+&lt;a href="http://www.linuxfromscratch.org/"&gt;去它的官方网站&lt;/a&gt;
+看看。&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;青蛙编译完成了toolchain以后，就可以开始建造glinux的目录体系了。&lt;/p&gt;
+&lt;p&gt;首先，构造虚拟内核文件系统(Virtual Kernel File Systems)，这个东东是跟内核通信的一个途径。&lt;/p&gt;
+&lt;p&gt;执行下面的命令，来建立文件系统的挂载点：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;mkdir&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;pv&lt;/span&gt; &lt;span class="err"&gt;$&lt;/span&gt;&lt;span class="n"&gt;LFS&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="err"&gt;{&lt;/span&gt;&lt;span class="n"&gt;dev&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;proc&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;sys&lt;/span&gt;&lt;span class="err"&gt;}&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;然后，建立几个必要的设备文件，&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;mknod&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;m&lt;/span&gt; &lt;span class="mi"&gt;600&lt;/span&gt; &lt;span class="err"&gt;$&lt;/span&gt;&lt;span class="n"&gt;LFS&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;dev&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;console&lt;/span&gt; &lt;span class="k"&gt;c&lt;/span&gt; &lt;span class="mi"&gt;5&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;
+&lt;span class="n"&gt;mknod&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;m&lt;/span&gt; &lt;span class="mi"&gt;666&lt;/span&gt; &lt;span class="err"&gt;$&lt;/span&gt;&lt;span class="n"&gt;LFS&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;dev&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="k"&gt;null&lt;/span&gt; &lt;span class="k"&gt;c&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt; &lt;span class="mi"&gt;3&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;青蛙准备用udev来管理设备文件，所以只建立这两个文件就够了，
+其他文件udev会在系统启动的时候自动创建。&lt;/p&gt;
+&lt;p&gt;现在udev模块在glinux上还没有安装，
+所以暂时用&lt;code&gt;mount --bind&lt;/code&gt;命令将宿主系统的/dev目录镜像到glinux的目录结构里来：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;mount&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;v&lt;/span&gt; &lt;span class="c1"&gt;--bind /dev $LFS/dev&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;把几个重要的虚拟文件系统都挂在到glinux的目录上去：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;mount&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;vt&lt;/span&gt; &lt;span class="n"&gt;devpts&lt;/span&gt; &lt;span class="n"&gt;devpts&lt;/span&gt; &lt;span class="err"&gt;$&lt;/span&gt;&lt;span class="n"&gt;LFS&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;dev&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;pts&lt;/span&gt;
+&lt;span class="n"&gt;mount&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;vt&lt;/span&gt; &lt;span class="n"&gt;tmpfs&lt;/span&gt; &lt;span class="n"&gt;shm&lt;/span&gt; &lt;span class="err"&gt;$&lt;/span&gt;&lt;span class="n"&gt;LFS&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;dev&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;shm&lt;/span&gt;
+&lt;span class="n"&gt;mount&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;vt&lt;/span&gt; &lt;span class="n"&gt;proc&lt;/span&gt; &lt;span class="n"&gt;proc&lt;/span&gt; &lt;span class="err"&gt;$&lt;/span&gt;&lt;span class="n"&gt;LFS&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;proc&lt;/span&gt;
+&lt;span class="n"&gt;mount&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;vt&lt;/span&gt; &lt;span class="n"&gt;sysfs&lt;/span&gt; &lt;span class="n"&gt;sysfs&lt;/span&gt; &lt;span class="err"&gt;$&lt;/span&gt;&lt;span class="n"&gt;LFS&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;sys&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;以上几个步骤在每次重新chroot以后都要执行一遍。&lt;/p&gt;
+&lt;p&gt;上面的步骤都完成，历史性的时刻就要来了：chroot进入glinux。&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;chroot&lt;/span&gt; &lt;span class="ss"&gt;&amp;quot;$LFS&amp;quot;&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;tools&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;bin&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;env&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt; &lt;span class="n"&gt;HOME&lt;/span&gt;&lt;span class="o"&gt;=/&lt;/span&gt;&lt;span class="n"&gt;root&lt;/span&gt; &lt;span class="n"&gt;TERM&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="ss"&gt;&amp;quot;$TERM&amp;quot;&lt;/span&gt; &lt;span class="n"&gt;PS1&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;u:w$ &amp;#39;&lt;/span&gt; &lt;span class="err"&gt;\&lt;/span&gt;
+    &lt;span class="n"&gt;PATH&lt;/span&gt;&lt;span class="o"&gt;=/&lt;/span&gt;&lt;span class="n"&gt;bin&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;usr&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;bin&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;sbin&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;usr&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;sbin&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;tools&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;bin&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;tools&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;bin&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;bash&lt;/span&gt; &lt;span class="c1"&gt;--login +h&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;看到命令提示符在喊“I have no name!”了么？
+如果看到它喊了，就说明chroot成功了 :)&lt;/p&gt;
+&lt;p&gt;进入新系统的第一件事就是要建立glinux的目录结构了，关于linux的目录结构，
+&lt;a href="http://www.linuxfans.org/"&gt;linuxfans&lt;/a&gt;
+上面有
+&lt;a href="http://www.linuxfans.org/bbs/thread-182534-1-1.html"&gt;一篇文章介绍的非常详细&lt;/a&gt;
+，青蛙执行以下命令来建立一个完整的目录结构：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="nv"&gt;mkdir&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="nv"&gt;pv&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt;{&lt;span class="nv"&gt;bin&lt;/span&gt;,&lt;span class="nv"&gt;boot&lt;/span&gt;,&lt;span class="nv"&gt;etc&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="nv"&gt;opt&lt;/span&gt;,&lt;span class="nv"&gt;home&lt;/span&gt;,&lt;span class="nv"&gt;lib&lt;/span&gt;,&lt;span class="nv"&gt;mnt&lt;/span&gt;,&lt;span class="nv"&gt;opt&lt;/span&gt;}
+&lt;span class="nv"&gt;mkdir&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="nv"&gt;pv&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt;{&lt;span class="nv"&gt;media&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;{&lt;span class="nv"&gt;floppy&lt;/span&gt;,&lt;span class="nv"&gt;cdrom&lt;/span&gt;},&lt;span class="nv"&gt;sbin&lt;/span&gt;,&lt;span class="nv"&gt;srv&lt;/span&gt;,&lt;span class="nv"&gt;var&lt;/span&gt;}
+&lt;span class="nv"&gt;install&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="nv"&gt;dv&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="nv"&gt;m&lt;/span&gt; &lt;span class="mi"&gt;0750&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="nv"&gt;root&lt;/span&gt;
+&lt;span class="nv"&gt;install&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="nv"&gt;dv&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="nv"&gt;m&lt;/span&gt; &lt;span class="mi"&gt;1777&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="nv"&gt;tmp&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="nv"&gt;var&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="nv"&gt;tmp&lt;/span&gt;
+&lt;span class="nv"&gt;mkdir&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="nv"&gt;pv&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="nv"&gt;usr&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;{,&lt;span class="nv"&gt;local&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;}{&lt;span class="nv"&gt;bin&lt;/span&gt;,&lt;span class="k"&gt;include&lt;/span&gt;,&lt;span class="nv"&gt;lib&lt;/span&gt;,&lt;span class="nv"&gt;sbin&lt;/span&gt;,&lt;span class="nv"&gt;src&lt;/span&gt;}
+&lt;span class="nv"&gt;mkdir&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="nv"&gt;pv&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="nv"&gt;usr&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;{,&lt;span class="nv"&gt;local&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;}&lt;span class="nv"&gt;share&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;{&lt;span class="nv"&gt;doc&lt;/span&gt;,&lt;span class="nv"&gt;info&lt;/span&gt;,&lt;span class="nv"&gt;locale&lt;/span&gt;,&lt;span class="nv"&gt;man&lt;/span&gt;}
+&lt;span class="nv"&gt;mkdir&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="nv"&gt;v&lt;/span&gt;  &lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="nv"&gt;usr&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;{,&lt;span class="nv"&gt;local&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;}&lt;span class="nv"&gt;share&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;{&lt;span class="nv"&gt;misc&lt;/span&gt;,&lt;span class="nv"&gt;terminfo&lt;/span&gt;,&lt;span class="nv"&gt;zoneinfo&lt;/span&gt;}
+&lt;span class="nv"&gt;mkdir&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="nv"&gt;pv&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="nv"&gt;usr&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;{,&lt;span class="nv"&gt;local&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;}&lt;span class="nv"&gt;share&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="nv"&gt;man&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="nv"&gt;man&lt;/span&gt;{&lt;span class="mi"&gt;1&lt;/span&gt;..&lt;span class="mi"&gt;8&lt;/span&gt;}
+
+&lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="nv"&gt;dir&lt;/span&gt; &lt;span class="nv"&gt;in&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="nv"&gt;usr&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="nv"&gt;usr&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="nv"&gt;local&lt;/span&gt;&lt;span class="c1"&gt;; do&lt;/span&gt;
+  &lt;span class="nv"&gt;ln&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="nv"&gt;sv&lt;/span&gt; &lt;span class="nv"&gt;share&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;{&lt;span class="nv"&gt;man&lt;/span&gt;,&lt;span class="nv"&gt;doc&lt;/span&gt;,&lt;span class="nv"&gt;info&lt;/span&gt;} &lt;span class="mh"&gt;$d&lt;/span&gt;&lt;span class="nv"&gt;ir&lt;/span&gt;
+&lt;span class="nv"&gt;done&lt;/span&gt;
+
+&lt;span class="nv"&gt;mkdir&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="nv"&gt;v&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="nv"&gt;var&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;{&lt;span class="nv"&gt;lock&lt;/span&gt;,&lt;span class="nv"&gt;log&lt;/span&gt;,&lt;span class="nv"&gt;mail&lt;/span&gt;,&lt;span class="nv"&gt;run&lt;/span&gt;,&lt;span class="nv"&gt;spool&lt;/span&gt;}
+&lt;span class="nv"&gt;mkdir&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="nv"&gt;pv&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="nv"&gt;var&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;{&lt;span class="nv"&gt;opt&lt;/span&gt;,&lt;span class="nv"&gt;cache&lt;/span&gt;,&lt;span class="nv"&gt;lib&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;{&lt;span class="nv"&gt;misc&lt;/span&gt;,&lt;span class="nv"&gt;locate&lt;/span&gt;},&lt;span class="nv"&gt;local&lt;/span&gt;}
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;然后，把/tools/目录下的一些文件链接到chroot环境对应的目录下：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;ln&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;sv&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;tools&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;bin&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="err"&gt;{&lt;/span&gt;&lt;span class="n"&gt;bash&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;cat&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;echo&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;grep&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;pwd&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;stty&lt;/span&gt;&lt;span class="err"&gt;}&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;bin&lt;/span&gt;
+&lt;span class="n"&gt;ln&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;sv&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;tools&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;bin&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;perl&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;usr&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;bin&lt;/span&gt;
+&lt;span class="n"&gt;ln&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;sv&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;tools&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;lib&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;libgcc_s&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;so&lt;/span&gt;&lt;span class="err"&gt;{&lt;/span&gt;&lt;span class="p"&gt;,.&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="err"&gt;}&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;usr&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;lib&lt;/span&gt;
+&lt;span class="n"&gt;ln&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;sv&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;tools&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;lib&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;libstdc&lt;/span&gt;&lt;span class="o"&gt;++&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;so&lt;/span&gt;&lt;span class="err"&gt;{&lt;/span&gt;&lt;span class="p"&gt;,.&lt;/span&gt;&lt;span class="mi"&gt;6&lt;/span&gt;&lt;span class="err"&gt;}&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;usr&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;lib&lt;/span&gt;
+&lt;span class="n"&gt;ln&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;sv&lt;/span&gt; &lt;span class="n"&gt;bash&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;bin&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;sh&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;建立一个/etc/mtab文件：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;touch&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;etc&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;mtab&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;建立/etc/passwd文件和/etc/group文件：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="o"&gt;#&lt;/span&gt; &lt;span class="n"&gt;cat&lt;/span&gt; &lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;etc&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;passwd&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class="ss"&gt;&amp;quot;EOF&amp;quot;&lt;/span&gt;
+&lt;span class="n"&gt;root&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="n"&gt;root&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;root&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;bin&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;bash&lt;/span&gt;
+&lt;span class="n"&gt;nobody&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;99&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;99&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="n"&gt;Unprivileged&lt;/span&gt; &lt;span class="k"&gt;User&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;dev&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="k"&gt;null&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;bin&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="k"&gt;false&lt;/span&gt;
+&lt;span class="n"&gt;EOF&lt;/span&gt;
+
+&lt;span class="o"&gt;#&lt;/span&gt; &lt;span class="n"&gt;cat&lt;/span&gt; &lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;etc&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="k"&gt;group&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class="ss"&gt;&amp;quot;EOF&amp;quot;&lt;/span&gt;
+&lt;span class="n"&gt;root&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+&lt;span class="n"&gt;bin&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+&lt;span class="n"&gt;sys&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+&lt;span class="n"&gt;kmem&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+&lt;span class="n"&gt;tty&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;4&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+&lt;span class="n"&gt;tape&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;5&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+&lt;span class="n"&gt;daemon&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;6&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+&lt;span class="n"&gt;floppy&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;7&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+&lt;span class="n"&gt;disk&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;8&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+&lt;span class="n"&gt;lp&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;9&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+&lt;span class="n"&gt;dialout&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;10&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+&lt;span class="n"&gt;audio&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;11&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+&lt;span class="n"&gt;video&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;12&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+&lt;span class="n"&gt;utmp&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;13&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+&lt;span class="n"&gt;usb&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;14&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+&lt;span class="n"&gt;cdrom&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;15&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+&lt;span class="n"&gt;mail&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;34&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+&lt;span class="n"&gt;nogroup&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;99&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+&lt;span class="n"&gt;EOF&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;然后重新运行一次bash，让bash不再喊“I have no name!”&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="k"&gt;exec&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="nv"&gt;tools&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="nv"&gt;bin&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="nv"&gt;bash&lt;/span&gt; &lt;span class="o"&gt;--&lt;/span&gt;&lt;span class="nv"&gt;login&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="nv"&gt;h&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;接下来再建立一些要用到的log文件：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;touch&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;var&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;run&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;utmp&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;var&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;log&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="err"&gt;{&lt;/span&gt;&lt;span class="n"&gt;btmp&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;lastlog&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;wtmp&lt;/span&gt;&lt;span class="err"&gt;}&lt;/span&gt;
+&lt;span class="n"&gt;chgrp&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;v&lt;/span&gt; &lt;span class="n"&gt;utmp&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;var&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;run&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;utmp&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;var&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;log&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;lastlog&lt;/span&gt;
+&lt;span class="n"&gt;chmod&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;v&lt;/span&gt; &lt;span class="mi"&gt;664&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;var&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;run&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;utmp&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;var&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;log&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;lastlog&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;到这里，glinux的目录结构基本上搞定了，下面我们就可以制作内核跟busybox了。&lt;/p&gt;</content><category term="linux"></category><category term="lfs"></category><category term="build"></category><category term="directory"></category><category term="setup"></category></entry><entry><title>glinux开发摘要(1)--编译环境制作</title><link href="https://www.gfrog.net/2008/03/glinux-setup-compile-environment/" rel="alternate"></link><published>2008-03-16T19:16:47+08:00</published><updated>2008-03-16T19:16:47+08:00</updated><author><name>gfrog</name></author><id>tag:www.gfrog.net,2008-03-16:/2008/03/glinux-setup-compile-environment/</id><summary type="html">&lt;p&gt;在uty同学的积极鼓励下，青蛙开始了glinux下一个版本的制作
+（关于glinux的历史，欢迎回顾青蛙从前的日志）。&lt;/p&gt;
+&lt;p&gt;一开始，青蛙准备利用debian现成的编译环境，
+但是后来突然想自己构建一个工具链比较好。
+工具稳定下来，做出来的东西才比较有保障。&lt;/p&gt;
+&lt;p&gt;于是，青蛙从新拾起lfs，开始第二轮lfs征程，
+不过这次lfs只做三分之一，青蛙的目标就是：lfs6.3的Toolschain。&lt;/p&gt;
+&lt;p&gt;具体操作过程没啥好说的，简单的step by step就好，
+但是在制作过程中，遇到了几个bug
+（可能也算不上bug，可能是青蛙系统的原因）。&lt;/p&gt;
+&lt;p&gt;这第一个，就是在glibc-2.5.1这步，会遇到下面这个错误：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;mawk&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;scripts&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;gen&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;sorted&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;awk&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;line&lt;/span&gt; &lt;span class="mi"&gt;19&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;regular&lt;/span&gt; &lt;span class="n"&gt;expression&lt;/span&gt; &lt;span class="n"&gt;compile&lt;/span&gt; &lt;span class="n"&gt;failed&lt;/span&gt; &lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="n"&gt;bad&lt;/span&gt; &lt;span class="kd"&gt;class&lt;/span&gt; &lt;span class="o"&gt;--&lt;/span&gt; &lt;span class="o"&gt;[],&lt;/span&gt; &lt;span class="o"&gt;[^]&lt;/span&gt; &lt;span class="n"&gt;or&lt;/span&gt; &lt;span class="o"&gt;[)&lt;/span&gt;
+&lt;span class="o"&gt;/[^&lt;/span&gt;
+&lt;span class="n"&gt;mawk&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;scripts&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;gen&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;sorted&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;awk&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;line&lt;/span&gt; &lt;span class="mi"&gt;19 …&lt;/span&gt;&lt;/pre&gt;&lt;/div&gt;</summary><content type="html">&lt;p&gt;在uty同学的积极鼓励下，青蛙开始了glinux下一个版本的制作
+（关于glinux的历史，欢迎回顾青蛙从前的日志）。&lt;/p&gt;
+&lt;p&gt;一开始，青蛙准备利用debian现成的编译环境，
+但是后来突然想自己构建一个工具链比较好。
+工具稳定下来，做出来的东西才比较有保障。&lt;/p&gt;
+&lt;p&gt;于是，青蛙从新拾起lfs，开始第二轮lfs征程，
+不过这次lfs只做三分之一，青蛙的目标就是：lfs6.3的Toolschain。&lt;/p&gt;
+&lt;p&gt;具体操作过程没啥好说的，简单的step by step就好，
+但是在制作过程中，遇到了几个bug
+（可能也算不上bug，可能是青蛙系统的原因）。&lt;/p&gt;
+&lt;p&gt;这第一个，就是在glibc-2.5.1这步，会遇到下面这个错误：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;mawk&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;scripts&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;gen&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;sorted&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;awk&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;line&lt;/span&gt; &lt;span class="mi"&gt;19&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;regular&lt;/span&gt; &lt;span class="n"&gt;expression&lt;/span&gt; &lt;span class="n"&gt;compile&lt;/span&gt; &lt;span class="n"&gt;failed&lt;/span&gt; &lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="n"&gt;bad&lt;/span&gt; &lt;span class="kd"&gt;class&lt;/span&gt; &lt;span class="o"&gt;--&lt;/span&gt; &lt;span class="o"&gt;[],&lt;/span&gt; &lt;span class="o"&gt;[^]&lt;/span&gt; &lt;span class="n"&gt;or&lt;/span&gt; &lt;span class="o"&gt;[)&lt;/span&gt;
+&lt;span class="o"&gt;/[^&lt;/span&gt;
+&lt;span class="n"&gt;mawk&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;scripts&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;gen&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;sorted&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;awk&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;line&lt;/span&gt; &lt;span class="mi"&gt;19&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;syntax&lt;/span&gt; &lt;span class="n"&gt;error&lt;/span&gt; &lt;span class="n"&gt;at&lt;/span&gt; &lt;span class="n"&gt;or&lt;/span&gt; &lt;span class="n"&gt;near&lt;/span&gt; &lt;span class="o"&gt;]&lt;/span&gt;
+&lt;span class="n"&gt;mawk&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;scripts&lt;/span&gt;&lt;span class="sr"&gt;/gen-sorted.awk: line 19: runaway regular expression /&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt; &lt;span class="n"&gt;subd&lt;/span&gt; &lt;span class="o"&gt;...&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;再往上翻还有这么一句：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;mawk&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;scripts&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;gen&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;sorted&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;awk&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;line&lt;/span&gt; &lt;span class="mi"&gt;19&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;syntax&lt;/span&gt; &lt;span class="n"&gt;error&lt;/span&gt; &lt;span class="k"&gt;at&lt;/span&gt; &lt;span class="k"&gt;or&lt;/span&gt; &lt;span class="n"&gt;near&lt;/span&gt; &lt;span class="p"&gt;]&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;拿google一划拉，发现这个错误是因为青蛙系统上用了mawk的问题，据说换用gawk可以解决。&lt;/p&gt;
+&lt;p&gt;在babble.com上面
+&lt;a href="http://www.nabble.com/small-fix-for-crosstool-with-glibc-2.7-td13448350.html"&gt;有人给出了一个patch&lt;/a&gt;
+，很简单，给三个地方加个“”就ok了。&lt;/p&gt;
+&lt;p&gt;但是这个patch是给glibc2.7用的，在lfs6.3里带的glibc2.5.1里面没法直接用。
+青蛙按图索骥，改了这个gen-sorted.awk，就没有上头那些错误了。&lt;/p&gt;
+&lt;p&gt;虽说一个补丁可以解决这个问题，但是
+&lt;a href="http://www.linuxquestions.org/questions/showthread.php?p=2969014#post2969014"&gt;有前辈告诉我们&lt;/a&gt;
+，lfs里面的用的都是awk的脚本，如果用mawk很有可能不会有正确的结果，所以建议大家还是安装gawk的好。&lt;/p&gt;
+&lt;p&gt;gawk源码
+&lt;a href="http://ftp.gnu.org/pub/gnu/gawk/"&gt;在这里下载&lt;/a&gt;
+，debian系的系统只需要&lt;code&gt;aptitude install gawk&lt;/code&gt;就好了。
+其他发行版要注意检查&lt;code&gt;/etc/alternatives/awk&lt;/code&gt;是不是正确指向了gawk。&lt;/p&gt;
+&lt;p&gt;（顺路说一句，cpu在卖力的cc的时候正好可以过来写blog，真是很不错，可以随时把过程记录下来 :p）&lt;/p&gt;
+&lt;p&gt;第二个错误是在glibc2.5.1的make check过程中：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="nv"&gt;tools&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="nv"&gt;bin&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="nv"&gt;ld&lt;/span&gt;: &lt;span class="nv"&gt;cannot&lt;/span&gt; &lt;span class="nv"&gt;find&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="nv"&gt;lstdc&lt;/span&gt;&lt;span class="o"&gt;++&lt;/span&gt;
+&lt;span class="nv"&gt;collect2&lt;/span&gt;: &lt;span class="nv"&gt;ld&lt;/span&gt; &lt;span class="nv"&gt;returned&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt; &lt;span class="k"&gt;exit&lt;/span&gt; &lt;span class="nv"&gt;status&lt;/span&gt;
+&lt;span class="nv"&gt;make&lt;/span&gt;[&lt;span class="mi"&gt;2&lt;/span&gt;]: &lt;span class="o"&gt;***&lt;/span&gt; [&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="nv"&gt;mnt&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="nv"&gt;lfs&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="nv"&gt;sources&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="nv"&gt;glibc&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="nv"&gt;build&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="nv"&gt;nptl&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="nv"&gt;tst&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="nv"&gt;cancel24&lt;/span&gt;] &lt;span class="nv"&gt;Error&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;
+&lt;span class="nv"&gt;make&lt;/span&gt;[&lt;span class="mi"&gt;2&lt;/span&gt;]: &lt;span class="nv"&gt;Target&lt;/span&gt; `&lt;span class="nv"&gt;tests&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="s"&gt; not remade because of errors.&lt;/span&gt;
+&lt;span class="nv"&gt;make&lt;/span&gt;[&lt;span class="mi"&gt;1&lt;/span&gt;]: &lt;span class="o"&gt;***&lt;/span&gt; [&lt;span class="nv"&gt;nptl&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="nv"&gt;tests&lt;/span&gt;] &lt;span class="nv"&gt;Error&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt;
+&lt;span class="nv"&gt;make&lt;/span&gt;[&lt;span class="mi"&gt;1&lt;/span&gt;]: &lt;span class="nv"&gt;Target&lt;/span&gt; `&lt;span class="nv"&gt;check&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="s"&gt; not remade because of errors.&lt;/span&gt;
+&lt;span class="nv"&gt;make&lt;/span&gt;: &lt;span class="o"&gt;***&lt;/span&gt; [&lt;span class="nv"&gt;check&lt;/span&gt;] &lt;span class="nv"&gt;Error&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;青蛙没有找到这个错误的原因，大概就像lfs文档里说的，
+第一次编译lfs跟宿主系统依赖关系太大的原因造成的。&lt;/p&gt;
+&lt;p&gt;第三个错误发生在bash3.2的make过程中，
+它会提示没有找到yacc这个程序，解决方法很简单，通过apt装上就好了。&lt;/p&gt;
+&lt;p&gt;到这里，工具链的制作就完成了，下一步就可以制作系统的目录结构并编译内核了。&lt;/p&gt;</content><category term="linux"></category><category term="lfs"></category><category term="glibc"></category><category term="build"></category><category term="toolchain"></category></entry><entry><title>历经坎坷，安装VMWARE6</title><link href="https://www.gfrog.net/2008/03/vmware6-installation-in-2-6-24-kernel/" rel="alternate"></link><published>2008-03-04T00:43:44+08:00</published><updated>2008-03-04T00:43:44+08:00</updated><author><name>gfrog</name></author><id>tag:www.gfrog.net,2008-03-04:/2008/03/vmware6-installation-in-2-6-24-kernel/</id><summary type="html">&lt;p&gt;青蛙被vmware郁闷了整整一晚上，遇到问题无数，
+google了一大把关键字，看了一大叠邮件列表，
+终于把它在2.6.24内核上给装上了。&lt;/p&gt;
+&lt;p&gt;赶紧写下来，免得以后遇到类似的问题再抓瞎。&lt;/p&gt;
+&lt;p&gt;（请注意青蛙给出命令的提示符，$表示不要求root权限，#表示必须用root权限执行）&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;到
+&lt;a href="http://www.vmware.com/download/ws/"&gt;http://www.vmware.com/download/ws/&lt;/a&gt;
+这里vmware6的安装包下载回来，总共有200多M。&lt;/li&gt;
+&lt;li&gt;下载安装包的同时，还需要准备一些包：
+&lt;code&gt;# aptitude install linux-source gcc-4.1 g++-4.1 libncurses5-dev&lt;/code&gt;
+这些是linux源码包，还有gcc跟g++，待会编译模块会用到。&lt;/li&gt;
+&lt;li&gt;解压vmware6的安装文件
+&lt;code&gt;$ tar zxvf VMware-workstation-6.0.2-59824.i386.tar.gz&lt;/code&gt;。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;# cd  vmware-distrib &amp;amp;&amp;amp; ./vmware-install.pl&lt;/code&gt;。一路回车，到提示是否执行 …&lt;/li&gt;&lt;/ul&gt;</summary><content type="html">&lt;p&gt;青蛙被vmware郁闷了整整一晚上，遇到问题无数，
+google了一大把关键字，看了一大叠邮件列表，
+终于把它在2.6.24内核上给装上了。&lt;/p&gt;
+&lt;p&gt;赶紧写下来，免得以后遇到类似的问题再抓瞎。&lt;/p&gt;
+&lt;p&gt;（请注意青蛙给出命令的提示符，$表示不要求root权限，#表示必须用root权限执行）&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;到
+&lt;a href="http://www.vmware.com/download/ws/"&gt;http://www.vmware.com/download/ws/&lt;/a&gt;
+这里vmware6的安装包下载回来，总共有200多M。&lt;/li&gt;
+&lt;li&gt;下载安装包的同时，还需要准备一些包：
+&lt;code&gt;# aptitude install linux-source gcc-4.1 g++-4.1 libncurses5-dev&lt;/code&gt;
+这些是linux源码包，还有gcc跟g++，待会编译模块会用到。&lt;/li&gt;
+&lt;li&gt;解压vmware6的安装文件
+&lt;code&gt;$ tar zxvf VMware-workstation-6.0.2-59824.i386.tar.gz&lt;/code&gt;。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;# cd  vmware-distrib &amp;amp;&amp;amp; ./vmware-install.pl&lt;/code&gt;。一路回车，到提示是否执行&lt;code&gt;/usr/bin/vmware-config.pl&lt;/code&gt;这步时选择no。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;# cd /usr/src &amp;amp;&amp;amp; tar jxvf linux-source-2.6.24.tar.bz2 &amp;amp;&amp;amp; ln -s linux-source-2.6.24 linux&lt;/code&gt;。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;# cd linux &amp;amp;&amp;amp; make menuconfig&lt;/code&gt;，在
+    General setup -&amp;gt;  Local version - append to kernel release
+    选项中填入正在运行内核的子版本号（例如，
+    青蛙的内核版本为2.6.24-1-686，那么就在这里填入-1-686，
+    在这里青蛙困扰了好久，这回终于知道怎么写这个版本号了）,
+    然后保存退出，执行&lt;code&gt;# make prepare&lt;/code&gt;。&lt;/li&gt;
+&lt;li&gt;在
+    &lt;a href="http://vmkernelnewbies.googlegroups.com/web/vmware-any-any-update-116.tgz"&gt;这里&lt;/a&gt;
+    （
+    &lt;a href="http://blog.creonfx.com/temp/vmware-any-any-update-116.tgz"&gt;这里&lt;/a&gt;
+    和
+    &lt;a href="http://linuxtoy.org/files/vmware-any-any-update-116.tgz"&gt;这里&lt;/a&gt;
+    也分别有下载）下载vmware-any-any-update-116.tgz这个补丁。
+    并解压： &lt;code&gt;$ tar zxvf vmware-any-any-update-116.tgz&lt;/code&gt;，然后&lt;code&gt;# cd vmware-any-any-update116 &amp;amp;&amp;amp;./runme.pl&lt;/code&gt;
+    ，当询问是否运行vmware-config.pl的时候，选择yes。
+    （如果以上步骤执行正确，到这里应该能正确的编译vmware需要的各种模块了，
+    如果出错，请google错误信息，一般都有结果的。）&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;update:2008-03-18.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;今天青蛙再次在2.6.24内核上面安装vmware，编译模块时又出现了下面的错误信息：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;bin&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;sh&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;scripts&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;genksyms&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;genksyms&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="err"&gt;没有那个文件或目录&lt;/span&gt;
+&lt;span class="n"&gt;make&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;]:&lt;/span&gt; &lt;span class="o"&gt;***&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;tmp&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;vmware&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;config2&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;vmmon&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="k"&gt;only&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;linux&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;driver&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;o&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="err"&gt;错误&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;
+&lt;span class="n"&gt;make&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;]:&lt;/span&gt; &lt;span class="o"&gt;***&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;_module_&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;tmp&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;vmware&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;config2&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;vmmon&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="k"&gt;only&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="err"&gt;错误&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt;
+&lt;span class="n"&gt;make&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;]:&lt;/span&gt; &lt;span class="n"&gt;Leaving&lt;/span&gt; &lt;span class="n"&gt;directory&lt;/span&gt; &lt;span class="o"&gt;`/&lt;/span&gt;&lt;span class="n"&gt;usr&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;src&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;linux&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="k"&gt;source&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;6&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;24&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;
+&lt;span class="s1"&gt;make: *** [vmmon.ko] 错误 2&lt;/span&gt;
+&lt;span class="s1"&gt;make: Leaving directory `/tmp/vmware-config2/vmmon-only&amp;#39;&lt;/span&gt;
+&lt;span class="n"&gt;Unable&lt;/span&gt; &lt;span class="k"&gt;to&lt;/span&gt; &lt;span class="n"&gt;build&lt;/span&gt; &lt;span class="n"&gt;the&lt;/span&gt; &lt;span class="n"&gt;vmmon&lt;/span&gt; &lt;span class="n"&gt;module&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;青蛙在源码目录执行了一下#make all，把genksyms这个模块编译一下就好了，真是一个很诡异的问题。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;接下来就是配置虚拟网卡，按照自己的爱好配置就可以了。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;这一切都完成以后，会有一长串的许可协议冒出来，到最后输入yes就行了。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;到这里，vmware就算完全安装完毕了，在gnome的菜单里找到vmware workstation运行之，然后输入序列号，就可以安装虚拟系统了。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;至于序列号，google上是，一抓一大把，青蛙就不提供了。 祝大家玩的愉快。 :smile:&lt;/p&gt;
+&lt;p&gt;文中提到的vmware-any-any-update-116.tgz补丁的下载：&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://www.divshare.com/download/3938296-131"&gt;vmware-any-any-update-116.tgz (vmware-any-any-update-116.tgz)&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;参考文档：&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://blog.creonfx.com/linux/how-to-install-vmware-player-workstation-on-2624-kernel"&gt;http://blog.creonfx.com/linux/how-to-install-vmware-player-workstation-on-2624-kernel&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://linuxtoy.org/archives/vmware-and-kernel-2624.html"&gt;http://linuxtoy.org/archives/vmware-and-kernel-2624.html&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://linux.bloghome.cn/posts/159172.html"&gt;http://linux.bloghome.cn/posts/159172.html &lt;/a&gt;&lt;/p&gt;</content><category term="linux"></category><category term="kernel"></category><category term="source"></category><category term="vmware"></category><category term="installation"></category></entry><entry><title>修改系统时间引起sudo罢工的解决办法</title><link href="https://www.gfrog.net/2008/03/solution-of-system-time-changes-cause-sudo-error/" rel="alternate"></link><published>2008-03-02T22:38:04+08:00</published><updated>2008-03-02T22:38:04+08:00</updated><author><name>gfrog</name></author><id>tag:www.gfrog.net,2008-03-02:/2008/03/solution-of-system-time-changes-cause-sudo-error/</id><summary type="html">&lt;p&gt;青蛙今天使用sudo之后，把系统时间往回调了几小时，
+然后sudo就罢工了，提示下面的信息：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;sudo: timestamp too far in the future&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;改时间竟然还能改出毛病，这个sudo真是太fz了。
+青蛙拿着这个出错信息一google，发现了俩解决方法。&lt;/p&gt;
+&lt;p&gt;第一个，不黄很暴力，用root权限删除/var/run/sudo目录。&lt;/p&gt;
+&lt;p&gt;第二个，执行sudo -k，这个命令是用来清除sudo的时间戳，
+下次执行sudo的时候它会跟你重新要密码。&lt;/p&gt;</summary><content type="html">&lt;p&gt;青蛙今天使用sudo之后，把系统时间往回调了几小时，
+然后sudo就罢工了，提示下面的信息：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;sudo: timestamp too far in the future&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;改时间竟然还能改出毛病，这个sudo真是太fz了。
+青蛙拿着这个出错信息一google，发现了俩解决方法。&lt;/p&gt;
+&lt;p&gt;第一个，不黄很暴力，用root权限删除/var/run/sudo目录。&lt;/p&gt;
+&lt;p&gt;第二个，执行sudo -k，这个命令是用来清除sudo的时间戳，
+下次执行sudo的时候它会跟你重新要密码。&lt;/p&gt;</content><category term="linux"></category><category term="sudo"></category><category term="error"></category><category term="system"></category><category term="time"></category></entry><entry><title>pidgin中群名称变为NULL的解决办法</title><link href="https://www.gfrog.net/2008/03/solution-of-qq-null-group-name-in-pidgin/" rel="alternate"></link><published>2008-03-02T10:21:58+08:00</published><updated>2008-03-02T10:21:58+08:00</updated><author><name>gfrog</name></author><id>tag:www.gfrog.net,2008-03-02:/2008/03/solution-of-qq-null-group-name-in-pidgin/</id><summary type="html">&lt;p&gt;前阵子pidgin从2.x版本升级到了2.3.1以后，
+青蛙的QQ的群名称就全部变成了NULL，
+然后所有群的消息都跑到了一起，看的我眼花缭乱。
+于是青蛙就眼巴巴的等着pidgin的升级。&lt;/p&gt;
+&lt;p&gt;这不，它终于升级到了2.4.0了，结果这个问题还是没改！&lt;/p&gt;
+&lt;p&gt;看来老外是靠不住的，只能靠自己了。
+青蛙拿起google一划拉，还真找到点东西。&lt;/p&gt;
+&lt;p&gt;这不，
+&lt;a href="http://www.linuxsir.org/bbs/thread323211.html"&gt;Linuxsir上的linuxahah同学说&lt;/a&gt;
+，这是因为死TX修改了协议导致的，并且放出了一个补丁。&lt;/p&gt;
+&lt;p&gt;但是这个补丁需要打到pidgin的源码里面重新编译，鉴于青蛙前N次编译pidgin的结果都是失败而告终，这个方法还是放弃了。&lt;/p&gt;
+&lt;p&gt;于是青蛙继续google，发现
+&lt;a href="http://www.linuxsir.org/bbs/post1798882-10.html"&gt;Linuxsir的marklf大牛说&lt;/a&gt;
+，这个问题还是因为pidgin中的libqq.so引起的，
+只要用以前版本的libqq.so替换现在的版本就可以了。&lt;/p&gt;
+&lt;p&gt;这个方法很好很强大，只要找到2.x版本的libqq.so文件就，然后把它复制到/usr/lib/purple-2/就可以了。&lt;/p&gt;
+&lt;p&gt;困扰了青蛙好久的问题解决了，终于可以开心的聊QQ了 :D&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;更新：&lt;/strong&gt; [2008-03-02 11:33] 放上日志里提到的补丁文件和libqq.so。&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://www.divshare.com/download/3927060-345"&gt;qq …&lt;/a&gt;&lt;/p&gt;</summary><content type="html">&lt;p&gt;前阵子pidgin从2.x版本升级到了2.3.1以后，
+青蛙的QQ的群名称就全部变成了NULL，
+然后所有群的消息都跑到了一起，看的我眼花缭乱。
+于是青蛙就眼巴巴的等着pidgin的升级。&lt;/p&gt;
+&lt;p&gt;这不，它终于升级到了2.4.0了，结果这个问题还是没改！&lt;/p&gt;
+&lt;p&gt;看来老外是靠不住的，只能靠自己了。
+青蛙拿起google一划拉，还真找到点东西。&lt;/p&gt;
+&lt;p&gt;这不，
+&lt;a href="http://www.linuxsir.org/bbs/thread323211.html"&gt;Linuxsir上的linuxahah同学说&lt;/a&gt;
+，这是因为死TX修改了协议导致的，并且放出了一个补丁。&lt;/p&gt;
+&lt;p&gt;但是这个补丁需要打到pidgin的源码里面重新编译，鉴于青蛙前N次编译pidgin的结果都是失败而告终，这个方法还是放弃了。&lt;/p&gt;
+&lt;p&gt;于是青蛙继续google，发现
+&lt;a href="http://www.linuxsir.org/bbs/post1798882-10.html"&gt;Linuxsir的marklf大牛说&lt;/a&gt;
+，这个问题还是因为pidgin中的libqq.so引起的，
+只要用以前版本的libqq.so替换现在的版本就可以了。&lt;/p&gt;
+&lt;p&gt;这个方法很好很强大，只要找到2.x版本的libqq.so文件就，然后把它复制到/usr/lib/purple-2/就可以了。&lt;/p&gt;
+&lt;p&gt;困扰了青蛙好久的问题解决了，终于可以开心的聊QQ了 :D&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;更新：&lt;/strong&gt; [2008-03-02 11:33] 放上日志里提到的补丁文件和libqq.so。&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://www.divshare.com/download/3927060-345"&gt;qq patch for pidgin 2.3.1 (pidgin-2_3_1-qq_tar.bz2)&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://www.divshare.com/download/3927059-f35"&gt;libqq.so in pidgin 2.2.2 (libqq-2_2_2.zip)&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;补丁文件需要解压到pidgin的源码目录下，然后用&lt;code&gt;patch -p1 &amp;lt; xxx.patch&lt;/code&gt;来打源码补丁。大家各取所需吧。&lt;/p&gt;</content><category term="linux"></category><category term="desktop"></category><category term="qq"></category><category term="pidgin"></category><category term="patch"></category></entry><entry><title>KDE：跨越Linux、Windows和Mac OS X的桌面环境</title><link href="https://www.gfrog.net/2008/01/kde-beyond-linux-windows-and-mac-os-x-desktop-environment/" rel="alternate"></link><published>2008-01-26T16:35:02+08:00</published><updated>2008-01-26T16:35:02+08:00</updated><author><name>gfrog</name></author><id>tag:www.gfrog.net,2008-01-26:/2008/01/kde-beyond-linux-windows-and-mac-os-x-desktop-environment/</id><summary type="html">&lt;p&gt;&lt;img alt="1" src="http://pic.yupoo.com/gfrog/855075025a63/odu22jqq.jpg"&gt;&lt;/p&gt;
+&lt;p&gt;KDE，这个Linux/Unix下华丽丽的桌面环境，正在走向Windows和Mac OS X。
+一些核心的KDE程序，还有其他重要的应用软件，例如KOffice和Amarok，已经开始向这两个平台移植。&lt;/p&gt;
+&lt;p&gt;这些成就除了因为KDE4的新特性，例如Phonon和Solid，还因为
+&lt;a href="http://trolltech.com/products/qt/licenses/licensing/opensource"&gt;Trolltech在Qt4的windows版本中也采用了GPL许可&lt;/a&gt;
+。大家都知道，Qt使用双许可证，对于开源软件的开发可以使用GPL许可证，对于专有软件就需要用商业许可来授权。
+但是，在Qt以前的版本中，只有Mac OS X和Linux/X11版本才有GPL许可。
+这次伴随着Qt4的发布，windows版本的Qt也终于可以使用GPL许可证了。这个变化最终打开了开源的KDE应用程序通向windows的大门。&lt;/p&gt;
+&lt;p&gt;当然，KDE开发社区使用
+&lt;a href="http://www.cmake.org/HTML/Index.html"&gt;CMake&lt;/a&gt;
+来替代Autotools也是使KDE走向这三大系统的一个重要原因。&lt;/p&gt;
+&lt;h5&gt;&lt;strong&gt;Windows下的KDE&lt;/strong&gt;&lt;/h5&gt;
+&lt;p&gt;现在（其实是从1月22号起），
+&lt;a href="http://windows.kde.org/news.php#itemKDEmirrorsavailableandnewsnapshotrelease"&gt;从KDE的镜像站点&lt;/a&gt;
+中就能下载到二进制的Windows版本的KDE环境了。从
+&lt;a href="http://download.cegit.de/kde-windows/installer/kdewin-installer-gui-latest.exe"&gt;这里&lt;/a&gt;
+可以下载到一个安装程序，用户可以通过这个小程序选择自己需要的KDE包。
+这个小程序可以自动解决包依赖问题，下载并安装需要的包。&lt;/p&gt;
+&lt;p&gt;现在windows版本的KDE看起来更像是mingw的一个超集，它里面包含了很多mingw的应用程序，
+例如gcc、gdb、tar、patch等等。
+再加上KDE自身的应用程序，就构成了现在的windows版KDE …&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;img alt="1" src="http://pic.yupoo.com/gfrog/855075025a63/odu22jqq.jpg"&gt;&lt;/p&gt;
+&lt;p&gt;KDE，这个Linux/Unix下华丽丽的桌面环境，正在走向Windows和Mac OS X。
+一些核心的KDE程序，还有其他重要的应用软件，例如KOffice和Amarok，已经开始向这两个平台移植。&lt;/p&gt;
+&lt;p&gt;这些成就除了因为KDE4的新特性，例如Phonon和Solid，还因为
+&lt;a href="http://trolltech.com/products/qt/licenses/licensing/opensource"&gt;Trolltech在Qt4的windows版本中也采用了GPL许可&lt;/a&gt;
+。大家都知道，Qt使用双许可证，对于开源软件的开发可以使用GPL许可证，对于专有软件就需要用商业许可来授权。
+但是，在Qt以前的版本中，只有Mac OS X和Linux/X11版本才有GPL许可。
+这次伴随着Qt4的发布，windows版本的Qt也终于可以使用GPL许可证了。这个变化最终打开了开源的KDE应用程序通向windows的大门。&lt;/p&gt;
+&lt;p&gt;当然，KDE开发社区使用
+&lt;a href="http://www.cmake.org/HTML/Index.html"&gt;CMake&lt;/a&gt;
+来替代Autotools也是使KDE走向这三大系统的一个重要原因。&lt;/p&gt;
+&lt;h5&gt;&lt;strong&gt;Windows下的KDE&lt;/strong&gt;&lt;/h5&gt;
+&lt;p&gt;现在（其实是从1月22号起），
+&lt;a href="http://windows.kde.org/news.php#itemKDEmirrorsavailableandnewsnapshotrelease"&gt;从KDE的镜像站点&lt;/a&gt;
+中就能下载到二进制的Windows版本的KDE环境了。从
+&lt;a href="http://download.cegit.de/kde-windows/installer/kdewin-installer-gui-latest.exe"&gt;这里&lt;/a&gt;
+可以下载到一个安装程序，用户可以通过这个小程序选择自己需要的KDE包。
+这个小程序可以自动解决包依赖问题，下载并安装需要的包。&lt;/p&gt;
+&lt;p&gt;现在windows版本的KDE看起来更像是mingw的一个超集，它里面包含了很多mingw的应用程序，
+例如gcc、gdb、tar、patch等等。
+再加上KDE自身的应用程序，就构成了现在的windows版KDE。&lt;/p&gt;
+&lt;p&gt;青蛙在自己的机器上安装了一下，简单介绍一下安装过程。&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://www.yupoo.com/photos/view?id=ff80808117c46cc20117c489d7d20583"&gt;&lt;img alt="kdewin-1" src="http://pic.yupoo.com/gfrog/03228502519b/medium.jpg"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://www.yupoo.com/photos/view?id=ff80808117c46cc20117c489ee170585"&gt;&lt;img alt="kdewin-2" src="http://pic.yupoo.com/gfrog/6026550251a0/medium.jpg"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://www.yupoo.com/photos/view?id=ff80808117c46c760117c489f3cc055c"&gt;&lt;img alt="kdewin-3" src="http://pic.yupoo.com/gfrog/8888050251a2/medium.jpg"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://www.yupoo.com/photos/view?id=ff80808117c46c190117c48a16be038d"&gt;&lt;img alt="kdewin-4" src="http://pic.yupoo.com/gfrog/4605450251a4/medium.jpg"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://www.yupoo.com/photos/view?id=ff80808117c46c2a0117c48a07d60542"&gt;&lt;img alt="kdewin-5" src="http://pic.yupoo.com/gfrog/8885050251a7/medium.jpg"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://www.yupoo.com/photos/view?id=ff80808117c46cc20117c48a2044058a"&gt;&lt;img alt="kdewin-6" src="http://pic.yupoo.com/gfrog/3916650251ae/medium.jpg"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://www.yupoo.com/photos/view?id=ff80808117c46cc20117c48a36c9058c"&gt;&lt;img alt="kdewin-7" src="http://pic.yupoo.com/gfrog/7352550251b3/medium.jpg"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://www.yupoo.com/photos/view?id=ff80808117c46bd70117c489e353027e"&gt;&lt;img alt="kdewin-8" src="http://pic.yupoo.com/gfrog/237275025197/medium.jpg"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://www.yupoo.com/photos/view?id=ff80808117c46b110117c4b0f7691015"&gt;&lt;img alt="kdewin-9" src="http://pic.yupoo.com/gfrog/752965025b96/medium.jpg"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;结果装上以后所有的程序都没法执行，提示缺少libkdecore.dll文件。
+把所有的包装上也没有这个文件，看来这应该是个bug了，
+难道是跟青蛙只选择了MinGW的文件有关？&lt;/p&gt;
+&lt;p&gt;这样进一步的测试也就没法进行了。&lt;/p&gt;
+&lt;p&gt;只好等待它的新版本了。&lt;/p&gt;</content><category term="linux"></category><category term="desktop"></category><category term="kde"></category></entry><entry><title>Linux kernel 2.6.24 发布</title><link href="https://www.gfrog.net/2008/01/linux-kernel-2-6-24-released/" rel="alternate"></link><published>2008-01-26T13:51:28+08:00</published><updated>2008-01-26T13:51:28+08:00</updated><author><name>gfrog</name></author><id>tag:www.gfrog.net,2008-01-26:/2008/01/linux-kernel-2-6-24-released/</id><summary type="html">&lt;p&gt;嗯，两句话。&lt;/p&gt;
+&lt;p&gt;第一，Linux内核2.6系列最新稳定版2.6.24正式发布。&lt;/p&gt;
+&lt;p&gt;第二，不知道在
+&lt;a href="http://kernel.org/pub/linux/kernel/v2.6/ChangeLog-2.6.24"&gt;这份5.7M的Changelog&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;里面，包不包含修复vmware6.0无法安装这个错误的记录。&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://kernel.org/"&gt; &lt;/a&gt;&lt;a href="http://kernel.org/"&gt;&lt;img alt="1" src="http://kernel.org/images/korg10yr.gif"&gt;&lt;/a&gt;&lt;/p&gt;</summary><content type="html">&lt;p&gt;嗯，两句话。&lt;/p&gt;
+&lt;p&gt;第一，Linux内核2.6系列最新稳定版2.6.24正式发布。&lt;/p&gt;
+&lt;p&gt;第二，不知道在
+&lt;a href="http://kernel.org/pub/linux/kernel/v2.6/ChangeLog-2.6.24"&gt;这份5.7M的Changelog&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;里面，包不包含修复vmware6.0无法安装这个错误的记录。&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://kernel.org/"&gt; &lt;/a&gt;&lt;a href="http://kernel.org/"&gt;&lt;img alt="1" src="http://kernel.org/images/korg10yr.gif"&gt;&lt;/a&gt;&lt;/p&gt;</content><category term="linux"></category><category term="kernel"></category><category term="release"></category></entry><entry><title>Debian里的配置文件：网卡配置/etc/network/interfaces（1）</title><link href="https://www.gfrog.net/2008/01/config-file-in-debian-interfaces-1/" rel="alternate"></link><published>2008-01-21T23:27:22+08:00</published><updated>2008-01-21T23:27:22+08:00</updated><author><name>gfrog</name></author><id>tag:www.gfrog.net,2008-01-21:/2008/01/config-file-in-debian-interfaces-1/</id><summary type="html">&lt;p&gt;&lt;em&gt;青蛙准备写一个系列文章，介绍一些Debian/Ubuntu里面常用的配置文件。
+当然，Linux系统中的配置文件多如牛毛，青蛙见过配过的也只是寥寥几个。
+不过，青蛙会把配置过的配置文件尽量详细的介绍一下，
+一是方便自己以后查阅，二来也是为广大Debianer做贡献了。&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;下面开始正文。&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;话说Debian系的网卡配置跟Redhat系很不一样，
+Redhat是放在/etc/sysconfig/network-scripts目录下面的一大堆文件里面，
+要修改？你一个一个文件来过吧。&lt;/p&gt;
+&lt;p&gt;Debian系的则是存在/etc/network/interfaces文件里面，
+无论有多少块网卡，统统扔在这个文件里。下面就来看一下这个文件的内容。&lt;/p&gt;
+&lt;p&gt;首先，一个基本的配置大概是下面这个样子：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;auto&lt;/span&gt; &lt;span class="n"&gt;lo&lt;/span&gt;
+&lt;span class="n"&gt;iface&lt;/span&gt; &lt;span class="n"&gt;lo&lt;/span&gt; &lt;span class="n"&gt;inet&lt;/span&gt; &lt;span class="n"&gt;loopback&lt;/span&gt;
+
+&lt;span class="o"&gt;#&lt;/span&gt; &lt;span class="n"&gt;The&lt;/span&gt; &lt;span class="k"&gt;primary&lt;/span&gt; &lt;span class="n"&gt;network&lt;/span&gt; &lt;span class="n"&gt;interface&lt;/span&gt;
+&lt;span class="n"&gt;auto&lt;/span&gt; &lt;span class="n"&gt;eth0&lt;/span&gt;
+&lt;span class="n"&gt;iface&lt;/span&gt; &lt;span class="n"&gt;eth0&lt;/span&gt; &lt;span class="n"&gt;inet&lt;/span&gt; &lt;span class="k"&gt;static&lt;/span&gt;
+     &lt;span class="n"&gt;address&lt;/span&gt; &lt;span class="mi"&gt;192&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;168&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;42&lt;/span&gt;
+     &lt;span class="n"&gt;network&lt;/span&gt; &lt;span class="mi"&gt;192 …&lt;/span&gt;&lt;/pre&gt;&lt;/div&gt;</summary><content type="html">&lt;p&gt;&lt;em&gt;青蛙准备写一个系列文章，介绍一些Debian/Ubuntu里面常用的配置文件。
+当然，Linux系统中的配置文件多如牛毛，青蛙见过配过的也只是寥寥几个。
+不过，青蛙会把配置过的配置文件尽量详细的介绍一下，
+一是方便自己以后查阅，二来也是为广大Debianer做贡献了。&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;下面开始正文。&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;话说Debian系的网卡配置跟Redhat系很不一样，
+Redhat是放在/etc/sysconfig/network-scripts目录下面的一大堆文件里面，
+要修改？你一个一个文件来过吧。&lt;/p&gt;
+&lt;p&gt;Debian系的则是存在/etc/network/interfaces文件里面，
+无论有多少块网卡，统统扔在这个文件里。下面就来看一下这个文件的内容。&lt;/p&gt;
+&lt;p&gt;首先，一个基本的配置大概是下面这个样子：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;auto&lt;/span&gt; &lt;span class="n"&gt;lo&lt;/span&gt;
+&lt;span class="n"&gt;iface&lt;/span&gt; &lt;span class="n"&gt;lo&lt;/span&gt; &lt;span class="n"&gt;inet&lt;/span&gt; &lt;span class="n"&gt;loopback&lt;/span&gt;
+
+&lt;span class="o"&gt;#&lt;/span&gt; &lt;span class="n"&gt;The&lt;/span&gt; &lt;span class="k"&gt;primary&lt;/span&gt; &lt;span class="n"&gt;network&lt;/span&gt; &lt;span class="n"&gt;interface&lt;/span&gt;
+&lt;span class="n"&gt;auto&lt;/span&gt; &lt;span class="n"&gt;eth0&lt;/span&gt;
+&lt;span class="n"&gt;iface&lt;/span&gt; &lt;span class="n"&gt;eth0&lt;/span&gt; &lt;span class="n"&gt;inet&lt;/span&gt; &lt;span class="k"&gt;static&lt;/span&gt;
+     &lt;span class="n"&gt;address&lt;/span&gt; &lt;span class="mi"&gt;192&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;168&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;42&lt;/span&gt;
+     &lt;span class="n"&gt;network&lt;/span&gt; &lt;span class="mi"&gt;192&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;168&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;
+     &lt;span class="n"&gt;netmask&lt;/span&gt; &lt;span class="mi"&gt;255&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;255&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;255&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;
+     &lt;span class="n"&gt;broadcast&lt;/span&gt; &lt;span class="mi"&gt;192&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;168&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;255&lt;/span&gt;
+     &lt;span class="n"&gt;gateway&lt;/span&gt; &lt;span class="mi"&gt;192&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;168&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;上面的配置中，&lt;/p&gt;
+&lt;p&gt;第1行跟第5行说明lo接口跟eth0接口会在系统启动时被自动配置；&lt;/p&gt;
+&lt;p&gt;第2行将lo接口设置为一个本地回环（loopback）地址；&lt;/p&gt;
+&lt;p&gt;第6行指出eth0接口具有一个静态的（static）IP配置；&lt;/p&gt;
+&lt;p&gt;第7行-第11行分别设置eth0接口的ip、网络号、掩码、广播地址和网关。&lt;/p&gt;
+&lt;p&gt;再来看一个更复杂点的：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;auto&lt;/span&gt; &lt;span class="n"&gt;eth0&lt;/span&gt;
+&lt;span class="n"&gt;iface&lt;/span&gt; &lt;span class="n"&gt;eth0&lt;/span&gt; &lt;span class="n"&gt;inet&lt;/span&gt; &lt;span class="k"&gt;static&lt;/span&gt;
+    &lt;span class="n"&gt;address&lt;/span&gt; &lt;span class="mi"&gt;192&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;168&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;42&lt;/span&gt;
+    &lt;span class="n"&gt;network&lt;/span&gt; &lt;span class="mi"&gt;192&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;168&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;
+    &lt;span class="n"&gt;netmask&lt;/span&gt; &lt;span class="mi"&gt;255&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;255&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;255&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;128&lt;/span&gt;
+    &lt;span class="n"&gt;broadcast&lt;/span&gt; &lt;span class="mi"&gt;192&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;168&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;
+    &lt;span class="n"&gt;up&lt;/span&gt; &lt;span class="n"&gt;route&lt;/span&gt; &lt;span class="k"&gt;add&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;net&lt;/span&gt; &lt;span class="mi"&gt;192&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;168&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;128&lt;/span&gt; &lt;span class="n"&gt;netmask&lt;/span&gt; &lt;span class="mi"&gt;255&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;255&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;255&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;128&lt;/span&gt; &lt;span class="n"&gt;gw&lt;/span&gt; &lt;span class="mi"&gt;192&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;168&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;
+    &lt;span class="n"&gt;up&lt;/span&gt; &lt;span class="n"&gt;route&lt;/span&gt; &lt;span class="k"&gt;add&lt;/span&gt; &lt;span class="k"&gt;default&lt;/span&gt; &lt;span class="n"&gt;gw&lt;/span&gt; &lt;span class="mi"&gt;192&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;168&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;200&lt;/span&gt;
+    &lt;span class="n"&gt;down&lt;/span&gt; &lt;span class="n"&gt;route&lt;/span&gt; &lt;span class="n"&gt;del&lt;/span&gt; &lt;span class="k"&gt;default&lt;/span&gt; &lt;span class="n"&gt;gw&lt;/span&gt; &lt;span class="mi"&gt;192&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;168&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;200&lt;/span&gt;
+    &lt;span class="n"&gt;down&lt;/span&gt; &lt;span class="n"&gt;route&lt;/span&gt; &lt;span class="n"&gt;del&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;net&lt;/span&gt; &lt;span class="mi"&gt;192&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;168&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;128&lt;/span&gt; &lt;span class="n"&gt;netmask&lt;/span&gt; &lt;span class="mi"&gt;255&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;255&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;255&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;128&lt;/span&gt; &lt;span class="n"&gt;gw&lt;/span&gt; &lt;span class="mi"&gt;192&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;168&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;这次，有了一个复杂一些的掩码，和一个比较奇怪的广播地址。
+还有就是增加的接口启用、禁用时的路由设置；&lt;/p&gt;
+&lt;p&gt;第7行和8行配置的左右是在接口启用的时候，添加一条静态路由和一个缺省路由；&lt;/p&gt;
+&lt;p&gt;第9行和10行会在接口禁用的时候，删掉这两条路由配置。&lt;/p&gt;
+&lt;p&gt;至于配置路由的写法，仔细看，它就是route命令嘛。&lt;/p&gt;
+&lt;p&gt;继续，下面是一个物理网卡上多个接口的配置方法：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;auto&lt;/span&gt; &lt;span class="n"&gt;eth0&lt;/span&gt; &lt;span class="n"&gt;eth0&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;
+&lt;span class="n"&gt;iface&lt;/span&gt; &lt;span class="n"&gt;eth0&lt;/span&gt; &lt;span class="n"&gt;inet&lt;/span&gt; &lt;span class="k"&gt;static&lt;/span&gt;
+    &lt;span class="n"&gt;address&lt;/span&gt; &lt;span class="mi"&gt;192&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;168&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;100&lt;/span&gt;
+    &lt;span class="n"&gt;network&lt;/span&gt; &lt;span class="mi"&gt;192&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;168&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;
+    &lt;span class="n"&gt;netmask&lt;/span&gt; &lt;span class="mi"&gt;255&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;255&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;255&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;
+    &lt;span class="n"&gt;broadcast&lt;/span&gt; &lt;span class="mi"&gt;192&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;168&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;255&lt;/span&gt;
+    &lt;span class="n"&gt;gateway&lt;/span&gt; &lt;span class="mi"&gt;192&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;168&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;
+&lt;span class="n"&gt;iface&lt;/span&gt; &lt;span class="n"&gt;eth0&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt; &lt;span class="n"&gt;inet&lt;/span&gt; &lt;span class="k"&gt;static&lt;/span&gt;
+    &lt;span class="n"&gt;address&lt;/span&gt; &lt;span class="mi"&gt;192&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;168&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;200&lt;/span&gt;
+    &lt;span class="n"&gt;network&lt;/span&gt; &lt;span class="mi"&gt;192&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;168&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;
+    &lt;span class="n"&gt;netmask&lt;/span&gt; &lt;span class="mi"&gt;255&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;255&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;255&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;8行到11行在eth0上配置了另外一个地址，
+这种配置方法在配置一块网卡多个地址的时候很常见：有几个地址就配置几个接口。
+冒号后面的数字可以随便写的，只要几个配置的名字不重复就可以。&lt;/p&gt;
+&lt;p&gt;下面是pre-up和post-down命令时间。
+这是一组命令（pre-up、up、post-up、pre-down、down、post-down），分别定义在对应的时刻需要执行的命令。&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;auto&lt;/span&gt; &lt;span class="n"&gt;eth0&lt;/span&gt;
+&lt;span class="n"&gt;iface&lt;/span&gt; &lt;span class="n"&gt;eth0&lt;/span&gt; &lt;span class="n"&gt;inet&lt;/span&gt; &lt;span class="n"&gt;dhcp&lt;/span&gt;
+    &lt;span class="n"&gt;pre&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;up&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;f&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;etc&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;network&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="k"&gt;local&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;network&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;ok&lt;/span&gt; &lt;span class="p"&gt;]&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;第3行会在激活eth0之前检查/etc/network/local-network-ok文件是否存在，如果不存在，则不会激活eth0。&lt;/p&gt;
+&lt;p&gt;再更进一步的例子：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;auto&lt;/span&gt; &lt;span class="n"&gt;eth0&lt;/span&gt; &lt;span class="n"&gt;eth1&lt;/span&gt;
+&lt;span class="n"&gt;iface&lt;/span&gt; &lt;span class="n"&gt;eth0&lt;/span&gt; &lt;span class="n"&gt;inet&lt;/span&gt; &lt;span class="k"&gt;static&lt;/span&gt;
+    &lt;span class="n"&gt;address&lt;/span&gt; &lt;span class="mi"&gt;192&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;168&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;42&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;
+    &lt;span class="n"&gt;netmask&lt;/span&gt; &lt;span class="mi"&gt;255&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;255&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;255&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;
+    &lt;span class="n"&gt;pre&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;up&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;path&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="k"&gt;to&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="k"&gt;check&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;mac&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;address&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;sh&lt;/span&gt; &lt;span class="n"&gt;eth0&lt;/span&gt; &lt;span class="mi"&gt;11&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;22&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;33&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;44&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;55&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;66&lt;/span&gt;
+    &lt;span class="n"&gt;pre&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;up&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;usr&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="k"&gt;local&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;sbin&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;enable&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;masq&lt;/span&gt;
+&lt;span class="n"&gt;iface&lt;/span&gt; &lt;span class="n"&gt;eth1&lt;/span&gt; &lt;span class="n"&gt;inet&lt;/span&gt; &lt;span class="n"&gt;dhcp&lt;/span&gt;
+    &lt;span class="n"&gt;pre&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;up&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;path&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="k"&gt;to&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="k"&gt;check&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;mac&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;address&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;sh&lt;/span&gt; &lt;span class="n"&gt;eth1&lt;/span&gt; &lt;span class="n"&gt;AA&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="n"&gt;BB&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="n"&gt;CC&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="n"&gt;DD&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="n"&gt;EE&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="n"&gt;FF&lt;/span&gt;
+    &lt;span class="n"&gt;pre&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;up&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;usr&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="k"&gt;local&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;sbin&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;firewall&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;第5行和第8行中，check-mac-address.sh放在/usr/share/doc/ifupdown/examples/目录中，
+使用的时候需要给它加上可执行权限。
+这两行命令会检测两块网卡的MAC地址是否为11:22:33:44:55:66和AA:BB:CC:DD:EE:FF，如果正确，则启用网卡。
+如果MAC地址错误，就不会启用这两块网卡。&lt;/p&gt;
+&lt;p&gt;第6行和第9行是假定在这两块网卡上分别执行的命令，你可以把它们替换成你想要的任何玩意 ：）&lt;/p&gt;
+&lt;p&gt;手册上说，这种方法主要是用来检测两块网卡的MAC地址交换（If their MAC addresses get swapped），
+其实就是两块网卡名互换了，这种情况在debian系统上再常见不过了， 主要是因为内核识别网卡的顺序发生了变化。
+（&lt;strong&gt;更新： 2013-05-19 自从有了udev，这种情况应该比较少发生了。&lt;/strong&gt;）&lt;/p&gt;
+&lt;p&gt;这个问题可以用下面的这种方法来避免。&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;auto&lt;/span&gt; &lt;span class="n"&gt;eth0&lt;/span&gt; &lt;span class="n"&gt;eth1&lt;/span&gt;
+&lt;span class="n"&gt;mapping&lt;/span&gt; &lt;span class="n"&gt;eth0&lt;/span&gt; &lt;span class="n"&gt;eth1&lt;/span&gt;
+    &lt;span class="n"&gt;script&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;path&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="k"&gt;to&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="k"&gt;get&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;mac&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;address&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;sh&lt;/span&gt;
+    &lt;span class="k"&gt;map&lt;/span&gt; &lt;span class="mi"&gt;11&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;22&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;33&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;44&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;55&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;66&lt;/span&gt; &lt;span class="n"&gt;lan&lt;/span&gt;
+    &lt;span class="k"&gt;map&lt;/span&gt; &lt;span class="n"&gt;AA&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="n"&gt;BB&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="n"&gt;CC&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="n"&gt;DD&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="n"&gt;EE&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="n"&gt;FF&lt;/span&gt; &lt;span class="n"&gt;internet&lt;/span&gt;
+&lt;span class="n"&gt;iface&lt;/span&gt; &lt;span class="n"&gt;lan&lt;/span&gt; &lt;span class="n"&gt;inet&lt;/span&gt; &lt;span class="k"&gt;static&lt;/span&gt;
+    &lt;span class="n"&gt;address&lt;/span&gt; &lt;span class="mi"&gt;192&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;168&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;42&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;
+    &lt;span class="n"&gt;netmask&lt;/span&gt; &lt;span class="mi"&gt;255&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;255&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;255&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;
+    &lt;span class="n"&gt;pre&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;up&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;usr&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="k"&gt;local&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;sbin&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;enable&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;masq&lt;/span&gt; &lt;span class="err"&gt;$&lt;/span&gt;&lt;span class="n"&gt;IFACE&lt;/span&gt;
+&lt;span class="n"&gt;iface&lt;/span&gt; &lt;span class="n"&gt;internet&lt;/span&gt; &lt;span class="n"&gt;inet&lt;/span&gt; &lt;span class="n"&gt;dhcp&lt;/span&gt;
+    &lt;span class="n"&gt;pre&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;up&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;usr&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="k"&gt;local&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;sbin&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;firewall&lt;/span&gt; &lt;span class="err"&gt;$&lt;/span&gt;&lt;span class="n"&gt;IFACE&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;第3行中的get-mac-address.sh也在/usr/share/doc/ifupdown/examples/目录里，
+也同样要加可执行权限。
+这个脚本的作用，就是获得每块网卡的MAC地址。&lt;/p&gt;
+&lt;p&gt;这段配置首先配置了两个逻辑接口（这个名词的定义请参见[1]）lan和internet，
+然后根据网卡的MAC地址，将逻辑接口映射（mapped）到物理接口上去。&lt;/p&gt;
+&lt;p&gt;再来看下面这段配置：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;auto&lt;/span&gt; &lt;span class="n"&gt;eth0&lt;/span&gt;
+&lt;span class="n"&gt;iface&lt;/span&gt; &lt;span class="n"&gt;eth0&lt;/span&gt; &lt;span class="n"&gt;inet&lt;/span&gt; &lt;span class="n"&gt;manual&lt;/span&gt;
+    &lt;span class="n"&gt;up&lt;/span&gt; &lt;span class="n"&gt;ifconfig&lt;/span&gt; &lt;span class="err"&gt;$&lt;/span&gt;&lt;span class="n"&gt;IFACE&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt; &lt;span class="n"&gt;up&lt;/span&gt;
+    &lt;span class="n"&gt;up&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;usr&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="k"&gt;local&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;bin&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;myconfigscript&lt;/span&gt;
+    &lt;span class="n"&gt;down&lt;/span&gt; &lt;span class="n"&gt;ifconfig&lt;/span&gt; &lt;span class="err"&gt;$&lt;/span&gt;&lt;span class="n"&gt;IFACE&lt;/span&gt; &lt;span class="n"&gt;down&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;这段配置只是启用一个网卡，但是ifupdown不对这个网卡设置任何ip，而是由外部程序来设置ip。&lt;/p&gt;
+&lt;p&gt;最后一段配置，这段配置启用了网卡的混杂模式，用来当监听接口。&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;auto&lt;/span&gt; &lt;span class="n"&gt;eth0&lt;/span&gt;
+&lt;span class="n"&gt;iface&lt;/span&gt; &lt;span class="n"&gt;eth0&lt;/span&gt; &lt;span class="n"&gt;inet&lt;/span&gt; &lt;span class="n"&gt;manual&lt;/span&gt;
+    &lt;span class="n"&gt;up&lt;/span&gt; &lt;span class="n"&gt;ifconfig&lt;/span&gt; &lt;span class="err"&gt;$&lt;/span&gt;&lt;span class="n"&gt;IFACE&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt; &lt;span class="n"&gt;up&lt;/span&gt;
+    &lt;span class="n"&gt;up&lt;/span&gt; &lt;span class="n"&gt;ip&lt;/span&gt; &lt;span class="n"&gt;link&lt;/span&gt; &lt;span class="k"&gt;set&lt;/span&gt; &lt;span class="err"&gt;$&lt;/span&gt;&lt;span class="n"&gt;IFACE&lt;/span&gt; &lt;span class="n"&gt;promisc&lt;/span&gt; &lt;span class="k"&gt;on&lt;/span&gt;
+    &lt;span class="n"&gt;down&lt;/span&gt; &lt;span class="n"&gt;ip&lt;/span&gt; &lt;span class="n"&gt;link&lt;/span&gt; &lt;span class="k"&gt;set&lt;/span&gt; &lt;span class="err"&gt;$&lt;/span&gt;&lt;span class="n"&gt;IFACE&lt;/span&gt; &lt;span class="n"&gt;promisc&lt;/span&gt; &lt;span class="k"&gt;off&lt;/span&gt;
+    &lt;span class="n"&gt;down&lt;/span&gt; &lt;span class="n"&gt;ifconfig&lt;/span&gt; &lt;span class="err"&gt;$&lt;/span&gt;&lt;span class="n"&gt;IFACE&lt;/span&gt; &lt;span class="n"&gt;down&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;好了，interfaces中对于以太网卡的配置基本上介绍完了。
+下一篇，青蛙打算介绍interfaces中更进一步的配置，例如ppp、vpn和无线网络等等，敬请期待 :p&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;更新： 2013-05-19&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;这个系列没有继续下去确实很可惜。
+不过5年过去了，Linux系统的网络配置发生了巨大的变化。
+所以，重新再写一个关于Linux的系统配置的文章对于SysAdmin
+来说还是有意义的。那么，就让青蛙找时间继续吧。&lt;/p&gt;
+&lt;p&gt;Reference:&lt;/p&gt;
+&lt;p&gt;[1] &lt;a href="http://www.debian.org/doc/manuals/reference/ch-gateway.zh-cn.html#s-net-reconf"&gt;debian参考手册&lt;/a&gt;&lt;/p&gt;</content><category term="debian"></category><category term="linux"></category><category term="network"></category><category term="interfaces"></category></entry><entry><title>How do I configure scalable multicasting on Helix Server</title><link href="https://www.gfrog.net/2008/01/how-to-configure-scalable-multicasting-on-helix-server/" rel="alternate"></link><published>2008-01-10T21:57:39+08:00</published><updated>2008-01-10T21:57:39+08:00</updated><author><name>gfrog</name></author><id>tag:www.gfrog.net,2008-01-10:/2008/01/how-to-configure-scalable-multicasting-on-helix-server/</id><summary type="html">&lt;p&gt;&lt;em&gt;原文地址在
+&lt;a href="http://na3.salesforce.com/_ui/selfservice/pkb/PublicKnowledgeSolution/d?orgId=00D500000007Hzn&amp;amp;id=501500000007taI&amp;amp;retURL=%2Fsol%2Fpublic%2Fsolutionbrowser.jsp%3Fsearch%3Dmulticast%26cid%3D02n500000008z1P%26orgId%3D00D500000007Hzn%26t%3D4&amp;amp;ps=1"&gt;这里&lt;/a&gt;
+我把它翻译成了中文,方便查看。&lt;/em&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;Helix Server可以通过web方式的管理工具配置为使用可扩展多播，这篇文档只关注可扩展多播功能的配置。
+关于Helix Server功能的完整细节可以在管理向导中找到。
+Helix Server 管理向导：（第8章 多播）
+&lt;a href="http://www.realnetworks.com/support/docs.html"&gt;http://www.realnetworks.com/support/docs.html&lt;/a&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;打开Helix Server的web管理界面。&lt;/li&gt;
+&lt;li&gt;点击广播分发，可扩展多播。&lt;/li&gt;
+&lt;li&gt;默认的加载点是/scalable/。RealNetworks建议你使用这个默认值，但是你可以随意更改它。&lt;/li&gt;
+&lt;li&gt;要建立一个新的频道，点击“+”图标，然后在“编辑频道描述”文本框中为这个多播连接输入一个名称。&lt;/li&gt;
+&lt;li&gt;在“启用频道”下拉框中选择“是”来启用可扩展多播。&lt;/li&gt;
+&lt;li&gt;在“启用SAP”下拉框中选择"是"来发布这个多播连接。&lt;/li&gt;
+&lt;li&gt;在“路径”文本框，添加要被广播发布的流名称。如果要使用所有的广播流 …&lt;/li&gt;&lt;/ol&gt;</summary><content type="html">&lt;p&gt;&lt;em&gt;原文地址在
+&lt;a href="http://na3.salesforce.com/_ui/selfservice/pkb/PublicKnowledgeSolution/d?orgId=00D500000007Hzn&amp;amp;id=501500000007taI&amp;amp;retURL=%2Fsol%2Fpublic%2Fsolutionbrowser.jsp%3Fsearch%3Dmulticast%26cid%3D02n500000008z1P%26orgId%3D00D500000007Hzn%26t%3D4&amp;amp;ps=1"&gt;这里&lt;/a&gt;
+我把它翻译成了中文,方便查看。&lt;/em&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;Helix Server可以通过web方式的管理工具配置为使用可扩展多播，这篇文档只关注可扩展多播功能的配置。
+关于Helix Server功能的完整细节可以在管理向导中找到。
+Helix Server 管理向导：（第8章 多播）
+&lt;a href="http://www.realnetworks.com/support/docs.html"&gt;http://www.realnetworks.com/support/docs.html&lt;/a&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;打开Helix Server的web管理界面。&lt;/li&gt;
+&lt;li&gt;点击广播分发，可扩展多播。&lt;/li&gt;
+&lt;li&gt;默认的加载点是/scalable/。RealNetworks建议你使用这个默认值，但是你可以随意更改它。&lt;/li&gt;
+&lt;li&gt;要建立一个新的频道，点击“+”图标，然后在“编辑频道描述”文本框中为这个多播连接输入一个名称。&lt;/li&gt;
+&lt;li&gt;在“启用频道”下拉框中选择“是”来启用可扩展多播。&lt;/li&gt;
+&lt;li&gt;在“启用SAP”下拉框中选择"是"来发布这个多播连接。&lt;/li&gt;
+&lt;li&gt;在“路径”文本框，添加要被广播发布的流名称。如果要使用所有的广播流，那么就保留默认的星号（*）。&lt;/li&gt;
+&lt;li&gt;下一步，定义可扩展多播使用的端口号和地址。
+    a. 在“端口范围”文本框，输入要使用的端口号。
+    （青蛙注：这个端口号有一个变态的要求，就是要以偶数端口开始，并且范围中要包含偶数个端口，例如5000-5003。）
+    b. 在“IP地址范围”中，输入要使用的地址。
+       Helix Server使用这个地址范围中第一个可用的地址。
+       如果使用一个单独的地址而不是一个地址范围，在这两个文本框中输入一样的地址。&lt;/li&gt;
+&lt;li&gt;在“生存时间”文本框中，指出多播包可以在你的网络中传送多远。
+（注：原文就这么写的，TTL每过一个路由器减1，减到0这个包就被丢弃。）&lt;/li&gt;
+&lt;li&gt;输入一个超时时间，这个时间表示一个客户端停止等待多播包或者使用交替URL之前所经过的时间（秒）。&lt;/li&gt;
+&lt;li&gt;在“重新使用地址”中，如果你想给在一个视频中的每个流都使用一个单独的地址，那么就选“否”。
+    如果你想在两个流中都使用一个地址，那选择“是”。&lt;/li&gt;
+&lt;li&gt;下一个选项是选择是否将收不到多播包的播放器转换为单播。这个功能只在使用RealNetworks的播放器时才有效。
+    a. 在“转换为单播”列表框中，如果你不想让客户端转换成单播，那么就选择“否”。
+    当播放一个高码率的节目时应该选择“否”，因为大量的单播流会消耗太多的带宽。如果你选择了“否”，可以忽略下一个文本框。
+    b. 要在同一个Helix Server中使备份的单播有效，保持“交替的单播地址”文本框是空的。
+    如果你想将单播转换到另外一个Helix Server上，需要填上那个服务器的地址和路径。下面就是一个例子：&lt;blockquote&gt;
+&lt;p&gt;rtsp://helixserver.example2.com/broadcast/vivaldi.rm
+    如果你不想把播放器转向到一个交替流，也可以把他们指向一个web页面来输出信息，
+    像“这个节目只对支持单播的RealPlayer有效。
+    ”在“交替的单播地址”文本框中，输入你的web页的URL，像下面这种：
+   http://www.example.com/no_multicast.html&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/li&gt;
+&lt;li&gt;（可选）下一个选项是控制是否要把客户端的统计信息记录到Helix Server、Web服务器或者不记录。&lt;/li&gt;
+&lt;li&gt;点击应用。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Helix Server就被配置为使用可扩展多播了。&lt;/p&gt;
+&lt;p&gt;可扩展多播的连接有如下形式：&lt;/p&gt;
+&lt;p&gt;http://address:port/mount_point/path/file.rm.sdp&lt;/p&gt;
+&lt;p&gt;------传说中的分割线------&lt;/p&gt;
+&lt;p&gt;这两天yupoo不知道在倒腾啥,没法传图片.青蛙只好把没图的文章发出来了.等yupoo好了再传图吧。&lt;/p&gt;</content></entry><entry><title>传说中的QQ,传说中的hiweed兼容层</title><link href="https://www.gfrog.net/2007/07/qq-in-hiweed-compatible-layer/" rel="alternate"></link><published>2007-07-30T22:34:23+08:00</published><updated>2007-07-30T22:34:23+08:00</updated><author><name>gfrog</name></author><id>tag:www.gfrog.net,2007-07-30:/2007/07/qq-in-hiweed-compatible-layer/</id><summary type="html">&lt;p&gt;今天有人在irc上说起了QQ,大家七嘴八舌议论现在linux的各路QQ客户端.
+Shely老大给了
+&lt;a href="http://forum.ubuntu.org.cn/about63843.html"&gt;ubuntu.org.cn上面的一个帖子&lt;/a&gt;
+.偶照着上头做了下,真的搞定了QQ.&lt;/p&gt;
+&lt;p&gt;以下为引用:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;先执行下代码: &lt;br /&gt;
+sudo sed -ie '/GBK/,/^}/d' /usr/share/X11/locale/zh_CN.UTF-8/XLC_LOCALE &lt;br /&gt;
+然后下载 &lt;br /&gt;
+http://linuxfire.com.cn/~huahua/zero/qq2007beta1kb5_0.0.2007_x86.tgz &lt;br /&gt;
+http://211.92.88.40/~huahua/zero/qq2007beta1kb5_0.0.2007_x86.tgz &lt;br /&gt;
+( 或者 qq2007beta1kb5_0.0.2007_x6.tgz: http …&lt;/p&gt;&lt;/blockquote&gt;</summary><content type="html">&lt;p&gt;今天有人在irc上说起了QQ,大家七嘴八舌议论现在linux的各路QQ客户端.
+Shely老大给了
+&lt;a href="http://forum.ubuntu.org.cn/about63843.html"&gt;ubuntu.org.cn上面的一个帖子&lt;/a&gt;
+.偶照着上头做了下,真的搞定了QQ.&lt;/p&gt;
+&lt;p&gt;以下为引用:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;先执行下代码: &lt;br /&gt;
+sudo sed -ie '/GBK/,/^}/d' /usr/share/X11/locale/zh_CN.UTF-8/XLC_LOCALE &lt;br /&gt;
+然后下载 &lt;br /&gt;
+http://linuxfire.com.cn/~huahua/zero/qq2007beta1kb5_0.0.2007_x86.tgz &lt;br /&gt;
+http://211.92.88.40/~huahua/zero/qq2007beta1kb5_0.0.2007_x86.tgz &lt;br /&gt;
+( 或者 qq2007beta1kb5_0.0.2007_x6.tgz: http://files.filefront.com//;8150970;;/ ) &lt;br /&gt;
+解压，执行里边的 qq2007beta1kb5 &lt;br /&gt;
+就打开 qq 了 &lt;br /&gt;
+------------------ &lt;br /&gt;
+如果您的 scim 在里边不上字的话，请在 scim 首选项-》全局设置 里 去掉 “将预编辑字符串嵌入到客户窗口中”&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;经过我一天的试用,QQ运行状态良好.为了QQ客户端郁闷的各位,有这个方法好了.&lt;/p&gt;</content><category term="Hiweed"></category><category term="Linux"></category><category term="QQ"></category></entry><entry><title>郁闷了2天的U盘问题,竟然是因为内核模块</title><link href="https://www.gfrog.net/2007/07/linux-usb-mod-conflict/" rel="alternate"></link><published>2007-07-16T19:33:56+08:00</published><updated>2007-07-16T19:33:56+08:00</updated><author><name>gfrog</name></author><id>tag:www.gfrog.net,2007-07-16:/2007/07/linux-usb-mod-conflict/</id><summary type="html">&lt;p&gt;真的真的被debian打败了,U盘插到机器上以后,死活就是认不出来,dmesg上面有消息说插上了,但是是下面这样的消息:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Initializing USB Mass Storage driver... &lt;br /&gt;
+usbcore: registered new interface driver usb-storage &lt;br /&gt;
+USB Mass Storage support registered. &lt;br /&gt;
+usb 4-4: new high speed USB device using ehci_hcd and address 7 &lt;br /&gt;
+ehci_hcd 0000:00:1d.7: port 4 reset error -110 &lt;br /&gt;
+hub 4-0:1.0: hub_port_status failed (err …&lt;/p&gt;&lt;/blockquote&gt;</summary><content type="html">&lt;p&gt;真的真的被debian打败了,U盘插到机器上以后,死活就是认不出来,dmesg上面有消息说插上了,但是是下面这样的消息:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Initializing USB Mass Storage driver... &lt;br /&gt;
+usbcore: registered new interface driver usb-storage &lt;br /&gt;
+USB Mass Storage support registered. &lt;br /&gt;
+usb 4-4: new high speed USB device using ehci_hcd and address 7 &lt;br /&gt;
+ehci_hcd 0000:00:1d.7: port 4 reset error -110 &lt;br /&gt;
+hub 4-0:1.0: hub_port_status failed (err = -32) &lt;br /&gt;
+usb 4-4: new high speed USB device using ehci_hcd and address 11 &lt;br /&gt;
+usb 4-4: new high speed USB device using ehci_hcd and address 15 &lt;br /&gt;
+usb 4-4: new high speed USB device using ehci_hcd and address 18 &lt;br /&gt;
+usb 4-4: new high speed USB device using ehci_hcd and address 22 &lt;br /&gt;
+usb 4-4: new high speed USB device using ehci_hcd and address 29 &lt;br /&gt;
+usb 4-4: new high speed USB device using ehci_hcd and address 33 &lt;br /&gt;
+usb 4-4: new high speed USB device using ehci_hcd and address 40 &lt;br /&gt;
+ehci_hcd 0000:00:1d.7: port 4 reset error -110 &lt;br /&gt;
+hub 4-0:1.0: hub_port_status failed (err = -32) &lt;br /&gt;
+usb 4-4: new high speed USB device using ehci_hcd and address 59 &lt;br /&gt;
+usb 4-4: new high speed USB device using ehci_hcd and address 73 &lt;br /&gt;
+usb 4-4: new high speed USB device using ehci_hcd and address 80 &lt;br /&gt;
+ehci_hcd 0000:00:1d.7: port 4 reset error -110 &lt;br /&gt;
+hub 4-0:1.0: hub_port_status failed (err = -32)&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;然后lsusb根本没有反应.
+于是从昨天开始就在找这个原因,
+因为以前装的很多debian系统根本没这个问题,
+无论是sarge还是etch.&lt;/p&gt;
+&lt;p&gt;结果这次升级到lenny就出了这么个状况.&lt;/p&gt;
+&lt;p&gt;开始走了一个很大的弯路,
+因为google到有人说这个问题可能是acpi问题引起的,
+我想也有可能,因为这个机器是个T40的本子.
+于是想连acpi一起配好吧,于是acpid,cpufreqd一顿研究,
+问题还是没好,U盘插上灯连亮都不给我亮一下.&lt;/p&gt;
+&lt;p&gt;结果今晚忽然想起来我还没搜过这个错误提示呢,
+结果按上面ehci_hcd的错误提示一搜,
+马上就有了结果(在
+&lt;a href="http://moto.debian.org.tw/viewtopic.php?t=4932"&gt;这里&lt;/a&gt;
+).原来挂不上U盘的原因是模块造成的.
+以前就听说过这几个usb模块打架,今天就让我碰上了.&lt;/p&gt;
+&lt;p&gt;问题知道了,解决方法也很简单,root模式下执行:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="o"&gt;#&lt;/span&gt; &lt;span class="n"&gt;rmmod&lt;/span&gt; &lt;span class="n"&gt;ehci_hcd&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;然后插上U盘,盘上可爱的小绿灯又亮起来了,真开心.&lt;/p&gt;</content><category term="Debian"></category><category term="Linux"></category><category term="Storage"></category><category term="USB"></category></entry><entry><title>关于linux下访问windows共享的问题</title><link href="https://www.gfrog.net/2007/07/mount-windows-shared-folder-with-smbfs/" rel="alternate"></link><published>2007-07-15T08:48:06+08:00</published><updated>2007-07-15T08:48:06+08:00</updated><author><name>gfrog</name></author><id>tag:www.gfrog.net,2007-07-15:/2007/07/mount-windows-shared-folder-with-smbfs/</id><summary type="html">&lt;p&gt;首先，需要安装smbfs包&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="o"&gt;#&lt;/span&gt; &lt;span class="n"&gt;aptitude&lt;/span&gt; &lt;span class="n"&gt;install&lt;/span&gt; &lt;span class="n"&gt;smbfs&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;如果没有安装这个包,挂载共享分区时会出现以下错误&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;smbfs: mount_data version 1919251317 is not supported.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;然后,挂载windows共享的命令是&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;mount&lt;/span&gt;  &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;t&lt;/span&gt; &lt;span class="n"&gt;smbfs&lt;/span&gt; &lt;span class="o"&gt;//&lt;/span&gt;&lt;span class="n"&gt;ip&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="err"&gt;共享名&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;o&lt;/span&gt; &lt;span class="n"&gt;username&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="err"&gt;用户名&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;password&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="err"&gt;密码&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;iocharset&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;utf&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;8&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;dmask&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;777&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;fmask&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;777&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;media&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;smb&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;说下参数,&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;ip,共享名,就是要访问的windows共享资源了 &lt;br /&gt;
+用户名,密码,是在那个windows系统上的用户名密码. &lt;br /&gt;
+dmask=777,fmask=777, 共享分区的读写权限,这里设成777了.根据自己需要改吧. &lt;br /&gt;
+/media …&lt;/p&gt;&lt;/blockquote&gt;</summary><content type="html">&lt;p&gt;首先，需要安装smbfs包&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="o"&gt;#&lt;/span&gt; &lt;span class="n"&gt;aptitude&lt;/span&gt; &lt;span class="n"&gt;install&lt;/span&gt; &lt;span class="n"&gt;smbfs&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;如果没有安装这个包,挂载共享分区时会出现以下错误&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;smbfs: mount_data version 1919251317 is not supported.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;然后,挂载windows共享的命令是&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;mount&lt;/span&gt;  &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;t&lt;/span&gt; &lt;span class="n"&gt;smbfs&lt;/span&gt; &lt;span class="o"&gt;//&lt;/span&gt;&lt;span class="n"&gt;ip&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="err"&gt;共享名&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;o&lt;/span&gt; &lt;span class="n"&gt;username&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="err"&gt;用户名&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;password&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="err"&gt;密码&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;iocharset&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;utf&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;8&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;dmask&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;777&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;fmask&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;777&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;media&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;smb&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;说下参数,&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;ip,共享名,就是要访问的windows共享资源了 &lt;br /&gt;
+用户名,密码,是在那个windows系统上的用户名密码. &lt;br /&gt;
+dmask=777,fmask=777, 共享分区的读写权限,这里设成777了.根据自己需要改吧. &lt;br /&gt;
+/media/smb ,共享分区挂载的本地路径.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;/etc/fstab的写法,在/etc/fstab里面添加如下一行:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="o"&gt;//&lt;/span&gt;&lt;span class="n"&gt;ip&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="err"&gt;共享名&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;media&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;smbf&lt;/span&gt; &lt;span class="n"&gt;smbfs&lt;/span&gt; &lt;span class="k"&gt;defaults&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;username&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="err"&gt;用户名&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;password&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="err"&gt;密码&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;iocharset&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;utf&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;8&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;dmask&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;777&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;fmask&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;777&lt;/span&gt;     &lt;span class="mi"&gt;0&lt;/span&gt;       &lt;span class="mi"&gt;1&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;参数意义跟用mount命令时一样.&lt;/p&gt;
+&lt;p&gt;最后,google到网上有些地方写了smbmount命令,
+这个命令不知道是哪个发行版里面带的,
+至少在debian里面现在没有了(现在指的是debian lenny版本),
+挂载共享直接mount然后指定smbfs格式就行.&lt;/p&gt;
+&lt;p&gt;ps.如果只是想在x里面查看windows共享,
+只要在nautilus里面文件-&amp;gt;连接到服务器里面,连接到一个windows共享就行了.&lt;/p&gt;
+&lt;p&gt;参考文章:&lt;/p&gt;
+&lt;p&gt;1.&lt;a href="http://www.linuxsir.org/main/?q=node/158"&gt;一步一学Linux与Windows 共享文件Samba （v0.2b）&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;2.&lt;a href="http://gfrog.net/wp-admin/Mounting%20remote%20filesystems%20with%20smbfs"&gt;Mounting remote filesystems with smbfs&lt;/a&gt;(英文)&lt;/p&gt;</content><category term="Linux"></category><category term="Samba"></category><category term="Shared"></category><category term="Windows"></category></entry><entry><title>Fedora 7 正式发布了</title><link href="https://www.gfrog.net/2007/06/fedora-7-release/" rel="alternate"></link><published>2007-06-04T01:23:09+08:00</published><updated>2007-06-04T01:23:09+08:00</updated><author><name>gfrog</name></author><id>tag:www.gfrog.net,2007-06-04:/2007/06/fedora-7-release/</id><summary type="html">&lt;p&gt;&lt;img alt="1" src="attachments/month_0706/22007641135.jpg"&gt;&lt;/p&gt;
+&lt;p&gt;消息有点迟了,Fedora 7在我们儿童节那天发布了.&lt;/p&gt;
+&lt;p&gt;新增内容已经被发的满哪都是了,我就不说了,给大家看下发行发行注记跟屏幕截图吧.&lt;/p&gt;
+&lt;p&gt;发行注记在这里: http://fedoraproject.org/release-notes/RELEASE-NOTES-zh_CN/ (中文版)&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://fedoraproject.org/release-notes/RELEASE-NOTES-en_US/%20%28%E8%8B%B1%E6%96%87%E7%89%88%29"&gt;http://fedoraproject.org/release-notes/RELEASE-NOTES-en_US/ (英文版)&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;下面是一个屏幕截图的幻灯片,
+&lt;a href="http://fedoraproject.org/wiki/Tours/Fedora7/001_Install_Boot?action=print&amp;amp;media=projection"&gt;请点击这里查看&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="1" src="http://fedoraproject.org/images/screenshots/default-desktop.jpg"&gt;&lt;/p&gt;
+&lt;p&gt;下载地址:
+&lt;a href="http://mirrors.fedoraproject.org/publiclist/Fedora/7/"&gt;官方镜像列表&lt;/a&gt;&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;img alt="1" src="attachments/month_0706/22007641135.jpg"&gt;&lt;/p&gt;
+&lt;p&gt;消息有点迟了,Fedora 7在我们儿童节那天发布了.&lt;/p&gt;
+&lt;p&gt;新增内容已经被发的满哪都是了,我就不说了,给大家看下发行发行注记跟屏幕截图吧.&lt;/p&gt;
+&lt;p&gt;发行注记在这里: http://fedoraproject.org/release-notes/RELEASE-NOTES-zh_CN/ (中文版)&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://fedoraproject.org/release-notes/RELEASE-NOTES-en_US/%20%28%E8%8B%B1%E6%96%87%E7%89%88%29"&gt;http://fedoraproject.org/release-notes/RELEASE-NOTES-en_US/ (英文版)&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;下面是一个屏幕截图的幻灯片,
+&lt;a href="http://fedoraproject.org/wiki/Tours/Fedora7/001_Install_Boot?action=print&amp;amp;media=projection"&gt;请点击这里查看&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="1" src="http://fedoraproject.org/images/screenshots/default-desktop.jpg"&gt;&lt;/p&gt;
+&lt;p&gt;下载地址:
+&lt;a href="http://mirrors.fedoraproject.org/publiclist/Fedora/7/"&gt;官方镜像列表&lt;/a&gt;&lt;/p&gt;</content><category term="Fedora"></category><category term="Linux"></category><category term="Release"></category></entry><entry><title>奋斗三天 LFS终于成功</title><link href="https://www.gfrog.net/2007/04/make-lfs-6-1-work-after-3-days-work/" rel="alternate"></link><published>2007-04-01T13:13:39+08:00</published><updated>2007-04-01T13:13:39+08:00</updated><author><name>gfrog</name></author><id>tag:www.gfrog.net,2007-04-01:/2007/04/make-lfs-6-1-work-after-3-days-work/</id><summary type="html">&lt;p&gt;从前天晚上开始做lfs-6.1,到今天上午12点,终于启动到了lfs系统下面.&lt;/p&gt;
+&lt;p&gt;先恭喜自己一下.呼呼.&lt;/p&gt;
+&lt;p&gt;这次lfs不是那么完美的,因为最后一步编译的内核没有起来.
+估计是没有initrd的原因.但是说到底还是我的内核配置有问题.
+我直接把宿主系统上的2.6.18内核抓来用了.嘿嘿,这还是算是lfs的吧...&lt;/p&gt;
+&lt;p&gt;秀几个图吧.&lt;/p&gt;
+&lt;p&gt;先是grub:&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://gfrog.cn/attachments/month_0704/x200741131246.jpg"&gt;&lt;img alt="grub.jpg" src="http://gfrog.cn/attachments/month_0704/x200741131246.jpg"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;然后是启动起来,login的界面: (嗯,我把这个系统命名为gLinux0.02 哈哈 大家还记得gLinux0.01吧 -_-)&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://gfrog.cn/attachments/month_0704/4200741131311.jpg"&gt;&lt;img alt="login.jpg" src="http://gfrog.cn/attachments/month_0704/y200741131320.jpg"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;然后是uname -a: lfs-6.1默认的是2.6.11.2内核,但是我编译的起不来,现在看到的是debian的2.6.18内核.&lt;/p&gt;
+&lt;p&gt;以后偶再也不敢说编译内核简单了,最近10次编译内核全部以失败告终,泪...&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://gfrog.cn/attachments/month_0704/p200741131331.jpg"&gt;&lt;img alt="uname.jpg" src="http://gfrog.cn/attachments/month_0704/o200741131338.jpg"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;最后是lfs ID的截图:&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://gfrog.cn/attachments/month_0704/y200741131248.jpg"&gt;&lt;img alt="lfsID.jpg" src="http://gfrog.cn/attachments/month_0704/5200741131251.jpg"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;列一下我的参考资料吧.这次做lfs偶换掉了几个6.1默认的包,用了6.1.1或者6.2中的包.所以从6 …&lt;/p&gt;</summary><content type="html">&lt;p&gt;从前天晚上开始做lfs-6.1,到今天上午12点,终于启动到了lfs系统下面.&lt;/p&gt;
+&lt;p&gt;先恭喜自己一下.呼呼.&lt;/p&gt;
+&lt;p&gt;这次lfs不是那么完美的,因为最后一步编译的内核没有起来.
+估计是没有initrd的原因.但是说到底还是我的内核配置有问题.
+我直接把宿主系统上的2.6.18内核抓来用了.嘿嘿,这还是算是lfs的吧...&lt;/p&gt;
+&lt;p&gt;秀几个图吧.&lt;/p&gt;
+&lt;p&gt;先是grub:&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://gfrog.cn/attachments/month_0704/x200741131246.jpg"&gt;&lt;img alt="grub.jpg" src="http://gfrog.cn/attachments/month_0704/x200741131246.jpg"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;然后是启动起来,login的界面: (嗯,我把这个系统命名为gLinux0.02 哈哈 大家还记得gLinux0.01吧 -_-)&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://gfrog.cn/attachments/month_0704/4200741131311.jpg"&gt;&lt;img alt="login.jpg" src="http://gfrog.cn/attachments/month_0704/y200741131320.jpg"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;然后是uname -a: lfs-6.1默认的是2.6.11.2内核,但是我编译的起不来,现在看到的是debian的2.6.18内核.&lt;/p&gt;
+&lt;p&gt;以后偶再也不敢说编译内核简单了,最近10次编译内核全部以失败告终,泪...&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://gfrog.cn/attachments/month_0704/p200741131331.jpg"&gt;&lt;img alt="uname.jpg" src="http://gfrog.cn/attachments/month_0704/o200741131338.jpg"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;最后是lfs ID的截图:&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://gfrog.cn/attachments/month_0704/y200741131248.jpg"&gt;&lt;img alt="lfsID.jpg" src="http://gfrog.cn/attachments/month_0704/5200741131251.jpg"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;列一下我的参考资料吧.这次做lfs偶换掉了几个6.1默认的包,用了6.1.1或者6.2中的包.所以从6.1的手册到6.2的手册都看了一些.下面是6.1跟6.1.1的中文版.&lt;/p&gt;
+&lt;p&gt;6.1中文:　&lt;a href="http://lfs.linuxsir.org/doc/lfs6.1zh/index.html"&gt;http://lfs.linuxsir.org/doc/lfs6.1zh/index.html&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;6.1.1中文: &lt;a href="http://www.dogdoghome.com/lamp/Linux/LFS-6.1.1/index.html"&gt;http://www.dogdoghome.com/lamp/Linux/LFS-6.1.1/index.html&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;6.2英文: &lt;a href="http://www.linuxfromscratch.org/lfs/view/stable/index.html"&gt;http://www.linuxfromscratch.org/lfs/view/stable/index.html&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;还有就是linuxsir上
+&lt;a href="http://www.linuxsir.org/bbs/showthread.php?t=244052"&gt;大牛youbest的文章&lt;/a&gt;
+,我基本上是照这里作的,真是太方便了,真诚感谢这样的大牛的付出.&lt;/p&gt;
+&lt;p&gt;最后,要说lfs-6.1里面的一个bug,
+就是Tcl-8.4.9的configure脚本有一个错误,
+cofigure的时候过不去.要用下面的命令修改它的configure脚本:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;kbd&amp;gt;&lt;/span&gt;sed -i &amp;quot;s/relid&amp;#39;/relid/&amp;quot; configure&lt;span class="nt"&gt;&amp;lt;/kbd&amp;gt;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;这个错误在lfs-6.1.1里面改正了.如果还在用lfs-6.1的手册,那么就要注意这点了.&lt;/p&gt;
+&lt;p&gt;Del.icio.us : &lt;a href="http://del.icio.us/tag/linux+lfs"&gt;linux lfs&lt;/a&gt;&lt;/p&gt;</content><category term="lfs"></category><category term="linux"></category></entry><entry><title>回归Debian的怀抱</title><link href="https://www.gfrog.net/2007/03/go-back-to-use-debian/" rel="alternate"></link><published>2007-03-28T23:43:29+08:00</published><updated>2007-03-28T23:43:29+08:00</updated><author><name>gfrog</name></author><id>tag:www.gfrog.net,2007-03-28:/2007/03/go-back-to-use-debian/</id><summary type="html">&lt;p&gt;用来用去,还是觉得debian最亲切,最自然.
+虽然ubuntu有多般的好处,但是似乎跟我想要的linux差的很多.&lt;/p&gt;
+&lt;p&gt;装回debian,用它作宿主系统,研究一下lfs.&lt;/p&gt;
+&lt;p&gt;从昨天开始装debian,但是苦于没有合适的源,
+直到今天也没升级完毕.真是郁闷死我了.&lt;/p&gt;
+&lt;p&gt;昨天用cn99跟geekbone,apt-get update了好久好久.
+查了一下它俩的ip,竟然在电信线路上,怪不得只有10KB/s左右的速度.&lt;/p&gt;
+&lt;p&gt;今天被cn99逼的没有办法,试了下教育网的源,仍然是10KB/s.
+实在没辙了,google了一下,找到了
+&lt;a href="http://debian.csie.ntu.edu.tw/"&gt;台湾大学的debian镜像&lt;/a&gt;
+,速度竟然能达到150KB/s,轻松的完成了upgrade.实在是太赞了.&lt;/p&gt;
+&lt;p&gt;google的时候
+&lt;a href="http://www.linuxsir.org/bbs/showthread.php?t=218212"&gt;在linuxsir上发现了一个小tip&lt;/a&gt;
+,就是apt-spy.这个小东西可以自动测试一个地区的源的速度,
+然后自动生成一个sources.list.真是一个很好用的小东东.&lt;/p&gt;
+&lt;p&gt;这个apt-spy不是默认安装的,所以要先找到一个源来安装它.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="o"&gt;#&lt;/span&gt; &lt;span class="n"&gt;apt&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="k"&gt;get&lt;/span&gt; &lt;span class="n"&gt;install&lt;/span&gt; &lt;span class="n"&gt;apt&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;spy&lt;/span&gt;
+&lt;span class="o"&gt;#&lt;/span&gt; &lt;span class="n"&gt;mv&lt;/span&gt; &lt;span class="n"&gt;sources&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;list&lt;/span&gt; &lt;span class="n"&gt;sources&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;list …&lt;/span&gt;&lt;/pre&gt;&lt;/div&gt;</summary><content type="html">&lt;p&gt;用来用去,还是觉得debian最亲切,最自然.
+虽然ubuntu有多般的好处,但是似乎跟我想要的linux差的很多.&lt;/p&gt;
+&lt;p&gt;装回debian,用它作宿主系统,研究一下lfs.&lt;/p&gt;
+&lt;p&gt;从昨天开始装debian,但是苦于没有合适的源,
+直到今天也没升级完毕.真是郁闷死我了.&lt;/p&gt;
+&lt;p&gt;昨天用cn99跟geekbone,apt-get update了好久好久.
+查了一下它俩的ip,竟然在电信线路上,怪不得只有10KB/s左右的速度.&lt;/p&gt;
+&lt;p&gt;今天被cn99逼的没有办法,试了下教育网的源,仍然是10KB/s.
+实在没辙了,google了一下,找到了
+&lt;a href="http://debian.csie.ntu.edu.tw/"&gt;台湾大学的debian镜像&lt;/a&gt;
+,速度竟然能达到150KB/s,轻松的完成了upgrade.实在是太赞了.&lt;/p&gt;
+&lt;p&gt;google的时候
+&lt;a href="http://www.linuxsir.org/bbs/showthread.php?t=218212"&gt;在linuxsir上发现了一个小tip&lt;/a&gt;
+,就是apt-spy.这个小东西可以自动测试一个地区的源的速度,
+然后自动生成一个sources.list.真是一个很好用的小东东.&lt;/p&gt;
+&lt;p&gt;这个apt-spy不是默认安装的,所以要先找到一个源来安装它.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="o"&gt;#&lt;/span&gt; &lt;span class="n"&gt;apt&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="k"&gt;get&lt;/span&gt; &lt;span class="n"&gt;install&lt;/span&gt; &lt;span class="n"&gt;apt&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;spy&lt;/span&gt;
+&lt;span class="o"&gt;#&lt;/span&gt; &lt;span class="n"&gt;mv&lt;/span&gt; &lt;span class="n"&gt;sources&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;list&lt;/span&gt; &lt;span class="n"&gt;sources&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;list&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;bak&lt;/span&gt; &lt;span class="o"&gt;//&lt;/span&gt;&lt;span class="n"&gt;backup&lt;/span&gt;
+&lt;span class="o"&gt;#&lt;/span&gt; &lt;span class="n"&gt;man&lt;/span&gt; &lt;span class="n"&gt;apt&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;spy&lt;/span&gt;  &lt;span class="o"&gt;//&lt;/span&gt;&lt;span class="err"&gt;获取详细的使用方法&lt;/span&gt;
+&lt;span class="o"&gt;#&lt;/span&gt; &lt;span class="n"&gt;apt&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;spy&lt;/span&gt; &lt;span class="k"&gt;update&lt;/span&gt; &lt;span class="o"&gt;//&lt;/span&gt;&lt;span class="err"&gt;更新您的镜像列表文件&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;var&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;lib&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;apt&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;spy&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;mirrors&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;txt&lt;/span&gt;
+&lt;span class="o"&gt;#&lt;/span&gt; &lt;span class="n"&gt;apt&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;spy&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;d&lt;/span&gt; &lt;span class="n"&gt;testing&lt;/span&gt;  &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;a&lt;/span&gt; &lt;span class="n"&gt;Asia&lt;/span&gt;
+&lt;span class="o"&gt;//&lt;/span&gt;&lt;span class="err"&gt;在亚洲区寻找速度最快的&lt;/span&gt;&lt;span class="n"&gt;testing版镜像&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="err"&gt;并生成&lt;/span&gt; &lt;span class="n"&gt;sources&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;list文件&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+&lt;span class="o"&gt;//&lt;/span&gt;&lt;span class="err"&gt;也可使用&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;o&lt;/span&gt; &lt;span class="err"&gt;参数指定写入文件&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;正如
+&lt;a href="http://www.linuxsir.org/bbs/showthread.php?t=218212"&gt;linuxsir那篇文章&lt;/a&gt;
+所说,这个过程十分的漫长(在我写这篇日志的时候,这个过程还在继续),
+但是确实是一劳永逸的.
+只要不更换网络接入方式,它生成的sources.list就可以一直用下去.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;update:&lt;/strong&gt; apt-spy测试了半个小时以后,终于找到了http://opensource.nchc.org.tw/debian 这个站点,能达到200多KB/s的速度.&lt;/p&gt;
+&lt;p&gt;最后生成的sources.list如下&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c"&gt;# sources.list generated by apt-spy v3.1&lt;/span&gt;
+&lt;span class="k"&gt;deb&lt;/span&gt; &lt;span class="s"&gt;ftp://opensource.nchc.org.tw/debian/&lt;/span&gt; &lt;span class="kp"&gt;testing&lt;/span&gt; &lt;span class="kp"&gt;main&lt;/span&gt;
+&lt;span class="k"&gt;deb-src&lt;/span&gt; &lt;span class="s"&gt;ftp://opensource.nchc.org.tw/debian/&lt;/span&gt; &lt;span class="kp"&gt;testing&lt;/span&gt; &lt;span class="kp"&gt;main&lt;/span&gt;
+&lt;span class="c"&gt;#deb http://security.debian.org/ stable/updates main&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;去opensource.nchc.org.tw看了一下,他提供如下镜像,按照下面重新修改一下apt-spy生成的源,然后就尽情的enjoy吧. &lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Debian&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://opensource.nchc.org.tw/sources.list.html"&gt;參考 /etc/apt/sources.list 設定&lt;/a&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="k"&gt;deb&lt;/span&gt; &lt;span class="s"&gt;http://opensource.nchc.org.tw/debian&lt;/span&gt; &lt;span class="kp"&gt;[stable|testing|unstable]&lt;/span&gt; &lt;span class="kp"&gt;main&lt;/span&gt; &lt;span class="kp"&gt;contrib&lt;/span&gt; &lt;span class="kp"&gt;non-free&lt;/span&gt;
+&lt;span class="k"&gt;deb&lt;/span&gt; &lt;span class="s"&gt;http://opensource.nchc.org.tw/debian-non-US&lt;/span&gt; &lt;span class="kp"&gt;[stable|testing|unstable]/non-US&lt;/span&gt; &lt;span class="kp"&gt;main&lt;/span&gt; &lt;span class="kp"&gt;contrib&lt;/span&gt; &lt;span class="kp"&gt;non-free&lt;/span&gt;
+&lt;span class="k"&gt;deb&lt;/span&gt; &lt;span class="s"&gt;http://opensource.nchc.org.tw/debian-security&lt;/span&gt; &lt;span class="kp"&gt;stable/updates&lt;/span&gt; &lt;span class="kp"&gt;main&lt;/span&gt; &lt;span class="kp"&gt;contrib&lt;/span&gt; &lt;span class="kp"&gt;non-free&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;strong&gt;Unofficial APT&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;KDE&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="k"&gt;deb&lt;/span&gt; &lt;span class="s"&gt;http://opensource.nchc.org.tw/apt/kde/3.1&lt;/span&gt; &lt;span class="kp"&gt;woody&lt;/span&gt; &lt;span class="kp"&gt;main&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="http://free.nchc.org.tw/pmwiki/pmwiki.php/Main/IPv6?action=edit"&gt;I Pv 6&lt;/a&gt;
+    &lt;a href="http://free.nchc.org.tw/pmwiki/pmwiki.php/Main/IPv6?action=edit"&gt;?&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="k"&gt;deb&lt;/span&gt; &lt;span class="s"&gt;http://opensource.nchc.org.tw/apt/ipv6&lt;/span&gt; &lt;span class="kp"&gt;[stable|testing|unstable]/ipv6&lt;/span&gt; &lt;span class="kp"&gt;./&amp;lt;br&amp;gt;&amp;lt;/br&amp;gt;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="http://free.nchc.org.tw/pmwiki/pmwiki.php/Main/XFree86?action=edit"&gt;X Free 86&lt;/a&gt;
+    &lt;a href="http://free.nchc.org.tw/pmwiki/pmwiki.php/Main/XFree86?action=edit"&gt;?&lt;/a&gt; 4.3&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="k"&gt;deb&lt;/span&gt; &lt;span class="s"&gt;http://opensource.nchc.org.tw/apt/xfree86-4.3/woody&lt;/span&gt; &lt;span class="kp"&gt;./&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;ul&gt;
+&lt;li&gt;ALSA&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="k"&gt;deb&lt;/span&gt; &lt;span class="s"&gt;http://opensource.nchc.org.tw/apt/alsa&lt;/span&gt; &lt;span class="kp"&gt;woody&lt;/span&gt; &lt;span class="kp"&gt;sherpya&amp;lt;br&amp;gt;&amp;lt;/br&amp;gt;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="http://free.nchc.org.tw/pmwiki/pmwiki.php/Main/OOo?action=edit"&gt;O Oo&lt;/a&gt;
+    &lt;a href="http://free.nchc.org.tw/pmwiki/pmwiki.php/Main/OOo?action=edit"&gt;?&lt;/a&gt; Woody backport&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="k"&gt;deb&lt;/span&gt; &lt;span class="s"&gt;http://opensource.nchc.org.tw/apt/OOo&lt;/span&gt; &lt;span class="kp"&gt;[stable|unstable]&lt;/span&gt; &lt;span class="kp"&gt;main&lt;/span&gt; &lt;span class="kp"&gt;contrib&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="http://free.nchc.org.tw/pmwiki/pmwiki.php/MPlayer/RealPlayer?action=edit"&gt;Real Player&lt;/a&gt;
+    &lt;a href="http://free.nchc.org.tw/pmwiki/pmwiki.php/MPlayer/RealPlayer?action=edit"&gt;?&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="k"&gt;deb&lt;/span&gt; &lt;span class="s"&gt;http://opensource.nchc.org.tw/apt/marillat&lt;/span&gt; &lt;span class="kp"&gt;[stable|testing|unstable]&lt;/span&gt; &lt;span class="kp"&gt;main&amp;lt;br&amp;gt;&amp;lt;/br&amp;gt;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;ul&gt;
+&lt;li&gt;DRBL&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="k"&gt;deb&lt;/span&gt; &lt;span class="s"&gt;http://opensource.nchc.org.tw/apt/drbl&lt;/span&gt; &lt;span class="kp"&gt;stable&lt;/span&gt; &lt;span class="kp"&gt;main&lt;/span&gt; &lt;span class="kp"&gt;contrib&amp;lt;br&amp;gt;&amp;lt;/br&amp;gt;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;</content><category term="debian"></category><category term="linux"></category><category term="apt"></category><category term="mirror"></category></entry></feed>

@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="zh_cn" prefix="og: http://ogp.me/ns# fb: https://www.facebook.com/2008/fbml">
+<head>
+    <title>linux - My Life, My Love!</title>
+    <!-- Using the latest rendering mode for IE -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+
+
+    <meta name="author" content="gfrog" />
+    <meta name="keywords" content="linux" />
+
+    <!-- Open Graph tags -->
+        <meta property="og:site_name" content="My Life, My Love!" />
+        <meta property="og:type" content="website"/>
+        <meta property="og:title" content="My Life, My Love!"/>
+        <meta property="og:url" content=".."/>
+        <meta property="og:description" content="My Life, My Love!"/>
+
+
+
+    <!-- Bootstrap -->
+        <link rel="stylesheet" href="../theme/css/bootstrap.min.css" type="text/css"/>
+    <link href="../theme/css/font-awesome.min.css" rel="stylesheet">
+
+    <link href="../theme/css/pygments/default.css" rel="stylesheet">
+    <link rel="stylesheet" href="../theme/css/style.css" type="text/css"/>
+
+        <link href="../feeds/all.atom.xml" type="application/atom+xml" rel="alternate"
+              title="My Life, My Love! ATOM Feed"/>
+
+        <link href="../feeds/all.rss.xml" type="application/rss+xml" rel="alternate"
+              title="My Life, My Love! RSS Feed"/>
+
+</head>
+<body>
+
+<div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+        <div class="navbar-header">
+            <a href="../" class="navbar-brand">
+My Life, My Love!            </a>
+        </div>
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+            <ul class="nav navbar-nav">
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+</div> <!-- /.navbar -->
+
+<!-- Banner -->
+<!-- End Banner -->
+
+<!-- Content Container -->
+<div class="container">
+    <div class="row">
+        <div class="col-sm-9">
+            <article>
+                <h2><a href="../2013/01/foward-dns-packet-with-tunnel/">我们来打洞：转发DNS包</a></h2>
+                    <div class="well well-sm">
+<footer class="post-info">
+    <span class="label label-default">Date</span>
+    <span class="published">
+        <i class="fa fa-calendar"></i><time datetime="2013-01-06T22:22:44+08:00"> Sun 06 January 2013</time>
+    </span>
+
+
+
+        <span class="label label-default">Category</span>
+        <a href="../category/linux.html">Linux</a>
+
+
+<span class="label label-default">Tags</span>
+	<a href="../tag/linux.html">linux</a>
+        /
+	<a href="../tag/desktop.html">desktop</a>
+        /
+	<a href="../tag/ssh.html">ssh</a>
+        /
+	<a href="../tag/tunnel.html">tunnel</a>
+        /
+	<a href="../tag/client.html">client</a>
+        /
+	<a href="../tag/networking.html">networking</a>
+        /
+	<a href="../tag/dns.html">dns</a>
+        /
+	<a href="../tag/shell.html">shell</a>
+    
+</footer><!-- /.post-info -->                    </div>
+                <div class="summary"><p>基于某些众所周知的原因，在天朝上网非常需要勇气和技术。
+今天在跟某人聊天时了解到Chrome竟然没办法使用proxy进行DNS查询&lt;1&gt;， 导致DNS查询结果持续被污染。
+虽然用proxychains能把一切流量塞进代理里面，
+不过用proxychains启动浏览器的话，各种自动代理插件就失效了，所以这是个得不偿失的方法。
+青蛙晚上的时候突然想到iptables是不是可以把DNS查询流量转发进ssh tunnel呢？
+上网google一番之后，发现这是可行的，而且其实用不到iptables，只要nc就够了。</p>
+<p>要用SSH Tunnel转发DNS流量，最大的问题是要把DNS协议使用的UDP协议转换为TCP协议，然后在proxy端还要转换回来。
+所以目前青蛙想到的方案有一个很大的缺陷，就是如果ssh服务器上不提供nc命令的话，下面的操作是没法完成的。</p>
+<p>首先，用SSH连接ssh服务器，这里青蛙打了一套组合拳，ssh -L + -D组合，分别负责DNS流量和普通数据流量：</p>
+<div class="highlight"><pre><span></span><span class="n">ssh</span><span class="w"> </span><span class="o">-</span><span class="n">D1080</span><span class="w"> </span><span class="o">-</span><span class="nl">L5353</span><span class="p">:</span><span class="mf">127.0.0.1</span><span class="err">:</span><span class="mi">5353</span><span class="w"> </span><span class="k">user</span><span class="nv">@ssh</span><span class="o">-</span><span class="n">server</span><span class="w"></span>
+</pre></div>
+
+
+<p>-L 参数的目的是在本地机器上打开一个5353端口，发送到这个端口的数据都会被转发到ssh服务器上的5353端口上。</p>
+<p>然后，在ssh服务器上执行：</p>
+<div class="highlight"><pre><span></span><span class="n">server$</span> <span class="n">mkfifo</span> <span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">fifo</span>
+<span class="n">server …</span></pre></div>
+                    <a class="btn btn-default btn-xs" href="../2013/01/foward-dns-packet-with-tunnel/">more ...</a>
+                </div>
+            </article>
+            <hr/>
+            <article>
+                <h2><a href="../2011/10/procmail-kdialog-mail-notifyer/">procmail + kdialog 构建邮件提醒脚本</a></h2>
+                    <div class="well well-sm">
+<footer class="post-info">
+    <span class="label label-default">Date</span>
+    <span class="published">
+        <i class="fa fa-calendar"></i><time datetime="2011-10-09T16:47:35+08:00"> Sun 09 October 2011</time>
+    </span>
+
+
+
+        <span class="label label-default">Category</span>
+        <a href="../category/linux.html">Linux</a>
+
+
+<span class="label label-default">Tags</span>
+	<a href="../tag/linux.html">linux</a>
+        /
+	<a href="../tag/mail.html">mail</a>
+        /
+	<a href="../tag/client.html">client</a>
+        /
+	<a href="../tag/mutt.html">mutt</a>
+        /
+	<a href="../tag/configuration.html">configuration</a>
+        /
+	<a href="../tag/setup.html">setup</a>
+        /
+	<a href="../tag/desktop.html">desktop</a>
+        /
+	<a href="../tag/procmail.html">procmail</a>
+    
+</footer><!-- /.post-info -->                    </div>
+                <div class="summary"><p>Mutt真的是神器，越用越觉得爽。
+可惜命令行模式的工具都有个弊端：跟X交互能力比较弱，
+例如Mutt就木有邮件提醒功能。</p>
+<p>之前在Gnome2的年代里还有
+<a href="http://www.nongnu.org/mailnotify/">mail-notification</a>
+可以对付用（这玩意占用系统资源狂多，似乎是通过监视文件更改来提醒的），
+在Gnome3之后这个工具就完全不工作了，而且又没有后续版本。</p>
+<p>青蛙抛弃Gnome，换成KDE之后，也没有找到KDE下的邮件提醒工具，于是一直酝酿着自己写一个。</p>
+<p>实现邮件提醒功能，无非就是监控邮箱变更，可以在几个点检查：</p>
+<ul>
+<li>直接使用POP/IMAP协议检查服务器端</li>
+<li>监视MTA动作</li>
+<li>监视MDA动作</li>
+<li>监视MUA动作</li>
+<li>监视邮箱文件/目录更改</li>
+</ul>
+<p>直接访问服务器是最直接的办法，但是既然MTA都把邮件收下来了，
+再去监视服务器就有点绕腾了，这种方法监视gmail/hotmail之类的邮箱还是很不错的。</p>
+<p>监视MUA的动作，
+<a href="http://www.adam8157.info">adam8157</a>同学
+<a href="http://www.adam8157.info/blog/2010/05/mutt-filter-notify/">就是这么做的</a>，
+监视Mutt startusbar的特殊字符串，通过Mutt的filter发送notify消息。</p>
+<p>监视邮箱文件/目录变化就是
+<a href="http://www.nongnu.org/mailnotify/">mail-notification</a>
+的做法了，但是如果不想轮询的话，大概需要内核开启inotify支持。</p>
+<p>监视MTA动作，青蛙没有仔细研究，似乎还是需要MDA的某些行为处理，
+所以青蛙直接用了在MDA里加入提醒脚本的方法。</p>
+<p>监视MDA动作，就是青蛙的做法 …</p>
+                    <a class="btn btn-default btn-xs" href="../2011/10/procmail-kdialog-mail-notifyer/">more ...</a>
+                </div>
+            </article>
+            <hr/>
+            <article>
+                <h2><a href="../2010/12/install-xmind-in-fedora-with-deb-package/">Install Xmind in Fedora with deb package</a></h2>
+                    <div class="well well-sm">
+<footer class="post-info">
+    <span class="label label-default">Date</span>
+    <span class="published">
+        <i class="fa fa-calendar"></i><time datetime="2010-12-21T23:07:05+08:00"> Tue 21 December 2010</time>
+    </span>
+
+
+
+        <span class="label label-default">Category</span>
+        <a href="../category/linux.html">Linux</a>
+
+
+<span class="label label-default">Tags</span>
+	<a href="../tag/fedora.html">Fedora</a>
+        /
+	<a href="../tag/linux.html">Linux</a>
+        /
+	<a href="../tag/xmind.html">xmind</a>
+        /
+	<a href="../tag/desktop.html">desktop</a>
+        /
+	<a href="../tag/setup.html">setup</a>
+        /
+	<a href="../tag/client.html">client</a>
+    
+</footer><!-- /.post-info -->                    </div>
+                <div class="summary"><p><img alt="Install-Xmind-in-Fedora-with-deb-package" src="http://gfrog.net/wp-content/uploads/2010/12/Install-Xmind-in-Fedora-with-deb-package.jpg"></p>
+<p>原始文件地址：</p>
+<p><a href="http://www.xmind.net/share/gfrog1/install-xmind-in-fedora-with-deb-package/">http://www.xmind.net/share/gfrog1/install-xmind-in-fedora-with-deb-package/</a></p>
+                    <a class="btn btn-default btn-xs" href="../2010/12/install-xmind-in-fedora-with-deb-package/">more ...</a>
+                </div>
+            </article>
+            <hr/>
+            <article>
+                <h2><a href="../2010/12/setup-https-in-nginx/">在NGINX上开启https</a></h2>
+                    <div class="well well-sm">
+<footer class="post-info">
+    <span class="label label-default">Date</span>
+    <span class="published">
+        <i class="fa fa-calendar"></i><time datetime="2010-12-18T15:45:25+08:00"> Sat 18 December 2010</time>
+    </span>
+
+
+
+        <span class="label label-default">Category</span>
+        <a href="../category/linux.html">Linux</a>
+
+
+<span class="label label-default">Tags</span>
+	<a href="../tag/linux.html">linux</a>
+        /
+	<a href="../tag/server.html">server</a>
+        /
+	<a href="../tag/nginx.html">nginx</a>
+        /
+	<a href="../tag/setup.html">setup</a>
+        /
+	<a href="../tag/vps.html">vps</a>
+        /
+	<a href="../tag/site.html">site</a>
+    
+</footer><!-- /.post-info -->                    </div>
+                <div class="summary"><p>青蛙的新VPS是基于nginx的，仅仅是因为传言nginx在小内存，大压力的时候表现好一些。</p>
+<p>当然，为了获得这点好处，还是要付出一些代价的。
+例如nginx没有apache的htaccess，对每个目录的控制都需要写到nginx的配置文件中，
+这样对普通用户来说十分的不方便。</p>
+<p>哦，有点跑题，继续说https的问题，其实给nginx配置https也不复杂，
+按照网上现成的模板，改一下自己的域名和目录位置就好了。</p>
+<p>下面是一个完整的示例[1][2]：（来自<a href="http://sudone.com/nginx/nginx_ssl.html">这里</a>）</p>
+<div class="highlight"><pre><span></span><span class="nv">upstream</span> <span class="nv">test</span>.<span class="nv">com</span> {
+    <span class="nv">server</span> <span class="mi">192</span>.<span class="mi">168</span>.<span class="mi">1</span>.<span class="mi">2</span>:<span class="mi">80</span><span class="c1">;</span>
+}
+
+<span class="nv">server</span> {
+    <span class="nv">server_name</span> <span class="nv">test</span>.<span class="nv">com</span><span class="c1">;</span>
+    <span class="k">include</span> <span class="nv">port</span>.<span class="nv">conf</span><span class="c1">;</span>
+
+    <span class="nv">ssl</span> <span class="nv">on</span><span class="c1">;</span>
+    <span class="nv">ssl_certificate</span> <span class="nv">server</span>.<span class="nv">crt</span><span class="c1">; # ${nginx_install_dir}/conf/server.crt</span>
+    <span class="nv">ssl_certificate_key</span> <span class="nv">server</span>.<span class="nv">key</span><span class="c1">; # ${nginx_install_dir}/conf …</span></pre></div>
+                    <a class="btn btn-default btn-xs" href="../2010/12/setup-https-in-nginx/">more ...</a>
+                </div>
+            </article>
+            <hr/>
+            <article>
+                <h2><a href="../2010/08/gfrog-tips-4/">一堆小Tips （4）</a></h2>
+                    <div class="well well-sm">
+<footer class="post-info">
+    <span class="label label-default">Date</span>
+    <span class="published">
+        <i class="fa fa-calendar"></i><time datetime="2010-08-11T16:51:15+08:00"> Wed 11 August 2010</time>
+    </span>
+
+
+
+        <span class="label label-default">Category</span>
+        <a href="../category/linux.html">Linux</a>
+
+
+<span class="label label-default">Tags</span>
+	<a href="../tag/kvm.html">kvm</a>
+        /
+	<a href="../tag/linux.html">Linux</a>
+        /
+	<a href="../tag/networking.html">networking</a>
+        /
+	<a href="../tag/shell.html">shell</a>
+    
+</footer><!-- /.post-info -->                    </div>
+                <div class="summary"><p>今天的Tip是关于虚拟化的。</p>
+<p>问题的起因是青蛙当时使用的VirtualBox的网络配置很不方便，
+guset系统启动之后不能改网络连接类型不说（后来的版本做了改进，但是用着还是不够舒服），
+NAT模式下还不能直接跟Host系统通信。</p>
+<p>于是青蛙痛下决心，学习了一下Linux tap和br设备的用法，
+写了一个小脚本来搞定虚拟机的网络问题。</p>
+<p>这个脚本同样也可以用于KVM的虚拟机。</p>
+<p>这个脚本会根据配置文件建立一系列的tap设备，
+然后桥街到几个br设备上去，然后在br上设置好IP，
+如果需要NAT功能则配置iptables规则。</p>
+<p>脚本文件在这里：</p>
+<p><a href="http://gfrog.googlecode.com/hg/script/vnet.sh">http://gfrog.googlecode.com/hg/script/vnet.sh</a></p>
+<p>配置文件如下：</p>
+<div class="highlight"><pre><span></span><span class="k">USER</span><span class="o">=</span><span class="n">gfrog</span><span class="w">           </span><span class="n">#指定建立tap设备时所用的用户名</span><span class="w"></span>
+<span class="n">VNET_NUM</span><span class="o">=</span><span class="mi">2</span><span class="w">         </span><span class="n">#需要建立的虚拟网络数</span><span class="w"></span>
+<span class="n">EXITIF</span><span class="o">=</span><span class="n">eth0</span><span class="w">           </span><span class="n">#SNAT的出口接口</span><span class="w"></span>
+
+<span class="n">#以下是每个虚拟网络的配置</span><span class="w"></span>
+<span class="o">[</span><span class="n">vnet1</span><span class="o">]</span><span class="w"></span>
+<span class="n">VETH_NUM</span><span class="o">=</span><span class="mi">4</span><span class="w">          </span><span class="n">#虚拟网络中包含的tap设备数</span><span class="w"></span>
+<span class="n">VNET_IP</span><span class="o">=</span><span class="mf">11.11.1.1</span><span class="o">/</span><span class="mi">24</span><span class="w">  </span><span class="n">#虚拟网络br设备上配置的ip地址</span><span class="w"></span>
+<span class="n">DONAT</span><span class="o">=</span><span class="k">no</span><span class="w">                  </span><span class="n">#是否需要做nat</span><span class="w"></span>
+
+<span class="o">[</span><span class="n">vnet2 …</span></pre></div>
+                    <a class="btn btn-default btn-xs" href="../2010/08/gfrog-tips-4/">more ...</a>
+                </div>
+            </article>
+            <hr/>
+            <article>
+                <h2><a href="../2010/08/gfrog-tips-3/">一堆小Tips （3）</a></h2>
+                    <div class="well well-sm">
+<footer class="post-info">
+    <span class="label label-default">Date</span>
+    <span class="published">
+        <i class="fa fa-calendar"></i><time datetime="2010-08-10T12:07:11+08:00"> Tue 10 August 2010</time>
+    </span>
+
+
+
+        <span class="label label-default">Category</span>
+        <a href="../category/linux.html">Linux</a>
+
+
+<span class="label label-default">Tags</span>
+	<a href="../tag/linux.html">Linux</a>
+        /
+	<a href="../tag/ssh.html">ssh</a>
+        /
+	<a href="../tag/client.html">client</a>
+        /
+	<a href="../tag/shell.html">shell</a>
+        /
+	<a href="../tag/networking.html">networking</a>
+    
+</footer><!-- /.post-info -->                    </div>
+                <div class="summary"><p>今天继续关于ssh的话题。</p>
+<p>青蛙本来想把今天这个主题放在昨天一起讲的，但是这两个Tip的关联不大，最后决定还是分开说。</p>
+<p>在平时上网过程中，有可能遇到某个服务器（我们叫他S）无法访问的问题。</p>
+<p>但是如果另外一台主机（叫做P）可以访问到S，并且我们还有P上面的ssh权限，那就可以把P当作跳板，直接访问到S。</p>
+<p>假设要访问S上面的http（80）服务，那就执行如下命令：</p>
+<div class="highlight"><pre><span></span><span class="n">ssh</span><span class="w"> </span><span class="k">user</span><span class="nv">@P的地址</span><span class="w"> </span><span class="o">-</span><span class="n">L</span><span class="w"> </span><span class="mi">8080</span><span class="err">:</span><span class="nl">S的地址</span><span class="p">:</span><span class="mi">80</span><span class="w"></span>
+</pre></div>
+
+
+<p>这个命令会在本地打开8080端口，将连接转发到S的80端口上，这样就达到了从本地直接访问S的目的。</p>
+<p>事实上ssh的-L参数主要是用来建立一条客户端到服务器之间的安全隧道，以便安全的传输数据。</p>
+                    <a class="btn btn-default btn-xs" href="../2010/08/gfrog-tips-3/">more ...</a>
+                </div>
+            </article>
+            <hr/>
+            <article>
+                <h2><a href="../2010/08/gfrog-tips-2/">一堆小Tips （2）</a></h2>
+                    <div class="well well-sm">
+<footer class="post-info">
+    <span class="label label-default">Date</span>
+    <span class="published">
+        <i class="fa fa-calendar"></i><time datetime="2010-08-09T10:01:21+08:00"> Mon 09 August 2010</time>
+    </span>
+
+
+
+        <span class="label label-default">Category</span>
+        <a href="../category/linux.html">Linux</a>
+
+
+<span class="label label-default">Tags</span>
+	<a href="../tag/linux.html">Linux</a>
+        /
+	<a href="../tag/ssh.html">ssh</a>
+        /
+	<a href="../tag/configuration.html">configuration</a>
+    
+</footer><!-- /.post-info -->                    </div>
+                <div class="summary"><p>今天的Tip主题是ssh。</p>
+<p>经常有人问，为什么Linux里面的ssh那么难用呢，
+就不能有个像secureCRT那样有地址簿的东西么。</p>
+<p>答案是，<strong>有</strong>，而且不需要其他的软件，ssh自己就能搞定。</p>
+<p>要实现这个功能，首先要在~/.ssh里面建立一个config文件，并设置600权限。</p>
+<div class="highlight"><pre><span></span><span class="o">`</span><span class="n">touch</span> <span class="o">~/</span><span class="p">.</span><span class="n">ssh</span><span class="o">/</span><span class="n">config</span>
+<span class="n">chmod</span> <span class="mi">600</span> <span class="o">~/</span><span class="p">.</span><span class="n">ssh</span><span class="o">/</span><span class="n">config</span><span class="o">`</span>
+</pre></div>
+
+
+<p>然后在这个文件中加入以下内容（以10.1.1.1为例）</p>
+<div class="highlight"><pre><span></span><span class="k">Host</span> <span class="mi">1</span>                     <span class="o">#</span><span class="err">指定主机名，这个名称可以任意，取对自己方便的就可以</span>
+<span class="n">HostName</span> <span class="mi">10</span><span class="p">.</span><span class="mi">1</span><span class="p">.</span><span class="mi">1</span><span class="p">.</span><span class="mi">1</span>    <span class="o">#</span><span class="err">指定主机的</span><span class="n">IP</span><span class="err">，这里是</span><span class="mi">10</span><span class="p">.</span><span class="mi">1</span><span class="p">.</span><span class="mi">1</span><span class="p">.</span><span class="mi">1</span>
+<span class="k">User</span> <span class="n">aaa</span>                  <span class="o">#</span><span class="err">默认登录的用户名</span>
+<span class="n">Port</span> <span class="mi">22</span>                    <span class="o">#</span><span class="err">主机上</span><span class="n">sshd的端口号</span>
+</pre></div>
+
+
+<p>以后，访问10 …</p>
+                    <a class="btn btn-default btn-xs" href="../2010/08/gfrog-tips-2/">more ...</a>
+                </div>
+            </article>
+            <hr/>
+
+        <ul class="pagination">
+                <li class="prev disabled"><a href="#">&laquo;</a></li>
+                    <li class="active"><a
+                            href="../tag/linux.html">1</a></li>
+                    <li class=""><a
+                            href="../tag/linux2.html">2</a></li>
+                    <li class=""><a
+                            href="../tag/linux3.html">3</a></li>
+                    <li class=""><a
+                            href="../tag/linux4.html">4</a></li>
+                    <li class=""><a
+                            href="../tag/linux5.html">5</a></li>
+                <li class="next"><a
+                        href="../tag/linux2.html">&raquo;</a></li>
+        </ul>
+        </div>
+        <div class="col-sm-3" id="sidebar">
+            <aside>
+<!-- Sidebar -->
+<section class="well well-sm">
+  <ul class="list-group list-group-flush">
+
+<!-- Sidebar/Social -->
+<li class="list-group-item">
+  <h4>Social</h4>
+  <ul class="list-group" id="social">
+    <li class="list-group-item"><a href="https://twitter.com/gfrog"><i class="fa fa-twitter-square fa-lg"></i> Twitter</a></li>
+    <li class="list-group-item"><a href="/pages/tweets-archive.html"><i class="fa fa-tweets-archive-square fa-lg"></i> Tweets Archive</a></li>
+    <li class="list-group-item"><a href="/pages/instagram-archive.html"><i class="fa fa-instagram-archive-square fa-lg"></i> Instagram Archive</a></li>
+  </ul>
+</li>
+<!-- End Sidebar/Social -->
+
+<!-- Sidebar/Categories -->
+<li class="list-group-item">
+  <h4>Categories</h4>
+  <ul class="list-group" id="categories">
+    <li class="list-group-item">
+      <a href="../category/cyclone.html">Cyclone</a>
+    </li>
+    <li class="list-group-item">
+      <a href="../category/instagram.html">Instagram</a>
+    </li>
+    <li class="list-group-item">
+      <a href="../category/linux.html">Linux</a>
+    </li>
+    <li class="list-group-item">
+      <a href="../category/misc.html">Misc</a>
+    </li>
+    <li class="list-group-item">
+      <a href="../category/mobile.html">Mobile</a>
+    </li>
+    <li class="list-group-item">
+      <a href="../category/networking.html">Networking</a>
+    </li>
+    <li class="list-group-item">
+      <a href="../category/pictures.html">Pictures</a>
+    </li>
+    <li class="list-group-item">
+      <a href="../category/programming.html">Programming</a>
+    </li>
+    <li class="list-group-item">
+      <a href="../category/site.html">Site</a>
+    </li>
+    <li class="list-group-item">
+      <a href="../category/travel.html">Travel</a>
+    </li>
+    <li class="list-group-item">
+      <a href="../category/vim.html">VIM</a>
+    </li>
+    <li class="list-group-item">
+      <a href="../category/virt.html">Virt</a>
+    </li>
+  </ul>
+</li>
+<!-- End Sidebar/Categories -->
+
+<!-- Sidebar/Links -->
+<li class="list-group-item">
+  <h4>Links</h4>
+  <ul class="list-group" id="links">
+    <li class="list-group-item">
+      <a href="http://getpelican.com/" target="_blank">Pelican</a>
+    </li>
+    <li class="list-group-item">
+      <a href="http://python.org/" target="_blank">Python.org</a>
+    </li>
+    <li class="list-group-item">
+      <a href="http://jinja.pocoo.org/" target="_blank">Jinja2</a>
+    </li>
+  </ul>
+</li>
+<!-- End Sidebar/Links -->
+  </ul>
+</section>
+<!-- End Sidebar -->            </aside>
+        </div>
+    </div>
+</div>
+<!-- End Content Container -->
+
+<footer>
+   <div class="container">
+      <hr>
+      <div class="row">
+         <div class="col-xs-10">&copy; 2013 gfrog
+            &middot; Powered by <a href="https://github.com/getpelican/pelican-themes/tree/master/pelican-bootstrap3" target="_blank">pelican-bootstrap3</a>,
+            <a href="http://docs.getpelican.com/" target="_blank">Pelican</a>,
+            <a href="http://getbootstrap.com" target="_blank">Bootstrap</a>                <p><small>  <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh_cn"><img alt="Creative Commons License" style="border-width:0" src="//i.creativecommons.org/l/by-nc-sa/4.0/80x15.png" /></a>
+    Content
+  licensed under a <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh_cn">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>, except where indicated otherwise.
+</small></p>
+         </div>
+         <div class="col-xs-2"><p class="pull-right"><i class="fa fa-arrow-up"></i> <a href="#">Back to top</a></p></div>
+      </div>
+   </div>
+</footer>
+<script src="../theme/js/jquery.min.js"></script>
+
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="../theme/js/bootstrap.min.js"></script>
+
+<!-- Enable responsive features in IE8 with Respond.js (https://github.com/scottjehl/Respond) -->
+<script src="../theme/js/respond.min.js"></script>
+
+
+    <!-- Disqus -->
+    <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = 'gfrog'; // required: replace example with your forum shortname
+
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function () {
+            var s = document.createElement('script');
+            s.async = true;
+            s.type = 'text/javascript';
+            s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+            (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+        }());
+    </script>
+    <!-- End Disqus Code -->
+    <!-- Google Analytics -->
+    <script type="text/javascript">
+
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-769172-3']);
+        _gaq.push(['_trackPageview']);
+
+        (function () {
+            var ga = document.createElement('script');
+            ga.type = 'text/javascript';
+            ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(ga, s);
+        })();
+    </script>
+    <!-- End Google Analytics Code -->
+
+
+</body>
+</html>

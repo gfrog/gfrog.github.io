@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>My Life, My Love! - Mobile</title><link href="https://www.gfrog.net/" rel="alternate"></link><link href="https://www.gfrog.net/feeds/mobile.atom.xml" rel="self"></link><id>https://www.gfrog.net/</id><updated>2010-08-18T11:20:04+08:00</updated><subtitle>指点江山 激昂文字 修身隆德 自然自我</subtitle><entry><title>在Milestone上安装openvpn</title><link href="https://www.gfrog.net/2010/08/install-openvpn-on-moto-milestone/" rel="alternate"></link><published>2010-08-18T11:20:04+08:00</published><updated>2010-08-18T11:20:04+08:00</updated><author><name>gfrog</name></author><id>tag:www.gfrog.net,2010-08-18:/2010/08/install-openvpn-on-moto-milestone/</id><summary type="html">&lt;p&gt;&lt;em&gt;青蛙注：恨死ScribeFire，青蛙这篇日志写了一上午，
+结果马上要写完了，浏览器崩溃。杯具就是这么产生的。&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;重写的话，就不啰嗦了，直接写主要的。&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;青蛙目前使用的是机锋
+&lt;a href="http://bbs.gfan.com/space-uid-41092.html"&gt;fancies&lt;/a&gt;
+大大制作的PLUS9 FINAL系统，可能其他的系统会有所区别，安装的时候需要注意。
+假设milestone已经获得了root，已经安装好了busybox，并且系统里已经带有tun.ko。&lt;/p&gt;
+&lt;p&gt;首先，要
+&lt;a href="http://github.com/downloads/fries/android-external-openvpn/openvpn-static-2.1.1.bz2"&gt;下载一个openvpn&lt;/a&gt;
+，解压并上传到手机上，
+青蛙偏好使用adb push，这样不需要来回切换存储卡，插上usb就可以用。&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;sudo adb push openvpn-static-2.1.1 /sdcard/openvpn&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;使用&lt;code&gt;sudo adb shell&lt;/code&gt;命令连到手机的shell，注意以下命令都需要root权限。&lt;/p&gt;
+&lt;p&gt;因为/system 是只读的，需要先挂载成可写的模式：&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;# mount -o remount,rw -t …&lt;/code&gt;&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;em&gt;青蛙注：恨死ScribeFire，青蛙这篇日志写了一上午，
+结果马上要写完了，浏览器崩溃。杯具就是这么产生的。&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;重写的话，就不啰嗦了，直接写主要的。&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;青蛙目前使用的是机锋
+&lt;a href="http://bbs.gfan.com/space-uid-41092.html"&gt;fancies&lt;/a&gt;
+大大制作的PLUS9 FINAL系统，可能其他的系统会有所区别，安装的时候需要注意。
+假设milestone已经获得了root，已经安装好了busybox，并且系统里已经带有tun.ko。&lt;/p&gt;
+&lt;p&gt;首先，要
+&lt;a href="http://github.com/downloads/fries/android-external-openvpn/openvpn-static-2.1.1.bz2"&gt;下载一个openvpn&lt;/a&gt;
+，解压并上传到手机上，
+青蛙偏好使用adb push，这样不需要来回切换存储卡，插上usb就可以用。&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;sudo adb push openvpn-static-2.1.1 /sdcard/openvpn&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;使用&lt;code&gt;sudo adb shell&lt;/code&gt;命令连到手机的shell，注意以下命令都需要root权限。&lt;/p&gt;
+&lt;p&gt;因为/system 是只读的，需要先挂载成可写的模式：&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;# mount -o remount,rw -t yaffs2 /dev/block/mtdblock6 /system&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;把openvpn复制到/system/bin里面：&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;# cp -f /sdcard/openvpn /system/bin&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;然后把/system重新挂载为只读模式：&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;# mount -o remount,ro -t yaffs2 /dev/block/mtdblock6 /system&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;打开Market，搜索openvpn，安装openvpn settings，
+然后打开openvpn settings，按菜单键选择Advanced：&lt;/p&gt;
+&lt;p&gt;选中Load tun kernel module，
+Path to configuations设置为/sdcard/openvpn，
+Path to openvpn binary设置为/system/bin/openvpn。&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://gfrog.net/pic/android/openvpn-settings-1.jpg"&gt;&lt;img alt="openvpn-settings-1" src="http://gfrog.net/pic/android/image/openvpn-settings-1.jpg"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;然后点击TUN module settings，&lt;/p&gt;
+&lt;p&gt;Load module using选择insmod，path to tun module填入/system/lib/modules/tun.ko&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://gfrog.net/pic/android/openvpn-settings-2.jpg"&gt;&lt;img alt="openvpn-settings-2" src="http://gfrog.net/pic/android/image/openvpn-settings-2.jpg"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;为了防止DNS欺骗，还需要Fix DNS，点击Fix DNS，会把dns服务器设置为8.8.8.8。&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://gfrog.net/pic/android/openvpn-settings-3.jpg"&gt;&lt;img alt="openvpn-settings-3" src="http://gfrog.net/pic/android/image/openvpn-settings-3.jpg"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;完成以上设置之后，把openvpn的配置文件、证书等复制到/sdcard/openvpn目录下，再打开Openvpn Settings，就可以连接vpn了。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;PS1&lt;/strong&gt;.
+青蛙开始的时候是用Market里面的Openvpn Installer安装openvpn的，
+但是装完之后可以建立vpn连接，但是无法设置tun设备，log里会出现这样的错误日志：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="k"&gt;Options&lt;/span&gt; &lt;span class="n"&gt;Error&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;Unrecognized&lt;/span&gt; &lt;span class="k"&gt;option&lt;/span&gt; &lt;span class="k"&gt;or&lt;/span&gt; &lt;span class="n"&gt;mising&lt;/span&gt; &lt;span class="k"&gt;parameter&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;s&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="k"&gt;in&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;PUSH&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="k"&gt;OPTIONS&lt;/span&gt;&lt;span class="p"&gt;]:&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;route&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="k"&gt;Options&lt;/span&gt; &lt;span class="n"&gt;Error&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;Unrecognized&lt;/span&gt; &lt;span class="k"&gt;option&lt;/span&gt; &lt;span class="k"&gt;or&lt;/span&gt; &lt;span class="n"&gt;mising&lt;/span&gt; &lt;span class="k"&gt;parameter&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;s&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="k"&gt;in&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;PUSH&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="k"&gt;OPTIONS&lt;/span&gt;&lt;span class="p"&gt;]:&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;ifconfig&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;解决方法也很简单，按照上面描述的方法，下载一个openvpn程序装上就行了[1]。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;PS2&lt;/strong&gt;.
+网上有些教程[2]使用的是TunnelDroid，
+青蛙感觉这个东东跟Openvpn Settings基本功能都一样，
+只不过TunnelDroid可以更方便的查看Log，
+这两个程序按照自己的喜好安装就是了。&lt;/p&gt;
+&lt;p&gt;参考文档：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Issue 26: Unrecognized Command or missing parameter &lt;a href="http://code.google.com/p/android-openvpn-settings/issues/detail?id=26"&gt;http://code.google.com/p/android-openvpn-settings/issues/detail?id=26&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;android手机moto Milestone 配置OpenVPN方法 &lt;a href="http://www.yisiyisi.net/archives/137.html"&gt;http://www.yisiyisi.net/archives/137.html&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;</content><category term="android"></category><category term="vpn"></category><category term="mobile"></category><category term="openvpn"></category><category term="client"></category><category term="setup"></category></entry><entry><title>首部Google Phone亮相CES 2008</title><link href="https://www.gfrog.net/2008/01/first-google-phone-in-ces-2008/" rel="alternate"></link><published>2008-01-12T22:09:50+08:00</published><updated>2008-01-12T22:09:50+08:00</updated><author><name>gfrog</name></author><id>tag:www.gfrog.net,2008-01-12:/2008/01/first-google-phone-in-ces-2008/</id><summary type="html">&lt;p&gt;真没想到第一部Google Phone竟然是国人做出来的。
+虽然只是号称的Google Phone（为啥只是号称？下面有说明），不过这还是很让人兴奋的。&lt;/p&gt;
+&lt;p&gt;&lt;img alt="1" src="http://pic.yupoo.com/gfrog/147524ec3ad8/yxnbidc1.jpg"&gt;&lt;/p&gt;
+&lt;p&gt;这部手机型号为GW4，由启碁科技（Wistron NeWeb Corp）制造，预计今年第二季度就可以上市。
+虽然现在这部手机搭载的是一个叫做MontaVista Linux 2.6的Linux系统（这就是只是“号称”的原因），
+但是在2008年3月的时候就会运行Google Android了。&lt;/p&gt;
+&lt;p&gt;&lt;img alt="2" src="http://pic.yupoo.com/gfrog/340794ec3ada/2ioqbr66.jpg"&gt;&lt;/p&gt;
+&lt;p&gt;GW4基于TI OMAP 1710芯片，处理器主频216MHz，64 MB 程序内存。
+包含wifi功能，一个2.5英寸的触摸屏，一个200万像素的摄像头，还有全尺寸键盘。
+它包含Opera Web 浏览器、可以与Outlook进行同步的邮件、日程表软件， MSN/Yahoo/AIM客户端，
+还有Office 及 PDF 文件阅读器，和一些 Widget 如天气 …&lt;/p&gt;</summary><content type="html">&lt;p&gt;真没想到第一部Google Phone竟然是国人做出来的。
+虽然只是号称的Google Phone（为啥只是号称？下面有说明），不过这还是很让人兴奋的。&lt;/p&gt;
+&lt;p&gt;&lt;img alt="1" src="http://pic.yupoo.com/gfrog/147524ec3ad8/yxnbidc1.jpg"&gt;&lt;/p&gt;
+&lt;p&gt;这部手机型号为GW4，由启碁科技（Wistron NeWeb Corp）制造，预计今年第二季度就可以上市。
+虽然现在这部手机搭载的是一个叫做MontaVista Linux 2.6的Linux系统（这就是只是“号称”的原因），
+但是在2008年3月的时候就会运行Google Android了。&lt;/p&gt;
+&lt;p&gt;&lt;img alt="2" src="http://pic.yupoo.com/gfrog/340794ec3ada/2ioqbr66.jpg"&gt;&lt;/p&gt;
+&lt;p&gt;GW4基于TI OMAP 1710芯片，处理器主频216MHz，64 MB 程序内存。
+包含wifi功能，一个2.5英寸的触摸屏，一个200万像素的摄像头，还有全尺寸键盘。
+它包含Opera Web 浏览器、可以与Outlook进行同步的邮件、日程表软件， MSN/Yahoo/AIM客户端，
+还有Office 及 PDF 文件阅读器，和一些 Widget 如天气、股票报价等。&lt;/p&gt;
+&lt;p&gt;不过我更期望的是这些软件可以完全的换成Google的应用程序。&lt;/p&gt;
+&lt;p&gt;这部手机大概会在今年的第二季度上市，大家拭目以待吧！&lt;/p&gt;
+&lt;p&gt;更进一步的信息，参看
+&lt;a href="http://www.pcmag.com/article2/0,2704,2245563,00.asp"&gt;PCMAG的报道&lt;/a&gt;
+吧。更多图片在
+&lt;a href="http://www.pcmag.com/slideshow_viewer/0,1205,l=222834&amp;amp;p=1&amp;amp;s=27851&amp;amp;a=222838&amp;amp;po=1&amp;amp;i=1,00.asp?p=y"&gt;这里&lt;/a&gt;。&lt;/p&gt;</content><category term="google"></category><category term="phone"></category></entry></feed>

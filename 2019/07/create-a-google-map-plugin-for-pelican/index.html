@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html lang="zh_cn" prefix="og: http://ogp.me/ns# fb: https://www.facebook.com/2008/fbml">
+<head>
+    <title>Pelican 的 Google Map 插件 - My Life, My Love!</title>
+    <!-- Using the latest rendering mode for IE -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+
+<link rel="canonical" href="../../../2019/07/create-a-google-map-plugin-for-pelican/">
+
+        <meta name="author" content="gfrog" />
+        <meta name="keywords" content="pelican,google,map,python,script,coding,github" />
+        <meta name="description" content="青蛙最近整理照片和blog的时候，一直想想在blog post里添加一个地图。 但是pelican似乎没有靠谱的google map plugin。 虽然有一个 google_embed ，但是似乎现在不能用了，按照它的README写好map之后，post里面完全不会转义。 于是青蛙一怒之下自己照猫画虎写了个liquid_tag版本的google map，竟然也能用了。 目前这个plugin支持map和direction模式，青蛙还在考虑要不要添加街景模式。 添加map的方法： {% gmap &#34;location&#34; mode [maptype] [align] [width] [height] %} location：必选项，指定地点，必须包含双引号，支持中文。 mode：必选项，地图模式，有place和search选项， 指定地图显示单个地点或者搜索location中的关键字 maptype：地图的显示模式，包含roadmap和satelite align：地图在页面中的对齐方式，left、center或者right …" />
+
+        <meta property="og:site_name" content="My Life, My Love!" />
+        <meta property="og:type" content="article"/>
+        <meta property="og:title" content="Pelican 的 Google Map 插件"/>
+        <meta property="og:url" content="../../../2019/07/create-a-google-map-plugin-for-pelican/"/>
+        <meta property="og:description" content="青蛙最近整理照片和blog的时候，一直想想在blog post里添加一个地图。 但是pelican似乎没有靠谱的google map plugin。 虽然有一个 google_embed ，但是似乎现在不能用了，按照它的README写好map之后，post里面完全不会转义。 于是青蛙一怒之下自己照猫画虎写了个liquid_tag版本的google map，竟然也能用了。 目前这个plugin支持map和direction模式，青蛙还在考虑要不要添加街景模式。 添加map的方法： {% gmap &#34;location&#34; mode [maptype] [align] [width] [height] %} location：必选项，指定地点，必须包含双引号，支持中文。 mode：必选项，地图模式，有place和search选项， 指定地图显示单个地点或者搜索location中的关键字 maptype：地图的显示模式，包含roadmap和satelite align：地图在页面中的对齐方式，left、center或者right …"/>
+        <meta property="article:published_time" content="2019-07-09" />
+            <meta property="article:section" content="Site" />
+            <meta property="article:tag" content="pelican" />
+            <meta property="article:tag" content="google" />
+            <meta property="article:tag" content="map" />
+            <meta property="article:tag" content="python" />
+            <meta property="article:tag" content="script" />
+            <meta property="article:tag" content="coding" />
+            <meta property="article:tag" content="github" />
+            <meta property="article:author" content="gfrog" />
+
+
+
+    <!-- Bootstrap -->
+        <link rel="stylesheet" href="../../../theme/css/bootstrap.min.css" type="text/css"/>
+    <link href="../../../theme/css/font-awesome.min.css" rel="stylesheet">
+
+    <link href="../../../theme/css/pygments/default.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../../theme/css/style.css" type="text/css"/>
+
+        <link href="../../../feeds/all.atom.xml" type="application/atom+xml" rel="alternate"
+              title="My Life, My Love! ATOM Feed"/>
+
+        <link href="../../../feeds/all.rss.xml" type="application/rss+xml" rel="alternate"
+              title="My Life, My Love! RSS Feed"/>
+        <link href="../../../feeds/site.atom.xml" type="application/atom+xml" rel="alternate"
+              title="My Life, My Love! Site ATOM Feed"/>
+</head>
+<body>
+
+<div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+        <div class="navbar-header">
+            <a href="../../../" class="navbar-brand">
+My Life, My Love!            </a>
+        </div>
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+            <ul class="nav navbar-nav">
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+</div> <!-- /.navbar -->
+
+<!-- Banner -->
+<!-- End Banner -->
+
+<!-- Content Container -->
+<div class="container">
+    <div class="row">
+        <div class="col-sm-9">
+    <section id="content">
+        <article>
+            <header class="page-header">
+                <h1>
+                    <a href="../../../2019/07/create-a-google-map-plugin-for-pelican/"
+                       rel="bookmark"
+                       title="Permalink to Pelican 的 Google Map 插件">
+                        Pelican 的 Google Map 插件
+                    </a>
+                </h1>
+            </header>
+            <div class="entry-content">
+                <div class="panel">
+                    <div class="panel-body">
+<footer class="post-info">
+    <span class="label label-default">Date</span>
+    <span class="published">
+        <i class="fa fa-calendar"></i><time datetime="2019-07-09T14:27:10+08:00"> Tue 09 July 2019</time>
+    </span>
+
+
+
+        <span class="label label-default">Category</span>
+        <a href="../../../category/site.html">Site</a>
+
+
+<span class="label label-default">Tags</span>
+	<a href="../../../tag/pelican.html">pelican</a>
+        /
+	<a href="../../../tag/google.html">google</a>
+        /
+	<a href="../../../tag/map.html">map</a>
+        /
+	<a href="../../../tag/python.html">python</a>
+        /
+	<a href="../../../tag/script.html">script</a>
+        /
+	<a href="../../../tag/coding.html">coding</a>
+        /
+	<a href="../../../tag/github.html">github</a>
+    
+</footer><!-- /.post-info -->                    </div>
+                </div>
+                <p>青蛙最近整理照片和blog的时候，一直想想在blog post里添加一个地图。
+但是pelican似乎没有靠谱的google map plugin。
+虽然有一个
+<a href="https://pypi.org/project/google_embed/">google_embed</a>
+，但是似乎现在不能用了，按照它的README写好map之后，post里面完全不会转义。</p>
+<p>于是青蛙一怒之下自己照猫画虎写了个liquid_tag版本的google map，竟然也能用了。</p>
+<p>目前这个plugin支持map和direction模式，青蛙还在考虑要不要添加街景模式。</p>
+<p>添加map的方法：</p>
+<div class="highlight"><pre><span></span><span class="w">    </span><span class="err">{</span><span class="o">%</span><span class="w"> </span><span class="n">gmap</span><span class="w"> </span><span class="ss">&quot;location&quot;</span><span class="w"> </span><span class="n">mode</span><span class="w"> </span><span class="o">[</span><span class="n">maptype</span><span class="o">]</span><span class="w"> </span><span class="o">[</span><span class="n">align</span><span class="o">]</span><span class="w"> </span><span class="o">[</span><span class="n">width</span><span class="o">]</span><span class="w"> </span><span class="o">[</span><span class="n">height</span><span class="o">]</span><span class="w"> </span><span class="o">%</span><span class="err">}</span><span class="w"></span>
+</pre></div>
+
+
+<p><code>location</code>：必选项，指定地点，必须包含双引号，支持中文。</p>
+<p><code>mode</code>：必选项，地图模式，有<code>place</code>和<code>search</code>选项，
+指定地图显示单个地点或者搜索location中的关键字</p>
+<p><code>maptype</code>：地图的显示模式，包含<code>roadmap</code>和<code>satelite</code></p>
+<p><code>align</code>：地图在页面中的对齐方式，<code>left</code>、<code>center</code>或者<code>right</code></p>
+<p><code>width</code>：地图宽度</p>
+<p><code>height</code>：地图高度</p>
+<p>例如： <code>{ % gmap "东方明珠,上海" place roadmap left 600 480 % }</code> 显示如下地图：</p>
+<p><span class="mapbox">
+    <iframe width="600" height="480"
+      frameborder="0" style="border:0;"
+      src="https://www.google.com/maps/embed/v1/place?key=AIzaSyB63YDb3SVNe84KeNXPh5zIjJ_uwr5vsII&q=东方明珠,上海&maptype=roadmap">
+    </iframe>
+</span>
+        </p>
+<p>添加direction（导航）的方法：</p>
+<div class="highlight"><pre><span></span><span class="w">    </span><span class="err">{</span><span class="o">%</span><span class="w"> </span><span class="n">gdirection</span><span class="w"> </span><span class="ss">&quot;origin&quot;</span><span class="w"> </span><span class="ss">&quot;destination&quot;</span><span class="w"> </span><span class="o">[</span><span class="n">&quot;waypoints&quot;</span><span class="o">]</span><span class="w"> </span><span class="n">mode</span><span class="w"> </span><span class="o">[</span><span class="n">maptype</span><span class="o">]</span><span class="w"> </span><span class="o">[</span><span class="n">align</span><span class="o">]</span><span class="w"> </span><span class="o">[</span><span class="n">width</span><span class="o">]</span><span class="w"> </span><span class="o">[</span><span class="n">height</span><span class="o">]</span><span class="w"> </span><span class="o">%</span><span class="err">}</span><span class="w"></span>
+</pre></div>
+
+
+<p><code>origin</code>：必选项，指定出发点，必须包含双引号，支持中文。</p>
+<p><code>destination</code>：必选项，指定目的地，必须包含双引号，支持中文。</p>
+<p><code>waypoints</code>：指定途经点，必须包含双引号，支持中文。</p>
+<p><code>mode</code>：必选项，导航模式，有<code>driving</code>、<code>walking</code>、<code>bicycling</code>、
+<code>transit</code>和<code>flying</code>选项。</p>
+<p><code>maptype</code>：地图的显示模式，包含<code>roadmap</code>和<code>satelite</code>。</p>
+<p><code>align</code>：地图在页面中的对齐方式，<code>left</code>、<code>center</code>或者<code>right</code>。</p>
+<p><code>width</code>：地图宽度。</p>
+<p><code>height</code>：地图高度。</p>
+<p>例如： <code>{ % gdirection "东方明珠,上海" "人民广场,上海" driving roadmap left 600 480 % }</code> 显示如下地图：</p>
+<p><iframe width="600" height="480"
+  frameborder="0" style="border:0;"
+  src="https://www.google.com/maps/embed/v1/directions?key=AIzaSyB63YDb3SVNe84KeNXPh5zIjJ_uwr5vsII&origin=东方明珠,上海&destination=人民广场,上海&maptype=roadmap&mode=driving">
+</iframe>
+        </p>
+<p>如果你也想在pelican里面使用这个插件，可以在
+<a href="https://console.cloud.google.com/projectselector2/google/maps-apis/api-list?supportedpurview=project&amp;project&amp;folder&amp;organizationId">Google cloud plateform console</a>
+申请一个MAP API key，然后在<code>pelicanconfig.py</code>文件里加入API key配置：</p>
+<div class="highlight"><pre><span></span><span class="n">GMAPS_API_KEY</span> <span class="o">=</span> <span class="ss">&quot;YOUR_API_KEY_HERE&quot;</span>
+</pre></div>
+
+
+<p>然后给liquid_tag打个补丁：</p>
+<div class="gist">
+    <script src='https://gist.github.com/a13b27768172f40d20632cadd8614061.js?file=gmap.diff'></script>
+    <noscript>
+        <pre><code>--- a/liquid_tags/mdx_liquid_tags.py
++++ b/liquid_tags/mdx_liquid_tags.py
+@@ -22,12 +22,14 @@ EXTRACT_TAG = re.compile(r'(?:\s*)(\S+)(?:\s*)')
+ LT_CONFIG = { 'CODE_DIR': 'code',
+               'NOTEBOOK_DIR': 'notebooks',
+               'FLICKR_API_KEY': 'flickr',
+-              'GIPHY_API_KEY': 'giphy'
++              'GIPHY_API_KEY': 'giphy',
++              'GMAPS_API_KEY': 'gmap'
+ }
+ LT_HELP = { 'CODE_DIR' : 'Code directory for include_code subplugin',
+             'NOTEBOOK_DIR' : 'Notebook directory for notebook subplugin',
+             'FLICKR_API_KEY': 'Flickr key for accessing the API',
+-            'GIPHY_API_KEY': 'Giphy key for accessing the API'
++            'GIPHY_API_KEY': 'Giphy key for accessing the API',
++            'GMAPS_API_KEY': 'Google Maps key for accessing the API'
+ }
+ 
+ class _LiquidTagsPreprocessor(markdown.preprocessors.Preprocessor):</code></pre>
+    </noscript>
+</div>
+<p>接着把这个文件放进liquid_tags目录里面，然后就可以在post里添加地图了。</p>
+<p>Enjoy posting!</p>
+<div class="gist">
+    <script src='https://gist.github.com/a13b27768172f40d20632cadd8614061.js?file=gmap.py'></script>
+    <noscript>
+        <pre><code>"""
+Google maps Tag
+---------
+This implements a Liquid-style google map tag for Pelican,
+based on the google_embed plugin.
+
+Syntax
+------
+{% gmap "location" mode [maptype] [align] [width] [height] %}
+{% gdirection "origin" "destination" "waypoints" mode [maptype] [align] [width] [height] %}
+
+"""
+import re
+from .mdx_liquid_tags import LiquidTags
+
+
+MAP_SYNTAX = '{% gmap "location" mode [maptype] [align] [width] [height] %}'
+
+# Regular expression for full syntax
+map_re_str =  """(?:"(?P<location>[\w\s\,\.]+?)")"""
+map_re_str += """(?:\s+(?P<mode>\w+))?"""
+map_re_str += """(?:\s+(?P<maptype>\w+))?"""
+map_re_str += """(?:\s+(?P<align>\w+))?"""
+map_re_str += """(?:\s+(?P<width>\d*))?"""
+map_re_str += """(?:\s+(?P<height>\d*))?"""
+ReGmap = re.compile(map_re_str)
+
+def get_align(align):
+    if align == 'right':
+        align_css = "float:right;"
+    elif align == 'left':
+        align_css = ""
+    else:
+        align_css = "display: block;margin: 0 auto;"
+
+    return align_css
+
+@LiquidTags.register('gmap')
+def gmap(preprocessor, tag, markup):
+
+    GMAPS_API_KEY = preprocessor.configs.getConfig('GMAPS_API_KEY')
+
+    attrs = None
+
+    # Default setting
+    location = ""
+    mode = "place"
+    maptype = "roadmap"
+    width = 600
+    height = 400
+    align = 'center'
+
+    # Parse the markup string
+    match = ReGmap.search(markup)
+    if match:
+        attrs = dict([(key, val.strip())
+                      for (key, val) in match.groupdict().items() if val])
+    else:
+        raise ValueError('Error processing input. '
+                         'Expected syntax: {0}'.format(MAP_SYNTAX))
+
+    # Construct URI
+    location = attrs['location']
+    del attrs['location']
+    if ' ' in location:
+        location = '+'.join(location.split())
+
+    if 'mode' in attrs:
+        mode = attrs['mode']
+        del attrs['mode']
+    else:
+        raise ValueError('Error processing input. '
+                         'Expected syntax: {0}'.format(MAP_SYNTAX))
+
+    if 'maptype' in attrs:
+        maptype = attrs['maptype']
+        del attrs['maptype']
+
+    if 'width' in attrs:
+        width = attrs['width']
+        del attrs['width']
+    if 'height' in attrs:
+        height = attrs['height']
+        del attrs['height']
+    if 'align' in attrs:
+        align = attrs['align']
+        del attrs['align']
+
+    align_css = get_align(align)
+
+    linkHTML="""
+<span class="mapbox">
+    <iframe width="{3}" height="{4}"
+      frameborder="0" style="border:0;{6}"
+      src="https://www.google.com/maps/embed/v1/{0}?key={1}&q={2}&maptype={5}">
+    </iframe>
+</span>
+        """.format(mode,GMAPS_API_KEY,location,width,height,maptype,align_css)
+
+    return linkHTML
+
+
+DIRECTION_SYNTAX = '{% gdirection "origin" "destination" "waypoints" mode [maptype] [align] [width] [height] %}'
+# Regular expression for full syntax
+direction_re_str =  """(?:(?P<directions>"[\w\s\S]+"))"""
+direction_re_str += """(?:\s+(?P<mode>\w+))?"""
+direction_re_str += """(?:\s+(?P<maptype>\w+))?"""
+direction_re_str += """(?:\s+(?P<align>\w+))?"""
+direction_re_str += """(?:\s+(?P<width>\d*))?"""
+direction_re_str += """(?:\s+(?P<height>\d*))?"""
+ReGdirection = re.compile(direction_re_str)
+
+
+waypoints_re_str =  """(?:"(?P<origin>[\w\s\S]+?)")"""
+waypoints_re_str += """(?:\s+"(?P<destination>[\w\s\S]+?)")"""
+waypoints_re_str += """(?:\s+"(?P<waypoints>[\w\s\S]+?)")?"""
+ReGwaypoints = re.compile(waypoints_re_str)
+
+@LiquidTags.register('gdirection')
+def gdirection(preprocessor, tag, markup):
+
+    GMAPS_API_KEY = preprocessor.configs.getConfig('GMAPS_API_KEY')
+
+    attrs = None
+
+    # Default setting
+    origin = ""
+    destination = ""
+    waypoints  = ""
+    mode = "place"
+    maptype = "roadmap"
+    width = 600
+    height = 400
+    align = 'center'
+
+    # Parse the markup string
+    match = ReGdirection.search(markup)
+    if match:
+        attrs = dict([(key, val.strip())
+                      for (key, val) in match.groupdict().items() if val])
+    else:
+        raise ValueError('Error processing input. '
+                         'Expected syntax: {0}'.format(DIRECTION_SYNTAX))
+
+    # Construct URI
+    directions = attrs['directions']
+    del attrs['directions']
+    m = ReGwaypoints.search(directions)
+    if m:
+        attrs.update([(key, val.strip())
+                      for (key, val) in m.groupdict().items() if val])
+    else:
+        raise ValueError('Error processing input. '
+                         'Expected syntax: {0}'.format(DIRECTION_SYNTAX))
+
+    origin = attrs['origin']
+    del attrs['origin']
+    if ' ' in origin:
+        origin = '+'.join(origin.split())
+
+    destination = attrs['destination']
+    del attrs['destination']
+    if ' ' in destination:
+        destination = '+'.join(destination.split())
+
+    if 'waypoints' in attrs:
+        waypoints = attrs['waypoints']
+        del attrs['waypoints']
+        if ' ' in waypoints:
+            waypoints = '+'.join(waypoints.split())
+
+    if 'mode' in attrs:
+        mode = attrs['mode']
+        del attrs['mode']
+    if 'maptype' in attrs:
+        maptype = attrs['maptype']
+        del attrs['maptype']
+    if 'width' in attrs:
+        width = attrs['width']
+        del attrs['width']
+    if 'height' in attrs:
+        height = attrs['height']
+        del attrs['height']
+    if 'align' in attrs:
+        align = attrs['align']
+        del attrs['align']
+
+    align_css = get_align(align)
+
+    query_str = 'origin={0}&destination={1}'.format(origin,destination)
+    if waypoints:
+        query_str += '&waypoints={0}'.format(waypoints)
+
+    linkHTML="""
+<iframe width="{3}" height="{4}"
+  frameborder="0" style="border:0;{6}"
+  src="https://www.google.com/maps/embed/v1/directions?key={1}&{2}&maptype={5}&mode={0}">
+</iframe>
+        """.format(mode,GMAPS_API_KEY,query_str,width,height,maptype,align_css)
+
+    return linkHTML
+
+
+@LiquidTags.register('gmap_places')
+def gmap_places(preprocessor, tag, markup):
+
+    GMAPS_API_KEY = preprocessor.configs.getConfig('GMAPS_API_KEY')
+
+    attrs = None
+
+    linkHTML="""
+<div id="map_canvas" style="width:80%; height:480px;"></div>
+<script src="/js/google-map.js"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key={0}&callback=initMap" async defer></script>
+        """.format(GMAPS_API_KEY)
+
+
+#----------------------------------------------------------------------
+# This import allows image tag to be a Pelican plugin
+from liquid_tags import register
+</code></pre>
+    </noscript>
+</div>
+<p><strong>Update: 2019-07-13</strong></p>
+<p>青蛙翻了几天google map API文档，给这个plugin山寨了一个同时显示多个地点的参数。</p>
+<p>不过并没有最终完成，所以先不放出完整代码了。大概效果是这个样子：</p>
+<script>
+var locations = [
+['1', 'remmin park, shanghai', '#location 1'],
+['2', 'shanghai museum, shanghai', '#location 2'],
+['3', 'lippo plaza, shanghai', '#location 3'],
+];
+</script>
+
+<p><div id="map_canvas" style="width:80%; height:480px;"></div>
+<script src="/js/google-map.js"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB63YDb3SVNe84KeNXPh5zIjJ_uwr5vsII&callback=initMap" async defer></script>
+        </p>
+<p>参考文档：</p>
+<p>[1] <a href="http://iza.ac/posts/2014/03/google-embed/">Google Embed</a></p>
+<p>[2] <a href="https://pypi.org/project/google_embed/">google_embed</a></p>
+<p>[3] <a href="https://github.com/getpelican/pelican-plugins/blob/master/liquid_tags/Readme.md">Liquid-style Tags</a></p>
+<p>[4] <a href="https://developers.google.com/maps/documentation/javascript/examples/geocoding-simple">Geocoding Service | Maps JavaScript API | Google Developers</a></p>
+            </div>
+            <!-- /.entry-content -->
+<section class="well" id="related-posts">
+    <h4>Related Posts:</h4>
+    <ul>
+        <li><a href="../../../2013/05/args-in-python-exception/">Python Exception class中的args属性</a></li>
+        <li><a href="../../../2013/04/some-demo-for-python-varients-scope/">Python中关于变量作用域的一些demo</a></li>
+        <li><a href="../../../2019/07/this-blog-recovered-on-github/">本站重新恢复</a></li>
+        <li><a href="../../../2012/07/split-pdf-doc-with-pypdf-module/">使用pyPdf切割pdf文档</a></li>
+        <li><a href="../../../2008/06/something-about-google-app-engine/">关于Google App Engine的一点点东西</a></li>
+    </ul>
+</section>
+    <hr/>
+    <section class="comments" id="comments">
+        <h2>Comments</h2>
+
+        <div id="disqus_thread"></div>
+        <script type="text/javascript">
+            /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+            var disqus_shortname = 'gfrog'; // required: replace example with your forum shortname
+
+            var disqus_config = function () {
+                this.language = "zh_cn";
+
+                        this.page.identifier = '2019-07-09-create-a-google-map-plugin-for-pelican';
+                        this.page.url = 'https://www.gfrog.net/2019/07/create-a-google-map-plugin-for-pelican/';
+                    this.page.title = 'Pelican 的 Google Map 插件';
+            };
+
+            /* * * DON'T EDIT BELOW THIS LINE * * */
+            (function () {
+                var dsq = document.createElement('script');
+                dsq.type = 'text/javascript';
+                dsq.async = true;
+                dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+            })();
+        </script>
+        <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by
+            Disqus.</a></noscript>
+        <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+    </section>
+        </article>
+    </section>
+
+        </div>
+        <div class="col-sm-3" id="sidebar">
+            <aside>
+<!-- Sidebar -->
+<section class="well well-sm">
+  <ul class="list-group list-group-flush">
+
+<!-- Sidebar/Social -->
+<li class="list-group-item">
+  <h4>Social</h4>
+  <ul class="list-group" id="social">
+    <li class="list-group-item"><a href="https://twitter.com/gfrog"><i class="fa fa-twitter-square fa-lg"></i> Twitter</a></li>
+    <li class="list-group-item"><a href="/pages/tweets-archive.html"><i class="fa fa-tweets-archive-square fa-lg"></i> Tweets Archive</a></li>
+    <li class="list-group-item"><a href="/pages/instagram-archive.html"><i class="fa fa-instagram-archive-square fa-lg"></i> Instagram Archive</a></li>
+  </ul>
+</li>
+<!-- End Sidebar/Social -->
+
+<!-- Sidebar/Categories -->
+<li class="list-group-item">
+  <h4>Categories</h4>
+  <ul class="list-group" id="categories">
+    <li class="list-group-item">
+      <a href="../../../category/cyclone.html">Cyclone</a>
+    </li>
+    <li class="list-group-item">
+      <a href="../../../category/instagram.html">Instagram</a>
+    </li>
+    <li class="list-group-item">
+      <a href="../../../category/linux.html">Linux</a>
+    </li>
+    <li class="list-group-item">
+      <a href="../../../category/misc.html">Misc</a>
+    </li>
+    <li class="list-group-item">
+      <a href="../../../category/mobile.html">Mobile</a>
+    </li>
+    <li class="list-group-item">
+      <a href="../../../category/networking.html">Networking</a>
+    </li>
+    <li class="list-group-item">
+      <a href="../../../category/pictures.html">Pictures</a>
+    </li>
+    <li class="list-group-item">
+      <a href="../../../category/programming.html">Programming</a>
+    </li>
+    <li class="list-group-item">
+      <a href="../../../category/site.html">Site</a>
+    </li>
+    <li class="list-group-item">
+      <a href="../../../category/travel.html">Travel</a>
+    </li>
+    <li class="list-group-item">
+      <a href="../../../category/vim.html">VIM</a>
+    </li>
+    <li class="list-group-item">
+      <a href="../../../category/virt.html">Virt</a>
+    </li>
+  </ul>
+</li>
+<!-- End Sidebar/Categories -->
+
+<!-- Sidebar/Links -->
+<li class="list-group-item">
+  <h4>Links</h4>
+  <ul class="list-group" id="links">
+    <li class="list-group-item">
+      <a href="http://getpelican.com/" target="_blank">Pelican</a>
+    </li>
+    <li class="list-group-item">
+      <a href="http://python.org/" target="_blank">Python.org</a>
+    </li>
+    <li class="list-group-item">
+      <a href="http://jinja.pocoo.org/" target="_blank">Jinja2</a>
+    </li>
+  </ul>
+</li>
+<!-- End Sidebar/Links -->
+  </ul>
+</section>
+<!-- End Sidebar -->            </aside>
+        </div>
+    </div>
+</div>
+<!-- End Content Container -->
+
+<footer>
+   <div class="container">
+      <hr>
+      <div class="row">
+         <div class="col-xs-10">&copy; 2019 gfrog
+            &middot; Powered by <a href="https://github.com/getpelican/pelican-themes/tree/master/pelican-bootstrap3" target="_blank">pelican-bootstrap3</a>,
+            <a href="http://docs.getpelican.com/" target="_blank">Pelican</a>,
+            <a href="http://getbootstrap.com" target="_blank">Bootstrap</a>                <p><small>  <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh_cn"><img alt="Creative Commons License" style="border-width:0" src="//i.creativecommons.org/l/by-nc-sa/4.0/80x15.png" /></a>
+    Content
+  licensed under a <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh_cn">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>, except where indicated otherwise.
+</small></p>
+         </div>
+         <div class="col-xs-2"><p class="pull-right"><i class="fa fa-arrow-up"></i> <a href="#">Back to top</a></p></div>
+      </div>
+   </div>
+</footer>
+<script src="../../../theme/js/jquery.min.js"></script>
+
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="../../../theme/js/bootstrap.min.js"></script>
+
+<!-- Enable responsive features in IE8 with Respond.js (https://github.com/scottjehl/Respond) -->
+<script src="../../../theme/js/respond.min.js"></script>
+
+
+    <!-- Disqus -->
+    <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = 'gfrog'; // required: replace example with your forum shortname
+
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function () {
+            var s = document.createElement('script');
+            s.async = true;
+            s.type = 'text/javascript';
+            s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+            (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+        }());
+    </script>
+    <!-- End Disqus Code -->
+    <!-- Google Analytics -->
+    <script type="text/javascript">
+
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-769172-3']);
+        _gaq.push(['_trackPageview']);
+
+        (function () {
+            var ga = document.createElement('script');
+            ga.type = 'text/javascript';
+            ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(ga, s);
+        })();
+    </script>
+    <!-- End Google Analytics Code -->
+
+
+</body>
+</html>

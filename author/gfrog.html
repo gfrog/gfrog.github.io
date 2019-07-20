@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html lang="zh_cn" prefix="og: http://ogp.me/ns# fb: https://www.facebook.com/2008/fbml">
+<head>
+    <title>Articles by gfrog - My Life, My Love!</title>
+    <!-- Using the latest rendering mode for IE -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+
+
+        <meta name="author" content="gfrog" />
+
+    <!-- Open Graph tags -->
+        <meta property="og:site_name" content="My Life, My Love!" />
+        <meta property="og:type" content="website"/>
+        <meta property="og:title" content="My Life, My Love!"/>
+        <meta property="og:url" content=".."/>
+        <meta property="og:description" content="My Life, My Love!"/>
+
+
+
+    <!-- Bootstrap -->
+        <link rel="stylesheet" href="../theme/css/bootstrap.min.css" type="text/css"/>
+    <link href="../theme/css/font-awesome.min.css" rel="stylesheet">
+
+    <link href="../theme/css/pygments/default.css" rel="stylesheet">
+    <link rel="stylesheet" href="../theme/css/style.css" type="text/css"/>
+
+        <link href="../feeds/all.atom.xml" type="application/atom+xml" rel="alternate"
+              title="My Life, My Love! ATOM Feed"/>
+
+        <link href="../feeds/all.rss.xml" type="application/rss+xml" rel="alternate"
+              title="My Life, My Love! RSS Feed"/>
+
+</head>
+<body>
+
+<div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+        <div class="navbar-header">
+            <a href="../" class="navbar-brand">
+My Life, My Love!            </a>
+        </div>
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+            <ul class="nav navbar-nav">
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+</div> <!-- /.navbar -->
+
+<!-- Banner -->
+<!-- End Banner -->
+
+<!-- Content Container -->
+<div class="container">
+    <div class="row">
+        <div class="col-sm-9">
+            <article>
+                <h2><a href="../2019/07/fix-python-virtualenv-after-python-upgrade/">修复因为 Python 升级导致的失效 virtualenv 环境</a></h2>
+                    <div class="well well-sm">
+<footer class="post-info">
+    <span class="label label-default">Date</span>
+    <span class="published">
+        <i class="fa fa-calendar"></i><time datetime="2019-07-17T20:48:27+08:00"> Wed 17 July 2019</time>
+    </span>
+
+
+
+        <span class="label label-default">Category</span>
+        <a href="../category/programming.html">Programming</a>
+
+
+<span class="label label-default">Tags</span>
+	<a href="../tag/python.html">python</a>
+        /
+	<a href="../tag/python3.html">python3</a>
+        /
+	<a href="../tag/virtualenv.html">virtualenv</a>
+        /
+	<a href="../tag/macos.html">macos</a>
+        /
+	<a href="../tag/osx.html">osx</a>
+        /
+	<a href="../tag/homebrew.html">homebrew</a>
+        /
+	<a href="../tag/shell.html">shell</a>
+    
+</footer><!-- /.post-info -->                    </div>
+                <div class="summary"><p><img alt="python and macos" src="https://i1.wp.com/www.alexwhittemore.com/wp-content/uploads/2018/08/Untitled-drawing.jpg?ssl=1"></p>
+<p><em>（图片借用
+<a href="https://www.alexwhittemore.com/python-on-macos-best-practices/">PYTHON ON MACOS: BEST PRACTICES</a>
+的标题图，这篇文档也是关于MacOS上面运行python和virtualenv的。）</em></p>
+<p><em>（本篇日志为
+<a href="http://www.jeremycade.com/python/osx/homebrew/2015/03/02/fixing-virtualenv-after-a-python-upgrade/">How to fix your Python virtualenv after a Homebrew Python upgrade</a>
+的翻译文档）</em></p>
+<p>你在使用Homebrew管理你的OS X上面的Python嘛？最近有没有升级过Python？</p>
+<p>我遇到的情况是Python 3的一个小更新：从3.4.2到3.4.3。
+这个升级足够让virtualenv里面的符号连接（symbolic links）失效了。</p>
+<p><strong>例如</strong></p>
+<div class="highlight"><pre><span></span>~: <span class="nb">cd</span> ~/src/my_app
+~/src/my_app: <span class="nb">source</span> venv/bin/activate
+<span class="o">[</span>venv<span class="o">]</span> ~/src/my_app: python
+dyld …</pre></div>
+                    <a class="btn btn-default btn-xs" href="../2019/07/fix-python-virtualenv-after-python-upgrade/">more ...</a>
+                </div>
+            </article>
+            <hr/>
+            <article>
+                <h2><a href="../2019/07/create-a-google-map-plugin-for-pelican/">Pelican 的 Google Map 插件</a></h2>
+                    <div class="well well-sm">
+<footer class="post-info">
+    <span class="label label-default">Date</span>
+    <span class="published">
+        <i class="fa fa-calendar"></i><time datetime="2019-07-09T14:27:10+08:00"> Tue 09 July 2019</time>
+    </span>
+
+
+
+        <span class="label label-default">Category</span>
+        <a href="../category/site.html">Site</a>
+
+
+<span class="label label-default">Tags</span>
+	<a href="../tag/pelican.html">pelican</a>
+        /
+	<a href="../tag/google.html">google</a>
+        /
+	<a href="../tag/map.html">map</a>
+        /
+	<a href="../tag/python.html">python</a>
+        /
+	<a href="../tag/script.html">script</a>
+        /
+	<a href="../tag/coding.html">coding</a>
+        /
+	<a href="../tag/github.html">github</a>
+    
+</footer><!-- /.post-info -->                    </div>
+                <div class="summary"><p>青蛙最近整理照片和blog的时候，一直想想在blog post里添加一个地图。
+但是pelican似乎没有靠谱的google map plugin。
+虽然有一个
+<a href="https://pypi.org/project/google_embed/">google_embed</a>
+，但是似乎现在不能用了，按照它的README写好map之后，post里面完全不会转义。</p>
+<p>于是青蛙一怒之下自己照猫画虎写了个liquid_tag版本的google map，竟然也能用了。</p>
+<p>目前这个plugin支持map和direction模式，青蛙还在考虑要不要添加街景模式。</p>
+<p>添加map的方法：</p>
+<div class="highlight"><pre><span></span><span class="w">    </span><span class="err">{</span><span class="o">%</span><span class="w"> </span><span class="n">gmap</span><span class="w"> </span><span class="ss">&quot;location&quot;</span><span class="w"> </span><span class="n">mode</span><span class="w"> </span><span class="o">[</span><span class="n">maptype</span><span class="o">]</span><span class="w"> </span><span class="o">[</span><span class="n">align</span><span class="o">]</span><span class="w"> </span><span class="o">[</span><span class="n">width</span><span class="o">]</span><span class="w"> </span><span class="o">[</span><span class="n">height</span><span class="o">]</span><span class="w"> </span><span class="o">%</span><span class="err">}</span><span class="w"></span>
+</pre></div>
+
+
+<p><code>location</code>：必选项，指定地点，必须包含双引号，支持中文。</p>
+<p><code>mode</code>：必选项，地图模式，有<code>place</code>和<code>search</code>选项，
+指定地图显示单个地点或者搜索location中的关键字</p>
+<p><code>maptype</code>：地图的显示模式，包含<code>roadmap</code>和<code>satelite</code></p>
+<p><code>align</code>：地图在页面中的对齐方式，<code>left</code>、<code>center</code>或者<code>right …</code></p>
+                    <a class="btn btn-default btn-xs" href="../2019/07/create-a-google-map-plugin-for-pelican/">more ...</a>
+                </div>
+            </article>
+            <hr/>
+            <article>
+                <h2><a href="../2019/07/import-instagram-pictures-into-blog/">将Instagram内容导入Blog</a></h2>
+                    <div class="well well-sm">
+<footer class="post-info">
+    <span class="label label-default">Date</span>
+    <span class="published">
+        <i class="fa fa-calendar"></i><time datetime="2019-07-04T00:07:46+08:00"> Thu 04 July 2019</time>
+    </span>
+
+
+
+        <span class="label label-default">Category</span>
+        <a href="../category/site.html">Site</a>
+
+
+<span class="label label-default">Tags</span>
+	<a href="../tag/site.html">site</a>
+        /
+	<a href="../tag/instagram.html">instagram</a>
+        /
+	<a href="../tag/python.html">python</a>
+    
+</footer><!-- /.post-info -->                    </div>
+                <div class="summary"><p><img alt="1" src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Instagram_logo.svg/1200px-Instagram_logo.svg.png" width="400px"></p>
+<p>青蛙关站的这几年，虽然没有写blog，但是instagram和twitter发了可真不少。
+今天研究了下怎么导入instagram的照片和twitter的条目。
+看起来instagram很容易实现，因为有一个python的客户端
+<a href="https://instaloader.github.io/">Instaloader</a>
+。</p>
+<p>首先，用pip把这个客户端装上</p>
+<div class="highlight"><pre><span></span>$ pip3 install instaloader
+</pre></div>
+
+
+<p>然后，自己搞个脚本，从instagram数据里面直接生成markdown文件，写的不太好看，不过数据基本完美导入Blog了。</p>
+<div class="gist">
+    <script src='https://gist.github.com/92087c750e9293213b69f0f1765e3fad.js'></script>
+    <noscript>
+        <pre><code>import instaloader
+import os
+import time
+
+L=instaloader.Instaloader()
+L.interactive_login("gfrogcn")
+
+profile = instaloader.Profile.from_username(L.context, "gfrogcn")
+
+new_template ="""title: Instagram Picture %s
+date: %s 23:59:59
+slug: instagram-picture-%s
+category …</code></pre></noscript></div>
+                    <a class="btn btn-default btn-xs" href="../2019/07/import-instagram-pictures-into-blog/">more ...</a>
+                </div>
+            </article>
+            <hr/>
+            <article>
+                <h2><a href="../2019/07/this-blog-recovered-on-github/">本站重新恢复</a></h2>
+                    <div class="well well-sm">
+<footer class="post-info">
+    <span class="label label-default">Date</span>
+    <span class="published">
+        <i class="fa fa-calendar"></i><time datetime="2019-07-03T01:08:39+08:00"> Wed 03 July 2019</time>
+    </span>
+
+
+
+        <span class="label label-default">Category</span>
+        <a href="../category/misc.html">Misc</a>
+
+
+<span class="label label-default">Tags</span>
+	<a href="../tag/site.html">site</a>
+        /
+	<a href="../tag/github.html">github</a>
+        /
+	<a href="../tag/pelican.html">pelican</a>
+    
+</footer><!-- /.post-info -->                    </div>
+                <div class="summary"><p><img src="https://cdn.mos.cms.futurecdn.net/1e01a79c2d42ec9f16e6ffbc512e5423-650-80.jpg" width="300"></p>
+<p>目前本站已经在github上恢复，从2007-2013年的数据大部分已经可以访问。</p>
+<p>从上海出差回来之后，青蛙突然有了把blog恢复的动力。
+努力了三天，重新使用pelican构建了blog，
+然后review了一遍之前的post，修复了一大堆错误。</p>
+<p>回顾当年的老文章，感慨良多。当年青蛙也是个爱学习的好孩子，
+同时不禁感叹这些年真的没有神马进步。</p>
+<p>重新开站，不对自己做硬性指标了，希望能认真写/记录点啥。</p>
+<p>本站域名：</p>
+<h2><a href="https://www.gfrog.net/">https://www.gfrog.net/</a></h2>
+<p>源码：</p>
+<p><a href="https://github.com/gfrog/gfrog.github.io">https://github.com/gfrog/gfrog.github.io</a></p>
+                    <a class="btn btn-default btn-xs" href="../2019/07/this-blog-recovered-on-github/">more ...</a>
+                </div>
+            </article>
+            <hr/>
+            <article>
+                <h2><a href="../2019/06/five-days-tour-in-shanghai/">上海五日游杂记</a></h2>
+                    <div class="well well-sm">
+<footer class="post-info">
+    <span class="label label-default">Date</span>
+    <span class="published">
+        <i class="fa fa-calendar"></i><time datetime="2019-06-27T17:06:16+08:00"> Thu 27 June 2019</time>
+    </span>
+
+
+
+        <span class="label label-default">Category</span>
+        <a href="../category/travel.html">Travel</a>
+
+
+<span class="label label-default">Tags</span>
+	<a href="../tag/travel.html">travel</a>
+        /
+	<a href="../tag/tour.html">tour</a>
+        /
+	<a href="../tag/shanghai.html">shanghai</a>
+        /
+	<a href="../tag/train.html">train</a>
+        /
+	<a href="../tag/waitan.html">waitan</a>
+        /
+	<a href="../tag/building.html">building</a>
+        /
+	<a href="../tag/coffee.html">coffee</a>
+        /
+	<a href="../tag/shop.html">shop</a>
+    
+</footer><!-- /.post-info -->                    </div>
+                <div class="summary"><p><img alt="1" src="https://lh3.googleusercontent.com/JqXPGYzWGHLA_TvmD0yPkMswbnBH3I6lPaslG1lYqT_Cn2QlFSPgllt0vqQoZz7p_Cz05I7i9-WX-dOwV71bwgqhOthkSJbSWRtc2fQZSuT9ukAIzsFVHMnipaZ7b_5waXJg4E3S6yQ=w900"></p>
+<p>青蛙对于魔都向往已久，虽然到过魔都很多次，然而并没有太多机会在魔都玩一玩。
+刚好六月在魔都有KubeCon展会，趁着开会的机会，青蛙利用周末在魔都转了转。</p>
+<p>不知道是不是刚好赶上了气温最适宜的那几天，
+在帝都被热吐了之后， 到魔都竟然感觉气温舒适宜人，
+在外面溜达感受黄浦江上的阵阵凉风，惬意的很。</p>
+<p>夏天去魔都肯定要坐火车的啊，不然坐飞机延误起来不一定要多久。</p>
+<p><img alt="1" src="https://lh3.googleusercontent.com/Fn_uVSViMQepYjz8X-agQp21VU1zwZbshQgWBOkLf6mhDV0Yg-ue4-M_Nowh7OL6XnkDucJjb1suwE9qaVR2hRogzkI0M_q9umZEaeOlz7WiTx9IgexjZxAQF1PQVx6buIdjgUg-VV0=s640"></p>
+<p>兔子屎色动卧，顶着D车头衔的T车，
+这车虽然叫D，但是大部分时间都跑在京沪普线上，
+价钱却跟真正的D车票价看齐， 铁总真是赚的一手好钱。</p>
+<p><img alt="1" src="https://lh3.googleusercontent.com/kXpUAt-ZVeYw6EVvXhquHccxSLrCs85HqAbg69tMxBNeTN0DD6-3kuLyNt0Vdl9FP71R5mCjg-_z5a_dYb0IHgPpOrVabsUeoMRqrbokdLWFvTZTFDot1igl_UHKDXI-lTSjDMsfXg4=s640"></p>
+<p>联通手机在京沪线上基本没法用，只有2G和隐隐约约的3G，
+甚至到某些车站都没有4G信号，真是无奈到家。</p>
+<p>开掌上高铁连车上Wi-Fi速度也渣到爆，甚至有时候连这个app都没法连接。
+相比起前几天青蛙去法国体验的法国高铁爸爸的app，
+显示路线图实时速度，还能显示wifi覆盖情况，
+在线预订餐车餐食，目的地及沿途景点介绍。
+最重要的是上网速度飞快！</p>
+<p><img alt="1" src="https://lh3.googleusercontent.com/bn8WUIZLLtPM6nJp472H2GVCAn3rEkiTKI8YsdQPZLRrcxNFPW306WlCB4GX7Gly_2XEdjicCYP8-yvVor3sWO6GWC6ralwFlBUEA-8pljba30fFsAV_Wkb0lhMZyK_H06MK82uAQ7A=w320">
+<img alt="1" src="https://lh3.googleusercontent.com/pNYjz4DtOENMlKcmDyZRVAq4wE1afps_dtezxv-bH_QXjbZ3khQDfOGRjPX0GPga7TNilk6l7VotJixSWRrY33vC4R4p8ImqeIYnjImyDKw95xD_8wGb018hZ-PrX6swT5VoRzVfO5Y=w320"></p>
+<p>上海站到达，似乎上局放弃普速车站了？
+上海站也是破破烂烂的早期火车站形象。</p>
+<p><img alt="1" src="https://lh3.googleusercontent.com/2Ie2jMCgSuhgIQ4gavUODj6rUanfOEGV45klYqOk07nJQ-HQfsfZEoplW0XY-xbiAB7DgZ1WHeOUxFi3rHpd_UdckSebp_jjjg1pOPG7lsIIitYInLM53YfxKv4AaPH4KzdMDxF-1hM=s640"></p>
+<p>一大早的人民广场，非常安静， 旁边广场上有一群白衣服老人家打太极拳。
+照片尽头就是准备入住的饭店。</p>
+<p>青蛙拍完这张照片2分钟后就遭到了便便毒气攻击。
+上海市中心这种地方，紧靠着市政府，竟然有很多露宿街头的和随地大小便的人。
+似乎魔都真是金玉其外。</p>
+<p><img alt="1" src="https://lh3.googleusercontent.com/zmmzJJwpB4vf3s6k-Lly2XQLoisHvJzmELijBCe7zD2M3vpVMnU-4ueEWSYvVVPusMwuRN9qXxtdohv26a3bjIr3VSK9hEbWWMgb3YhXX4qLUTPbp-15j7xTKyez9QOILi6wDlg6NDU=w640"></p>
+<p>一大早的南京路 vs 晚上的南京路，反差巨大。
+不过让青蛙想起了盛京的中街。</p>
+<p><img alt="1" src="https://lh3.googleusercontent.com/XZIKwk605WjSjJE4X-ha898DvfIy2ps-z3KGdK6RvL5ZipGQnZhXXug0Mv07G-l15Ncj1KHGwJ0PkSI2vFN02db9UWcGPhAki0ef6Fa1oYcqJz0rMLDgTCk-iRvpo4ifkWyz0RvH5Xo=w640"></p>
+<p><img alt="1" src="https://lh3.googleusercontent.com/02gOk4YjQHnseob03MJMSL1XuaS5_htkAHPzDbC9h6B84fqGNWh_KCbUp6wQM4mj82VTug6Ts1EXhxnErmL3Jr38on84PSit3CqkoKWl_Y3L1tuOv7doqRhP4bt7vnSDbIcIO_Nz_ks=w640"></p>
+<p>魔都奇葩楼之一： 金刚钻 …</p>
+                    <a class="btn btn-default btn-xs" href="../2019/06/five-days-tour-in-shanghai/">more ...</a>
+                </div>
+            </article>
+            <hr/>
+            <article>
+                <h2><a href="../2019/06/take-shanghai-ferry-service/">体验上海轮渡</a></h2>
+                    <div class="well well-sm">
+<footer class="post-info">
+    <span class="label label-default">Date</span>
+    <span class="published">
+        <i class="fa fa-calendar"></i><time datetime="2019-06-23T22:18:06+08:00"> Sun 23 June 2019</time>
+    </span>
+
+
+
+        <span class="label label-default">Category</span>
+        <a href="../category/travel.html">Travel</a>
+
+
+<span class="label label-default">Tags</span>
+	<a href="../tag/travel.html">travel</a>
+        /
+	<a href="../tag/shanghai.html">shanghai</a>
+        /
+	<a href="../tag/ship.html">ship</a>
+        /
+	<a href="../tag/ferry.html">ferry</a>
+        /
+	<a href="../tag/pictures.html">pictures</a>
+        /
+	<a href="../tag/waitan.html">waitan</a>
+        /
+	<a href="../tag/pudong.html">pudong</a>
+    
+</footer><!-- /.post-info -->                    </div>
+                <div class="summary"><p><img alt="1" src="https://lh3.googleusercontent.com/aoDCyW-nshJZr_3V74idoeqKFOHi0GRtK5vddBTaB80ttvNuoK8POkRUk3jq1rQYWKhT2uziu1aOOix-qdV8fc97LMZeCdJpWpPLtQFx3QMhiTMkIH0C9tmv--DTbK0ZdZfXRh9w_aE=w300"></p>
+<p>青蛙自从前些年部分遍历帝都地铁之后，已经很久没做过遍历公交这种事情了。
+这次来到魔都，有一上午时间没地方去，所以决定部分遍历魔都轮渡线路。
+遍历的目标就是从外滩沿黄浦江向上，到南浦大桥结束。</p>
+<p>这其中需要乘坐5条线路，经过8个渡口：</p>
+<p>金陵东路渡口 &lt;= 东金线 =&gt; 东昌路渡口</p>
+<p>复兴东路渡口 &lt;= 东复线 =&gt; 东昌路渡口</p>
+<p>复兴东路渡口 &lt;= 杨复线 =&gt; 杨家渡渡口</p>
+<p>董家渡渡口&nbsp;&nbsp; &lt;= 塘董线 =&gt; 塘桥渡口</p>
+<p>陆家浜渡口&nbsp;&nbsp; &lt;= 南陆线 =&gt; 南码头渡口</p>
+<script>
+var locations = [
+['金陵东路渡口', '金陵东路渡口, huangpu, shanghai', '#jinling-east-road'],
+['东昌路渡口', 'Dongchang Road Ferry, pudong xinqu, shanghai', '#dongchang-road'],
+['复兴东路渡口', '复兴东路渡口, huangpu, shanghai', '#fuxing-east-road'],
+['杨家渡渡口', '杨家渡渡口, pudong xinqu, shanghai', '#yangjiadu' …</script>
+                    <a class="btn btn-default btn-xs" href="../2019/06/take-shanghai-ferry-service/">more ...</a>
+                </div>
+            </article>
+            <hr/>
+            <article>
+                <h2><a href="../2019/01/instagram-picture-2019-01-16/">Instagram图片 2019-01-16</a></h2>
+                    <div class="well well-sm">
+<footer class="post-info">
+    <span class="label label-default">Date</span>
+    <span class="published">
+        <i class="fa fa-calendar"></i><time datetime="2019-01-16T23:59:59+08:00"> Wed 16 January 2019</time>
+    </span>
+
+
+
+        <span class="label label-default">Category</span>
+        <a href="../category/instagram.html">Instagram</a>
+
+
+<span class="label label-default">Tags</span>
+	<a href="../tag/instagram.html">instagram</a>
+        /
+	<a href="../tag/pictures.html">pictures</a>
+        /
+	<a href="../tag/archive.html">archive</a>
+    
+</footer><!-- /.post-info -->                    </div>
+                <div class="summary"><p>⏰<em>2019-01-16 14:58:38</em> 大棒棒
+<a href="https://www.instagram.com/p/Bsr6yhRgORbGEVreFKFojtcYm35LqZH1M373rQ0/">via Instagram</a></p>
+<p><img alt="1" src="https://scontent-lax3-2.cdninstagram.com/vp/795cef073f2133473c9549cfa7a8e805/5DB2441C/t51.2885-15/e35/50055481_2241900009402591_7445110610939354795_n.jpg?_nc_ht=scontent-lax3-2.cdninstagram.com" width="75%"></p>
+                    <a class="btn btn-default btn-xs" href="../2019/01/instagram-picture-2019-01-16/">more ...</a>
+                </div>
+            </article>
+            <hr/>
+
+        <ul class="pagination">
+                <li class="prev disabled"><a href="#">&laquo;</a></li>
+                    <li class="active"><a
+                            href="../author/gfrog.html">1</a></li>
+                    <li class=""><a
+                            href="../author/gfrog2.html">2</a></li>
+                    <li class=""><a
+                            href="../author/gfrog3.html">3</a></li>
+                    <li class=""><a
+                            href="../author/gfrog4.html">4</a></li>
+                    <li class=""><a
+                            href="../author/gfrog5.html">5</a></li>
+                    <li class=""><a
+                            href="../author/gfrog6.html">6</a></li>
+                    <li class=""><a
+                            href="../author/gfrog7.html">7</a></li>
+                    <li class=""><a
+                            href="../author/gfrog8.html">8</a></li>
+                    <li class=""><a
+                            href="../author/gfrog9.html">9</a></li>
+                    <li class=""><a
+                            href="../author/gfrog10.html">10</a></li>
+                    <li class=""><a
+                            href="../author/gfrog11.html">11</a></li>
+                    <li class=""><a
+                            href="../author/gfrog12.html">12</a></li>
+                    <li class=""><a
+                            href="../author/gfrog13.html">13</a></li>
+                    <li class=""><a
+                            href="../author/gfrog14.html">14</a></li>
+                    <li class=""><a
+                            href="../author/gfrog15.html">15</a></li>
+                    <li class=""><a
+                            href="../author/gfrog16.html">16</a></li>
+                    <li class=""><a
+                            href="../author/gfrog17.html">17</a></li>
+                    <li class=""><a
+                            href="../author/gfrog18.html">18</a></li>
+                    <li class=""><a
+                            href="../author/gfrog19.html">19</a></li>
+                    <li class=""><a
+                            href="../author/gfrog20.html">20</a></li>
+                    <li class=""><a
+                            href="../author/gfrog21.html">21</a></li>
+                    <li class=""><a
+                            href="../author/gfrog22.html">22</a></li>
+                    <li class=""><a
+                            href="../author/gfrog23.html">23</a></li>
+                    <li class=""><a
+                            href="../author/gfrog24.html">24</a></li>
+                    <li class=""><a
+                            href="../author/gfrog25.html">25</a></li>
+                    <li class=""><a
+                            href="../author/gfrog26.html">26</a></li>
+                    <li class=""><a
+                            href="../author/gfrog27.html">27</a></li>
+                    <li class=""><a
+                            href="../author/gfrog28.html">28</a></li>
+                    <li class=""><a
+                            href="../author/gfrog29.html">29</a></li>
+                    <li class=""><a
+                            href="../author/gfrog30.html">30</a></li>
+                    <li class=""><a
+                            href="../author/gfrog31.html">31</a></li>
+                    <li class=""><a
+                            href="../author/gfrog32.html">32</a></li>
+                    <li class=""><a
+                            href="../author/gfrog33.html">33</a></li>
+                    <li class=""><a
+                            href="../author/gfrog34.html">34</a></li>
+                <li class="next"><a
+                        href="../author/gfrog2.html">&raquo;</a></li>
+        </ul>
+        </div>
+        <div class="col-sm-3" id="sidebar">
+            <aside>
+<!-- Sidebar -->
+<section class="well well-sm">
+  <ul class="list-group list-group-flush">
+
+<!-- Sidebar/Social -->
+<li class="list-group-item">
+  <h4>Social</h4>
+  <ul class="list-group" id="social">
+    <li class="list-group-item"><a href="https://twitter.com/gfrog"><i class="fa fa-twitter-square fa-lg"></i> Twitter</a></li>
+    <li class="list-group-item"><a href="/pages/tweets-archive.html"><i class="fa fa-tweets-archive-square fa-lg"></i> Tweets Archive</a></li>
+    <li class="list-group-item"><a href="/pages/instagram-archive.html"><i class="fa fa-instagram-archive-square fa-lg"></i> Instagram Archive</a></li>
+  </ul>
+</li>
+<!-- End Sidebar/Social -->
+
+<!-- Sidebar/Categories -->
+<li class="list-group-item">
+  <h4>Categories</h4>
+  <ul class="list-group" id="categories">
+    <li class="list-group-item">
+      <a href="../category/cyclone.html">Cyclone</a>
+    </li>
+    <li class="list-group-item">
+      <a href="../category/instagram.html">Instagram</a>
+    </li>
+    <li class="list-group-item">
+      <a href="../category/linux.html">Linux</a>
+    </li>
+    <li class="list-group-item">
+      <a href="../category/misc.html">Misc</a>
+    </li>
+    <li class="list-group-item">
+      <a href="../category/mobile.html">Mobile</a>
+    </li>
+    <li class="list-group-item">
+      <a href="../category/networking.html">Networking</a>
+    </li>
+    <li class="list-group-item">
+      <a href="../category/pictures.html">Pictures</a>
+    </li>
+    <li class="list-group-item">
+      <a href="../category/programming.html">Programming</a>
+    </li>
+    <li class="list-group-item">
+      <a href="../category/site.html">Site</a>
+    </li>
+    <li class="list-group-item">
+      <a href="../category/travel.html">Travel</a>
+    </li>
+    <li class="list-group-item">
+      <a href="../category/vim.html">VIM</a>
+    </li>
+    <li class="list-group-item">
+      <a href="../category/virt.html">Virt</a>
+    </li>
+  </ul>
+</li>
+<!-- End Sidebar/Categories -->
+
+<!-- Sidebar/Links -->
+<li class="list-group-item">
+  <h4>Links</h4>
+  <ul class="list-group" id="links">
+    <li class="list-group-item">
+      <a href="http://getpelican.com/" target="_blank">Pelican</a>
+    </li>
+    <li class="list-group-item">
+      <a href="http://python.org/" target="_blank">Python.org</a>
+    </li>
+    <li class="list-group-item">
+      <a href="http://jinja.pocoo.org/" target="_blank">Jinja2</a>
+    </li>
+  </ul>
+</li>
+<!-- End Sidebar/Links -->
+  </ul>
+</section>
+<!-- End Sidebar -->            </aside>
+        </div>
+    </div>
+</div>
+<!-- End Content Container -->
+
+<footer>
+   <div class="container">
+      <hr>
+      <div class="row">
+         <div class="col-xs-10">&copy; 2019 gfrog
+            &middot; Powered by <a href="https://github.com/getpelican/pelican-themes/tree/master/pelican-bootstrap3" target="_blank">pelican-bootstrap3</a>,
+            <a href="http://docs.getpelican.com/" target="_blank">Pelican</a>,
+            <a href="http://getbootstrap.com" target="_blank">Bootstrap</a>                <p><small>  <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh_cn"><img alt="Creative Commons License" style="border-width:0" src="//i.creativecommons.org/l/by-nc-sa/4.0/80x15.png" /></a>
+    Content
+  licensed under a <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh_cn">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>, except where indicated otherwise.
+</small></p>
+         </div>
+         <div class="col-xs-2"><p class="pull-right"><i class="fa fa-arrow-up"></i> <a href="#">Back to top</a></p></div>
+      </div>
+   </div>
+</footer>
+<script src="../theme/js/jquery.min.js"></script>
+
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="../theme/js/bootstrap.min.js"></script>
+
+<!-- Enable responsive features in IE8 with Respond.js (https://github.com/scottjehl/Respond) -->
+<script src="../theme/js/respond.min.js"></script>
+
+
+    <!-- Disqus -->
+    <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = 'gfrog'; // required: replace example with your forum shortname
+
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function () {
+            var s = document.createElement('script');
+            s.async = true;
+            s.type = 'text/javascript';
+            s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+            (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+        }());
+    </script>
+    <!-- End Disqus Code -->
+    <!-- Google Analytics -->
+    <script type="text/javascript">
+
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-769172-3']);
+        _gaq.push(['_trackPageview']);
+
+        (function () {
+            var ga = document.createElement('script');
+            ga.type = 'text/javascript';
+            ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(ga, s);
+        })();
+    </script>
+    <!-- End Google Analytics Code -->
+
+
+</body>
+</html>

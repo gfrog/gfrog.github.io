@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="zh_cn" prefix="og: http://ogp.me/ns# fb: https://www.facebook.com/2008/fbml">
+<head>
+    <title>client - My Life, My Love!</title>
+    <!-- Using the latest rendering mode for IE -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+
+
+    <meta name="author" content="gfrog" />
+    <meta name="keywords" content="client" />
+
+    <!-- Open Graph tags -->
+        <meta property="og:site_name" content="My Life, My Love!" />
+        <meta property="og:type" content="website"/>
+        <meta property="og:title" content="My Life, My Love!"/>
+        <meta property="og:url" content=".."/>
+        <meta property="og:description" content="My Life, My Love!"/>
+
+
+
+    <!-- Bootstrap -->
+        <link rel="stylesheet" href="../theme/css/bootstrap.min.css" type="text/css"/>
+    <link href="../theme/css/font-awesome.min.css" rel="stylesheet">
+
+    <link href="../theme/css/pygments/default.css" rel="stylesheet">
+    <link rel="stylesheet" href="../theme/css/style.css" type="text/css"/>
+
+        <link href="../feeds/all.atom.xml" type="application/atom+xml" rel="alternate"
+              title="My Life, My Love! ATOM Feed"/>
+
+        <link href="../feeds/all.rss.xml" type="application/rss+xml" rel="alternate"
+              title="My Life, My Love! RSS Feed"/>
+
+</head>
+<body>
+
+<div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+        <div class="navbar-header">
+            <a href="../" class="navbar-brand">
+My Life, My Love!            </a>
+        </div>
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+            <ul class="nav navbar-nav">
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+</div> <!-- /.navbar -->
+
+<!-- Banner -->
+<!-- End Banner -->
+
+<!-- Content Container -->
+<div class="container">
+    <div class="row">
+        <div class="col-sm-9">
+            <article>
+                <h2><a href="../2013/01/foward-dns-packet-with-tunnel/">我们来打洞：转发DNS包</a></h2>
+                    <div class="well well-sm">
+<footer class="post-info">
+    <span class="label label-default">Date</span>
+    <span class="published">
+        <i class="fa fa-calendar"></i><time datetime="2013-01-06T22:22:44+08:00"> Sun 06 January 2013</time>
+    </span>
+
+
+
+        <span class="label label-default">Category</span>
+        <a href="../category/linux.html">Linux</a>
+
+
+<span class="label label-default">Tags</span>
+	<a href="../tag/linux.html">linux</a>
+        /
+	<a href="../tag/desktop.html">desktop</a>
+        /
+	<a href="../tag/ssh.html">ssh</a>
+        /
+	<a href="../tag/tunnel.html">tunnel</a>
+        /
+	<a href="../tag/client.html">client</a>
+        /
+	<a href="../tag/networking.html">networking</a>
+        /
+	<a href="../tag/dns.html">dns</a>
+        /
+	<a href="../tag/shell.html">shell</a>
+    
+</footer><!-- /.post-info -->                    </div>
+                <div class="summary"><p>基于某些众所周知的原因，在天朝上网非常需要勇气和技术。
+今天在跟某人聊天时了解到Chrome竟然没办法使用proxy进行DNS查询&lt;1&gt;， 导致DNS查询结果持续被污染。
+虽然用proxychains能把一切流量塞进代理里面，
+不过用proxychains启动浏览器的话，各种自动代理插件就失效了，所以这是个得不偿失的方法。
+青蛙晚上的时候突然想到iptables是不是可以把DNS查询流量转发进ssh tunnel呢？
+上网google一番之后，发现这是可行的，而且其实用不到iptables，只要nc就够了。</p>
+<p>要用SSH Tunnel转发DNS流量，最大的问题是要把DNS协议使用的UDP协议转换为TCP协议，然后在proxy端还要转换回来。
+所以目前青蛙想到的方案有一个很大的缺陷，就是如果ssh服务器上不提供nc命令的话，下面的操作是没法完成的。</p>
+<p>首先，用SSH连接ssh服务器，这里青蛙打了一套组合拳，ssh -L + -D组合，分别负责DNS流量和普通数据流量：</p>
+<div class="highlight"><pre><span></span><span class="n">ssh</span><span class="w"> </span><span class="o">-</span><span class="n">D1080</span><span class="w"> </span><span class="o">-</span><span class="nl">L5353</span><span class="p">:</span><span class="mf">127.0.0.1</span><span class="err">:</span><span class="mi">5353</span><span class="w"> </span><span class="k">user</span><span class="nv">@ssh</span><span class="o">-</span><span class="n">server</span><span class="w"></span>
+</pre></div>
+
+
+<p>-L 参数的目的是在本地机器上打开一个5353端口，发送到这个端口的数据都会被转发到ssh服务器上的5353端口上。</p>
+<p>然后，在ssh服务器上执行：</p>
+<div class="highlight"><pre><span></span><span class="n">server$</span> <span class="n">mkfifo</span> <span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">fifo</span>
+<span class="n">server …</span></pre></div>
+                    <a class="btn btn-default btn-xs" href="../2013/01/foward-dns-packet-with-tunnel/">more ...</a>
+                </div>
+            </article>
+            <hr/>
+            <article>
+                <h2><a href="../2011/12/expand-tco-link-in-twip/">在Twip中转换t.co链接</a></h2>
+                    <div class="well well-sm">
+<footer class="post-info">
+    <span class="label label-default">Date</span>
+    <span class="published">
+        <i class="fa fa-calendar"></i><time datetime="2011-12-18T01:30:00+08:00"> Sun 18 December 2011</time>
+    </span>
+
+
+
+        <span class="label label-default">Category</span>
+        <a href="../category/programming.html">Programming</a>
+
+
+<span class="label label-default">Tags</span>
+	<a href="../tag/php.html">php</a>
+        /
+	<a href="../tag/twitter.html">twitter</a>
+        /
+	<a href="../tag/client.html">client</a>
+        /
+	<a href="../tag/patch.html">patch</a>
+        /
+	<a href="../tag/site.html">site</a>
+    
+</footer><!-- /.post-info -->                    </div>
+                <div class="summary"><p>自从Twitter强制把所有链接都转换为t.co之后，在手机上访问这些地址就成了大问题，开VPN慢，绕了一圈发现是国内地址，不开干脆访问不能。于是青蛙一直酝酿在Twip那里把短链接扩展。</p>
+<p>今天有时间，研究了一下，本来打算自己写的，但是本着不重复造轮子的态度，写之前google了一下，这不，这位同学已经写好了：
+<a href="http://hjin.me/code/727/">http://hjin.me/code/727/</a> ,
+全部修改的代码贴到了这里：
+<a href="http://pastebin.com/f4Gw0DND">http://pastebin.com/f4Gw0DND</a>
+青蛙拿过来直接扔进twip，问题解决。</p>
+<p>青蛙在这放出一个基于twip r204版本的patch吧，另外还有一个小修改的补丁，修复一些情况下的警告信息。</p>
+<p><a href="https://code.google.com/p/gfrog/downloads/detail?name=0001-twip-enable-expand-tco-link.patch&amp;can=2&amp;q=">0001-twip-enable-expand-tco-link.patch</a></p>
+<p><a href="https://code.google.com/p/gfrog/downloads/detail?name=0002-twip-fix-some-warning-msg-in-expand-tco-link-patch.patch&amp;can=2&amp;q=">0002-twip-fix-some-warning-msg-in-expand-tco-link-patch.patch</a></p>
+<p>这个修改只能解决t.co的问题，没办法解决其他被关照到的短网址服务，
+所以青蛙仍然酝酿着什么时候搞一个把所有短网址都展开的补丁。</p>
+<p>不过青蛙看php代码实在是头疼，只好下次有时间再硬着头皮读代码改吧。</p>
+                    <a class="btn btn-default btn-xs" href="../2011/12/expand-tco-link-in-twip/">more ...</a>
+                </div>
+            </article>
+            <hr/>
+            <article>
+                <h2><a href="../2011/10/procmail-kdialog-mail-notifyer/">procmail + kdialog 构建邮件提醒脚本</a></h2>
+                    <div class="well well-sm">
+<footer class="post-info">
+    <span class="label label-default">Date</span>
+    <span class="published">
+        <i class="fa fa-calendar"></i><time datetime="2011-10-09T16:47:35+08:00"> Sun 09 October 2011</time>
+    </span>
+
+
+
+        <span class="label label-default">Category</span>
+        <a href="../category/linux.html">Linux</a>
+
+
+<span class="label label-default">Tags</span>
+	<a href="../tag/linux.html">linux</a>
+        /
+	<a href="../tag/mail.html">mail</a>
+        /
+	<a href="../tag/client.html">client</a>
+        /
+	<a href="../tag/mutt.html">mutt</a>
+        /
+	<a href="../tag/configuration.html">configuration</a>
+        /
+	<a href="../tag/setup.html">setup</a>
+        /
+	<a href="../tag/desktop.html">desktop</a>
+        /
+	<a href="../tag/procmail.html">procmail</a>
+    
+</footer><!-- /.post-info -->                    </div>
+                <div class="summary"><p>Mutt真的是神器，越用越觉得爽。
+可惜命令行模式的工具都有个弊端：跟X交互能力比较弱，
+例如Mutt就木有邮件提醒功能。</p>
+<p>之前在Gnome2的年代里还有
+<a href="http://www.nongnu.org/mailnotify/">mail-notification</a>
+可以对付用（这玩意占用系统资源狂多，似乎是通过监视文件更改来提醒的），
+在Gnome3之后这个工具就完全不工作了，而且又没有后续版本。</p>
+<p>青蛙抛弃Gnome，换成KDE之后，也没有找到KDE下的邮件提醒工具，于是一直酝酿着自己写一个。</p>
+<p>实现邮件提醒功能，无非就是监控邮箱变更，可以在几个点检查：</p>
+<ul>
+<li>直接使用POP/IMAP协议检查服务器端</li>
+<li>监视MTA动作</li>
+<li>监视MDA动作</li>
+<li>监视MUA动作</li>
+<li>监视邮箱文件/目录更改</li>
+</ul>
+<p>直接访问服务器是最直接的办法，但是既然MTA都把邮件收下来了，
+再去监视服务器就有点绕腾了，这种方法监视gmail/hotmail之类的邮箱还是很不错的。</p>
+<p>监视MUA的动作，
+<a href="http://www.adam8157.info">adam8157</a>同学
+<a href="http://www.adam8157.info/blog/2010/05/mutt-filter-notify/">就是这么做的</a>，
+监视Mutt startusbar的特殊字符串，通过Mutt的filter发送notify消息。</p>
+<p>监视邮箱文件/目录变化就是
+<a href="http://www.nongnu.org/mailnotify/">mail-notification</a>
+的做法了，但是如果不想轮询的话，大概需要内核开启inotify支持。</p>
+<p>监视MTA动作，青蛙没有仔细研究，似乎还是需要MDA的某些行为处理，
+所以青蛙直接用了在MDA里加入提醒脚本的方法。</p>
+<p>监视MDA动作，就是青蛙的做法 …</p>
+                    <a class="btn btn-default btn-xs" href="../2011/10/procmail-kdialog-mail-notifyer/">more ...</a>
+                </div>
+            </article>
+            <hr/>
+            <article>
+                <h2><a href="../2010/12/install-xmind-in-fedora-with-deb-package/">Install Xmind in Fedora with deb package</a></h2>
+                    <div class="well well-sm">
+<footer class="post-info">
+    <span class="label label-default">Date</span>
+    <span class="published">
+        <i class="fa fa-calendar"></i><time datetime="2010-12-21T23:07:05+08:00"> Tue 21 December 2010</time>
+    </span>
+
+
+
+        <span class="label label-default">Category</span>
+        <a href="../category/linux.html">Linux</a>
+
+
+<span class="label label-default">Tags</span>
+	<a href="../tag/fedora.html">Fedora</a>
+        /
+	<a href="../tag/linux.html">Linux</a>
+        /
+	<a href="../tag/xmind.html">xmind</a>
+        /
+	<a href="../tag/desktop.html">desktop</a>
+        /
+	<a href="../tag/setup.html">setup</a>
+        /
+	<a href="../tag/client.html">client</a>
+    
+</footer><!-- /.post-info -->                    </div>
+                <div class="summary"><p><img alt="Install-Xmind-in-Fedora-with-deb-package" src="http://gfrog.net/wp-content/uploads/2010/12/Install-Xmind-in-Fedora-with-deb-package.jpg"></p>
+<p>原始文件地址：</p>
+<p><a href="http://www.xmind.net/share/gfrog1/install-xmind-in-fedora-with-deb-package/">http://www.xmind.net/share/gfrog1/install-xmind-in-fedora-with-deb-package/</a></p>
+                    <a class="btn btn-default btn-xs" href="../2010/12/install-xmind-in-fedora-with-deb-package/">more ...</a>
+                </div>
+            </article>
+            <hr/>
+            <article>
+                <h2><a href="../2010/08/install-openvpn-on-moto-milestone/">在Milestone上安装openvpn</a></h2>
+                    <div class="well well-sm">
+<footer class="post-info">
+    <span class="label label-default">Date</span>
+    <span class="published">
+        <i class="fa fa-calendar"></i><time datetime="2010-08-18T11:20:04+08:00"> Wed 18 August 2010</time>
+    </span>
+
+
+
+        <span class="label label-default">Category</span>
+        <a href="../category/mobile.html">Mobile</a>
+
+
+<span class="label label-default">Tags</span>
+	<a href="../tag/android.html">android</a>
+        /
+	<a href="../tag/vpn.html">vpn</a>
+        /
+	<a href="../tag/mobile.html">mobile</a>
+        /
+	<a href="../tag/openvpn.html">openvpn</a>
+        /
+	<a href="../tag/client.html">client</a>
+        /
+	<a href="../tag/setup.html">setup</a>
+    
+</footer><!-- /.post-info -->                    </div>
+                <div class="summary"><p><em>青蛙注：恨死ScribeFire，青蛙这篇日志写了一上午，
+结果马上要写完了，浏览器崩溃。杯具就是这么产生的。</em></p>
+<p><em>重写的话，就不啰嗦了，直接写主要的。</em></p>
+<p>青蛙目前使用的是机锋
+<a href="http://bbs.gfan.com/space-uid-41092.html">fancies</a>
+大大制作的PLUS9 FINAL系统，可能其他的系统会有所区别，安装的时候需要注意。
+假设milestone已经获得了root，已经安装好了busybox，并且系统里已经带有tun.ko。</p>
+<p>首先，要
+<a href="http://github.com/downloads/fries/android-external-openvpn/openvpn-static-2.1.1.bz2">下载一个openvpn</a>
+，解压并上传到手机上，
+青蛙偏好使用adb push，这样不需要来回切换存储卡，插上usb就可以用。</p>
+<p><code>sudo adb push openvpn-static-2.1.1 /sdcard/openvpn</code></p>
+<p>使用<code>sudo adb shell</code>命令连到手机的shell，注意以下命令都需要root权限。</p>
+<p>因为/system 是只读的，需要先挂载成可写的模式：</p>
+<p><code># mount -o remount,rw -t …</code></p>
+                    <a class="btn btn-default btn-xs" href="../2010/08/install-openvpn-on-moto-milestone/">more ...</a>
+                </div>
+            </article>
+            <hr/>
+            <article>
+                <h2><a href="../2010/08/gfrog-tips-3/">一堆小Tips （3）</a></h2>
+                    <div class="well well-sm">
+<footer class="post-info">
+    <span class="label label-default">Date</span>
+    <span class="published">
+        <i class="fa fa-calendar"></i><time datetime="2010-08-10T12:07:11+08:00"> Tue 10 August 2010</time>
+    </span>
+
+
+
+        <span class="label label-default">Category</span>
+        <a href="../category/linux.html">Linux</a>
+
+
+<span class="label label-default">Tags</span>
+	<a href="../tag/linux.html">Linux</a>
+        /
+	<a href="../tag/ssh.html">ssh</a>
+        /
+	<a href="../tag/client.html">client</a>
+        /
+	<a href="../tag/shell.html">shell</a>
+        /
+	<a href="../tag/networking.html">networking</a>
+    
+</footer><!-- /.post-info -->                    </div>
+                <div class="summary"><p>今天继续关于ssh的话题。</p>
+<p>青蛙本来想把今天这个主题放在昨天一起讲的，但是这两个Tip的关联不大，最后决定还是分开说。</p>
+<p>在平时上网过程中，有可能遇到某个服务器（我们叫他S）无法访问的问题。</p>
+<p>但是如果另外一台主机（叫做P）可以访问到S，并且我们还有P上面的ssh权限，那就可以把P当作跳板，直接访问到S。</p>
+<p>假设要访问S上面的http（80）服务，那就执行如下命令：</p>
+<div class="highlight"><pre><span></span><span class="n">ssh</span><span class="w"> </span><span class="k">user</span><span class="nv">@P的地址</span><span class="w"> </span><span class="o">-</span><span class="n">L</span><span class="w"> </span><span class="mi">8080</span><span class="err">:</span><span class="nl">S的地址</span><span class="p">:</span><span class="mi">80</span><span class="w"></span>
+</pre></div>
+
+
+<p>这个命令会在本地打开8080端口，将连接转发到S的80端口上，这样就达到了从本地直接访问S的目的。</p>
+<p>事实上ssh的-L参数主要是用来建立一条客户端到服务器之间的安全隧道，以便安全的传输数据。</p>
+                    <a class="btn btn-default btn-xs" href="../2010/08/gfrog-tips-3/">more ...</a>
+                </div>
+            </article>
+            <hr/>
+            <article>
+                <h2><a href="../2009/11/test-from-scribefire/">测试ScribeFire</a></h2>
+                    <div class="well well-sm">
+<footer class="post-info">
+    <span class="label label-default">Date</span>
+    <span class="published">
+        <i class="fa fa-calendar"></i><time datetime="2009-11-30T15:25:50+08:00"> Mon 30 November 2009</time>
+    </span>
+
+
+
+        <span class="label label-default">Category</span>
+        <a href="../category/site.html">Site</a>
+
+
+<span class="label label-default">Tags</span>
+	<a href="../tag/blog.html">blog</a>
+        /
+	<a href="../tag/site.html">site</a>
+        /
+	<a href="../tag/wordpress.html">wordpress</a>
+        /
+	<a href="../tag/client.html">client</a>
+        /
+	<a href="../tag/browser.html">browser</a>
+    
+</footer><!-- /.post-info -->                    </div>
+                <div class="summary"><p>选来选去，Linux下最靠谱的blog客户端还是ScribeFire，
+其他的不是没有所见即所得的编辑方式，就是经常crash，
+或者就是很久很久不更新。</p>
+<p>青蛙以前试用过ScribeFire，这次再装上，
+发现这个小东东的可用性明显增强了，很好很强大啊。
+除了没有windows live writer那么多的插件，其他都很完美。
+借着这样顺手的工具，青蛙正在慢慢恢复blog的状态。：P</p>
+<p><strong>update:</strong></p>
+<p>发表这篇日志的时候，青蛙发现ScribeFire竟然可以直接编辑slug，那么青蛙在
+<a href="https://www.gfrog.net/2009/11/test-blogging-from-blackberry/">上一篇日志</a>
+里说到的在标题栏里些slug的问题也不存在了，ScribeFire真好。</p>
+<p><img alt="1" src="http://img.zemanta.com/pixy.gif?x-id=8e7934b7-e28d-8a36-9b30-c2199958536f"></p>
+                    <a class="btn btn-default btn-xs" href="../2009/11/test-from-scribefire/">more ...</a>
+                </div>
+            </article>
+            <hr/>
+
+        <ul class="pagination">
+                <li class="prev disabled"><a href="#">&laquo;</a></li>
+                    <li class="active"><a
+                            href="../tag/client.html">1</a></li>
+                    <li class=""><a
+                            href="../tag/client2.html">2</a></li>
+                <li class="next"><a
+                        href="../tag/client2.html">&raquo;</a></li>
+        </ul>
+        </div>
+        <div class="col-sm-3" id="sidebar">
+            <aside>
+<!-- Sidebar -->
+<section class="well well-sm">
+  <ul class="list-group list-group-flush">
+
+<!-- Sidebar/Social -->
+<li class="list-group-item">
+  <h4>Social</h4>
+  <ul class="list-group" id="social">
+    <li class="list-group-item"><a href="https://twitter.com/gfrog"><i class="fa fa-twitter-square fa-lg"></i> Twitter</a></li>
+    <li class="list-group-item"><a href="/pages/tweets-archive.html"><i class="fa fa-tweets-archive-square fa-lg"></i> Tweets Archive</a></li>
+    <li class="list-group-item"><a href="/pages/instagram-archive.html"><i class="fa fa-instagram-archive-square fa-lg"></i> Instagram Archive</a></li>
+  </ul>
+</li>
+<!-- End Sidebar/Social -->
+
+<!-- Sidebar/Categories -->
+<li class="list-group-item">
+  <h4>Categories</h4>
+  <ul class="list-group" id="categories">
+    <li class="list-group-item">
+      <a href="../category/cyclone.html">Cyclone</a>
+    </li>
+    <li class="list-group-item">
+      <a href="../category/instagram.html">Instagram</a>
+    </li>
+    <li class="list-group-item">
+      <a href="../category/linux.html">Linux</a>
+    </li>
+    <li class="list-group-item">
+      <a href="../category/misc.html">Misc</a>
+    </li>
+    <li class="list-group-item">
+      <a href="../category/mobile.html">Mobile</a>
+    </li>
+    <li class="list-group-item">
+      <a href="../category/networking.html">Networking</a>
+    </li>
+    <li class="list-group-item">
+      <a href="../category/pictures.html">Pictures</a>
+    </li>
+    <li class="list-group-item">
+      <a href="../category/programming.html">Programming</a>
+    </li>
+    <li class="list-group-item">
+      <a href="../category/site.html">Site</a>
+    </li>
+    <li class="list-group-item">
+      <a href="../category/travel.html">Travel</a>
+    </li>
+    <li class="list-group-item">
+      <a href="../category/vim.html">VIM</a>
+    </li>
+    <li class="list-group-item">
+      <a href="../category/virt.html">Virt</a>
+    </li>
+  </ul>
+</li>
+<!-- End Sidebar/Categories -->
+
+<!-- Sidebar/Links -->
+<li class="list-group-item">
+  <h4>Links</h4>
+  <ul class="list-group" id="links">
+    <li class="list-group-item">
+      <a href="http://getpelican.com/" target="_blank">Pelican</a>
+    </li>
+    <li class="list-group-item">
+      <a href="http://python.org/" target="_blank">Python.org</a>
+    </li>
+    <li class="list-group-item">
+      <a href="http://jinja.pocoo.org/" target="_blank">Jinja2</a>
+    </li>
+  </ul>
+</li>
+<!-- End Sidebar/Links -->
+  </ul>
+</section>
+<!-- End Sidebar -->            </aside>
+        </div>
+    </div>
+</div>
+<!-- End Content Container -->
+
+<footer>
+   <div class="container">
+      <hr>
+      <div class="row">
+         <div class="col-xs-10">&copy; 2013 gfrog
+            &middot; Powered by <a href="https://github.com/getpelican/pelican-themes/tree/master/pelican-bootstrap3" target="_blank">pelican-bootstrap3</a>,
+            <a href="http://docs.getpelican.com/" target="_blank">Pelican</a>,
+            <a href="http://getbootstrap.com" target="_blank">Bootstrap</a>                <p><small>  <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh_cn"><img alt="Creative Commons License" style="border-width:0" src="//i.creativecommons.org/l/by-nc-sa/4.0/80x15.png" /></a>
+    Content
+  licensed under a <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh_cn">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>, except where indicated otherwise.
+</small></p>
+         </div>
+         <div class="col-xs-2"><p class="pull-right"><i class="fa fa-arrow-up"></i> <a href="#">Back to top</a></p></div>
+      </div>
+   </div>
+</footer>
+<script src="../theme/js/jquery.min.js"></script>
+
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="../theme/js/bootstrap.min.js"></script>
+
+<!-- Enable responsive features in IE8 with Respond.js (https://github.com/scottjehl/Respond) -->
+<script src="../theme/js/respond.min.js"></script>
+
+
+    <!-- Disqus -->
+    <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = 'gfrog'; // required: replace example with your forum shortname
+
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function () {
+            var s = document.createElement('script');
+            s.async = true;
+            s.type = 'text/javascript';
+            s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+            (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+        }());
+    </script>
+    <!-- End Disqus Code -->
+    <!-- Google Analytics -->
+    <script type="text/javascript">
+
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-769172-3']);
+        _gaq.push(['_trackPageview']);
+
+        (function () {
+            var ga = document.createElement('script');
+            ga.type = 'text/javascript';
+            ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(ga, s);
+        })();
+    </script>
+    <!-- End Google Analytics Code -->
+
+
+</body>
+</html>

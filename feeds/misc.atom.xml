@@ -1,0 +1,1774 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>My Life, My Love! - Misc</title><link href="https://www.gfrog.net/" rel="alternate"></link><link href="https://www.gfrog.net/feeds/misc.atom.xml" rel="self"></link><id>https://www.gfrog.net/</id><updated>2019-07-03T01:08:39+08:00</updated><subtitle>指点江山 激昂文字 修身隆德 自然自我</subtitle><entry><title>本站重新恢复</title><link href="https://www.gfrog.net/2019/07/this-blog-recovered-on-github/" rel="alternate"></link><published>2019-07-03T01:08:39+08:00</published><updated>2019-07-03T01:08:39+08:00</updated><author><name>gfrog</name></author><id>tag:www.gfrog.net,2019-07-03:/2019/07/this-blog-recovered-on-github/</id><summary type="html">&lt;p&gt;&lt;img src="https://cdn.mos.cms.futurecdn.net/1e01a79c2d42ec9f16e6ffbc512e5423-650-80.jpg" width="300"&gt;&lt;/p&gt;
+&lt;p&gt;目前本站已经在github上恢复，从2007-2013年的数据大部分已经可以访问。&lt;/p&gt;
+&lt;p&gt;从上海出差回来之后，青蛙突然有了把blog恢复的动力。
+努力了三天，重新使用pelican构建了blog，
+然后review了一遍之前的post，修复了一大堆错误。&lt;/p&gt;
+&lt;p&gt;回顾当年的老文章，感慨良多。当年青蛙也是个爱学习的好孩子，
+同时不禁感叹这些年真的没有神马进步。&lt;/p&gt;
+&lt;p&gt;重新开站，不对自己做硬性指标了，希望能认真写/记录点啥。&lt;/p&gt;
+&lt;p&gt;本站域名：&lt;/p&gt;
+&lt;h2&gt;&lt;a href="https://www.gfrog.net/"&gt;https://www.gfrog.net/&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;源码：&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://github.com/gfrog/gfrog.github.io"&gt;https://github.com/gfrog/gfrog.github.io&lt;/a&gt;&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;img src="https://cdn.mos.cms.futurecdn.net/1e01a79c2d42ec9f16e6ffbc512e5423-650-80.jpg" width="300"&gt;&lt;/p&gt;
+&lt;p&gt;目前本站已经在github上恢复，从2007-2013年的数据大部分已经可以访问。&lt;/p&gt;
+&lt;p&gt;从上海出差回来之后，青蛙突然有了把blog恢复的动力。
+努力了三天，重新使用pelican构建了blog，
+然后review了一遍之前的post，修复了一大堆错误。&lt;/p&gt;
+&lt;p&gt;回顾当年的老文章，感慨良多。当年青蛙也是个爱学习的好孩子，
+同时不禁感叹这些年真的没有神马进步。&lt;/p&gt;
+&lt;p&gt;重新开站，不对自己做硬性指标了，希望能认真写/记录点啥。&lt;/p&gt;
+&lt;p&gt;本站域名：&lt;/p&gt;
+&lt;h2&gt;&lt;a href="https://www.gfrog.net/"&gt;https://www.gfrog.net/&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;源码：&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://github.com/gfrog/gfrog.github.io"&gt;https://github.com/gfrog/gfrog.github.io&lt;/a&gt;&lt;/p&gt;</content><category term="site"></category><category term="github"></category><category term="pelican"></category></entry><entry><title>2013年终总结及2014年新年目标</title><link href="https://www.gfrog.net/2013/12/2013-summary-and-2014-outlook/" rel="alternate"></link><published>2013-12-31T21:14:10+08:00</published><updated>2013-12-31T21:14:10+08:00</updated><author><name>gfrog</name></author><id>tag:www.gfrog.net,2013-12-31:/2013/12/2013-summary-and-2014-outlook/</id><summary type="html">&lt;p&gt;辞旧迎新，又是一年年终总结和新年展望的时候。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;首先，工作。&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;今年青蛙完成了来北京三年之后的第一个转折：换工作。
+虽然这次换工作是在年度计划之中的，但是确实是在原来公司的团队里发现了问题，以至于不得不提前离开。&lt;/p&gt;
+&lt;p&gt;（也是由于拖延症的关系，一直到年底，换工作的blog也没有写完，只好在这里简单写一下对前公司的感想了）
+青蛙的前东家，也就是Red Hat，实际上是一家非常不错的公司。青蛙刚刚进去的时候，体会到的是宽松活泼又快速的工作方式。
+在这种工作环境里，工作本身就是件很有意思的事情。
+首先，在每个人保证自觉性的前提下，老板们基本不会过多的过问进度方面的问题，
+只要能完成任务，剩下的时间可以随意安排。于是青蛙自己就有了很多学习和研究的时间。&lt;/p&gt;
+&lt;p&gt;但是，随着老员工的离去和新鲜血液的加入，这种工作氛围慢慢的没有了。
+青蛙最常听到的抱怨就是任务太重以至于不得不加班…… 大概是太多华为来的家伙把加班文化带到了这里？
+一个工资不到华为三分之一，每天还要加班到8-9点钟的公司，实在不能说是一个好选择。
+于是很多人离开也完全可以理解。&lt;/p&gt;
+&lt;p&gt;在这种环境下，青蛙开始慢慢的跟找上门的猎头接触，并且参加了一些面试。
+但是出去看过了才发现自身很多的不足，例如基本功不扎实，编码能力不足……
+然后回过头来再看看身边的同事，每天都为一些鸡毛蒜皮的小事情扯来扯去，
+完全没有值得自己学习借鉴的地方。于是青蛙下定决心，一定要在工作满三年之前离开。&lt;/p&gt;
+&lt;p&gt;然后在&lt;a href="http://weibo.com/ubuntumotu"&gt;侯总&lt;/a&gt;的帮助和引荐下 …&lt;/p&gt;</summary><content type="html">&lt;p&gt;辞旧迎新，又是一年年终总结和新年展望的时候。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;首先，工作。&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;今年青蛙完成了来北京三年之后的第一个转折：换工作。
+虽然这次换工作是在年度计划之中的，但是确实是在原来公司的团队里发现了问题，以至于不得不提前离开。&lt;/p&gt;
+&lt;p&gt;（也是由于拖延症的关系，一直到年底，换工作的blog也没有写完，只好在这里简单写一下对前公司的感想了）
+青蛙的前东家，也就是Red Hat，实际上是一家非常不错的公司。青蛙刚刚进去的时候，体会到的是宽松活泼又快速的工作方式。
+在这种工作环境里，工作本身就是件很有意思的事情。
+首先，在每个人保证自觉性的前提下，老板们基本不会过多的过问进度方面的问题，
+只要能完成任务，剩下的时间可以随意安排。于是青蛙自己就有了很多学习和研究的时间。&lt;/p&gt;
+&lt;p&gt;但是，随着老员工的离去和新鲜血液的加入，这种工作氛围慢慢的没有了。
+青蛙最常听到的抱怨就是任务太重以至于不得不加班…… 大概是太多华为来的家伙把加班文化带到了这里？
+一个工资不到华为三分之一，每天还要加班到8-9点钟的公司，实在不能说是一个好选择。
+于是很多人离开也完全可以理解。&lt;/p&gt;
+&lt;p&gt;在这种环境下，青蛙开始慢慢的跟找上门的猎头接触，并且参加了一些面试。
+但是出去看过了才发现自身很多的不足，例如基本功不扎实，编码能力不足……
+然后回过头来再看看身边的同事，每天都为一些鸡毛蒜皮的小事情扯来扯去，
+完全没有值得自己学习借鉴的地方。于是青蛙下定决心，一定要在工作满三年之前离开。&lt;/p&gt;
+&lt;p&gt;然后在&lt;a href="http://weibo.com/ubuntumotu"&gt;侯总&lt;/a&gt;的帮助和引荐下，青蛙有幸加入了Canonical大家庭。
+虽然比起Red Hat，Canonical只是一家小公司，但是这家公司的文化更接近几年前的Red Hat。
+另外这家公司里前帽帽员工竟然出奇的多，青蛙的老板，老板的老板，老板的老板的老板，都是前帽帽员工……
+其实也难怪，做Linux的公司实际上就那么几家而已。&lt;/p&gt;
+&lt;p&gt;新的工作基本跟编码彻底不贴边，于是青蛙感觉这辈子可能基本就告别码农身份了。
+当然，业余时间如果能做些Python的项目最好，但是，拖延症患者一般只会把这种想法放在脑子里想想而已……&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;其次，生活。&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;上半年青蛙基本还是延续了2012年疯狂运动的状态。从春天开始就一直在骑车。
+但是夏天的时候不幸病倒了，然后就突然从骑车运动变成了四处旅游。&lt;/p&gt;
+&lt;p&gt;首先是北京周边的几个地方：
+&lt;a href="http://gfrog.net/2013/07/outing-jiming-dak-in-hebei/"&gt;鸡鸣驿&lt;/a&gt;，
+土木堡（游记整理中……）。
+然后就一发而不可收拾，青蛙从九月到十二月，几乎月月都跑出去玩儿：
+青岛（游记整理中……），
+杭州（游记整理中……），
+天津塘沽（游记整理中……），
+张家口（游记整理中……），
+厦门（游记整理中……）&lt;/p&gt;
+&lt;p&gt;难道这就是传说中的读万卷书，行万里路？ 读万卷书在这个快节奏的时代比较难，但是行万里路现在真是太简单了。
+2014，青蛙应该继续行走在路上。&lt;/p&gt;
+&lt;p&gt;当然，自从发现老爹老妈还是很喜欢我常回家看看之后，青蛙只要有比较长的假期都会跑回家待几天。
+但是在家好吃懒做也引起了老妈的反感。 2014，除了常回家看看，还有多帮老娘做做家务。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;第三，学习。&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;因为去年下半年一直处于学习状态，所以今年上半年青蛙也一直在努力奋进的状态：努力看书，努力背单词。
+但是拖延症患者要保持一个长久的学习状态非常难，于是从不知道什么时候起，背单词和看书的事情就被荒废了……&lt;/p&gt;
+&lt;p&gt;换了新工作之后，因为接触的都是全新的东西，所以学习的重点都放在新的业务系统上了。
+但是青蛙也在工作中发现，很多基础的Linux知识依然不清楚，继续啃RHCA还是很有必要的。&lt;/p&gt;
+&lt;p&gt;另外一方面，因为老板和同事全都是外国人，口语和听力成了青蛙必须尽快解决的大问题。
+目前听比较标准的英音的话，青蛙大概能听懂一多半，但是稍有口音就完全听不懂了。
+解决的方法似乎只有一个：多听，玩命的听。
+口语的话，发音是个大问题，然后就是词不达意。当然也没别的途径好解决，只有多说。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;第四，折腾。&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;NAS? （笔记整理中……）&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;2013总结&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;整体上来说，2013年计划完成度就是四个字来形容：啥也没干！ 总之今年过的有点混乱。&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;学习，P1，完成RHCA/CCIE认证中的一个。&lt;ul&gt;
+&lt;li&gt;未完成，青蛙试图参加RHCA的培训和考试，但是被Boss无情的拒绝。
+  只好自己先慢慢看了……
+  然后青蛙又报了CCIE-SP的培训，但是因为换工作的原因没有完成培训。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;学习，P1，雅思7分。&lt;ul&gt;
+&lt;li&gt;买了雅思单词书和真题，但是目前雅思单词完成度只有三分之一。
+  但是背单词已经有些效果了，看美剧一些单词可以直接听出来了，lol&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;学习，P2，尽可能多的阅读其他项目的Python代码，例如VDSM。&lt;ul&gt;
+&lt;li&gt;随着换工作也一并搁置。不过目前还是有Python项目可读，例如Openstack。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;学习，P2，Debug Hacks，读完、理解这本书。&lt;ul&gt;
+&lt;li&gt;完成度三分之一，拖延症……&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;学习，P2，Facebook上Cisco学院会经常帖一些实际的项目或者实验拓扑，虽然有些可能只是CCNA Level，但是拿来每天练手很不错。&lt;ul&gt;
+&lt;li&gt;未进行，开始实施的时候发现实际上并没有时间做这个事情，单词学习和代码阅读竟然把空闲时间挤满了。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;编码，P1，完成目前手头准备给Autotest upstream的代码，旧的这几个patch没有处理完成之前，不要再做新的了，免得一无所成。&lt;ul&gt;
+&lt;li&gt;最后的结果是离职前所有手头的patch全部被放弃，很可惜。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;编码，P1，pdf剪裁工具，目前看来是非常需要的。即使以后不在Kindle上看pdf了，给iPad/iPhone用也是相当不错的，目前有些很多白边的pdf看起来非常不舒服。&lt;ul&gt;
+&lt;li&gt;今年接触pdf不多，于是这个软件也处于停滞状态。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;编码，P2，IRC bot继续增强。这个似乎可以发掘下有没有人对这个也感兴趣，一起来做了。&lt;ul&gt;
+&lt;li&gt;在离职之前一直维护中，可以查询很多工作系统的信息了。到新公司之后，放弃……&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;采购，P1，四轮。&lt;ul&gt;
+&lt;li&gt;赶在2013年的最后一天，也就是12月31号，去交了钱准备提车。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;采购，P2，公路车。&lt;ul&gt;
+&lt;li&gt;2013 春季促销的时候海淘了一辆Focus。骑过公路之后青蛙才发现公路真的是青蛙想要的那种车。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;采购，P3，MBA，万一没本子用了，就买MBA吧。&lt;ul&gt;
+&lt;li&gt;虽然到新公司之后自己买了本子，但是考虑到工作需要还是买的Thinkpad。
+  但是青蛙在酝酿再买台MacOS的系统自用，等2014年实现吧。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;生活，P1，坚持写Blog，至少每周1篇。 （&lt;strong&gt;Update 2012-12-31 21:16:00&lt;/strong&gt;）&lt;ul&gt;
+&lt;li&gt;拖延症导致很多blog开了个头但是没完成。目前手头积压10+篇，青蛙要补欠帐喽。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;strong&gt;2014展望&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;新的工作，意味着新的开始和新的挑战。所以明年应该是忙碌又充满变数的一年。&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;学习，P1，完成CCIE认证。2014年青蛙的CCIE认证需要重认证了，这样刚好可以参加一个新的笔试。&lt;/li&gt;
+&lt;li&gt;学习，P1，雅思7分。这个会英语包打天下的年代，必须尽快增强英语能力才行。&lt;/li&gt;
+&lt;li&gt;学习，P1，阅读Openstack代码。&lt;/li&gt;
+&lt;li&gt;学习，P2，INE的CCIE DC视频，了解Cisco DC解决方案。&lt;/li&gt;
+&lt;li&gt;采购，P1，MacOS系统的电脑， rMBP？ Mac mini？&lt;/li&gt;
+&lt;li&gt;采购，P2，新的相机，Nex6？&lt;/li&gt;
+&lt;li&gt;生活，P1，跟之前的同事朋友保持联络，每月聚会？&lt;/li&gt;
+&lt;li&gt;生活，P1，坚持写Blog，至少每周1篇。&lt;/li&gt;
+&lt;li&gt;生活，P2，继续出行，争取走遍全国各省。&lt;/li&gt;
+&lt;/ol&gt;</content><category term="update"></category><category term="status"></category><category term="summary"></category><category term="outlook"></category></entry><entry><title>新年第一天，折腾一下各种装备</title><link href="https://www.gfrog.net/2013/01/fix-some-device-in-first-day-of-2013/" rel="alternate"></link><published>2013-01-01T16:36:49+08:00</published><updated>2013-01-01T16:36:49+08:00</updated><author><name>gfrog</name></author><id>tag:www.gfrog.net,2013-01-01:/2013/01/fix-some-device-in-first-day-of-2013/</id><summary type="html">&lt;p&gt;放假在家，闲来无事，青蛙把之前一直想拆开看看的几个东西动手拆了。&lt;/p&gt;
+&lt;p&gt;第一个是前不久买的WD 3.5寸移动硬盘。拆开之后，果然是绿盘。&lt;/p&gt;
+&lt;p&gt;&lt;img alt="1" src="https://lh4.googleusercontent.com/-raoAVkfZWJc/UOPIrd8DNWI/AAAAAAAAI5k/it5DN87rnyA/s640/48E8E866-D748-4AD9-B520-CD5FA1411C45.JPG"&gt;&lt;/p&gt;
+&lt;p&gt;反面，右下角是移动硬盘的控制器。&lt;/p&gt;
+&lt;p&gt;&lt;img alt="2" src="https://lh4.googleusercontent.com/-QDKZ6A4ZlUo/UOPIrbW_IQI/AAAAAAAAI5o/iyhD_P70S0Q/s640/58125AC9-74EA-4CDE-8DB8-C9FBCAAFB104.JPG"&gt;&lt;/p&gt;
+&lt;p&gt;靠近点瞧瞧，给主控芯片来个特写，这是不知道啥来历？&lt;/p&gt;
+&lt;p&gt;&lt;img alt="3" src="https://lh4.googleusercontent.com/-V790c6U0K5Y/UOPIrQ37t7I/AAAAAAAAI5s/7eaZatTYOHU/s640/ECA06D8B-A915-4403-AE33-8140129AFE4F.JPG"&gt;&lt;/p&gt;
+&lt;p&gt;拆开的时候过于暴力，而且方法不对头，卡子掰坏了。&lt;/p&gt;
+&lt;p&gt;&lt;img alt="4" src="https://lh5.googleusercontent.com/-6ghr12G0Oqg/UOPIra-gwEI/AAAAAAAAI5g/bGsdrcr38hY/s640/A67F4F40-810B-4E09-81D2-F512E50F846C.JPG"&gt;&lt;/p&gt;
+&lt;p&gt;虽然这个小东西外壳挺烂的，不过四个角的橡胶垫设计的还不错，充分减少硬盘的震动。&lt;/p&gt;
+&lt;p&gt;&lt;img alt="5" src="https://lh3.googleusercontent.com/-PjJPovB6zo8/UOPIrZBCFPI/AAAAAAAAI5w/pzpg6Dfyw0E/s640/F8857602-EB9E-4402-984C-63925269D878.JPG"&gt;&lt;/p&gt;
+&lt;p&gt;这次拆解这块硬盘的目的主要是看下这个小盒子的内部空间够不够放进一块儿Raspberry Pi，
+结果很让人失望，虽然硬盘边上有一定的空间，不过还是不够放下树莓派的。
+看来在移动硬盘里做些什么的想法是没法实现了，只能在外面挂个盒子。&lt;/p&gt;</summary><content type="html">&lt;p&gt;放假在家，闲来无事，青蛙把之前一直想拆开看看的几个东西动手拆了。&lt;/p&gt;
+&lt;p&gt;第一个是前不久买的WD 3.5寸移动硬盘。拆开之后，果然是绿盘。&lt;/p&gt;
+&lt;p&gt;&lt;img alt="1" src="https://lh4.googleusercontent.com/-raoAVkfZWJc/UOPIrd8DNWI/AAAAAAAAI5k/it5DN87rnyA/s640/48E8E866-D748-4AD9-B520-CD5FA1411C45.JPG"&gt;&lt;/p&gt;
+&lt;p&gt;反面，右下角是移动硬盘的控制器。&lt;/p&gt;
+&lt;p&gt;&lt;img alt="2" src="https://lh4.googleusercontent.com/-QDKZ6A4ZlUo/UOPIrbW_IQI/AAAAAAAAI5o/iyhD_P70S0Q/s640/58125AC9-74EA-4CDE-8DB8-C9FBCAAFB104.JPG"&gt;&lt;/p&gt;
+&lt;p&gt;靠近点瞧瞧，给主控芯片来个特写，这是不知道啥来历？&lt;/p&gt;
+&lt;p&gt;&lt;img alt="3" src="https://lh4.googleusercontent.com/-V790c6U0K5Y/UOPIrQ37t7I/AAAAAAAAI5s/7eaZatTYOHU/s640/ECA06D8B-A915-4403-AE33-8140129AFE4F.JPG"&gt;&lt;/p&gt;
+&lt;p&gt;拆开的时候过于暴力，而且方法不对头，卡子掰坏了。&lt;/p&gt;
+&lt;p&gt;&lt;img alt="4" src="https://lh5.googleusercontent.com/-6ghr12G0Oqg/UOPIra-gwEI/AAAAAAAAI5g/bGsdrcr38hY/s640/A67F4F40-810B-4E09-81D2-F512E50F846C.JPG"&gt;&lt;/p&gt;
+&lt;p&gt;虽然这个小东西外壳挺烂的，不过四个角的橡胶垫设计的还不错，充分减少硬盘的震动。&lt;/p&gt;
+&lt;p&gt;&lt;img alt="5" src="https://lh3.googleusercontent.com/-PjJPovB6zo8/UOPIrZBCFPI/AAAAAAAAI5w/pzpg6Dfyw0E/s640/F8857602-EB9E-4402-984C-63925269D878.JPG"&gt;&lt;/p&gt;
+&lt;p&gt;这次拆解这块硬盘的目的主要是看下这个小盒子的内部空间够不够放进一块儿Raspberry Pi，
+结果很让人失望，虽然硬盘边上有一定的空间，不过还是不够放下树莓派的。
+看来在移动硬盘里做些什么的想法是没法实现了，只能在外面挂个盒子。&lt;/p&gt;</content><category term="diy"></category><category term="fix"></category><category term="device"></category><category term="pictures"></category></entry><entry><title>2012年终总结及2013年新年目标</title><link href="https://www.gfrog.net/2012/12/2012-summary-and-2013-outlook/" rel="alternate"></link><published>2012-12-31T21:14:10+08:00</published><updated>2012-12-31T21:14:10+08:00</updated><author><name>gfrog</name></author><id>tag:www.gfrog.net,2012-12-31:/2012/12/2012-summary-and-2013-outlook/</id><summary type="html">&lt;p&gt;又到一年岁末时，再来总结一下今年的历程吧。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;首先，工作。&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;上半年基本就是在浑浑噩噩中度过了，在&lt;a href="/2012/08/2012-mid-year-summary/"&gt;年中总结&lt;/a&gt;
+里面提到过，感觉上半年一直就是混过来的。
+本来准备在上半年搞定CCIE的考试，结果拖延症爆发，一直拖到了年底才完成。
+万一年底这次过不了，那么明年的计划肯定要完全耽误了。&lt;/p&gt;
+&lt;p&gt;下半年呢，5月下旬到6月初的时候青蛙一直忙于找房子，所以从5月开始就就没有全力投入工作中。
+再加上下半年筹备CCIE考试，导致投入工作中的精力大幅度减少。
+于是很多应该在今年完成的工作目标都没有达成。
+并且精力少了，追踪最新的Qemu/Kernel代码的时间就少了很多，
+导致今年底对于Qemu-kvm的了解反倒没有年初多。&lt;/p&gt;
+&lt;p&gt;Python呢，九月份左右的时候青蛙试图使用OO的方式重构一部分代码，但是反响似乎不太好。
+现在回头再读那些代码，可读性确实不太高。
+明年，青蛙需要着重加强编码质量和代码可用性。
+2012年的代码量也因为考试被拖下来很多，2011年的时候几乎每天都有新patch，
+今年只是断断续续的修复一些问题。很少有增加新功能的patch。
+看来学习新东西真的是一件很耽误时间的事情啊。&lt;/p&gt;
+&lt;p&gt;今年的工作方式也因为考试耽误了不少，之前青蛙给自己制定了每日工作内容，
+今年这个工作内容彻底被打乱了。
+虽然12月考完试之后青蛙正努力恢复每日工作内容，但是因为每天的效率不高，所以收效不大。&lt;/p&gt;
+&lt;p&gt;今年秋天有幸人生中的第一次升了Title，虽然看起来没啥，不过毕竟工作了5年，
+才换来这么个Title，看来之前青蛙确实挺失败的。没办法，唯有继续努力。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;其次 …&lt;/strong&gt;&lt;/p&gt;</summary><content type="html">&lt;p&gt;又到一年岁末时，再来总结一下今年的历程吧。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;首先，工作。&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;上半年基本就是在浑浑噩噩中度过了，在&lt;a href="/2012/08/2012-mid-year-summary/"&gt;年中总结&lt;/a&gt;
+里面提到过，感觉上半年一直就是混过来的。
+本来准备在上半年搞定CCIE的考试，结果拖延症爆发，一直拖到了年底才完成。
+万一年底这次过不了，那么明年的计划肯定要完全耽误了。&lt;/p&gt;
+&lt;p&gt;下半年呢，5月下旬到6月初的时候青蛙一直忙于找房子，所以从5月开始就就没有全力投入工作中。
+再加上下半年筹备CCIE考试，导致投入工作中的精力大幅度减少。
+于是很多应该在今年完成的工作目标都没有达成。
+并且精力少了，追踪最新的Qemu/Kernel代码的时间就少了很多，
+导致今年底对于Qemu-kvm的了解反倒没有年初多。&lt;/p&gt;
+&lt;p&gt;Python呢，九月份左右的时候青蛙试图使用OO的方式重构一部分代码，但是反响似乎不太好。
+现在回头再读那些代码，可读性确实不太高。
+明年，青蛙需要着重加强编码质量和代码可用性。
+2012年的代码量也因为考试被拖下来很多，2011年的时候几乎每天都有新patch，
+今年只是断断续续的修复一些问题。很少有增加新功能的patch。
+看来学习新东西真的是一件很耽误时间的事情啊。&lt;/p&gt;
+&lt;p&gt;今年的工作方式也因为考试耽误了不少，之前青蛙给自己制定了每日工作内容，
+今年这个工作内容彻底被打乱了。
+虽然12月考完试之后青蛙正努力恢复每日工作内容，但是因为每天的效率不高，所以收效不大。&lt;/p&gt;
+&lt;p&gt;今年秋天有幸人生中的第一次升了Title，虽然看起来没啥，不过毕竟工作了5年，
+才换来这么个Title，看来之前青蛙确实挺失败的。没办法，唯有继续努力。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;其次，生活。&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;下半年青蛙重新找房子，恢复了跟陌生人合租的状态。
+这种状态直接导致了每天不想回家，因为回家就是个小盒子，只是个睡觉的地方。
+于是办公室和教室是青蛙待的最多的2个地方。总之，宅。&lt;/p&gt;
+&lt;p&gt;2012年几乎没有旅行，回家探亲，包括去大连考试，都是匆匆而过，甚至顾不上停下来到处走走。
+十一的时候看似疯狂的带自行车去看爷爷奶奶，结果一路都是下雨天，到了爷爷奶奶那直接病倒，十一趴了一周。&lt;/p&gt;
+&lt;p&gt;今年跟老爸老妈似乎多见了几次面，每次都感觉到他们见到我回去的那种开心。
+明年争取多回家陪陪老爸老妈吧。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;第三，学习。&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;2012年青蛙的Kindle4没有发挥它应有的作用，上半年看过几次，
+下半年开始备战CCIE考试之后就基本扔在一边了，
+因为考试相关的资料全是PDF的，用小屏幕的Kindle看起来太痛苦了。
+Kindle Sync的工具青蛙已经很久没有动过了，因为青蛙最近连Google reader都没有读过。
+总之，2012年的阅读量简直低的让人发指，完整的读完一本书似乎在今年都没有发生过。
+不清楚今年青蛙为什么会这么浮躁，一看书就想迅速翻到结尾，这个问题明年必须要改掉。&lt;/p&gt;
+&lt;p&gt;如果说今年最大的成果，那就是拿到了2个认证，一个是RHCE认证，另外一个是CCIE。
+RHCE拿到的比较轻松，因为目前青蛙主要就是做这方面的内容嘛，每天遇到的情况堆起来，
+也差不多就是RHCE的考试题了 XD。
+另外加上这是我司的内部考试，考前有充分的培训加练习，所以基本没有什么压力就拿到了。
+然后，就是今年最痛苦的一段时间，CCIE lab练习，这段时间真的像是回到了高考备考那种状况，
+每天晚上早起晚睡，在公交车上还要看配置。
+索性功夫不负有心人，Lab还是一次通过了，虽然当中有些惊险，不过结果还是令人满意的。
+考过CCIE之后，青蛙突然觉得有点茫然。
+虽然考过了拿到号码，但是不会的还是不会，没经验也还是没经验。
+似乎应该继续敲敲实验（多出去围观下项目？这个不知道有没有机会了）
+考试过后青蛙一直没有找准继续的努力方向，是先学习RHCA课程把RHCA搞定，
+还是趁热打铁争取拿下新的CCIE，现在这个就悬在这了，没有清晰的方向。
+不过目前最清晰的目标就是英语啦，青蛙自觉英语真是烂到爆了，
+于是找来背单词软件，买了雅思单词书，正在背单词。
+虽然进度不快，不过感觉时时背些单词还是很有用的。（虽然还仅限于CET4词库 -_-）&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;第四，折腾。&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;人不折腾枉少年，今年青蛙同样没少折腾。
+首先是&lt;a href="/2012/08/diy-shanzhai-gopro-sports-camera/"&gt;搞了个山寨Go Pro&lt;/a&gt;，
+实战效果挺好，可惜今年出去骑车的机会很少，它很少有发威的时候。
+然后，把山地车卖了。因为今年用的实在太少，干脆出掉折现，择机收入公路车好了。
+接着，&lt;a href="/2012/09/bought-a-philips-diy-hair-clipper/"&gt;购入理发器自己剃头&lt;/a&gt;。
+这个很有意思，虽然有点不太敢想象，不过自己剃个简单的球形发型是没问题的。
+再继续，青蛙考完CCIE之后发现实在没有地方安置之前那些学习视频和资料，于是败入新的移动硬盘一枚。
+接着想到移动硬盘可能丢失资料的问题，败入3.5寸外置硬盘一枚。
+然后呢，为了方便每天下载片片儿，又败了一枚树莓派（raspberry pi）准备搭建个NAS。
+目前正在实施中。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;2012目标总结&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;读完vdsm代码&lt;/strong&gt;&lt;ul&gt;
+&lt;li&gt;基本没有进展，上半年曾经读过几个patch，也感觉到vdsm设计上确实有值得借鉴的地方。但是下半年的学习计划完全打乱了脚步。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;通过 CCIE认证&lt;/strong&gt;&lt;ul&gt;
+&lt;li&gt;完成。代价就是混乱的工作/生活状态。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;增加跟autotest upstream的联系，多多在upstream冒泡&lt;/strong&gt;&lt;ul&gt;
+&lt;li&gt;上半年Patch交流挺多，下半年，同样被打乱。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;经常回顾python的基本知识，python核心编程之类，多读几遍&lt;/strong&gt;&lt;ul&gt;
+&lt;li&gt;进展细微，因为下半年疏于练习，甚至感觉Python知识有倒退的迹象。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;读一本关于linux内核的书，可以找尽量短点的，先学个皮毛&lt;/strong&gt;&lt;ul&gt;
+&lt;li&gt;2012年，无读书。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;完成那个给kindle推文章的小工具&lt;/strong&gt;&lt;ul&gt;
+&lt;li&gt;无需求导致停笔。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;做/改一个irc bot，给内部irc，也可以自己在freenode上跑一个，方便自己。&lt;/strong&gt;&lt;ul&gt;
+&lt;li&gt;年中总结的时候以为青蛙今年不会做这个东东了，结果它是今年里意外的一个亮点。
+青蛙以&lt;a href="http://inamidst.com/phenny/"&gt;phenny&lt;/a&gt;为基础，改造了一个小bot，
+每周五的时候会给它加一点新的功能或者bugfix，一点点积攒下来，
+这个小Bot竟然在内部频道里工作的不错。明年要继续改进它。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;采购计划：&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;一个更加给力的读书工具，kindle dx？ kindle fire？ ipad？&lt;/strong&gt;&lt;ul&gt;
+&lt;li&gt;最后还是买了iPad，备战CCIE的时候非常频繁的使用，阅读+笔记利器。
+  考完之后...目前在桌儿上落灰。（为了ipad也要有个阅读计划了。）&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;一部胶片口袋机， 奥记u2？&lt;/strong&gt;&lt;ul&gt;
+&lt;li&gt;相机买了，玩儿相机的时间没了。总之今年几乎就没拍片儿。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;给媳妇买台ps3/ps4？ 再加一台电视？&lt;/strong&gt;&lt;ul&gt;
+&lt;li&gt;媳妇反对，放弃。不过买了个蓝光光驱，在电脑上看看蓝光电影凑合吧。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;2013展望&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;既然世界末日就这么平平淡淡，毫无意思的过去了，那么日子就还得继续。
+2013年的计划写在这，看起来有点复杂有点困难，不过没有挑战的人生还有神马意义呢？
+加油！&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;学习，P1，完成RHCA/CCIE认证中的一个。&lt;/li&gt;
+&lt;li&gt;学习，P1，雅思7分。&lt;/li&gt;
+&lt;li&gt;学习，P2，尽可能多的阅读其他项目的Python代码，例如VDSM。&lt;/li&gt;
+&lt;li&gt;学习，P2，Debug Hacks，读完、理解这本书。&lt;/li&gt;
+&lt;li&gt;学习，P2，Facebook上Cisco学院会经常帖一些实际的项目或者实验拓扑，虽然有些可能只是CCNA Level，但是拿来每天练手很不错。&lt;/li&gt;
+&lt;li&gt;编码，P1，完成目前手头准备给Autotest upstream的代码，旧的这几个patch没有处理完成之前，不要再做新的了，免得一无所成。&lt;/li&gt;
+&lt;li&gt;编码，P1，pdf剪裁工具，目前看来是非常需要的。即使以后不在Kindle上看pdf了，给iPad/iPhone用也是相当不错的，目前有些很多白边的pdf看起来非常不舒服。&lt;/li&gt;
+&lt;li&gt;编码，P2，IRC bot继续增强。这个似乎可以发掘下有没有人对这个也感兴趣，一起来做了。&lt;/li&gt;
+&lt;li&gt;采购，P1，四轮。&lt;/li&gt;
+&lt;li&gt;采购，P2，公路车。&lt;/li&gt;
+&lt;li&gt;采购，P3，MBA，万一没本子用了，就买MBA吧。&lt;/li&gt;
+&lt;li&gt;生活，P1，坚持写Blog，至少每周1篇。 （&lt;strong&gt;Update 2012-12-31 21:16:00&lt;/strong&gt;）&lt;/li&gt;
+&lt;/ol&gt;</content><category term="status"></category><category term="update"></category><category term="summary"></category><category term="outlook"></category></entry><entry><title>购入理发器一枚</title><link href="https://www.gfrog.net/2012/09/bought-a-philips-diy-hair-clipper/" rel="alternate"></link><published>2012-09-07T20:13:14+08:00</published><updated>2012-09-07T20:13:14+08:00</updated><author><name>gfrog</name></author><id>tag:www.gfrog.net,2012-09-07:/2012/09/bought-a-philips-diy-hair-clipper/</id><summary type="html">&lt;p&gt;生活在物价飞涨的帝都，必须在方方面面想办法节约生活成本。为了剩下每个月20羊的剃头费用，青蛙决定买一只理发器自己剃。&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://picasaweb.google.com/108736461751011849061/20120907#5785317322689476962"&gt;&lt;img alt="2012-09-07_10-46-32_166.jpg" src="http://lh6.ggpht.com/-JYusmHTohMk/UEmTc_vR-WI/AAAAAAAAIE4/cYwrmfvHyEo/w640/2012-09-07_10-46-32_166.jpg"&gt;&lt;/a&gt; &lt;/p&gt;
+&lt;p&gt;&lt;a href="https://picasaweb.google.com/108736461751011849061/20120907#5785317363047878658"&gt;&lt;img alt="2012-09-07_11-13-33_526.jpg" src="http://lh5.ggpht.com/-rUhpTSEC2cs/UEmTfWFeUAI/AAAAAAAAIFA/A-C03FI_C2U/w640/2012-09-07_11-13-33_526.jpg"&gt;&lt;/a&gt; &lt;/p&gt;
+&lt;p&gt;&lt;a href="https://picasaweb.google.com/108736461751011849061/20120907#5785317457765313378"&gt;&lt;img alt="2012-09-07_11-14-18_959.jpg" src="http://lh4.ggpht.com/-2u479DESKfw/UEmTk273q2I/AAAAAAAAIFQ/slUFtgfkwxA/w640/2012-09-07_11-14-18_959.jpg"&gt;&lt;/a&gt; &lt;/p&gt;
+&lt;p&gt;&lt;a href="https://picasaweb.google.com/108736461751011849061/20120907#5785317499068263826"&gt;&lt;img alt="2012-09-07_11-14-54_685.jpg" src="http://lh3.ggpht.com/-_EAw_badLYQ/UEmTnQzQrZI/AAAAAAAAIFY/W2ov__IfbR8/w640/2012-09-07_11-14-54_685.jpg"&gt;&lt;/a&gt; &lt;/p&gt;
+&lt;p&gt;&lt;a href="https://picasaweb.google.com/108736461751011849061/20120907#5785377329513507618"&gt;&lt;img alt="2012-09-07_11-27-19_216.jpg" src="http://lh5.ggpht.com/-_EzKEvO6xaM/UEnKB2lAKyI/AAAAAAAAIFo/tpC1anSppOU/w640/2012-09-07_11-27-19_216.jpg"&gt;&lt;/a&gt;&lt;/p&gt;</summary><content type="html">&lt;p&gt;生活在物价飞涨的帝都，必须在方方面面想办法节约生活成本。为了剩下每个月20羊的剃头费用，青蛙决定买一只理发器自己剃。&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://picasaweb.google.com/108736461751011849061/20120907#5785317322689476962"&gt;&lt;img alt="2012-09-07_10-46-32_166.jpg" src="http://lh6.ggpht.com/-JYusmHTohMk/UEmTc_vR-WI/AAAAAAAAIE4/cYwrmfvHyEo/w640/2012-09-07_10-46-32_166.jpg"&gt;&lt;/a&gt; &lt;/p&gt;
+&lt;p&gt;&lt;a href="https://picasaweb.google.com/108736461751011849061/20120907#5785317363047878658"&gt;&lt;img alt="2012-09-07_11-13-33_526.jpg" src="http://lh5.ggpht.com/-rUhpTSEC2cs/UEmTfWFeUAI/AAAAAAAAIFA/A-C03FI_C2U/w640/2012-09-07_11-13-33_526.jpg"&gt;&lt;/a&gt; &lt;/p&gt;
+&lt;p&gt;&lt;a href="https://picasaweb.google.com/108736461751011849061/20120907#5785317457765313378"&gt;&lt;img alt="2012-09-07_11-14-18_959.jpg" src="http://lh4.ggpht.com/-2u479DESKfw/UEmTk273q2I/AAAAAAAAIFQ/slUFtgfkwxA/w640/2012-09-07_11-14-18_959.jpg"&gt;&lt;/a&gt; &lt;/p&gt;
+&lt;p&gt;&lt;a href="https://picasaweb.google.com/108736461751011849061/20120907#5785317499068263826"&gt;&lt;img alt="2012-09-07_11-14-54_685.jpg" src="http://lh3.ggpht.com/-_EAw_badLYQ/UEmTnQzQrZI/AAAAAAAAIFY/W2ov__IfbR8/w640/2012-09-07_11-14-54_685.jpg"&gt;&lt;/a&gt; &lt;/p&gt;
+&lt;p&gt;&lt;a href="https://picasaweb.google.com/108736461751011849061/20120907#5785377329513507618"&gt;&lt;img alt="2012-09-07_11-27-19_216.jpg" src="http://lh5.ggpht.com/-_EzKEvO6xaM/UEnKB2lAKyI/AAAAAAAAIFo/tpC1anSppOU/w640/2012-09-07_11-27-19_216.jpg"&gt;&lt;/a&gt;&lt;/p&gt;</content><category term="diy"></category><category term="shopping"></category><category term="pictures"></category></entry><entry><title>2012年中总结之迟到篇</title><link href="https://www.gfrog.net/2012/08/2012-mid-year-summary/" rel="alternate"></link><published>2012-08-27T21:18:07+08:00</published><updated>2012-08-27T21:18:07+08:00</updated><author><name>gfrog</name></author><id>tag:www.gfrog.net,2012-08-27:/2012/08/2012-mid-year-summary/</id><summary type="html">&lt;p&gt;整理blog的时候发现了&lt;a href="https://gfrog.net/2011/12/2011-summary-and-2012-outlook/"&gt;去年写的年终总结和展望&lt;/a&gt;，
+现在回头看看，基本目标完全没有实现。还有4个月，要努力奋斗才行！&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;其次，工作上似乎有条理了一些，但是自己仍然处于迷失状态。自己到底做点什么，以后怎么发展，仍然迷茫。
+虽然这是一件很不应该的事情，工作四年，仍然不知道自己的方向在哪里，真是loser。
+以至于年终曾经转去做kernel方向，但是担心自己的能力，又不了了之。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;又工作了大半年，青蛙即将步入工作的第五个年头了，但是仍旧找不到自己的方向，不得不说这真是个悲哀。
+管理做不来，售前做不来，售后做不来，总之需要频繁跟人打交道的职业都做不来，未来该往哪走，还真是不明朗。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;不过在现在的职位上已经有一些心得了，对于python，对于虚拟化，已经不像去年像一个文盲的状态了。
+如果再在这个方向上做下去，也是有许多有趣的事情可以做。
+不过一年中学到的技术知识似乎不多？现在想想，似乎编程技能并没有太多的提高，这是一个急需提升的地方。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;青蛙在上半年尝试着开始读一点qemu-kvm的代码 ，勉强能看懂一些简单的patch，
+但是qemu-kvm整体的结构还是傻傻闹不清楚，如果想在这方面继续深入下去，还得持续地读代码。
+Python方面，似乎2012以来没有太多的进展，代码量明显不如2011年多，质量似乎也变差了。
+年初制定的编码量计划根本没有达到，接下来四个月要在这方面努力才行 …&lt;/p&gt;</summary><content type="html">&lt;p&gt;整理blog的时候发现了&lt;a href="https://gfrog.net/2011/12/2011-summary-and-2012-outlook/"&gt;去年写的年终总结和展望&lt;/a&gt;，
+现在回头看看，基本目标完全没有实现。还有4个月，要努力奋斗才行！&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;其次，工作上似乎有条理了一些，但是自己仍然处于迷失状态。自己到底做点什么，以后怎么发展，仍然迷茫。
+虽然这是一件很不应该的事情，工作四年，仍然不知道自己的方向在哪里，真是loser。
+以至于年终曾经转去做kernel方向，但是担心自己的能力，又不了了之。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;又工作了大半年，青蛙即将步入工作的第五个年头了，但是仍旧找不到自己的方向，不得不说这真是个悲哀。
+管理做不来，售前做不来，售后做不来，总之需要频繁跟人打交道的职业都做不来，未来该往哪走，还真是不明朗。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;不过在现在的职位上已经有一些心得了，对于python，对于虚拟化，已经不像去年像一个文盲的状态了。
+如果再在这个方向上做下去，也是有许多有趣的事情可以做。
+不过一年中学到的技术知识似乎不多？现在想想，似乎编程技能并没有太多的提高，这是一个急需提升的地方。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;青蛙在上半年尝试着开始读一点qemu-kvm的代码 ，勉强能看懂一些简单的patch，
+但是qemu-kvm整体的结构还是傻傻闹不清楚，如果想在这方面继续深入下去，还得持续地读代码。
+Python方面，似乎2012以来没有太多的进展，代码量明显不如2011年多，质量似乎也变差了。
+年初制定的编码量计划根本没有达到，接下来四个月要在这方面努力才行。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;十月份青蛙收了一部kindle4，之后的三个月里阅读量比之前的九个月加起来都多。
+kindle真的是值得拥有的好东西，赞美亚马逊。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Kindle4在2012年没有发挥它应有的作用，因为青蛙想看的基本书只有pdf格式，但是k4看pdf文档又相当不爽。
+目前青蛙正在研究pdf跟tiff格式，试图搞出一个工具可以自动裁掉pdf的白边。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;另外青蛙自己写了一个小工具抓取小说并推送到kindle（好吧，kindle上看的小说也不少），
+写这个小东东的过程中会思考一下如何构建一个方便扩展又方便编码的结构，
+不过写完之后却发现跟工作上使用的 kvm-autotest 结构真的很像。
+由此，青蛙决定多读读其他的代码，目前正在抽时间读读vdsm，恩，争取2012第一季度可以读完。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Sync的工具目前处于基本停滞状态，2012年中只修复了几个小bug。
+由于dotcloud的app如果一段时间没有访问量，就会被自动关掉，
+所以目前计划9月份把它迁移到Openshift上去。可能再加一点新功能？
+不过目前没有需求呢，没有动力。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;哦，最后，青蛙赶在年底公司培训经费作废之前报了一个CCIE培训班，争取明年上半年可以把CCIE认证考下来。
+（为什么又回去学网络了，青蛙也不知道，姑且算作上一段工作经历的一个总结性考试吧，
+毕竟做了三年网络，再系统的学习一遍当做知识储备。）&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;青蛙终于逼自己把CCIE的笔试考过了，使劲背题一周，发现越背不会的东西越多。
+心惊胆战的去考试，竟然还过了。XD
+目前点到了12月份的lab考试位置，希望能来得及准备。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;2012展望&lt;/em&gt; 及 &lt;/strong&gt;2012年中总结**&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;读完vdsm代码&lt;/li&gt;
+&lt;li&gt;通过 CCIE认证&lt;/li&gt;
+&lt;li&gt;增加跟autotest upstream的联系，多多在upstream冒泡&lt;/li&gt;
+&lt;li&gt;经常回顾python的基本知识，python核心编程之类，多读几遍&lt;/li&gt;
+&lt;li&gt;读一本关于linux内核的书，可以找尽量短点的，先学个皮毛&lt;/li&gt;
+&lt;li&gt;完成那个给kindle推文章的小工具&lt;/li&gt;
+&lt;li&gt;做/改一个irc bot，给内部irc，也可以自己在freenode上跑一个，方便自己。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;vdsm代码依旧一知半解，青蛙现在怀疑上半年自己到底做了什么，为什么什么都没看。&lt;/li&gt;
+&lt;li&gt;CCIE认证大概完成10%，笔试过了，lab努力中。&lt;/li&gt;
+&lt;li&gt;2012年没少在upstream发patch，不过都是些不痛不痒的修改，真正想做点什么的时候才发现自己能力真的不足，于是一再推脱，以至于一事无成。&lt;/li&gt;
+&lt;li&gt;python核心编程只看了一点点，平时工作中倒是养成了经常翻阅python manual的习惯，但是临时抱佛脚比不上系统的学习储备，还是要继续看书。&lt;/li&gt;
+&lt;li&gt;kernel。。。 完全没进展。&lt;/li&gt;
+&lt;li&gt;kindle sync工具，每次都是看到kindle发现没法显示图片的时候就想去把自己的工具改掉，但是又实在没啥思路继续写，于是拖拖拉拉，一直放在那里。&lt;/li&gt;
+&lt;li&gt;IRC bot，曾经尝试过一点点，但是反映不太好，大概2012年不会继续折腾它了。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;采购计划：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;一个更加给力的读书工具，kindle dx？ kindle fire？ ipad？&lt;/li&gt;
+&lt;li&gt;一部胶片口袋机， 奥记u2？&lt;/li&gt;
+&lt;li&gt;给媳妇买台ps3/ps4？ 再加一台电视？&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;一直怨念着是不是要买ipad，特别是看到了New pad超爽的效果之后，不过这东西真的很沉，很热。&lt;/li&gt;
+&lt;li&gt;U2在年前到手，可惜才拍了不到3卷，洗出一卷，但是没扫描。&lt;/li&gt;
+&lt;li&gt;每次跟媳妇说买电视都遭到强烈反对，于是本计划搁置。&lt;/li&gt;
+&lt;/ul&gt;</content><category term="status"></category><category term="update"></category><category term="outlook"></category></entry><entry><title>使用pyPdf切割pdf文档</title><link href="https://www.gfrog.net/2012/07/split-pdf-doc-with-pypdf-module/" rel="alternate"></link><published>2012-07-30T22:43:51+08:00</published><updated>2012-07-30T22:43:51+08:00</updated><author><name>gfrog</name></author><id>tag:www.gfrog.net,2012-07-30:/2012/07/split-pdf-doc-with-pypdf-module/</id><summary type="html">&lt;p&gt;青蛙拿到一份扫描版的pdf文档，每个pdf页包含了两页实际书籍页面，
+这种文档放在6寸Kindle上基本就是杯具了。于是青蛙试图找工具把他们切割掉。
+根据&lt;a href="http://note1day.com/"&gt;铄日博客&lt;/a&gt;的推荐试验了
+&lt;a href="http://note1day.com/2012/01/paper4kindle/"&gt;paper4kindle&lt;/a&gt;
+和
+&lt;a href="http://note1day.com/2011/12/k2pdfopt/"&gt;k2pdfopt&lt;/a&gt;，
+但是papaer4kindle切割出来的文档页面错乱了，而且也没有修正pdf歪斜的功能，
+剪裁输出的文档很难看。
+k2pdfopt就更没法看了，从image识别文档的技术先进，
+但是对于每页pdf包含2页实际页面的文档，k2pdfopt基本无能为力。&lt;/p&gt;
+&lt;p&gt;青蛙本想探索一下paper4kindle输出之后页面错乱的问题，
+结果这玩意竟然不开源，又看到作者说花了几小时就搞出来了，
+那青蛙也看看pypdf包，试试能不能直接写代码自己搞定。&lt;/p&gt;
+&lt;p&gt;花了半下午时间看了下pypdf（ http://pybrary.net/pyPdf/ ）的API，
+然后直接把例子代码复制下来改吧改吧，
+咱也基本实现了paper4kindle的核心功能了，成功把那份文档处理掉了。
+至于那些花哨的界面啥的，有空再玩吧。
+代码先贴在这里，没有整理，暂时先不贴到github了，
+准备下一步尝试添加旋转页面的功能。&lt;/p&gt;
+&lt;p&gt;编码的时候发现了两个问题，&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;设置mediaBox的位置之前需要先copy一份page对象，
+    否则设置right的mediaBox的时候竟然会影响left的值，
+    猜测是pypdf模块内部直接返回了page对象的引用，并没有复制一份返回。&lt;/li&gt;
+&lt;li&gt;这份文档无法用paper4kindle编辑的原因是实际上文档的四个角坐标是反的，
+    大概文档扫描之后被顺时针旋转了90度。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;最后小小鄙视一下用python、用开源库写代码竟然不继续开源的某些软件作者。&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="ch"&gt;#!/usr/bin/env python …&lt;/span&gt;&lt;/pre&gt;&lt;/div&gt;</summary><content type="html">&lt;p&gt;青蛙拿到一份扫描版的pdf文档，每个pdf页包含了两页实际书籍页面，
+这种文档放在6寸Kindle上基本就是杯具了。于是青蛙试图找工具把他们切割掉。
+根据&lt;a href="http://note1day.com/"&gt;铄日博客&lt;/a&gt;的推荐试验了
+&lt;a href="http://note1day.com/2012/01/paper4kindle/"&gt;paper4kindle&lt;/a&gt;
+和
+&lt;a href="http://note1day.com/2011/12/k2pdfopt/"&gt;k2pdfopt&lt;/a&gt;，
+但是papaer4kindle切割出来的文档页面错乱了，而且也没有修正pdf歪斜的功能，
+剪裁输出的文档很难看。
+k2pdfopt就更没法看了，从image识别文档的技术先进，
+但是对于每页pdf包含2页实际页面的文档，k2pdfopt基本无能为力。&lt;/p&gt;
+&lt;p&gt;青蛙本想探索一下paper4kindle输出之后页面错乱的问题，
+结果这玩意竟然不开源，又看到作者说花了几小时就搞出来了，
+那青蛙也看看pypdf包，试试能不能直接写代码自己搞定。&lt;/p&gt;
+&lt;p&gt;花了半下午时间看了下pypdf（ http://pybrary.net/pyPdf/ ）的API，
+然后直接把例子代码复制下来改吧改吧，
+咱也基本实现了paper4kindle的核心功能了，成功把那份文档处理掉了。
+至于那些花哨的界面啥的，有空再玩吧。
+代码先贴在这里，没有整理，暂时先不贴到github了，
+准备下一步尝试添加旋转页面的功能。&lt;/p&gt;
+&lt;p&gt;编码的时候发现了两个问题，&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;设置mediaBox的位置之前需要先copy一份page对象，
+    否则设置right的mediaBox的时候竟然会影响left的值，
+    猜测是pypdf模块内部直接返回了page对象的引用，并没有复制一份返回。&lt;/li&gt;
+&lt;li&gt;这份文档无法用paper4kindle编辑的原因是实际上文档的四个角坐标是反的，
+    大概文档扫描之后被顺时针旋转了90度。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;最后小小鄙视一下用python、用开源库写代码竟然不继续开源的某些软件作者。&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="ch"&gt;#!/usr/bin/env python&lt;/span&gt;
+
+&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;copy&lt;/span&gt;
+&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;pyPdf&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;PdfFileWriter&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;PdfFileReader&lt;/span&gt;
+
+&lt;span class="n"&gt;output&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;PdfFileWriter&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;span class="n"&gt;input1&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;PdfFileReader&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;file&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;/tmp/a.pdf&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;rb&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
+&lt;span class="n"&gt;outputStream&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;file&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;/tmp/output.pdf&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;wb&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+&lt;span class="c1"&gt;# print the title of document1.pdf&lt;/span&gt;
+&lt;span class="k"&gt;print&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;title = &lt;/span&gt;&lt;span class="si"&gt;%s&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt; &lt;span class="o"&gt;%&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;input1&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;getDocumentInfo&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;title&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+&lt;span class="n"&gt;pages&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;map&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;input1&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;getPage&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="nb"&gt;range&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;input1&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;getNumPages&lt;/span&gt;&lt;span class="p"&gt;()))&lt;/span&gt;
+&lt;span class="c1"&gt;#pages = map(input1.getPage, range(0, 10))&lt;/span&gt;
+&lt;span class="k"&gt;try&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+    &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;page&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="n"&gt;pages&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+        &lt;span class="n"&gt;left&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;copy&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;copy&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;page&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+        &lt;span class="n"&gt;right&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;copy&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;copy&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;page&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+        &lt;span class="n"&gt;orig_upperLeft&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;page&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;mediaBox&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;getUpperLeft&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+        &lt;span class="n"&gt;orig_upperRight&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;page&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;mediaBox&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;getUpperRight&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+        &lt;span class="n"&gt;orig_lowerLeft&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;page&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;mediaBox&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;getLowerLeft&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+        &lt;span class="n"&gt;orig_lowerRight&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;page&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;mediaBox&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;getLowerRight&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+
+        &lt;span class="n"&gt;left&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;mediaBox&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;setUpperLeft&lt;/span&gt;&lt;span class="p"&gt;((&lt;/span&gt;&lt;span class="n"&gt;orig_upperLeft&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;],&lt;/span&gt; &lt;span class="n"&gt;orig_upperLeft&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;]))&lt;/span&gt;
+        &lt;span class="n"&gt;left&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;mediaBox&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;setUpperRight&lt;/span&gt;&lt;span class="p"&gt;((&lt;/span&gt;&lt;span class="n"&gt;orig_upperRight&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;],&lt;/span&gt; &lt;span class="n"&gt;orig_upperRight&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
+        &lt;span class="n"&gt;left&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;mediaBox&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;setLowerLeft&lt;/span&gt;&lt;span class="p"&gt;((&lt;/span&gt;&lt;span class="n"&gt;orig_lowerLeft&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;],&lt;/span&gt; &lt;span class="n"&gt;orig_lowerLeft&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;]))&lt;/span&gt;
+        &lt;span class="n"&gt;left&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;mediaBox&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;setLowerRight&lt;/span&gt;&lt;span class="p"&gt;((&lt;/span&gt;&lt;span class="n"&gt;orig_lowerRight&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;],&lt;/span&gt; &lt;span class="n"&gt;orig_lowerRight&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
+        &lt;span class="n"&gt;output&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;addPage&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;left&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+        &lt;span class="n"&gt;right&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;mediaBox&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;setUpperLeft&lt;/span&gt;&lt;span class="p"&gt;((&lt;/span&gt;&lt;span class="n"&gt;orig_upperLeft&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;],&lt;/span&gt; &lt;span class="n"&gt;orig_upperLeft&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;]))&lt;/span&gt;
+        &lt;span class="n"&gt;right&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;mediaBox&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;setUpperRight&lt;/span&gt;&lt;span class="p"&gt;((&lt;/span&gt;&lt;span class="n"&gt;orig_upperRight&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;],&lt;/span&gt; &lt;span class="n"&gt;orig_upperRight&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;]))&lt;/span&gt;
+        &lt;span class="n"&gt;right&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;mediaBox&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;setLowerLeft&lt;/span&gt;&lt;span class="p"&gt;((&lt;/span&gt;&lt;span class="n"&gt;orig_lowerLeft&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;],&lt;/span&gt; &lt;span class="n"&gt;orig_upperLeft&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
+        &lt;span class="n"&gt;right&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;mediaBox&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;setLowerRight&lt;/span&gt;&lt;span class="p"&gt;((&lt;/span&gt;&lt;span class="n"&gt;orig_lowerRight&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;],&lt;/span&gt; &lt;span class="n"&gt;orig_upperRight&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
+        &lt;span class="n"&gt;output&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;addPage&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;right&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="k"&gt;finally&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+    &lt;span class="c1"&gt;# finally, write &amp;quot;output&amp;quot; to document-output.pdf&lt;/span&gt;
+    &lt;span class="n"&gt;output&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;write&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;outputStream&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="n"&gt;outputStream&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;close&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+
+&lt;span class="k"&gt;print&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;new pdf has &lt;/span&gt;&lt;span class="si"&gt;%s&lt;/span&gt;&lt;span class="s2"&gt; pages.&amp;quot;&lt;/span&gt; &lt;span class="o"&gt;%&lt;/span&gt; &lt;span class="n"&gt;output&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;getNumPages&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;参考文档：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;PYPDF: &lt;a href="http://pybrary.net/pyPdf/"&gt;http://pybrary.net/pyPdf/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;The PDF file format: &lt;a href="http://www.prepressure.com/pdf/basics/fileformat"&gt;http://www.prepressure.com/pdf/basics/fileformat&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Why my code not correctly split every page in a scanned pdf? &lt;a href="http://www.prepressure.com/pdf/basics/fileformat"&gt;http://stackoverflow.com/questions/7047656/why-my-code-not-correctly-split-every-page-in-a-scanned-pdf&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;</content><category term="ptyhon"></category><category term="coding"></category><category term="script"></category><category term="pdf"></category><category term="modification"></category></entry><entry><title>Happy new year</title><link href="https://www.gfrog.net/2012/01/happy-new-year/" rel="alternate"></link><published>2012-01-01T00:00:21+08:00</published><updated>2012-01-01T00:00:21+08:00</updated><author><name>gfrog</name></author><id>tag:www.gfrog.net,2012-01-01:/2012/01/happy-new-year/</id><summary type="html">&lt;p&gt;Happy new year and best wishes for everyone&lt;/p&gt;</summary><content type="html">&lt;p&gt;Happy new year and best wishes for everyone&lt;/p&gt;</content><category term="happy"></category><category term="new"></category><category term="year"></category></entry><entry><title>2011年终总结及展望</title><link href="https://www.gfrog.net/2011/12/2011-summary-and-2012-outlook/" rel="alternate"></link><published>2011-12-31T20:00:00+08:00</published><updated>2011-12-31T20:00:00+08:00</updated><author><name>gfrog</name></author><id>tag:www.gfrog.net,2011-12-31:/2011/12/2011-summary-and-2012-outlook/</id><summary type="html">&lt;p&gt;又到了年终岁末的总结时间了，青蛙已经发表过一篇关于今年骑行生活的总结，所以其他方面的总结就很简单了，&lt;strike&gt;几句话就可以说完。&lt;/strike&gt; 写完才发现又唠叨了一大堆。&lt;/p&gt;
+&lt;p&gt;首先，婚礼办完了，五月某日。唯一的印象就是折腾，青蛙对中国式婚礼这种不折腾死人不算完的事情表示很无奈。&lt;/p&gt;
+&lt;p&gt;其次，工作上似乎有条例了一些，但是自己仍然处于迷失状态。
+自己到底做点什么，以后怎么发展，仍然迷茫。
+虽然这是一件很不应该的事情，工作四年，仍然不知道自己的方向在哪里，真是loser。
+以至于年终曾经转去做kernel方向，但是担心自己的能力，又不了了之。&lt;/p&gt;
+&lt;p&gt;不过在现在的职位上已经有一些心得了，对于python，对于虚拟化，已经不像去年像一个文盲的状态了。
+如果再在这个方向上做下去，也是有许多有趣的事情可以做。
+不过一年中学到的技术知识似乎不多？现在想想，似乎编程技能并没有太多的提高，这是一个急需提升的地方。&lt;/p&gt;
+&lt;p&gt;十月份青蛙收了一部kindle4，之后的三个月里阅读量比之前的九个月加起来都多。
+kindle真的是值得拥有的好东西，赞美亚马逊。&lt;/p&gt;
+&lt;p&gt;另外青蛙自己写了一个小工具抓取小说并推送到kindle（好吧，kindle上看的小说也不少），
+写这个小东东的过程中会思考一下如何构建一个方便扩展又方便编码的结构，
+不过写完之后却发现跟工作上使用的 kvm-autotest 结构真的很像。
+由此，青蛙决定多读读其他的代码，目前正在抽时间读读vdsm，恩，争取2012第一季度可以读完。&lt;/p&gt;
+&lt;p&gt;哦 …&lt;/p&gt;</summary><content type="html">&lt;p&gt;又到了年终岁末的总结时间了，青蛙已经发表过一篇关于今年骑行生活的总结，所以其他方面的总结就很简单了，&lt;strike&gt;几句话就可以说完。&lt;/strike&gt; 写完才发现又唠叨了一大堆。&lt;/p&gt;
+&lt;p&gt;首先，婚礼办完了，五月某日。唯一的印象就是折腾，青蛙对中国式婚礼这种不折腾死人不算完的事情表示很无奈。&lt;/p&gt;
+&lt;p&gt;其次，工作上似乎有条例了一些，但是自己仍然处于迷失状态。
+自己到底做点什么，以后怎么发展，仍然迷茫。
+虽然这是一件很不应该的事情，工作四年，仍然不知道自己的方向在哪里，真是loser。
+以至于年终曾经转去做kernel方向，但是担心自己的能力，又不了了之。&lt;/p&gt;
+&lt;p&gt;不过在现在的职位上已经有一些心得了，对于python，对于虚拟化，已经不像去年像一个文盲的状态了。
+如果再在这个方向上做下去，也是有许多有趣的事情可以做。
+不过一年中学到的技术知识似乎不多？现在想想，似乎编程技能并没有太多的提高，这是一个急需提升的地方。&lt;/p&gt;
+&lt;p&gt;十月份青蛙收了一部kindle4，之后的三个月里阅读量比之前的九个月加起来都多。
+kindle真的是值得拥有的好东西，赞美亚马逊。&lt;/p&gt;
+&lt;p&gt;另外青蛙自己写了一个小工具抓取小说并推送到kindle（好吧，kindle上看的小说也不少），
+写这个小东东的过程中会思考一下如何构建一个方便扩展又方便编码的结构，
+不过写完之后却发现跟工作上使用的 kvm-autotest 结构真的很像。
+由此，青蛙决定多读读其他的代码，目前正在抽时间读读vdsm，恩，争取2012第一季度可以读完。&lt;/p&gt;
+&lt;p&gt;哦，最后，青蛙赶在年底公司培训经费作废之前报了一个CCIE培训班，争取明年上半年可以把CCIE认证考下来。
+（为什么又回去学网络了，青蛙也不知道，姑且算作上一段工作经历的一个总结性考试吧，毕竟做了三年网络，再系统的学习一遍当做知识储备。）&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;2012展望&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;恩，前面说了两个了：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;读完vdsm代码&lt;/li&gt;
+&lt;li&gt;通过 CCIE认证&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;剩下的还有（就不考虑SMART原则了，哈）：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;增加跟autotest upstream的联系，多多在upstream冒泡&lt;/li&gt;
+&lt;li&gt;经常回顾python的基本知识，python核心编程之类，多读几遍&lt;/li&gt;
+&lt;li&gt;读一本关于linux内核的书，可以找尽量短点的，先学个皮毛&lt;/li&gt;
+&lt;li&gt;完成那个给python推文章的小工具&lt;/li&gt;
+&lt;li&gt;做/改一个irc bot，给内部irc，也可以自己在freenode上跑一个，方便自己。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;采购计划：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;一个更加给力的读书工具，kindle dx？ kindle fire？ ipad？&lt;/li&gt;
+&lt;li&gt;一部胶片口袋机， 奥记u2？&lt;/li&gt;
+&lt;li&gt;给媳妇买台ps3/ps4？ 再加一台电视？&lt;/li&gt;
+&lt;/ul&gt;</content><category term="status"></category><category term="update"></category><category term="summary"></category><category term="outlook"></category></entry><entry><title>吐槽：关于用户口令</title><link href="https://www.gfrog.net/2011/12/some-idea-about-user-password/" rel="alternate"></link><published>2011-12-21T23:40:00+08:00</published><updated>2011-12-21T23:40:00+08:00</updated><author><name>gfrog</name></author><id>tag:www.gfrog.net,2011-12-21:/2011/12/some-idea-about-user-password/</id><summary type="html">&lt;p&gt;CSDN的密码泄漏事件被爆出之后，在Twitter和Weibo上引起了广泛的反响，很多人质疑国内网站的安全管理工作，竟然敢直接用明文保存密码。有一点常识的Web应用开发人员都应该知道直接在数据库里明文形式的密码是相当不安全的。但是为什么还有那么多人仍然这样做呢？他们出于什么目的呢？引人深思呀。&lt;/p&gt;
+&lt;p&gt;一个网站到底应该怎么保存用户的密码才安全呢？又怎么应该设计登录流程呢？ 酷壳上有两篇文章介绍的不错：&lt;a href="http://coolshell.cn/articles/5353.html"&gt;你会做Web上的用户登录功能吗？&lt;/a&gt; 和 &lt;a href="http://coolshell.cn/articles/6043.html"&gt;Web开发中需要了解的东西&lt;/a&gt;。&lt;/p&gt;
+&lt;p&gt;青蛙除了大学的时候搞的那个神马选课系统，基本就没有做过Web应用，就从一个Web用户的角度唠叨几句算了。&lt;/p&gt;
+&lt;p&gt;首先，是我们到底需要多少个密码？ 只有一个显然不行，如果使用这个密码的网站有一个不靠谱，把用户密码给泄漏了（被黑了也好，被无良网站卖了也好，当然在天朝还有另外一种可能：被政府收缴），所有的网站都必须重设密码。那每个网站都设置一个密码呢，现在是个网站都要登录，谁能记得住那么多密码呀。&lt;/p&gt;
+&lt;p&gt;为了防止密码忘掉，大体上有两种思路：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;密码管理器&lt;/strong&gt;
+这种方法比较简单，实际就是保存一个密码。本因为浏览器就内置了记住密码的功能，把用户从繁重的记忆密码的任务中解脱出来。但是浏览器的密码记忆方式功能单一，而且跟浏览器绑定，换一个浏览器就完蛋了。还有系统自带的密码管理工具，例如KDE的KWallet之类的都会有这种问题，跟某个环境绑定，移动性不高。青蛙目前也没有好的实践经验，可以想到的方法就是加密KWallet之后放在Dropbox上，这样多台电脑之间的密码同步可以解决，但是仍然没有解决跨平台的问题。可能这个问题需要借助移动设备来完成，例如Android上的密码管理应用 …&lt;/p&gt;&lt;/li&gt;&lt;/ul&gt;</summary><content type="html">&lt;p&gt;CSDN的密码泄漏事件被爆出之后，在Twitter和Weibo上引起了广泛的反响，很多人质疑国内网站的安全管理工作，竟然敢直接用明文保存密码。有一点常识的Web应用开发人员都应该知道直接在数据库里明文形式的密码是相当不安全的。但是为什么还有那么多人仍然这样做呢？他们出于什么目的呢？引人深思呀。&lt;/p&gt;
+&lt;p&gt;一个网站到底应该怎么保存用户的密码才安全呢？又怎么应该设计登录流程呢？ 酷壳上有两篇文章介绍的不错：&lt;a href="http://coolshell.cn/articles/5353.html"&gt;你会做Web上的用户登录功能吗？&lt;/a&gt; 和 &lt;a href="http://coolshell.cn/articles/6043.html"&gt;Web开发中需要了解的东西&lt;/a&gt;。&lt;/p&gt;
+&lt;p&gt;青蛙除了大学的时候搞的那个神马选课系统，基本就没有做过Web应用，就从一个Web用户的角度唠叨几句算了。&lt;/p&gt;
+&lt;p&gt;首先，是我们到底需要多少个密码？ 只有一个显然不行，如果使用这个密码的网站有一个不靠谱，把用户密码给泄漏了（被黑了也好，被无良网站卖了也好，当然在天朝还有另外一种可能：被政府收缴），所有的网站都必须重设密码。那每个网站都设置一个密码呢，现在是个网站都要登录，谁能记得住那么多密码呀。&lt;/p&gt;
+&lt;p&gt;为了防止密码忘掉，大体上有两种思路：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;密码管理器&lt;/strong&gt;
+这种方法比较简单，实际就是保存一个密码。本因为浏览器就内置了记住密码的功能，把用户从繁重的记忆密码的任务中解脱出来。但是浏览器的密码记忆方式功能单一，而且跟浏览器绑定，换一个浏览器就完蛋了。还有系统自带的密码管理工具，例如KDE的KWallet之类的都会有这种问题，跟某个环境绑定，移动性不高。青蛙目前也没有好的实践经验，可以想到的方法就是加密KWallet之后放在Dropbox上，这样多台电脑之间的密码同步可以解决，但是仍然没有解决跨平台的问题。可能这个问题需要借助移动设备来完成，例如Android上的密码管理应用。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;基础密码+网站特征的组合规则&lt;/strong&gt;
+密码管理器的实际上是有安全隐患的，因为密码都保存在电脑上，攻击者可以获取这些密码文件然后尝试暴力破解（密码管理器仍然需要主密码的）。
+所以另外一种被广泛推崇的方法就是一个基础密码加上针对特定网站的特征字串组合。这样可以方便大脑直接记忆。
+酷壳也有一篇文章介绍这种方法： &lt;a href="http://coolshell.cn/articles/2428.html"&gt;如何管理并设计你的口令&lt;/a&gt;，但是青蛙有一些其他的想法。
+这篇文章里提供的针对每个网站做变化的方法看似简单实用，实际上有大问题：
+很容易被人看出基础密码和变化规则，因为攻击者拿到密码的时候一般都会知道这是个什么网站，网址是神马，然后跟密码一对照，
+原来只是加上了前后缀，照此规则，其他网站的密码就完全可以推测出来了。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;所以这个变化规则应该有三个要求：容易计算（考虑下人类大脑的计算速度）、不太明显（不容易被看穿把戏）、但是还要足够复杂（增加被猜出来的难度）。&lt;/p&gt;
+&lt;p&gt;有了这三项要求，寻找一个规则就不太简单了。青蛙在这举个例子：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;首先根据顶级域名分类，获得数字A，例如com是1，net是2，cn是3，其他的就是4，分类随你&lt;/li&gt;
+&lt;li&gt;数出站点字母个数，获得数字B，例如gfrog.net，域名主题有5个字母&lt;/li&gt;
+&lt;li&gt;取站点的首位字母，获得第三位、第四位密码，例如gfrog.net，首尾字母是g和g&lt;/li&gt;
+&lt;li&gt;这步可选，为了不让获得密码明文的攻击者一眼看出破绽，把第三步取到的字母做个变换，这个变换可以固定的，例如直接前移后移几个字母，或者直接转换成ASCII码，&lt;/li&gt;
+&lt;li&gt;然后把上一步取到的两位密码插入到基础密码里的第A个位置和第B个位置上，获得的密码就是这个网站的密码了。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;这个方法只是青蛙随便想到的一个例子，不要拿去直接用哦，这种依赖算法的加密规则说出算法就不好玩了。找一种容易使用，算出结果又不太明显的算法来组合你的密码吧。&lt;/p&gt;
+&lt;p&gt;另外在酷壳的&lt;a href="http://coolshell.cn/articles/2428.html"&gt;如何管理并设计你的口令&lt;/a&gt;这篇文章里也提到了密码分级的问题，看来大家都意识到一套基础密码仍旧不安全，XD&lt;/p&gt;
+&lt;p&gt;密码分级，青蛙觉得至少要分成5套，重要性依次递减：
+  * 与钱有关：涉及真金白银啊，一定要强密码
+  * 重要个人信息网站：gmail、SNS网站，MSN等等，这些网站往往都保存着重要的个人信息资料，所以保障帐号安全很重要。
+  * 国产邮件服务提供商、SNS等等，虽然个人信息同样重要，但是国内网站往往都会屈服于某种无形的压力，你懂得，所以单独列出。当然，在国内网站上提供个人信息同样要注意，完全没有安全性可言。
+  * 一般网站，一个普通密码足矣
+  * 怀疑没有完善密码保存流程的网站，对于这种网站最好的处理方法就是不用丫的，如果没法避免，最低安全级的密码处理就好，因为密码难免会暴露在别人眼前。&lt;/p&gt;
+&lt;p&gt;哦，说了半天基础密码，生成基础密码的方式也有很多的，青蛙推荐一下apg这个包，各大发行版都提供，它可以生成指定长度的一组密码，例如：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&amp;gt; $ apg
+Please enter some random data &lt;span class="o"&gt;(&lt;/span&gt;only first &lt;span class="m"&gt;8&lt;/span&gt; are significant&lt;span class="o"&gt;)&lt;/span&gt;
+&lt;span class="o"&gt;(&lt;/span&gt;eg. your old password&lt;span class="o"&gt;)&lt;/span&gt;:&amp;gt;
+IflicCydrum3 &lt;span class="o"&gt;(&lt;/span&gt;I-flic-Cy-drum-THREE&lt;span class="o"&gt;)&lt;/span&gt;
+ChagNeg4 &lt;span class="o"&gt;(&lt;/span&gt;Chag-Neg-FOUR&lt;span class="o"&gt;)&lt;/span&gt;
+geHebreil2 &lt;span class="o"&gt;(&lt;/span&gt;ge-Hebr-eil-TWO&lt;span class="o"&gt;)&lt;/span&gt;
+luj2TanRysp &lt;span class="o"&gt;(&lt;/span&gt;luj-TWO-Tan-Rysp&lt;span class="o"&gt;)&lt;/span&gt;
+Ash3Twoij &lt;span class="o"&gt;(&lt;/span&gt;Ash-THREE-Twoij&lt;span class="o"&gt;)&lt;/span&gt;
+JaHyxlyetag4 &lt;span class="o"&gt;(&lt;/span&gt;Ja-Hyx-lyet-ag-FOUR&lt;span class="o"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;最后，如果你下载了csdn那一大坨密码文件，这个脚本可以帮你分析各种弱密码的使用频率，结果很欢乐的哦。&lt;/p&gt;
+&lt;p&gt;（此脚本引用自 &lt;a href="https://twitter.com/#!/hmsea"&gt;waterye@Twitter&lt;/a&gt;）：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ awk -F# &lt;span class="s1"&gt;&amp;#39;{a[$2]++}END{for(i in a){print a[i] &amp;quot;:&amp;quot; i }}&amp;#39;&lt;/span&gt; www.csdn.net.sql &lt;span class="p"&gt;|&lt;/span&gt; sort -rn &amp;gt; a.log
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;好了，吐槽完成，青蛙也该去整理下密码去了。&lt;/p&gt;</content><category term="security"></category><category term="password"></category><category term="shell"></category></entry><entry><title>圣诞快乐</title><link href="https://www.gfrog.net/2010/12/merry-christmas/" rel="alternate"></link><published>2010-12-25T22:33:35+08:00</published><updated>2010-12-25T22:33:35+08:00</updated><author><name>gfrog</name></author><id>tag:www.gfrog.net,2010-12-25:/2010/12/merry-christmas/</id><summary type="html">&lt;p&gt;as $subject. XD&lt;/p&gt;
+&lt;p&gt;&lt;img alt="1" src="http://gfrog.net/wp-content/uploads/2010/12/merry_christmas.jpg"&gt;&lt;/p&gt;</summary><content type="html">&lt;p&gt;as $subject. XD&lt;/p&gt;
+&lt;p&gt;&lt;img alt="1" src="http://gfrog.net/wp-content/uploads/2010/12/merry_christmas.jpg"&gt;&lt;/p&gt;</content><category term="merry christmas"></category></entry><entry><title>为https服务申请SSL证书</title><link href="https://www.gfrog.net/2010/12/setup-ssl-certificate-for-https/" rel="alternate"></link><published>2010-12-21T02:23:08+08:00</published><updated>2010-12-21T02:23:08+08:00</updated><author><name>gfrog</name></author><id>tag:www.gfrog.net,2010-12-21:/2010/12/setup-ssl-certificate-for-https/</id><summary type="html">&lt;p&gt;书接上文，上回书说到青蛙成功给nginx配置上了https服务，
+但是当时青蛙使用的是自签名证书，没有验证网站身份的功能；
+而且有些工具会对证书的有效性进行校验，对于这种工具，自签名证书就毫无用处了。&lt;/p&gt;
+&lt;p&gt;这个时候，就需要申请一个经过CA认证的有效证书。&lt;/p&gt;
+&lt;p&gt;据青蛙所知，目前提供免费SSL证书的只有StartSSL[1]一家，
+青蛙按照这两个网站的介绍[2][3]，成功申请了SSL证书。&lt;/p&gt;
+&lt;p&gt;依照青蛙的经验，要成功申请证书，最好是有一个以要申请域名结尾的邮箱，
+这样可以很容易的确认域名所有权。至于邮箱服务，可以申请google app，方便，免费。&lt;/p&gt;
+&lt;p&gt;有了邮箱系统之后，可以设置一个webmaster或者hostmaster账户，以便注册过程中验证域名地址。&lt;/p&gt;
+&lt;p&gt;在StartSSL申请证书的时候有几点需要注意：&lt;/p&gt;
+&lt;p&gt;首先，建议使用firefox申请证书，青蛙用Chromium试了一下，
+点击进入Sign-up界面的时候会出现一个错误提示，明确说明Chrome类浏览器无法申请。
+有网友说IE也没法成功申请[1]。&lt;/p&gt;
+&lt;p&gt;其次，申请的时候尽量填写靠谱的个人信息，
+如果信息看起来不靠谱，很容易被拒掉。
+个人信息填写完之后会向你填写的邮箱里发送一封认证邮件，邮件中包含继续注册所需的验证码。
+输入验证码之后提示等待人工审核，青蛙遇到的审核过程很快，大概几分钟就有结果了。&lt;/p&gt;
+&lt;p&gt;接下来还有一封邮件，里面有一个链接和一个认证码，访问那个连接，填上认证码 …&lt;/p&gt;</summary><content type="html">&lt;p&gt;书接上文，上回书说到青蛙成功给nginx配置上了https服务，
+但是当时青蛙使用的是自签名证书，没有验证网站身份的功能；
+而且有些工具会对证书的有效性进行校验，对于这种工具，自签名证书就毫无用处了。&lt;/p&gt;
+&lt;p&gt;这个时候，就需要申请一个经过CA认证的有效证书。&lt;/p&gt;
+&lt;p&gt;据青蛙所知，目前提供免费SSL证书的只有StartSSL[1]一家，
+青蛙按照这两个网站的介绍[2][3]，成功申请了SSL证书。&lt;/p&gt;
+&lt;p&gt;依照青蛙的经验，要成功申请证书，最好是有一个以要申请域名结尾的邮箱，
+这样可以很容易的确认域名所有权。至于邮箱服务，可以申请google app，方便，免费。&lt;/p&gt;
+&lt;p&gt;有了邮箱系统之后，可以设置一个webmaster或者hostmaster账户，以便注册过程中验证域名地址。&lt;/p&gt;
+&lt;p&gt;在StartSSL申请证书的时候有几点需要注意：&lt;/p&gt;
+&lt;p&gt;首先，建议使用firefox申请证书，青蛙用Chromium试了一下，
+点击进入Sign-up界面的时候会出现一个错误提示，明确说明Chrome类浏览器无法申请。
+有网友说IE也没法成功申请[1]。&lt;/p&gt;
+&lt;p&gt;其次，申请的时候尽量填写靠谱的个人信息，
+如果信息看起来不靠谱，很容易被拒掉。
+个人信息填写完之后会向你填写的邮箱里发送一封认证邮件，邮件中包含继续注册所需的验证码。
+输入验证码之后提示等待人工审核，青蛙遇到的审核过程很快，大概几分钟就有结果了。&lt;/p&gt;
+&lt;p&gt;接下来还有一封邮件，里面有一个链接和一个认证码，访问那个连接，填上认证码，
+如果一切正确StartSSL会自动在Firefox里面添加一个个人证书，这个证书就是用来登录StartSSL的控制台的。
+青蛙建议最好把它导出，找个安全的地方保存
+（毕竟StartSSL的免费证书1年就过期了，明年还得做一遍同样的流程再申请）。&lt;/p&gt;
+&lt;p&gt;以上是StartSSL的注册过程，下面是验证域名的过程。&lt;/p&gt;
+&lt;p&gt;进入StartSSL的控制台之后点击Validations Wizard，选择Domain Name Validation，
+然后填入要验证的域名，接下来需要选择一个邮箱，
+可以是postmaster/hostmaster/webmaster三个中的一个，或者是域名whois信息中的邮箱。
+选择一个，StartSSL会向这个邮箱发送一封确认邮件，填上邮件里的验证码，验证完成。
+注意这个验证有30天有效期，超过期限就需要重新认证域名。&lt;/p&gt;
+&lt;p&gt;接下来才是最重要的部分，点击Certificates Wizard开始申请证书。&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;这里有几钟证书可以选择：S/MIME、Web Server SSL/TLS、XMPP（jabber） SSL/TLS等，对于网站就是Web Server SSL/TLS证书了。&lt;/li&gt;
+&lt;li&gt;下一步是生成私钥的过程，青蛙没有网站提供的功能，而是选择了在本地生成私钥和证书请求文件csr的方式，所以这步选择跳过，然后在本地执行：&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;    &lt;span class="o"&gt;#&lt;/span&gt; &lt;span class="err"&gt;生成私钥：&lt;/span&gt;
+    &lt;span class="err"&gt;$&lt;/span&gt; &lt;span class="n"&gt;openssl&lt;/span&gt; &lt;span class="n"&gt;genrsa&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;aes256&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="k"&gt;out&lt;/span&gt; &lt;span class="n"&gt;private&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="k"&gt;key&lt;/span&gt; &lt;span class="mi"&gt;2048&lt;/span&gt;
+    &lt;span class="o"&gt;#&lt;/span&gt; &lt;span class="err"&gt;这里需要输入一个密码，制作&lt;/span&gt;&lt;span class="n"&gt;SSL证书密钥的时候会用到&lt;/span&gt;&lt;span class="err"&gt;。&lt;/span&gt;
+    &lt;span class="o"&gt;#&lt;/span&gt; &lt;span class="err"&gt;生成证书请求文件：&lt;/span&gt;
+    &lt;span class="err"&gt;$&lt;/span&gt; &lt;span class="n"&gt;openssl&lt;/span&gt; &lt;span class="n"&gt;req&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="k"&gt;new&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="k"&gt;key&lt;/span&gt; &lt;span class="n"&gt;private&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="k"&gt;key&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="k"&gt;out&lt;/span&gt; &lt;span class="n"&gt;cert&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;csr&lt;/span&gt;
+    &lt;span class="o"&gt;#&lt;/span&gt; &lt;span class="err"&gt;这里会询问一大堆信息，基本是证书的基本信息，例如域名、网站名称、所有者、地址等等。&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;ol&gt;
+&lt;li&gt;然后打开cert.csr文件，复制所有内容贴到文本框中；&lt;/li&gt;
+&lt;li&gt;点击下一步继续，如果一切正常会提示证书请求已经正确提交了；&lt;/li&gt;
+&lt;li&gt;继续点击下一步，选择要为哪个域名申请证书；&lt;/li&gt;
+&lt;li&gt;再下一步，需要给这个证书添加一个子域名，青蛙选择了www，因为还要在www上提供https服务；&lt;/li&gt;
+&lt;li&gt;再继续，会有一个汇总，报告下要为哪些域名制作证书；&lt;/li&gt;
+&lt;li&gt;再点击继续开始正式制作证书。&lt;/li&gt;
+&lt;li&gt;等待证书制作完成，点击Tool Box，选择Retrieve Certficate，这里就是我们想要的网站证书啦；&lt;/li&gt;
+&lt;li&gt;把它复制到一个文件里，放在服务器上就可以用了。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;然后是密钥，选择Decrypt Private Key，把之前生成的private.key文件打开，复制所有内容到文本框里，
+填入密码，点击Decrypt，接下来显示的文本框的内容就是网站证书的key啦，也复制出来保存到一个文件里，传到服务器上。&lt;/p&gt;
+&lt;p&gt;证书申请大功告成，接下来改一下nginx的配置。
+加入新申请的证书路径，用浏览器访问https站点试试，正确的话应该没有那个讨厌的https证书无效提示了。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Update: 2012-01-12:&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;StartSSL的登录证书的有效期竟然也是1年，所以如果需要更新SSL证书，还要重新Sign-up一次。&lt;/p&gt;
+&lt;p&gt;参考文档：&lt;/p&gt;
+&lt;p&gt;[1] www.startssl.com &lt;a href="http://www.startssl.com/"&gt;http://www.startssl.com/&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;[2] Nginx + https + 免费SSL证书配置指南 &lt;a href="http://www.21andy.com/blog/20100224/1714.html"&gt;http://www.21andy.com/blog/20100224/1714.html&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;[3] 免费SSL证书 STARTSSL 介绍与申请攻略 &lt;a href="http://dev.meettea.com/show-52-1.html"&gt;http://dev.meettea.com/show-52-1.html&lt;/a&gt;&lt;/p&gt;</content><category term="https"></category><category term="ssl"></category><category term="startssl"></category><category term="server"></category><category term="setup"></category><category term="certificate"></category><category term="openssl"></category></entry><entry><title>摄影三俗</title><link href="https://www.gfrog.net/2010/12/photography-sansu-in-china/" rel="alternate"></link><published>2010-12-16T21:20:01+08:00</published><updated>2010-12-16T21:20:01+08:00</updated><author><name>gfrog</name></author><id>tag:www.gfrog.net,2010-12-16:/2010/12/photography-sansu-in-china/</id><summary type="html">&lt;p&gt;自己拍照的时候，一定要记得避开这些俗物，XD。&lt;/p&gt;
+&lt;p&gt;本来青蛙计划去扫一下后海和老北京的胡同的，看来要pass掉重新选题了。&lt;/p&gt;
+&lt;p&gt;帝都冬天还有什么值得拍的呢？哪里有庙会？哈&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;中国摄影有三俗 &lt;br /&gt;
+人像三俗：芦苇，后海，798 &lt;br /&gt;
+夜景三俗：浦东，建外，太平山 &lt;br /&gt;
+建筑三俗：鸟巢，巨蛋，明珠塔 &lt;br /&gt;
+纪实三俗：老太，胡同，石库门 &lt;br /&gt;
+旅行三俗：马代，瑞士，梅里山 &lt;br /&gt;
+静物三俗：酒杯，水果，紫砂壶 &lt;br /&gt;
+小品三俗：荷花，水珠，自行车 &lt;br /&gt;
+自然风光三俗：坝上，亚丁，喀纳斯 &lt;br /&gt;
+人文风光三俗：丽江，水乡，和土楼 &lt;br /&gt;
+名胜古迹三俗：长城，外滩，嘉峪关 &lt;br /&gt;
+民俗风情三俗 …&lt;/p&gt;&lt;/blockquote&gt;</summary><content type="html">&lt;p&gt;自己拍照的时候，一定要记得避开这些俗物，XD。&lt;/p&gt;
+&lt;p&gt;本来青蛙计划去扫一下后海和老北京的胡同的，看来要pass掉重新选题了。&lt;/p&gt;
+&lt;p&gt;帝都冬天还有什么值得拍的呢？哪里有庙会？哈&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;中国摄影有三俗 &lt;br /&gt;
+人像三俗：芦苇，后海，798 &lt;br /&gt;
+夜景三俗：浦东，建外，太平山 &lt;br /&gt;
+建筑三俗：鸟巢，巨蛋，明珠塔 &lt;br /&gt;
+纪实三俗：老太，胡同，石库门 &lt;br /&gt;
+旅行三俗：马代，瑞士，梅里山 &lt;br /&gt;
+静物三俗：酒杯，水果，紫砂壶 &lt;br /&gt;
+小品三俗：荷花，水珠，自行车 &lt;br /&gt;
+自然风光三俗：坝上，亚丁，喀纳斯 &lt;br /&gt;
+人文风光三俗：丽江，水乡，和土楼 &lt;br /&gt;
+名胜古迹三俗：长城，外滩，嘉峪关 &lt;br /&gt;
+民俗风情三俗：苗疆，西藏，泸沽湖 &lt;br /&gt;
+摄影三俗：德味！大湿！毒毒毒！&lt;/p&gt;
+&lt;/blockquote&gt;</content><category term="picture"></category></entry><entry><title>春节快乐</title><link href="https://www.gfrog.net/2010/02/chun-jie-kuai-le/" rel="alternate"></link><published>2010-02-14T21:41:05+08:00</published><updated>2010-02-14T21:41:05+08:00</updated><author><name>gfrog</name></author><id>tag:www.gfrog.net,2010-02-14:/2010/02/chun-jie-kuai-le/</id><summary type="html">&lt;p&gt;大家好，&lt;/p&gt;
+&lt;p&gt;在虎年到来之际，青蛙在这里祝大家虎年新春快乐！吉祥如意！幸福康健！&lt;/p&gt;
+&lt;p&gt;在除夕和初一短信过青蛙的童鞋们，俺就不一一回复了，在这里一并送去青蛙最美好的祝福！&lt;/p&gt;</summary><content type="html">&lt;p&gt;大家好，&lt;/p&gt;
+&lt;p&gt;在虎年到来之际，青蛙在这里祝大家虎年新春快乐！吉祥如意！幸福康健！&lt;/p&gt;
+&lt;p&gt;在除夕和初一短信过青蛙的童鞋们，俺就不一一回复了，在这里一并送去青蛙最美好的祝福！&lt;/p&gt;</content><category term="happy"></category><category term="new"></category><category term="year"></category></entry><entry><title>年关将至</title><link href="https://www.gfrog.net/2010/02/the-end-of-year-is-approaching/" rel="alternate"></link><published>2010-02-07T22:41:41+08:00</published><updated>2010-02-07T22:41:41+08:00</updated><author><name>gfrog</name></author><id>tag:www.gfrog.net,2010-02-07:/2010/02/the-end-of-year-is-approaching/</id><summary type="html">&lt;p&gt;又到年关，年终奖发到手以后才发现辛苦干了一年，这点钱还不够过年的。&lt;/p&gt;
+&lt;p&gt;这是多么令人纠结的一幕。&lt;/p&gt;
+&lt;p&gt;明年，该走向哪里？&lt;/p&gt;</summary><content type="html">&lt;p&gt;又到年关，年终奖发到手以后才发现辛苦干了一年，这点钱还不够过年的。&lt;/p&gt;
+&lt;p&gt;这是多么令人纠结的一幕。&lt;/p&gt;
+&lt;p&gt;明年，该走向哪里？&lt;/p&gt;</content><category term="status"></category><category term="update"></category></entry><entry><title>回首2008</title><link href="https://www.gfrog.net/2009/01/looking-back-2008/" rel="alternate"></link><published>2009-01-01T23:31:06+08:00</published><updated>2009-01-01T23:31:06+08:00</updated><author><name>gfrog</name></author><id>tag:www.gfrog.net,2009-01-01:/2009/01/looking-back-2008/</id><summary type="html">&lt;p&gt;2009就这么不经意的就来了。虽然2008走的不甘心，
+&lt;a href="http://www.cnbeta.com/articles/71930.htm"&gt;多在这个世界上停留了一秒&lt;/a&gt;
+ ，也没有阻挡的住2009的到来。&lt;/p&gt;
+&lt;p&gt;套用那句经典名嗑，看过去，想今朝，我此起彼伏。于是乎，就多了这篇日志。&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://gfrog.net/wp-content/uploads/2009/01/windowslivewriter2008lookingback2008-14870071228113030302008-2.jpg"&gt;&lt;img alt="071228113030302008鼠年春节图片" src="http://gfrog.net/wp-content/uploads/2009/01/windowslivewriter2008lookingback2008-14870071228113030302008-thumb.jpg"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;话说2008年注定就是不平凡的一年，从2008年那场雪比每年都要大一些开始，&lt;/p&gt;
+&lt;p&gt;暴动，抵制法国货，地震，奥运，经济危机，再加上饭岛爱同志的逝世，这些都是今年（哦，是去年）的标志性的名词了。&lt;/p&gt;
+&lt;p&gt;国家大事自然有大人去管，还是说说青蛙自己。&lt;/p&gt;
+&lt;p&gt;2008年，青蛙终于把自己交给了一个人，这个人应该值得青蛙托付一辈子吧 ：）；&lt;/p&gt;
+&lt;p&gt;2008年，青蛙终于完成了自己的第一个第1000行代码，不过最后也没派上用场，就当练手吧；&lt;/p&gt;
+&lt;p&gt;2008年，青蛙从一个测试人员转型为编码人员，从一个抓虫子的变成了制造虫子的，反差还是满大的；&lt;/p&gt;
+&lt;p&gt;2008年，青蛙接到了工作以来最大最复杂的一项任务：动态路由的设计制作，第一次了解了OSPF和BGP的特性，这是一场与风车的搏斗；&lt;/p&gt;
+&lt;p&gt;2008年，青蛙终于完成了从小到大最大的一次败家，换来白纸若干；&lt;/p&gt;
+&lt;p&gt;2008年，青蛙终于有了自己的第一台小黑，虽然小黑现在已经变味了；&lt;/p&gt;
+&lt;p&gt;2008年，青蛙终于向代码库里提交了第一行代码，虽然还是脚本，但是 …&lt;/p&gt;</summary><content type="html">&lt;p&gt;2009就这么不经意的就来了。虽然2008走的不甘心，
+&lt;a href="http://www.cnbeta.com/articles/71930.htm"&gt;多在这个世界上停留了一秒&lt;/a&gt;
+ ，也没有阻挡的住2009的到来。&lt;/p&gt;
+&lt;p&gt;套用那句经典名嗑，看过去，想今朝，我此起彼伏。于是乎，就多了这篇日志。&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://gfrog.net/wp-content/uploads/2009/01/windowslivewriter2008lookingback2008-14870071228113030302008-2.jpg"&gt;&lt;img alt="071228113030302008鼠年春节图片" src="http://gfrog.net/wp-content/uploads/2009/01/windowslivewriter2008lookingback2008-14870071228113030302008-thumb.jpg"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;话说2008年注定就是不平凡的一年，从2008年那场雪比每年都要大一些开始，&lt;/p&gt;
+&lt;p&gt;暴动，抵制法国货，地震，奥运，经济危机，再加上饭岛爱同志的逝世，这些都是今年（哦，是去年）的标志性的名词了。&lt;/p&gt;
+&lt;p&gt;国家大事自然有大人去管，还是说说青蛙自己。&lt;/p&gt;
+&lt;p&gt;2008年，青蛙终于把自己交给了一个人，这个人应该值得青蛙托付一辈子吧 ：）；&lt;/p&gt;
+&lt;p&gt;2008年，青蛙终于完成了自己的第一个第1000行代码，不过最后也没派上用场，就当练手吧；&lt;/p&gt;
+&lt;p&gt;2008年，青蛙从一个测试人员转型为编码人员，从一个抓虫子的变成了制造虫子的，反差还是满大的；&lt;/p&gt;
+&lt;p&gt;2008年，青蛙接到了工作以来最大最复杂的一项任务：动态路由的设计制作，第一次了解了OSPF和BGP的特性，这是一场与风车的搏斗；&lt;/p&gt;
+&lt;p&gt;2008年，青蛙终于完成了从小到大最大的一次败家，换来白纸若干；&lt;/p&gt;
+&lt;p&gt;2008年，青蛙终于有了自己的第一台小黑，虽然小黑现在已经变味了；&lt;/p&gt;
+&lt;p&gt;2008年，青蛙终于向代码库里提交了第一行代码，虽然还是脚本，但是，我们的产品中终于有了青蛙的贡献。&lt;/p&gt;
+&lt;p&gt;2008，平淡，也饱含激情。&lt;/p&gt;</content><category term="status"></category><category term="update"></category></entry><entry><title>2009新年快乐</title><link href="https://www.gfrog.net/2009/01/happy-new-year-2009/" rel="alternate"></link><published>2009-01-01T00:00:51+08:00</published><updated>2009-01-01T00:00:51+08:00</updated><author><name>gfrog</name></author><id>tag:www.gfrog.net,2009-01-01:/2009/01/happy-new-year-2009/</id><summary type="html">&lt;p&gt;&lt;strong&gt;新年快乐！&lt;/strong&gt;&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;strong&gt;新年快乐！&lt;/strong&gt;&lt;/p&gt;</content><category term="happy"></category><category term="new"></category><category term="year"></category></entry><entry><title>关于FreeBSD系统安装和升级的几个技巧</title><link href="https://www.gfrog.net/2008/12/tips-about-freebsd-installation-and-upgrade/" rel="alternate"></link><published>2008-12-27T22:45:53+08:00</published><updated>2008-12-27T22:45:53+08:00</updated><author><name>gfrog</name></author><id>tag:www.gfrog.net,2008-12-27:/2008/12/tips-about-freebsd-installation-and-upgrade/</id><summary type="html">&lt;p&gt;&lt;img alt="1" src="http://www.freebsd.org/logo/logo-full.png"&gt;&lt;/p&gt;
+&lt;p&gt;青蛙今天又开始在VMWare上继续倒腾FreeBSD。
+话说上次给FreeBSD划分的虚拟硬盘太小了，
+csup了一下系统和ports就把分区吃光光了。
+所以今天青蛙从头又装了一遍FreeBSD，在安装和升级的过程中遇到了不少问题，在这里统一做一个记录。&lt;/p&gt;
+&lt;p&gt;首先，是青蛙又把root密码搞丢了。这已经是第N次刚刚装上系统就要恢复密码了。
+不过今天的原因是这样的，青蛙在安装的时候不小心修改了系统的keymap设置，
+结果按照正常键盘顺序输入的字符，变成了不知道是什么符号。
+当青蛙发现这个问题并改过来keymap之后，root密码就一直错误了。
+没办法，上网google一下。流程如下[1]：&lt;/p&gt;
+&lt;p&gt;第一步，启动到freebsd的single user模式，
+也就是出现freebsd的启动菜单的时候按4；
+等着系统启动，最后会提示指定shell的位置或者按回车继续，
+这里直接按回车就ok。&lt;/p&gt;
+&lt;p&gt;&lt;img alt="freebsd-boot" src="http://gfrog.net/wp-content/uploads/2008/12/windowslivewriterfreebsdtipsaboutfreebsdinstallationandup-b1ffreebsd-boot-3.jpg"&gt;&lt;/p&gt;
+&lt;p&gt;第二步，在shell里执行如下命令：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="o"&gt;#&lt;/span&gt; &lt;span class="n"&gt;fsck&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;p&lt;/span&gt;
+&lt;span class="o"&gt;#&lt;/span&gt; &lt;span class="n"&gt;mount&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;u&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt;
+&lt;span class="o"&gt;#&lt;/span&gt; &lt;span class="n"&gt;mount&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;t&lt;/span&gt; &lt;span class="n"&gt;ufs&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;a&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;第三步，用passwd修改root密码。&lt;/p&gt;
+&lt;p&gt;青蛙在这啰嗦一句：现在想想当时的错误操作就是在设置终端那步，
+青蛙打开keymap的设置对话框看了一眼，
+估计那个时候就直接选择了第一个键盘类型，然后就那么错了。
+对比各种Linux的安装过程，
+keymap的设置有一个默认不做任何改变的选项，
+青蛙在FreeBSD里面就没有找到，
+看来FreeBSD在这种细节上还需要继续努力。&lt;/p&gt;
+&lt;p&gt;由于FreeBSD的默认shell是csh，所以青蛙用起来十分的不顺手，
+上网google到几个贴心小设置 …&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;img alt="1" src="http://www.freebsd.org/logo/logo-full.png"&gt;&lt;/p&gt;
+&lt;p&gt;青蛙今天又开始在VMWare上继续倒腾FreeBSD。
+话说上次给FreeBSD划分的虚拟硬盘太小了，
+csup了一下系统和ports就把分区吃光光了。
+所以今天青蛙从头又装了一遍FreeBSD，在安装和升级的过程中遇到了不少问题，在这里统一做一个记录。&lt;/p&gt;
+&lt;p&gt;首先，是青蛙又把root密码搞丢了。这已经是第N次刚刚装上系统就要恢复密码了。
+不过今天的原因是这样的，青蛙在安装的时候不小心修改了系统的keymap设置，
+结果按照正常键盘顺序输入的字符，变成了不知道是什么符号。
+当青蛙发现这个问题并改过来keymap之后，root密码就一直错误了。
+没办法，上网google一下。流程如下[1]：&lt;/p&gt;
+&lt;p&gt;第一步，启动到freebsd的single user模式，
+也就是出现freebsd的启动菜单的时候按4；
+等着系统启动，最后会提示指定shell的位置或者按回车继续，
+这里直接按回车就ok。&lt;/p&gt;
+&lt;p&gt;&lt;img alt="freebsd-boot" src="http://gfrog.net/wp-content/uploads/2008/12/windowslivewriterfreebsdtipsaboutfreebsdinstallationandup-b1ffreebsd-boot-3.jpg"&gt;&lt;/p&gt;
+&lt;p&gt;第二步，在shell里执行如下命令：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="o"&gt;#&lt;/span&gt; &lt;span class="n"&gt;fsck&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;p&lt;/span&gt;
+&lt;span class="o"&gt;#&lt;/span&gt; &lt;span class="n"&gt;mount&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;u&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt;
+&lt;span class="o"&gt;#&lt;/span&gt; &lt;span class="n"&gt;mount&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;t&lt;/span&gt; &lt;span class="n"&gt;ufs&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;a&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;第三步，用passwd修改root密码。&lt;/p&gt;
+&lt;p&gt;青蛙在这啰嗦一句：现在想想当时的错误操作就是在设置终端那步，
+青蛙打开keymap的设置对话框看了一眼，
+估计那个时候就直接选择了第一个键盘类型，然后就那么错了。
+对比各种Linux的安装过程，
+keymap的设置有一个默认不做任何改变的选项，
+青蛙在FreeBSD里面就没有找到，
+看来FreeBSD在这种细节上还需要继续努力。&lt;/p&gt;
+&lt;p&gt;由于FreeBSD的默认shell是csh，所以青蛙用起来十分的不顺手，
+上网google到几个贴心小设置，让csh用起来更加方便[2]：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="k"&gt;alias&lt;/span&gt; &lt;span class="n"&gt;ls&lt;/span&gt;    &lt;span class="n"&gt;ls&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;w&lt;/span&gt;      &lt;span class="o"&gt;#&lt;/span&gt;&lt;span class="err"&gt;让&lt;/span&gt;&lt;span class="n"&gt;csh可以正常显示汉字&lt;/span&gt; 
+&lt;span class="k"&gt;alias&lt;/span&gt; &lt;span class="n"&gt;ls&lt;/span&gt;    &lt;span class="n"&gt;ls&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="k"&gt;G&lt;/span&gt;       &lt;span class="o"&gt;#&lt;/span&gt;&lt;span class="err"&gt;按照文件类型高亮显示&lt;/span&gt;
+
+&lt;span class="k"&gt;set&lt;/span&gt; &lt;span class="n"&gt;autolist&lt;/span&gt;      &lt;span class="o"&gt;#&lt;/span&gt;&lt;span class="err"&gt;按&lt;/span&gt;&lt;span class="n"&gt;tab键时自动补全&lt;/span&gt;&lt;span class="err"&gt;，如果有多个符合就显示列表。&lt;/span&gt;
+&lt;span class="k"&gt;set&lt;/span&gt; &lt;span class="n"&gt;nobeep&lt;/span&gt;      &lt;span class="o"&gt;#&lt;/span&gt;&lt;span class="err"&gt;关闭终端响铃&lt;/span&gt;
+&lt;span class="k"&gt;set&lt;/span&gt; &lt;span class="n"&gt;prompt&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="ss"&gt;&amp;quot;`/bin/hostname -s`:%~# &amp;quot;&lt;/span&gt;      &lt;span class="o"&gt;#&lt;/span&gt;&lt;span class="err"&gt;在命令提示符中显示当前目录。&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;青蛙上次搞FreeBSD已经是很久以前的事了。
+记得那时候好像FreeBSD 5-CURRENT刚刚出来，再后来青蛙就一头扎进Debian的世界去了。
+所以FreeBSD的新东西青蛙几乎都没有见过，例如，更新ports。
+记得当年的做法应该是&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;先从sysinstall里面装一个ports，&lt;/li&gt;
+&lt;li&gt;在这个ports中装一个cvsup-without-gui（似乎是叫这个名字吧），&lt;/li&gt;
+&lt;li&gt;接着编辑port-supfile文件，&lt;/li&gt;
+&lt;li&gt;再然后才是用cvsup重新更新ports。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;现在看起来，这套程序简直麻烦到家，对于新人来说十分的不友好。&lt;/p&gt;
+&lt;p&gt;不过，这些东东都是历史了，从FreeBSD的handbook看，更新ports已经简单了很多了。&lt;/p&gt;
+&lt;p&gt;说一个青蛙认为最简单的吧，portsnap方式[3]。&lt;/p&gt;
+&lt;p&gt;说这种方式简单，到底有多简单？ 总共分三步：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="err"&gt;先下载一个&lt;/span&gt;&lt;span class="n"&gt;ports包&lt;/span&gt;&lt;span class="err"&gt;：&lt;/span&gt;
+&lt;span class="o"&gt;#&lt;/span&gt; &lt;span class="n"&gt;portsnap&lt;/span&gt; &lt;span class="k"&gt;fetch&lt;/span&gt;
+&lt;span class="err"&gt;然后解压到&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;usr&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;ports里面&lt;/span&gt;&lt;span class="err"&gt;：&lt;/span&gt;
+&lt;span class="o"&gt;#&lt;/span&gt; &lt;span class="n"&gt;portsnap&lt;/span&gt; &lt;span class="k"&gt;extract&lt;/span&gt;
+&lt;span class="err"&gt;以后需要更新的时候，直接执行：&lt;/span&gt;
+&lt;span class="o"&gt;#&lt;/span&gt; &lt;span class="n"&gt;portsnap&lt;/span&gt; &lt;span class="k"&gt;update&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;就这么简单，比cvsup还有稍后引入的csup方式简单的多。 ：）
+当然portsnap自身也还有几个参数，青蛙觉得最常用的应该就是-s参数了，
+这个参数用来指定更新时使用的更新服务器，
+默认是&lt;code&gt;portsnap.FreeBSD.org&lt;/code&gt;。
+国内有一系列portsnap的镜像可用，速度还是很快的，例如hssh.org的镜像：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;portsnap.hshh.org &lt;br /&gt;
+portsnap2.hshh.org &lt;br /&gt;
+portsnap3.hshh.org (网通) &lt;br /&gt;
+portsnap4.hshh.org&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;今天先写到这里，未完待续...&lt;/p&gt;
+&lt;p&gt;参考资料：&lt;/p&gt;
+&lt;p&gt;[1]：FreeBSD恢复root密码
+      &lt;a href="http://www.zhaocs.info/linux-technic-26.html"&gt;http://www.zhaocs.info/linux-technic-26.html&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;[2]：csh一些简单舒服的设置
+      &lt;a href="http://www.linuxsir.org/bbs/showthread.php?s=&amp;amp;threadid=112343"&gt;http://www.linuxsir.org/bbs/showthread.php?s=&amp;amp;threadid=112343&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;[3]：4.5.1 获得Ports Collect
+      &lt;a href="http://www.freebsd.org/doc/zh_CN.GB2312/books/handbook/ports-using.html"&gt;http://www.freebsd.org/doc/zh_CN.GB2312/books/handbook/ports-using.html&lt;/a&gt;&lt;/p&gt;</content><category term="freebsd"></category><category term="installation"></category><category term="shell"></category><category term="configuration"></category></entry><entry><title>跟耗子接近的生物钟</title><link href="https://www.gfrog.net/2008/11/biological-clock-like-a-mouse/" rel="alternate"></link><published>2008-11-09T23:36:49+08:00</published><updated>2008-11-09T23:36:49+08:00</updated><author><name>gfrog</name></author><id>tag:www.gfrog.net,2008-11-09:/2008/11/biological-clock-like-a-mouse/</id><summary type="html">&lt;p&gt;哦，对不起，这篇日志标题党了。&lt;/p&gt;
+&lt;p&gt;青蛙最近经常熬灯写文档，搞得作息时间毫无规律。
+经常是凌晨上床，然后早上还要爬起来上班，
+于是整天都没有精神，哈气连天，
+然后晚上的时候倒是神采奕奕，很晚都不想睡觉。&lt;/p&gt;
+&lt;p&gt;一个接近于昼伏夜出的动物产生了！&lt;/p&gt;
+&lt;p&gt;PS.貌似最近到了青蛙冬眠的时节了，难道青蛙成天犯困也跟没去冬眠有关？ ：P&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://hi.baidu.com/aeon_studio/blog/item/3bef7036fc6d9c340a55a9b0.html"&gt;&lt;img alt="耗子" src="http://gfrog.net/wp-content/uploads/2008/11/80d144fde90b6550d6887d59.jpg"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;（文中图片来自Google，请大家猛击&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://hi.baidu.com/aeon_studio/blog/item/3bef7036fc6d9c340a55a9b0.html"&gt;http://hi.baidu.com/aeon_studio/blog/item/3bef7036fc6d9c340a55a9b0.html&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;观看更多超盟的老鼠，图片版权为原作者所有。）&lt;/p&gt;</summary><content type="html">&lt;p&gt;哦，对不起，这篇日志标题党了。&lt;/p&gt;
+&lt;p&gt;青蛙最近经常熬灯写文档，搞得作息时间毫无规律。
+经常是凌晨上床，然后早上还要爬起来上班，
+于是整天都没有精神，哈气连天，
+然后晚上的时候倒是神采奕奕，很晚都不想睡觉。&lt;/p&gt;
+&lt;p&gt;一个接近于昼伏夜出的动物产生了！&lt;/p&gt;
+&lt;p&gt;PS.貌似最近到了青蛙冬眠的时节了，难道青蛙成天犯困也跟没去冬眠有关？ ：P&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://hi.baidu.com/aeon_studio/blog/item/3bef7036fc6d9c340a55a9b0.html"&gt;&lt;img alt="耗子" src="http://gfrog.net/wp-content/uploads/2008/11/80d144fde90b6550d6887d59.jpg"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;（文中图片来自Google，请大家猛击&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://hi.baidu.com/aeon_studio/blog/item/3bef7036fc6d9c340a55a9b0.html"&gt;http://hi.baidu.com/aeon_studio/blog/item/3bef7036fc6d9c340a55a9b0.html&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;观看更多超盟的老鼠，图片版权为原作者所有。）&lt;/p&gt;</content></entry><entry><title>无聊时的消遣：JavaScript性能测试</title><link href="https://www.gfrog.net/2008/11/javascript-performance-test/" rel="alternate"></link><published>2008-11-05T22:52:38+08:00</published><updated>2008-11-05T22:52:38+08:00</updated><author><name>gfrog</name></author><id>tag:www.gfrog.net,2008-11-05:/2008/11/javascript-performance-test/</id><summary type="html">&lt;p&gt;闲着无聊，在某邮件列表上发现一个测试js脚本性能的网页。
+用Chrome进去一试，85ms。Google浏览器的js性能还真是彪悍。&lt;/p&gt;
+&lt;p&gt;多余的不说，上图。&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://gfrog.net/wp-content/uploads/2008/11/jsperformancechrome.jpg"&gt;&lt;img alt="js-performance-chrome" src="http://gfrog.net/wp-content/uploads/2008/11/jsperformancechrome-thumb.jpg"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Google Chrome的测试结果。&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://gfrog.net/wp-content/uploads/2008/11/jsperformanceie6.jpg"&gt;&lt;img alt="js-performance-ie6" src="http://gfrog.net/wp-content/uploads/2008/11/jsperformanceie6-thumb.jpg"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;IE6的测试结果，中间还弹出了脚本执行时间过长的警告。&lt;/p&gt;
+&lt;p&gt;差距，就是这么明显。&lt;/p&gt;</summary><content type="html">&lt;p&gt;闲着无聊，在某邮件列表上发现一个测试js脚本性能的网页。
+用Chrome进去一试，85ms。Google浏览器的js性能还真是彪悍。&lt;/p&gt;
+&lt;p&gt;多余的不说，上图。&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://gfrog.net/wp-content/uploads/2008/11/jsperformancechrome.jpg"&gt;&lt;img alt="js-performance-chrome" src="http://gfrog.net/wp-content/uploads/2008/11/jsperformancechrome-thumb.jpg"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Google Chrome的测试结果。&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://gfrog.net/wp-content/uploads/2008/11/jsperformanceie6.jpg"&gt;&lt;img alt="js-performance-ie6" src="http://gfrog.net/wp-content/uploads/2008/11/jsperformanceie6-thumb.jpg"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;IE6的测试结果，中间还弹出了脚本执行时间过长的警告。&lt;/p&gt;
+&lt;p&gt;差距，就是这么明显。&lt;/p&gt;</content><category term="desktop"></category><category term="browser"></category><category term="performance"></category><category term="javascript"></category></entry><entry><title>像Linux一样的Windows</title><link href="https://www.gfrog.net/2008/11/make-windows-like-linux/" rel="alternate"></link><published>2008-11-05T00:57:42+08:00</published><updated>2008-11-05T00:57:42+08:00</updated><author><name>gfrog</name></author><id>tag:www.gfrog.net,2008-11-05:/2008/11/make-windows-like-linux/</id><summary type="html">&lt;p&gt;谁说Windows的易用性好！？&lt;/p&gt;
+&lt;p&gt;用惯了Linux，换到Windows上真的是超级不适应。
+别的不说，就说复制粘贴都需要^C、^V的按个不停，
+就是一种很影响效率的方式。
+还有那个傻呼呼的cmd窗口，怎么能比的上bash简洁？&lt;/p&gt;
+&lt;p&gt;这次换到windows平台，装好系统干的第一件事就是把
+&lt;a href="http://www.cygwin.com"&gt;Cygwin&lt;/a&gt;
+装上，有了熟悉的命令行，熟悉的VIM，才有工作的动力。：P&lt;/p&gt;
+&lt;p&gt;然后再把explorer换成
+&lt;a href="http://bb4win.sourceforge.net/bblean/"&gt;bbLean&lt;/a&gt;
+，恩，这次跟linux比较像了！
+但是还是没找到怎么样把窗口置顶的方法，
+没法像在Linux里那样方便的把一个窗口钉在顶端。
+（bbLean的更多图片可以参考
+&lt;a href="/2007/02/talk-a-bit-about-bblean/"&gt;青蛙以前的日志&lt;/a&gt;
+）&lt;/p&gt;
+&lt;p&gt;实际上，被Windows惯坏的人太多了！&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://gfrog.net/wp-content/uploads/2008/11/200811050040183361.jpg"&gt;&lt;img alt="desktop" src="http://gfrog.net/wp-content/uploads/2008/11/20081105004018336-thumb1.jpg"&gt;&lt;/a&gt;&lt;/p&gt;</summary><content type="html">&lt;p&gt;谁说Windows的易用性好！？&lt;/p&gt;
+&lt;p&gt;用惯了Linux，换到Windows上真的是超级不适应。
+别的不说，就说复制粘贴都需要^C、^V的按个不停，
+就是一种很影响效率的方式。
+还有那个傻呼呼的cmd窗口，怎么能比的上bash简洁？&lt;/p&gt;
+&lt;p&gt;这次换到windows平台，装好系统干的第一件事就是把
+&lt;a href="http://www.cygwin.com"&gt;Cygwin&lt;/a&gt;
+装上，有了熟悉的命令行，熟悉的VIM，才有工作的动力。：P&lt;/p&gt;
+&lt;p&gt;然后再把explorer换成
+&lt;a href="http://bb4win.sourceforge.net/bblean/"&gt;bbLean&lt;/a&gt;
+，恩，这次跟linux比较像了！
+但是还是没找到怎么样把窗口置顶的方法，
+没法像在Linux里那样方便的把一个窗口钉在顶端。
+（bbLean的更多图片可以参考
+&lt;a href="/2007/02/talk-a-bit-about-bblean/"&gt;青蛙以前的日志&lt;/a&gt;
+）&lt;/p&gt;
+&lt;p&gt;实际上，被Windows惯坏的人太多了！&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://gfrog.net/wp-content/uploads/2008/11/200811050040183361.jpg"&gt;&lt;img alt="desktop" src="http://gfrog.net/wp-content/uploads/2008/11/20081105004018336-thumb1.jpg"&gt;&lt;/a&gt;&lt;/p&gt;</content><category term="windows"></category><category term="linux"></category><category term="desktop"></category><category term="blackbox"></category></entry><entry><title>好吧，该说点什么了</title><link href="https://www.gfrog.net/2008/11/say-something-in-beginning-of-nov/" rel="alternate"></link><published>2008-11-03T23:26:00+08:00</published><updated>2008-11-03T23:26:00+08:00</updated><author><name>gfrog</name></author><id>tag:www.gfrog.net,2008-11-03:/2008/11/say-something-in-beginning-of-nov/</id><summary type="html">&lt;p&gt;已经将近半年没有更新了。&lt;/p&gt;
+&lt;p&gt;因为这半年，青蛙所在的某软公司封掉了外网的连接，
+青蛙在公司对外唯一的联络方式就是公司的办公邮箱。
+虽然这段时间有很多想说的，但是，由于这个网络，只好放弃了。&lt;/p&gt;
+&lt;p&gt;话说，青蛙在2008年夏天的某一天里，终于下定决心，转去了开发组。
+本来以为从测试序列转到开发队伍比较费劲呢，
+结果，领导一句话，“过来吧！”然后青蛙就这么过来了。&lt;/p&gt;
+&lt;p&gt;现在，青蛙也是写代码的人了。虽说还向代码库提交过一行代码呢：P&lt;/p&gt;
+&lt;p&gt;从7月末开始，青蛙就开始研究动态路由相关的几个协议：RIP、OSPF、BGP。
+书是啃了很多的，也学到了很多，不过打突击的结果就是：知识掌握不扎实！
+其实也是，还没有会走呢，就逼我去跑，当然有磕磕绊绊了。
+但是打突击也有好处，就是经过这几个月的突击，
+回过头来再看CCNP的路由部分真是超级简单啊。：P
+自大一回。&lt;/p&gt;
+&lt;p&gt;现在，青蛙彻底的沦为了文员，已经写了2个月左右的需求文档了！
+虽然快看到终点了，但是任务还是很艰巨的。
+每天跟Word打交道，其他的没学到，Word里面那点表格操作倒是都搞通了。：P
+意外所得！&lt;/p&gt;
+&lt;p&gt;工作汇报完毕 …&lt;/p&gt;</summary><content type="html">&lt;p&gt;已经将近半年没有更新了。&lt;/p&gt;
+&lt;p&gt;因为这半年，青蛙所在的某软公司封掉了外网的连接，
+青蛙在公司对外唯一的联络方式就是公司的办公邮箱。
+虽然这段时间有很多想说的，但是，由于这个网络，只好放弃了。&lt;/p&gt;
+&lt;p&gt;话说，青蛙在2008年夏天的某一天里，终于下定决心，转去了开发组。
+本来以为从测试序列转到开发队伍比较费劲呢，
+结果，领导一句话，“过来吧！”然后青蛙就这么过来了。&lt;/p&gt;
+&lt;p&gt;现在，青蛙也是写代码的人了。虽说还向代码库提交过一行代码呢：P&lt;/p&gt;
+&lt;p&gt;从7月末开始，青蛙就开始研究动态路由相关的几个协议：RIP、OSPF、BGP。
+书是啃了很多的，也学到了很多，不过打突击的结果就是：知识掌握不扎实！
+其实也是，还没有会走呢，就逼我去跑，当然有磕磕绊绊了。
+但是打突击也有好处，就是经过这几个月的突击，
+回过头来再看CCNP的路由部分真是超级简单啊。：P
+自大一回。&lt;/p&gt;
+&lt;p&gt;现在，青蛙彻底的沦为了文员，已经写了2个月左右的需求文档了！
+虽然快看到终点了，但是任务还是很艰巨的。
+每天跟Word打交道，其他的没学到，Word里面那点表格操作倒是都搞通了。：P
+意外所得！&lt;/p&gt;
+&lt;p&gt;工作汇报完毕，然后是生活。&lt;/p&gt;
+&lt;p&gt;十月，青蛙终于入手了PSP。
+这个东东果然很赞嘛，除了没有键盘，其他的青蛙都很满意——
+速度足够，听歌看片都很爽；屏幕很大，趴被窝里看小说很合适；
+集成wifi，这回青蛙败的Linksys WRT54G终于派上用场了。：P
+花钱买乐子玩。&lt;/p&gt;
+&lt;p&gt;&lt;img alt="1227070_psp" src="http://gfrog.net/wp-content/uploads/2008/11/1227070-psp.jpg"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="1" src="http://www.polarcloud.com/img/tomato4.jpg"&gt;&lt;/p&gt;
+&lt;p&gt;哦，对了，说起这个WRT54G，青蛙买回来的时候就曾经配置过很久无线连接，但是跟本子就是连不上。
+因为本子的系统是Debian，所以青蛙一直认为本子的配置哪里出了问题。
+这次PSP到手以后，拿来一试，还是连不上无线路由，现象是无线路由只有收包，没有发包。
+最后青蛙一怒之下干掉了
+&lt;a href="http://www.dd-wrt.com/"&gt;DD-WRT&lt;/a&gt;
+，装上了可爱的大柿子
+&lt;a href="http://www.polarcloud.com/tomato"&gt;Tomato&lt;/a&gt;
+，然后这个WRT54G竟然就好用了。
+晕死，竟然是DD-WRT的原因。：P
+也算是个意外。&lt;/p&gt;
+&lt;p&gt;恩，另外一个意外就是，陪伴了青蛙三年的主板，在上周，
+准确的说是2008年10月30日，挂掉了！
+在它正好过保修期一个月的时候！
+看来，青蛙入手T400的日程需要考虑提前一下了。：P&lt;/p&gt;
+&lt;p&gt;&lt;img alt="t400" src="http://gfrog.net/wp-content/uploads/2008/11/t400.jpg"&gt;&lt;/p&gt;
+&lt;p&gt;好吧，就说到这里，感谢观看青蛙唠叨，大家晚安。：）&lt;/p&gt;</content><category term="status"></category><category term="update"></category></entry><entry><title>关于Google App Engine的一点点东西</title><link href="https://www.gfrog.net/2008/06/something-about-google-app-engine/" rel="alternate"></link><published>2008-06-01T23:41:32+08:00</published><updated>2008-06-01T23:41:32+08:00</updated><author><name>gfrog</name></author><id>tag:www.gfrog.net,2008-06-01:/2008/06/something-about-google-app-engine/</id><summary type="html">&lt;p&gt;&lt;img alt="1" src="https://www.google.com/accounts/ah/logo_en_appengine.gif"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="1" src="http://code.google.com/appengine/images/appengine_lowres.jpg"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://appengine.google.com/"&gt;Google App Engine&lt;/a&gt;
+（以下简称GAE）服务推出来有段时间了，
+最近google刚刚完全开放了GAE的注册，并且公布了GAE未来的价格（原文在
+&lt;a href="http://googleappengine.blogspot.com/2008/05/announcing-open-signups-expected.html"&gt;这里&lt;/a&gt;
+，被盾，需要带套访问）。&lt;/p&gt;
+&lt;p&gt;GAE是google提供的一个在线应用平台，提供从数据库到应用服务器的一整套东西，
+每个GAE应用可以免费使用500M存储空间和满足5百万pv/月的CPU跟资源。&lt;/p&gt;
+&lt;p&gt;Google出的东西都很赞，GAE也是这样。
+它提供了一个成型的python应用框架，外加GFS强大的存储支持，
+在上面可很方便的建立自己的web应用。
+但是，青蛙注册账号以后，一直没有在上面做什么。
+原因？很简单，&lt;/p&gt;
+&lt;p&gt;Ｇ。Ｆ。Ｗ！&lt;/p&gt;
+&lt;p&gt;在Ｇ。Ｆ。Ｗ的阴影下，GAE服务很有可能就被干掉了。
+特别是存在
+&lt;a href="http://gfw.appspot.com/"&gt;这种&lt;/a&gt;
+服务的情况下。&lt;/p&gt;
+&lt;p&gt;不过，鉴于现在有稳定的免费vpn支持，青蛙决定重新启动blog DIY计划，就在GAE平台上！&lt;/p&gt;
+&lt;p&gt;各位，bless me吧。&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;img alt="1" src="https://www.google.com/accounts/ah/logo_en_appengine.gif"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="1" src="http://code.google.com/appengine/images/appengine_lowres.jpg"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://appengine.google.com/"&gt;Google App Engine&lt;/a&gt;
+（以下简称GAE）服务推出来有段时间了，
+最近google刚刚完全开放了GAE的注册，并且公布了GAE未来的价格（原文在
+&lt;a href="http://googleappengine.blogspot.com/2008/05/announcing-open-signups-expected.html"&gt;这里&lt;/a&gt;
+，被盾，需要带套访问）。&lt;/p&gt;
+&lt;p&gt;GAE是google提供的一个在线应用平台，提供从数据库到应用服务器的一整套东西，
+每个GAE应用可以免费使用500M存储空间和满足5百万pv/月的CPU跟资源。&lt;/p&gt;
+&lt;p&gt;Google出的东西都很赞，GAE也是这样。
+它提供了一个成型的python应用框架，外加GFS强大的存储支持，
+在上面可很方便的建立自己的web应用。
+但是，青蛙注册账号以后，一直没有在上面做什么。
+原因？很简单，&lt;/p&gt;
+&lt;p&gt;Ｇ。Ｆ。Ｗ！&lt;/p&gt;
+&lt;p&gt;在Ｇ。Ｆ。Ｗ的阴影下，GAE服务很有可能就被干掉了。
+特别是存在
+&lt;a href="http://gfw.appspot.com/"&gt;这种&lt;/a&gt;
+服务的情况下。&lt;/p&gt;
+&lt;p&gt;不过，鉴于现在有稳定的免费vpn支持，青蛙决定重新启动blog DIY计划，就在GAE平台上！&lt;/p&gt;
+&lt;p&gt;各位，bless me吧。&lt;/p&gt;</content><category term="google"></category><category term="appengine"></category><category term="gae"></category><category term="ptyhon"></category></entry><entry><title>G to g, google for kids?</title><link href="https://www.gfrog.net/2008/05/google-change-favicon/" rel="alternate"></link><published>2008-05-31T23:52:18+08:00</published><updated>2008-05-31T23:52:18+08:00</updated><author><name>gfrog</name></author><id>tag:www.gfrog.net,2008-05-31:/2008/05/google-change-favicon/</id><summary type="html">&lt;p&gt;&lt;img alt="1" src="http://www.google.com/intl/en_ALL/images/logo.gif"&gt;&lt;/p&gt;
+&lt;p&gt;不经意之间，google的全球网站全部都悄悄的更换了favicon，
+从一个大大的G换成了一个cute g。
+今天早上青蛙发现这个变化的时候，第一反应就是：&lt;/p&gt;
+&lt;p&gt;google一定是为儿童节更换的图标。&lt;/p&gt;
+&lt;p&gt;但是过了几分钟，才想起来，“六一”只是中国宝宝的节日啊，
+难不成全球的google站点都在为中国宝宝们庆祝节日？&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;update 2008-06-01&lt;/strong&gt;：原来“六一”是全世界宝宝的节日啊。&lt;/p&gt;
+&lt;p&gt;我承认，我没有小学毕业证，大家鄙视我吧。 -____-&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;img alt="1" src="http://www.google.com/intl/en_ALL/images/logo.gif"&gt;&lt;/p&gt;
+&lt;p&gt;不经意之间，google的全球网站全部都悄悄的更换了favicon，
+从一个大大的G换成了一个cute g。
+今天早上青蛙发现这个变化的时候，第一反应就是：&lt;/p&gt;
+&lt;p&gt;google一定是为儿童节更换的图标。&lt;/p&gt;
+&lt;p&gt;但是过了几分钟，才想起来，“六一”只是中国宝宝的节日啊，
+难不成全球的google站点都在为中国宝宝们庆祝节日？&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;update 2008-06-01&lt;/strong&gt;：原来“六一”是全世界宝宝的节日啊。&lt;/p&gt;
+&lt;p&gt;我承认，我没有小学毕业证，大家鄙视我吧。 -____-&lt;/p&gt;</content></entry><entry><title>Mozilla的add-on站点更新</title><link href="https://www.gfrog.net/2008/04/add-on-dot-mozilla-dot-com-updated/" rel="alternate"></link><published>2008-04-05T11:34:26+08:00</published><updated>2008-04-05T11:34:26+08:00</updated><author><name>gfrog</name></author><id>tag:www.gfrog.net,2008-04-05:/2008/04/add-on-dot-mozilla-dot-com-updated/</id><summary type="html">&lt;p&gt;&lt;img alt="1" src="http://www.caribwebdev.com/wp-content/uploads/2007/11/firefox-logo-browser.jpg"&gt;&lt;/p&gt;
+&lt;p&gt;话说Mozilla的Add-on站点最近更新了,
+这次更新最显著的特色就是有了完整的中文版页面,
+这对广大中国用户来说真是一个好消息。&lt;/p&gt;
+&lt;p&gt;其他的方面还有可以在线检测扩展对应的firefox版本了,
+如果正在使用的浏览器跟扩展不兼任, 那么这个扩展的安装按钮会变成灰色,
+也就是说连下载的机会也不会给。&lt;/p&gt;
+&lt;p&gt;这个修改对青蛙来说实在是太痛苦了, 很多插件在firefox3上没法安装, 看来只能望扩展兴叹了。&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;img alt="1" src="http://www.caribwebdev.com/wp-content/uploads/2007/11/firefox-logo-browser.jpg"&gt;&lt;/p&gt;
+&lt;p&gt;话说Mozilla的Add-on站点最近更新了,
+这次更新最显著的特色就是有了完整的中文版页面,
+这对广大中国用户来说真是一个好消息。&lt;/p&gt;
+&lt;p&gt;其他的方面还有可以在线检测扩展对应的firefox版本了,
+如果正在使用的浏览器跟扩展不兼任, 那么这个扩展的安装按钮会变成灰色,
+也就是说连下载的机会也不会给。&lt;/p&gt;
+&lt;p&gt;这个修改对青蛙来说实在是太痛苦了, 很多插件在firefox3上没法安装, 看来只能望扩展兴叹了。&lt;/p&gt;</content></entry><entry><title>陷入迷茫</title><link href="https://www.gfrog.net/2008/03/my-mind-deep-into-confusion/" rel="alternate"></link><published>2008-03-01T21:53:16+08:00</published><updated>2008-03-01T21:53:16+08:00</updated><author><name>gfrog</name></author><id>tag:www.gfrog.net,2008-03-01:/2008/03/my-mind-deep-into-confusion/</id><summary type="html">&lt;p&gt;过了一个年，青蛙又长了一岁。&lt;/p&gt;
+&lt;p&gt;但是年过完了，青蛙却处于一种混沌状态，不知道自己应该干点什么，好不容易想做点事情，又没法专心。&lt;/p&gt;
+&lt;p&gt;想更新blog想了很久，找到几个有趣的东西想写，但是就是没法静下心来写一篇日志。&lt;/p&gt;
+&lt;p&gt;难道是一个假期把心放散了？&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;不能保持这种状况，要静下心，踏踏实实做点事情了！&lt;/strong&gt;&lt;/p&gt;</summary><content type="html">&lt;p&gt;过了一个年，青蛙又长了一岁。&lt;/p&gt;
+&lt;p&gt;但是年过完了，青蛙却处于一种混沌状态，不知道自己应该干点什么，好不容易想做点事情，又没法专心。&lt;/p&gt;
+&lt;p&gt;想更新blog想了很久，找到几个有趣的东西想写，但是就是没法静下心来写一篇日志。&lt;/p&gt;
+&lt;p&gt;难道是一个假期把心放散了？&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;不能保持这种状况，要静下心，踏踏实实做点事情了！&lt;/strong&gt;&lt;/p&gt;</content></entry><entry><title>年关已过，正式开始工作</title><link href="https://www.gfrog.net/2008/02/year-has-passed-and-formally-work-begin/" rel="alternate"></link><published>2008-02-16T10:36:00+08:00</published><updated>2008-02-16T10:36:00+08:00</updated><author><name>gfrog</name></author><id>tag:www.gfrog.net,2008-02-16:/2008/02/year-has-passed-and-formally-work-begin/</id><summary type="html">&lt;p&gt;终于过完年了。&lt;/p&gt;
+&lt;p&gt;在家闲了10多天，都快闲出毛病了。&lt;/p&gt;
+&lt;p&gt;明天，开始上班。&lt;/p&gt;
+&lt;p&gt;新的一年，新的起点。加油工作！&lt;/p&gt;</summary><content type="html">&lt;p&gt;终于过完年了。&lt;/p&gt;
+&lt;p&gt;在家闲了10多天，都快闲出毛病了。&lt;/p&gt;
+&lt;p&gt;明天，开始上班。&lt;/p&gt;
+&lt;p&gt;新的一年，新的起点。加油工作！&lt;/p&gt;</content></entry><entry><title>在线拼音输入法</title><link href="https://www.gfrog.net/2008/02/online-pinyin-input-method/" rel="alternate"></link><published>2008-02-02T00:09:26+08:00</published><updated>2008-02-02T00:09:26+08:00</updated><author><name>gfrog</name></author><id>tag:www.gfrog.net,2008-02-02:/2008/02/online-pinyin-input-method/</id><summary type="html">&lt;p&gt;&lt;img alt="1" src="http://dict.cn/img/logo1.gif"&gt;&lt;/p&gt;
+&lt;p&gt;dict.cn的在线拼音输入法，实在是居家旅行，杀人越货，聊天泡妞必备。&lt;/p&gt;
+&lt;p&gt;要使用，请猛击  &lt;a href="http://dict.cn/ime/"&gt;http://dict.cn/ime/&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://www.yupoo.com/photos/view?id=ff80808117d097b70117d5bf4d5e5fce"&gt;&lt;img alt="online-ime" src="http://pic.yupoo.com/gfrog/85151506b967/medium.jpg"&gt;&lt;/a&gt;&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;img alt="1" src="http://dict.cn/img/logo1.gif"&gt;&lt;/p&gt;
+&lt;p&gt;dict.cn的在线拼音输入法，实在是居家旅行，杀人越货，聊天泡妞必备。&lt;/p&gt;
+&lt;p&gt;要使用，请猛击  &lt;a href="http://dict.cn/ime/"&gt;http://dict.cn/ime/&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://www.yupoo.com/photos/view?id=ff80808117d097b70117d5bf4d5e5fce"&gt;&lt;img alt="online-ime" src="http://pic.yupoo.com/gfrog/85151506b967/medium.jpg"&gt;&lt;/a&gt;&lt;/p&gt;</content></entry><entry><title>吉林大学校园网的那些事</title><link href="https://www.gfrog.net/2008/01/history-of-network-in-jlu/" rel="alternate"></link><published>2008-01-21T23:27:41+08:00</published><updated>2008-01-21T23:27:41+08:00</updated><author><name>gfrog</name></author><id>tag:www.gfrog.net,2008-01-21:/2008/01/history-of-network-in-jlu/</id><summary type="html">&lt;p&gt;今天倒腾自己的blog，发现还有这么一篇没写完的东东扔在那里。这篇东西应该是青蛙大四的时候写下的，但是只写到第三部分，而且里面有些说法应该是不对的。今天给它补充完整。希望看到的同学多给青蛙挑挑错，在这篇文章的基础上整理出一个吉大网络近代史。 好了，下面是正文。 嗯,现在吉大的校园网全面抽风中,校内的服务基本上是崩溃了.趁这个时间说说我所经历的校园网吧.&lt;/p&gt;
+&lt;p&gt;我计划将我所见到的吉大校园网划分为这么几个时代:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;教育网的黄金时代&lt;/li&gt;
+&lt;li&gt;电信网时代&lt;/li&gt;
+&lt;li&gt;BT时代&lt;/li&gt;
+&lt;li&gt;时常抽风时代&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;由于青蛙的时空观错乱,上面有些时代的划分可能有错误,期待有人能给我补上具体时间.&lt;/p&gt;
+&lt;p&gt;首先还是说一下吉大校园网的结构.&lt;/p&gt;
+&lt;p&gt;因为吉大有很多个校区,校区之间就用双路光纤互连,每个校区用7609作为核心,使用光纤向下连接各个区域的4006,然后4006再用光纤连接区域里面的各个楼,这就是所谓的光纤到楼了.然后各个楼的主交换机基本上都是3500系列,再向下连接就是用双绞线了,先是千兆线路连接到楼内各个机房,然后机房内交换机(大概一个机房5台左右)用级联的方式相连,这些机房内的交换机再向下就是用百兆线连接用户的电脑了.这个结构自从我上学开始,基本上没有变动,有的也是核心层的小变化.&lt;/p&gt;
+&lt;p&gt;（这个拓扑到后来自然是改了的，据说取消了4006这一层，路由全部到核心的7609上来做了。但是具体情况，青蛙就不知道了，还需要内部人士来确认。）&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;1.教育网的黄金时代&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;这个时代,教育网应该是走在时代的前端,因为那个时候ADSL跟小区宽带远远没有现在普及 …&lt;/p&gt;</summary><content type="html">&lt;p&gt;今天倒腾自己的blog，发现还有这么一篇没写完的东东扔在那里。这篇东西应该是青蛙大四的时候写下的，但是只写到第三部分，而且里面有些说法应该是不对的。今天给它补充完整。希望看到的同学多给青蛙挑挑错，在这篇文章的基础上整理出一个吉大网络近代史。 好了，下面是正文。 嗯,现在吉大的校园网全面抽风中,校内的服务基本上是崩溃了.趁这个时间说说我所经历的校园网吧.&lt;/p&gt;
+&lt;p&gt;我计划将我所见到的吉大校园网划分为这么几个时代:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;教育网的黄金时代&lt;/li&gt;
+&lt;li&gt;电信网时代&lt;/li&gt;
+&lt;li&gt;BT时代&lt;/li&gt;
+&lt;li&gt;时常抽风时代&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;由于青蛙的时空观错乱,上面有些时代的划分可能有错误,期待有人能给我补上具体时间.&lt;/p&gt;
+&lt;p&gt;首先还是说一下吉大校园网的结构.&lt;/p&gt;
+&lt;p&gt;因为吉大有很多个校区,校区之间就用双路光纤互连,每个校区用7609作为核心,使用光纤向下连接各个区域的4006,然后4006再用光纤连接区域里面的各个楼,这就是所谓的光纤到楼了.然后各个楼的主交换机基本上都是3500系列,再向下连接就是用双绞线了,先是千兆线路连接到楼内各个机房,然后机房内交换机(大概一个机房5台左右)用级联的方式相连,这些机房内的交换机再向下就是用百兆线连接用户的电脑了.这个结构自从我上学开始,基本上没有变动,有的也是核心层的小变化.&lt;/p&gt;
+&lt;p&gt;（这个拓扑到后来自然是改了的，据说取消了4006这一层，路由全部到核心的7609上来做了。但是具体情况，青蛙就不知道了，还需要内部人士来确认。）&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;1.教育网的黄金时代&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;这个时代,教育网应该是走在时代的前端,因为那个时候ADSL跟小区宽带远远没有现在普及,速度也跟现在差的很远,于是我竟然以能有这么好的教育网而骄傲.&lt;/p&gt;
+&lt;p&gt;那个时候还没有像现在这么多的p2p文件交换方式,多的也就是ftp或者http站点,校内有相当多的ftp联盟,视频,动画,游戏这些都有专门的联盟来作.于是就成天挂在某个ftp上下些电影啦,游戏啦.这些ftp大多都限速,每ip在100k上下.偶那时候还是忍受着一个8G的小硬盘,经常是下来某个东西,赶紧看完或者玩完,然后接着去下.后来这些ftp联盟大多都销声匿迹了,据我知道至今仅存了功夫茶联盟的G1还在孜孜不倦的为大家贡献着电影.&lt;/p&gt;
+&lt;p&gt;当时教育网东北到北京的出口ms还是2条155M线路,但是去公共网上下东西还是飞快的,还记得当时最原意做的事情就是去PCHOME测试连接速度,通常都能达到1M左右.一次去长春的某个站点下载一个游戏,将近2G的游戏,不到半个小时就下载回来.这个速度还是相当赞的.&lt;/p&gt;
+&lt;p&gt;后来,&lt;strike&gt;教育网内的学校多了,吉大的学生多了,入网电脑也多了,教育网东北出口的瓶颈就显现了出来,经常是打开一个公共网的网页要好半天.据说那时候东北的学校一直在跟教育网要出口带宽,结果先是加到4条155M,然后再是增加一条1G线路,但是都很快的被占满.就有了吉大校园网的下一个时代.&lt;/strike&gt;趁半夜去NIC版查了一下,换电信网主要是于是由于cernet对吉大限速引起:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;长春到沈阳仅有两条155M线路，其中多数带宽被吉林大学占用，从而引起了其它高校的不满，cernet开始对吉林大学限速，限定在180M，导致吉林大学出口带宽严重不足，引起师生的不满。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;strong&gt;2.电信时代&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;那时候网络中心跟学校申请,拿出据说是1千万RMB,跟中国电信租用了1kMB的带宽.于是吉大校园网的黄金时代来临了.&lt;/p&gt;
+&lt;p&gt;网络中心在核心加了一个路由,去教育网的连接就走教育网,去公网的就从电信出口NAT转发,这样两面的速度都相当理想.应该是这个时代后期,教育网东北出口加到了2.5G.&lt;/p&gt;
+&lt;p&gt;由于有直接的公网出口,所以网络游戏开始大面积风行,学校附近的网吧开始萧条.&lt;/p&gt;
+&lt;p&gt;那时候中国电信刚刚进入东北市场,网络铺设还不完善,经常出现某某地方的光纤断掉的情况,也没有备份线路,就得换回教育网用一阵子.那时候拿感觉,真是爬行.&lt;/p&gt;
+&lt;p&gt;当然换了电信线路也不是所有人都高兴的.因为在出口有NAT,所以公网上有很多ftp站点都没法登录了.特别是那些在外面有自己空间的人,一年半载的没法ftp登录自己的空间.于是这些人就经常的去NIC版骂街.&lt;/p&gt;
+&lt;p&gt;再后来,网络中心发现中国电信没有按合同开足1G的带宽,而是做了限速.先限定在360M内,后提高至400M.于是网络中心不干了,停止了跟NIC的合作,全部换回了教育网.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;3.BT时代&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;BT是哪年开始流行的我就不清楚了,应该是学校还用电信出口的时候就有了.BT在吉大开始流传开来都是5Q的功劳,一开始还没有人管BT,后来网络中心发现电信出口内大部分的流量都被bt占用了,于是开始想尽办法封堵BT.&lt;/p&gt;
+&lt;p&gt;再后来,学校内出现了几个BT站点.大家可以在校园网里用bt了.校园网的带宽还是足够的,于是bt开始在吉大广泛的流传开来.&lt;/p&gt;
+&lt;p&gt;最开始的应该就是微盟了，这个BT站是由微电脑爱好者联盟（记不大清楚了，似乎是这个名字）发起并维护的。开始的时候微盟相当火爆，再加上网络中心的官方支持，发展的十分迅速，至少周围的同学都知道由这么一个微盟。后来，微盟内部出现了问题（具体问题青蛙就不知道了），开始衰落。最后，终于关站了事。虽然后来有一段时间又开了一段时间，但是那时候吉大燕子盛行，最后也只是不了了之。&lt;/p&gt;
+&lt;p&gt;这个吉大燕子，只要是那段时间（这段时间估计会延续到现在）的吉大学生，几乎没有人不知道了。据说燕子最开始就是从微盟里面分出来的，由于有商业支持，所以发展的相当快。一开始，燕子就抱定了做商业站点的想法，一切向赚钱发展，页首页脚都是广告，外带中间插播。对于贫瘠的校园娱乐生活，燕子的贡献是非常大的。青蛙周围的同学，每天自习回寝室，第一件事就是上燕子上看看。甚至，有些人毕业了，要找些视频或者游戏之类，还会去燕子。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;4.时常抽风时代&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;（青蛙忘记当初为啥准备写这么一段，因为抽风是始终贯穿吉大校园网历史的，所以这个时代有起点，但是不会有终点。）&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;5.补充&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;青蛙毕竟离开学校久了，而且大四其间，电脑运回家，没有继续体验吉大网络的机会。按照吉大网络迅猛的发展速度，这其间又产生了不少的时代。所以，青蛙希望各位同学能帮青蛙补充上这段空白 :D 。&lt;/p&gt;</content></entry><entry><title>从三到万：超级人造人技术</title><link href="https://www.gfrog.net/2008/01/richard-hammond-presents-bloody-omaha/" rel="alternate"></link><published>2008-01-19T21:50:20+08:00</published><updated>2008-01-19T21:50:20+08:00</updated><author><name>gfrog</name></author><id>tag:www.gfrog.net,2008-01-19:/2008/01/richard-hammond-presents-bloody-omaha/</id><summary type="html">&lt;p&gt;哦哦，我是标题党么？&lt;/p&gt;
+&lt;p&gt;下面这段视频，
+&lt;a href="http://www.google.com/search?q=Richard+Hammond"&gt;Richard Hammond &lt;/a&gt;
+为首的几位哥们只用了三个人和四天时间，就拍出了诺曼底登陆的场面。&lt;/p&gt;
+&lt;p&gt;比比看，跟拯救大兵瑞恩哪个更强大？&lt;/p&gt;
+&lt;p&gt;&lt;span class="videobox"&gt;
+                &lt;iframe width="640" height="390"
+                    src='https://www.youtube.com/embed/WRS9cpOMYv0'
+                    frameborder='0' webkitAllowFullScreen mozallowfullscreen
+                    allowFullScreen&gt;
+                &lt;/iframe&gt;
+            &lt;/span&gt;&lt;/p&gt;</summary><content type="html">&lt;p&gt;哦哦，我是标题党么？&lt;/p&gt;
+&lt;p&gt;下面这段视频，
+&lt;a href="http://www.google.com/search?q=Richard+Hammond"&gt;Richard Hammond &lt;/a&gt;
+为首的几位哥们只用了三个人和四天时间，就拍出了诺曼底登陆的场面。&lt;/p&gt;
+&lt;p&gt;比比看，跟拯救大兵瑞恩哪个更强大？&lt;/p&gt;
+&lt;p&gt;&lt;span class="videobox"&gt;
+                &lt;iframe width="640" height="390"
+                    src='https://www.youtube.com/embed/WRS9cpOMYv0'
+                    frameborder='0' webkitAllowFullScreen mozallowfullscreen
+                    allowFullScreen&gt;
+                &lt;/iframe&gt;
+            &lt;/span&gt;&lt;/p&gt;</content></entry><entry><title>google图片搜索的一个小bug</title><link href="https://www.gfrog.net/2008/01/a-bug-in-google-image-search/" rel="alternate"></link><published>2008-01-17T16:51:55+08:00</published><updated>2008-01-17T16:51:55+08:00</updated><author><name>gfrog</name></author><id>tag:www.gfrog.net,2008-01-17:/2008/01/a-bug-in-google-image-search/</id><summary type="html">&lt;p&gt;&lt;a href="http://www.yupoo.com/photos/view?id=ff80808117800d89011786e001a234a4"&gt;
+&lt;img alt="1" src="http://pic.yupoo.com/gfrog/557924f28870/medium.jpg"&gt;
+&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;图片里,红线框起来的内容.以前应该是个连接的,现在变成了一堆html标签.&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;a href="http://www.yupoo.com/photos/view?id=ff80808117800d89011786e001a234a4"&gt;
+&lt;img alt="1" src="http://pic.yupoo.com/gfrog/557924f28870/medium.jpg"&gt;
+&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;图片里,红线框起来的内容.以前应该是个连接的,现在变成了一堆html标签.&lt;/p&gt;</content></entry><entry><title>新的日工资和小时工资的计算方法</title><link href="https://www.gfrog.net/2008/01/new-method-of-calculating-daily-wage-and-hourly-wage/" rel="alternate"></link><published>2008-01-10T22:24:54+08:00</published><updated>2008-01-10T22:24:54+08:00</updated><author><name>gfrog</name></author><id>tag:www.gfrog.net,2008-01-10:/2008/01/new-method-of-calculating-daily-wage-and-hourly-wage/</id><summary type="html">&lt;p&gt;青蛙元旦的时候加了三天班，所以一直在合计这三天能拿到多少米。
+于是上网搜了下，发现了下面这个新的计算日工资和小时工资的方法。
+拿来算算，这三天赚的米用来交一个月的房租是绰绰有余了。&lt;/p&gt;
+&lt;p&gt;------华丽的分割线，以下为转载------&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;关于职工全年月平均工作时间和工资折算问题的通知 &lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;劳社部发[2008]3号&lt;/p&gt;
+&lt;p&gt;各省、自治区、直辖市劳动和社会保障厅（局）：&lt;/p&gt;
+&lt;p&gt;根据《全国年节及纪念日放假办法》（国务院令第513号）的规定，
+全体公民的节日假期由原来的10天增设为11天。
+据此，职工全年月平均制度工作天数和工资折算办法分别调整如下：&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;一、制度工作时间的计算 &lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;年工作日：365天-104天（休息日）-11天（法定节假日）＝250天&lt;/p&gt;
+&lt;p&gt;季工作日：250天÷4季＝62。5天/季&lt;/p&gt;
+&lt;p&gt;月工作日：250天÷12月＝20。83天/月&lt;/p&gt;
+&lt;p&gt;工作小时数的计算：以月、季、年的工作日乘以每日的8小时。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;二、日工资、小时工资的折算 …&lt;/strong&gt;&lt;/p&gt;</summary><content type="html">&lt;p&gt;青蛙元旦的时候加了三天班，所以一直在合计这三天能拿到多少米。
+于是上网搜了下，发现了下面这个新的计算日工资和小时工资的方法。
+拿来算算，这三天赚的米用来交一个月的房租是绰绰有余了。&lt;/p&gt;
+&lt;p&gt;------华丽的分割线，以下为转载------&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;关于职工全年月平均工作时间和工资折算问题的通知 &lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;劳社部发[2008]3号&lt;/p&gt;
+&lt;p&gt;各省、自治区、直辖市劳动和社会保障厅（局）：&lt;/p&gt;
+&lt;p&gt;根据《全国年节及纪念日放假办法》（国务院令第513号）的规定，
+全体公民的节日假期由原来的10天增设为11天。
+据此，职工全年月平均制度工作天数和工资折算办法分别调整如下：&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;一、制度工作时间的计算 &lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;年工作日：365天-104天（休息日）-11天（法定节假日）＝250天&lt;/p&gt;
+&lt;p&gt;季工作日：250天÷4季＝62。5天/季&lt;/p&gt;
+&lt;p&gt;月工作日：250天÷12月＝20。83天/月&lt;/p&gt;
+&lt;p&gt;工作小时数的计算：以月、季、年的工作日乘以每日的8小时。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;二、日工资、小时工资的折算 &lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;按照《劳动法》第五十一条的规定，法定节假日用人单位应当依法支付工资，
+即折算日工资、小时工资时不剔除国家规定的11天法定节假日。
+据此，日工资、小时工资的折算为：&lt;/p&gt;
+&lt;p&gt;日工资：月工资收入÷月计薪天数&lt;/p&gt;
+&lt;p&gt;小时工资：月工资收入÷（月计薪天数×8小时）。&lt;/p&gt;
+&lt;p&gt;月计薪天数＝（365天-104天）÷12月＝21。75天&lt;/p&gt;
+&lt;p&gt;三、2000年3月17日劳动保障部发布的
+《关于职工全年月平均工作时间和工资折算问题的通知》（劳社部发[2000]8号）同时废止。&lt;/p&gt;
+&lt;p&gt;劳动和社会保障部&lt;/p&gt;
+&lt;p&gt;二○○八年一月三日&lt;/p&gt;</content></entry><entry><title>fuck tnnd的新浪</title><link href="https://www.gfrog.net/2007/06/fuck-tnnd-sina-blog/" rel="alternate"></link><published>2007-06-26T22:44:32+08:00</published><updated>2007-06-26T22:44:32+08:00</updated><author><name>gfrog</name></author><id>tag:www.gfrog.net,2007-06-26:/2007/06/fuck-tnnd-sina-blog/</id><summary type="html">&lt;p&gt;妈的&lt;/p&gt;
+&lt;p&gt;blog连个图片都不给看&lt;/p&gt;
+&lt;p&gt;还tm有脸叫门户&lt;/p&gt;</summary><content type="html">&lt;p&gt;妈的&lt;/p&gt;
+&lt;p&gt;blog连个图片都不给看&lt;/p&gt;
+&lt;p&gt;还tm有脸叫门户&lt;/p&gt;</content><category term="blog"></category><category term="sina"></category></entry><entry><title>gmail真是满可爱</title><link href="https://www.gfrog.net/2007/06/cute-gmail/" rel="alternate"></link><published>2007-06-21T22:44:17+08:00</published><updated>2007-06-21T22:44:17+08:00</updated><author><name>gfrog</name></author><id>tag:www.gfrog.net,2007-06-21:/2007/06/cute-gmail/</id><summary type="html">&lt;p&gt;今天收到了这个所谓的PayPal Security Center 寄来的邮件.&lt;/p&gt;
+&lt;p&gt;被gmail给自动spam了.&lt;/p&gt;
+&lt;p&gt;gmail竟然还能识别出来钓鱼邮件,真是太赞了.&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://www.yupoo.com/photos/view?id=ff8080811348fca801134eca56d306fa"&gt;&lt;img alt="1" src="http://photo8.yupoo.com/20070621/225809_659298275.jpg"&gt;&lt;/a&gt;&lt;/p&gt;</summary><content type="html">&lt;p&gt;今天收到了这个所谓的PayPal Security Center 寄来的邮件.&lt;/p&gt;
+&lt;p&gt;被gmail给自动spam了.&lt;/p&gt;
+&lt;p&gt;gmail竟然还能识别出来钓鱼邮件,真是太赞了.&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://www.yupoo.com/photos/view?id=ff8080811348fca801134eca56d306fa"&gt;&lt;img alt="1" src="http://photo8.yupoo.com/20070621/225809_659298275.jpg"&gt;&lt;/a&gt;&lt;/p&gt;</content><category term="Gmail"></category><category term="Google"></category><category term="spam"></category></entry><entry><title>Movavi Online:在线视频转换服务</title><link href="https://www.gfrog.net/2007/06/movavi-online-video-convert/" rel="alternate"></link><published>2007-06-09T04:58:30+08:00</published><updated>2007-06-09T04:58:30+08:00</updated><author><name>gfrog</name></author><id>tag:www.gfrog.net,2007-06-09:/2007/06/movavi-online-video-convert/</id><summary type="html">&lt;p&gt;&lt;img alt="1" src="http://img.movavi.com/online/pic/movavi_online.gif"&gt;&lt;/p&gt;
+&lt;p&gt;下面是Q&amp;amp;A时间:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;什么是Movavi Online?
+    &lt;a href="http://online.movavi.com/"&gt;Movavi Online&lt;/a&gt;
+    是一个免费的在线视频转换服务,允许你在各种视频格式之间转换.&lt;/li&gt;
+&lt;li&gt;Movavi Online都支持哪些视频格式呢?
+    &lt;a href="http://online.movavi.com/"&gt;Movavi Online&lt;/a&gt;
+    支持输入以下视频格式: AVI (DivX, XVid), MPEG (1, 2, 4), MP4, 3gp, 3gp2, WMV, MOV (QT).
+    输出视频格式: AVI ( XVid), MPEG-4 , MPEG-2 (DVD Quality, PAL), MPEG-2 (DVD Quality, NTSC), 
+    iPod video, iPod 5G video, PSP video, 3gp, 3gp2, MPEG-4 (.mov), Flash …&lt;/li&gt;&lt;/ol&gt;</summary><content type="html">&lt;p&gt;&lt;img alt="1" src="http://img.movavi.com/online/pic/movavi_online.gif"&gt;&lt;/p&gt;
+&lt;p&gt;下面是Q&amp;amp;A时间:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;什么是Movavi Online?
+    &lt;a href="http://online.movavi.com/"&gt;Movavi Online&lt;/a&gt;
+    是一个免费的在线视频转换服务,允许你在各种视频格式之间转换.&lt;/li&gt;
+&lt;li&gt;Movavi Online都支持哪些视频格式呢?
+    &lt;a href="http://online.movavi.com/"&gt;Movavi Online&lt;/a&gt;
+    支持输入以下视频格式: AVI (DivX, XVid), MPEG (1, 2, 4), MP4, 3gp, 3gp2, WMV, MOV (QT).
+    输出视频格式: AVI ( XVid), MPEG-4 , MPEG-2 (DVD Quality, PAL), MPEG-2 (DVD Quality, NTSC), 
+    iPod video, iPod 5G video, PSP video, 3gp, 3gp2, MPEG-4 (.mov), Flash (.flv)&lt;/li&gt;
+&lt;li&gt;我可以一次转换多少个文件呢?
+    现在,你可以在一次转换过程中转换5个文件.&lt;/li&gt;
+&lt;li&gt;我最多可以上传多大的文件?
+    你可以一次上传最多100MB大小的文件.&lt;/li&gt;
+&lt;li&gt;我能在一次转换过程中把文件转换成不同的格式么?
+    是的,上传的5个文件中可以设置为转换成5种不同的格式,&lt;/li&gt;
+&lt;li&gt;我可以把一个文件转换为多种文件格式么?
+    可以,但是不能在一次转换过程中.需要转换多次.&lt;/li&gt;
+&lt;li&gt;我怎么得到转换以后的文件呢?
+    文件下载链接会被寄到上传视频时填写的email地址中,
+    点击邮件中的链接就可以下载文件了.
+    这个文件在服务器上保存24小时以后会被删除.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Movavi Online的地址: http://online.movavi.com/&lt;/p&gt;</content><category term="convert"></category><category term="video"></category></entry><entry><title>论文进度过半</title><link href="https://www.gfrog.net/2007/06/paper-process/" rel="alternate"></link><published>2007-06-09T04:30:51+08:00</published><updated>2007-06-09T04:30:51+08:00</updated><author><name>gfrog</name></author><id>tag:www.gfrog.net,2007-06-09:/2007/06/paper-process/</id><summary type="html">&lt;p&gt;进度过半,但是时间就剩了3-4天了.&lt;/p&gt;
+&lt;p&gt;但是一个字也写不进去.&lt;/p&gt;
+&lt;p&gt;唉,烦&lt;/p&gt;</summary><content type="html">&lt;p&gt;进度过半,但是时间就剩了3-4天了.&lt;/p&gt;
+&lt;p&gt;但是一个字也写不进去.&lt;/p&gt;
+&lt;p&gt;唉,烦&lt;/p&gt;</content><category term="paper"></category></entry><entry><title>来吧,让我们来Yupoo吧</title><link href="https://www.gfrog.net/2007/06/let-us-yupoo/" rel="alternate"></link><published>2007-06-09T02:28:18+08:00</published><updated>2007-06-09T02:28:18+08:00</updated><author><name>gfrog</name></author><id>tag:www.gfrog.net,2007-06-09:/2007/06/let-us-yupoo/</id><summary type="html">&lt;p&gt;Flickr被阉掉了,国内的服务总跟GFW没关系了吧.&lt;/p&gt;
+&lt;p&gt;让我们来Yupoo好了.&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://www.yupoo.com/photos/view?id=ff80808113090b1601130c96432066ff"&gt;&lt;img alt="1" src="http://photo7.yupoo.com/20070609/022620_1816373221.jpg"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://www.yupoo.com/photos/view?id=ff80808113090b1601130c96432066ff"&gt;logos&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;由&lt;a href="null"&gt;gfrog&lt;/a&gt;上传于&lt;a href="http://www.yupoo.com/"&gt;Yupoo&lt;/a&gt;.&lt;/p&gt;</summary><content type="html">&lt;p&gt;Flickr被阉掉了,国内的服务总跟GFW没关系了吧.&lt;/p&gt;
+&lt;p&gt;让我们来Yupoo好了.&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://www.yupoo.com/photos/view?id=ff80808113090b1601130c96432066ff"&gt;&lt;img alt="1" src="http://photo7.yupoo.com/20070609/022620_1816373221.jpg"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://www.yupoo.com/photos/view?id=ff80808113090b1601130c96432066ff"&gt;logos&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;由&lt;a href="null"&gt;gfrog&lt;/a&gt;上传于&lt;a href="http://www.yupoo.com/"&gt;Yupoo&lt;/a&gt;.&lt;/p&gt;</content><category term="Yupoo"></category></entry><entry><title>面对GFW,你准备好了么?</title><link href="https://www.gfrog.net/2007/06/are-u-ready-face-gfw/" rel="alternate"></link><published>2007-06-09T02:06:04+08:00</published><updated>2007-06-09T02:06:04+08:00</updated><author><name>gfrog</name></author><id>tag:www.gfrog.net,2007-06-09:/2007/06/are-u-ready-face-gfw/</id><summary type="html">&lt;p&gt;&lt;img alt="1" src="attachments/month_0706/92007692627.jpg"&gt;&lt;/p&gt;
+&lt;p&gt;昨天Flickr被封又引发了一次大规模批判GFW的行动,
+&lt;a href="http://blog.donews.com/keso/archive/2007/06/08/1173239.aspx"&gt;keso&lt;/a&gt;
+在日志里fxxk GFW.&lt;/p&gt;
+&lt;p&gt;如果大家对某W有深仇大恨,那么就来这里发泄一下吧:&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://blog.donews.com/keepwalking/archive/2006/06/01/898146.aspx"&gt;&lt;img alt="1" src="http://blog.donews.com/images/blog_donews_com/keepwalking/86223/r_wd.jpg"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;不过发泄完了还得继续想法跳墙是不.这里有几个办法.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;使用tor之类的匿名代理软件.
+    例如
+    &lt;a href="http://soft.lzzxt.com"&gt;小众软件&lt;/a&gt;
+    推荐的
+    &lt;a href="http://soft.lzzxt.com/fug/"&gt;突破网络访问三剑客&lt;/a&gt;
+    还有
+    &lt;a href="http://soft.lzzxt.com/Java-Anon-Proxy"&gt;Java Anon Proxy &lt;/a&gt;
+    .使用匿名代理的好处是可以完美访问被GFWed的各类网站,
+    例如维基百科,google快照,还有my opera.一次设置,然后就可以无视GFW了.&lt;/li&gt;
+&lt;li&gt;使用web代理网站. web方式的匿名代理，例如下面两个
+    &lt;a href="http://www.68q.net/"&gt;http://www.68q.net/&lt;/a&gt;
+    和
+    &lt;a href="http://www.9i7.cn/"&gt;http://www.9i7.cn/&lt;/a&gt;
+    还有专门针对某网站的,例如pkblogs.com就是针对blogspot的代理.&lt;/li&gt;
+&lt;li&gt;修改hosts文件.
+    这个只针对被关键字GFWed的网站,这种类型修改hosts文件,强制将域名解析成ip就可以访问被封掉的服务了.
+    例如这次针对Flickr,可以把下面两行添加到hosts文件里:
+    farm1。static。flickr。com 68 …&lt;/li&gt;&lt;/ol&gt;</summary><content type="html">&lt;p&gt;&lt;img alt="1" src="attachments/month_0706/92007692627.jpg"&gt;&lt;/p&gt;
+&lt;p&gt;昨天Flickr被封又引发了一次大规模批判GFW的行动,
+&lt;a href="http://blog.donews.com/keso/archive/2007/06/08/1173239.aspx"&gt;keso&lt;/a&gt;
+在日志里fxxk GFW.&lt;/p&gt;
+&lt;p&gt;如果大家对某W有深仇大恨,那么就来这里发泄一下吧:&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://blog.donews.com/keepwalking/archive/2006/06/01/898146.aspx"&gt;&lt;img alt="1" src="http://blog.donews.com/images/blog_donews_com/keepwalking/86223/r_wd.jpg"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;不过发泄完了还得继续想法跳墙是不.这里有几个办法.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;使用tor之类的匿名代理软件.
+    例如
+    &lt;a href="http://soft.lzzxt.com"&gt;小众软件&lt;/a&gt;
+    推荐的
+    &lt;a href="http://soft.lzzxt.com/fug/"&gt;突破网络访问三剑客&lt;/a&gt;
+    还有
+    &lt;a href="http://soft.lzzxt.com/Java-Anon-Proxy"&gt;Java Anon Proxy &lt;/a&gt;
+    .使用匿名代理的好处是可以完美访问被GFWed的各类网站,
+    例如维基百科,google快照,还有my opera.一次设置,然后就可以无视GFW了.&lt;/li&gt;
+&lt;li&gt;使用web代理网站. web方式的匿名代理，例如下面两个
+    &lt;a href="http://www.68q.net/"&gt;http://www.68q.net/&lt;/a&gt;
+    和
+    &lt;a href="http://www.9i7.cn/"&gt;http://www.9i7.cn/&lt;/a&gt;
+    还有专门针对某网站的,例如pkblogs.com就是针对blogspot的代理.&lt;/li&gt;
+&lt;li&gt;修改hosts文件.
+    这个只针对被关键字GFWed的网站,这种类型修改hosts文件,强制将域名解析成ip就可以访问被封掉的服务了.
+    例如这次针对Flickr,可以把下面两行添加到hosts文件里:
+    farm1。static。flickr。com 68.142.213.135
+    farm2。static。flickr。com 68.147.123.56
+    (注意把。改成.哦)&lt;/li&gt;
+&lt;li&gt;使用浏览器插件.firefox上的greasemonkey跟gladder.ie7的ie7pro.
+    greasemonkey跟ie7pro需要自己编写脚本把域名替换为ip.
+    例如这次
+    &lt;a href="http://blog.istef.info/2007/06/08/save-flickr/"&gt;花儿开了提供了针对Flickr的脚本&lt;/a&gt;
+    .gladder是一个专门的跳墙软件,也是利用了匿名代理.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;嗯,大提上就是这几种方法了.在这里还是推荐各种匿名代理软件,毕竟一次就可以搞定各种被盾掉的网站.&lt;/p&gt;
+&lt;p&gt;总之,让GFW死去吧.&lt;/p&gt;
+&lt;p&gt;参考连接:&lt;/p&gt;
+&lt;p&gt;针对Flickr,各位老大各自提供的方法:&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://talk.blogbus.com/logs/5719180.html"&gt;http://talk.blogbus.com/logs/5719180.html&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://blog.istef.info/2007/06/08/save-flickr/"&gt;http://blog.istef.info/2007/06/08/save-flickr/&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://hi.baidu.com/binbinmath/blog/item/4e2cf21f9bbf8d62f724e446.html"&gt;http://hi.baidu.com/binbinmath/blog/item/4e2cf21f9bbf8d62f724e446.html&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;ps.&lt;/strong&gt; 2007-06-09 1:00 我这里连Flickr的主页都已经上不去了,难道又是GFW的原因?&lt;/p&gt;</content><category term="GFW"></category></entry><entry><title>GFW又发飙了,Flickr被封</title><link href="https://www.gfrog.net/2007/06/gfw-bans-flickr/" rel="alternate"></link><published>2007-06-08T02:03:06+08:00</published><updated>2007-06-08T02:03:06+08:00</updated><author><name>gfrog</name></author><id>tag:www.gfrog.net,2007-06-08:/2007/06/gfw-bans-flickr/</id><summary type="html">&lt;p&gt;&lt;img alt="1" src="http://l.yimg.com/www.flickr.com/images/en-us/logo_tagline_bg.gif"&gt;&lt;/p&gt;
+&lt;p&gt;Flickr终于被盯上了,被GFW完美的和谐掉了.现在登录Flickr,图片都变成了红叉叉.&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://www.williamlong.info/archives/920.html"&gt;月光博客&lt;/a&gt;
+消息,这次竟然是用了关键字过滤的方式,
+过滤的词语是farm1。static。flickr。com和farm2。static。flickr。com.&lt;/p&gt;
+&lt;p&gt;现在,Flickr上那句广告词对于国人来说完全成了空话,看来需要改成:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;the unsafe way to &lt;strong&gt;store&lt;/strong&gt;,&lt;strong&gt;search&lt;/strong&gt;,&lt;strong&gt;sort&lt;/strong&gt; and &lt;strong&gt;share&lt;/strong&gt; your photos.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;现在用国外的服务已经丝毫没有安全感了,被和谐已经成了家常便饭.
+除了选择国内的类似服务商,我们还能有什么办法...&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;update:&lt;/strong&gt; 邦比这里提供了几个访问Flickr的方法:&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://hi.baidu.com/binbinmath/blog/item/4e2cf21f9bbf8d62f724e446.html"&gt;http://hi.baidu.com/binbinmath/blog/item/4e2cf21f9bbf8d62f724e446.html&lt;/a&gt;&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;img alt="1" src="http://l.yimg.com/www.flickr.com/images/en-us/logo_tagline_bg.gif"&gt;&lt;/p&gt;
+&lt;p&gt;Flickr终于被盯上了,被GFW完美的和谐掉了.现在登录Flickr,图片都变成了红叉叉.&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://www.williamlong.info/archives/920.html"&gt;月光博客&lt;/a&gt;
+消息,这次竟然是用了关键字过滤的方式,
+过滤的词语是farm1。static。flickr。com和farm2。static。flickr。com.&lt;/p&gt;
+&lt;p&gt;现在,Flickr上那句广告词对于国人来说完全成了空话,看来需要改成:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;the unsafe way to &lt;strong&gt;store&lt;/strong&gt;,&lt;strong&gt;search&lt;/strong&gt;,&lt;strong&gt;sort&lt;/strong&gt; and &lt;strong&gt;share&lt;/strong&gt; your photos.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;现在用国外的服务已经丝毫没有安全感了,被和谐已经成了家常便饭.
+除了选择国内的类似服务商,我们还能有什么办法...&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;update:&lt;/strong&gt; 邦比这里提供了几个访问Flickr的方法:&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://hi.baidu.com/binbinmath/blog/item/4e2cf21f9bbf8d62f724e446.html"&gt;http://hi.baidu.com/binbinmath/blog/item/4e2cf21f9bbf8d62f724e446.html&lt;/a&gt;&lt;/p&gt;</content><category term="Flickr"></category><category term="GFW"></category></entry><entry><title>树大招风,Dreamhost又出事故</title><link href="https://www.gfrog.net/2007/06/dreamhost-hacked/" rel="alternate"></link><published>2007-06-06T20:30:36+08:00</published><updated>2007-06-06T20:30:36+08:00</updated><author><name>gfrog</name></author><id>tag:www.gfrog.net,2007-06-06:/2007/06/dreamhost-hacked/</id><summary type="html">&lt;p&gt;&lt;img alt="1" src="http://wiki.dreamhost.com/images/8/81/Logo-dreamhost.png"&gt;&lt;/p&gt;
+&lt;p&gt;传说Dreamhost经常出事故,例如
+&lt;a href="http://www.williamlong.info/archives/853.html"&gt;前阵子的DNS错误&lt;/a&gt;
+.&lt;/p&gt;
+&lt;p&gt;这次,DH又出事了.而且问题好像还很严重:
+&lt;a href="http://plod.popoever.com/archives/001260.html"&gt;3500个DreamHost 用户FTP 帐号被黑&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;前几天还想买DH的空间来着,结果
+&lt;a href="https://www.gfrog.net/my/article.asp?id=285"&gt;因为支付的问题作罢&lt;/a&gt;
+.看来实在是树大招风,大服务商也有大服务商的问题.&lt;/p&gt;
+&lt;p&gt;不过这件事情还是给我们提了个醒,这次DH的密码似乎都是被暴力破解的.
+空间密码比较简单的要小心了,一定要给ftp设置一个强度比较高的密码,
+这样才可以有效的防止暴破.至于密码,可以用
+&lt;a href="http://strongpasswordgenerator.com/"&gt;http://strongpasswordgenerator.com/&lt;/a&gt;
+来在线生成一个.&lt;/p&gt;
+&lt;p&gt;ps.前几天查了一下本blog的空间使用情况,才用了区区60M,
+看来还是在这个空间上老实待着吧.
+而且一年85米的空间使用费用也很容易收回.
+至少到现在我的feedsky的话题广告已经给我提供了一年的空间费用了 .&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;img alt="1" src="http://wiki.dreamhost.com/images/8/81/Logo-dreamhost.png"&gt;&lt;/p&gt;
+&lt;p&gt;传说Dreamhost经常出事故,例如
+&lt;a href="http://www.williamlong.info/archives/853.html"&gt;前阵子的DNS错误&lt;/a&gt;
+.&lt;/p&gt;
+&lt;p&gt;这次,DH又出事了.而且问题好像还很严重:
+&lt;a href="http://plod.popoever.com/archives/001260.html"&gt;3500个DreamHost 用户FTP 帐号被黑&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;前几天还想买DH的空间来着,结果
+&lt;a href="https://www.gfrog.net/my/article.asp?id=285"&gt;因为支付的问题作罢&lt;/a&gt;
+.看来实在是树大招风,大服务商也有大服务商的问题.&lt;/p&gt;
+&lt;p&gt;不过这件事情还是给我们提了个醒,这次DH的密码似乎都是被暴力破解的.
+空间密码比较简单的要小心了,一定要给ftp设置一个强度比较高的密码,
+这样才可以有效的防止暴破.至于密码,可以用
+&lt;a href="http://strongpasswordgenerator.com/"&gt;http://strongpasswordgenerator.com/&lt;/a&gt;
+来在线生成一个.&lt;/p&gt;
+&lt;p&gt;ps.前几天查了一下本blog的空间使用情况,才用了区区60M,
+看来还是在这个空间上老实待着吧.
+而且一年85米的空间使用费用也很容易收回.
+至少到现在我的feedsky的话题广告已经给我提供了一年的空间费用了 .&lt;/p&gt;</content><category term="Dreamhost"></category><category term="Hack"></category></entry><entry><title>直通旅客列车6月5日起提前10天售票</title><link href="https://www.gfrog.net/2007/06/train-kicket-presell/" rel="alternate"></link><published>2007-06-05T02:07:53+08:00</published><updated>2007-06-05T02:07:53+08:00</updated><author><name>gfrog</name></author><id>tag:www.gfrog.net,2007-06-05:/2007/06/train-kicket-presell/</id><summary type="html">&lt;p&gt;以前三天两头的改预售时间实在是太烦人了,经常是按照以前的预售时间去买票的时候被告诉没开始预售或者票已经卖完了.
+这次总算规定一个统一的预售时间了.不过看起来管内车还是铁路局自己定预售时间,还是得忍受经常改预售时间的痛苦.&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;铁道部：直通旅客列车6月5日起提前10天售票&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://news.QQ.com%E3%80%80%202007%E5%B9%B406%E6%9C%8804%E6%97%A514:22%20%E3%80%80%20%E4%B8%AD%E5%9B%BD%E6%96%B0%E9%97%BB%E7%BD%91%E3%80%80%20%E3%80%80%20"&gt;http://news.QQ.com　 2007年06月04日14:22 　 中国新闻网　 　 &lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;中新网6月4日电 据中国铁道部网站消息，为更加方便旅客乘火车出行，自6月5日起，铁路火车票预售期将有所调整，所有直通旅客列车车票提前10天发售。&lt;/p&gt;
+&lt;p&gt;据了解，目前各大火车站的车票预售时间，是根据各铁路局实际情况制定的，
+大多数车站提前4天售票，也有部分车站提前5天、6天或10天售票。
+铁道部相关负责人称，此项措施是为了更方便旅客购票而推出的。
+自6月5日开始，所有直通旅客列车车票在票额所在铁路局管内各售票窗口提前10天发售。
+动车组和直达列车客票预售时间不变，仍提前20天售票；异地票预售期也仍保持提前20天发售。&lt;/p&gt;
+&lt;p&gt;所谓直通旅客列车，就是指走行距离超出一个铁路局管内的旅客列车，
+这些列车一般为中长途列车。同时，在铁路局管内开行的旅客列车被称为管内列车，
+这些列车一般为短途列车。&lt;/p&gt;
+&lt;p&gt;铁道部指出，管内旅客列车车票的预售期由各铁路局根据各局情况制定，
+但各铁路局管内各车站预售时间要保持一致。
+此外，铁道部还要求各铁路局加大营销力度，拓展销售渠道，
+积极组织往返票、联程票等异地票的发售，加强售票组织管理，
+为广大旅客出行提供便利。(林晓莺 …&lt;/p&gt;</summary><content type="html">&lt;p&gt;以前三天两头的改预售时间实在是太烦人了,经常是按照以前的预售时间去买票的时候被告诉没开始预售或者票已经卖完了.
+这次总算规定一个统一的预售时间了.不过看起来管内车还是铁路局自己定预售时间,还是得忍受经常改预售时间的痛苦.&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;铁道部：直通旅客列车6月5日起提前10天售票&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://news.QQ.com%E3%80%80%202007%E5%B9%B406%E6%9C%8804%E6%97%A514:22%20%E3%80%80%20%E4%B8%AD%E5%9B%BD%E6%96%B0%E9%97%BB%E7%BD%91%E3%80%80%20%E3%80%80%20"&gt;http://news.QQ.com　 2007年06月04日14:22 　 中国新闻网　 　 &lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;中新网6月4日电 据中国铁道部网站消息，为更加方便旅客乘火车出行，自6月5日起，铁路火车票预售期将有所调整，所有直通旅客列车车票提前10天发售。&lt;/p&gt;
+&lt;p&gt;据了解，目前各大火车站的车票预售时间，是根据各铁路局实际情况制定的，
+大多数车站提前4天售票，也有部分车站提前5天、6天或10天售票。
+铁道部相关负责人称，此项措施是为了更方便旅客购票而推出的。
+自6月5日开始，所有直通旅客列车车票在票额所在铁路局管内各售票窗口提前10天发售。
+动车组和直达列车客票预售时间不变，仍提前20天售票；异地票预售期也仍保持提前20天发售。&lt;/p&gt;
+&lt;p&gt;所谓直通旅客列车，就是指走行距离超出一个铁路局管内的旅客列车，
+这些列车一般为中长途列车。同时，在铁路局管内开行的旅客列车被称为管内列车，
+这些列车一般为短途列车。&lt;/p&gt;
+&lt;p&gt;铁道部指出，管内旅客列车车票的预售期由各铁路局根据各局情况制定，
+但各铁路局管内各车站预售时间要保持一致。
+此外，铁道部还要求各铁路局加大营销力度，拓展销售渠道，
+积极组织往返票、联程票等异地票的发售，加强售票组织管理，
+为广大旅客出行提供便利。(林晓莺)&lt;/p&gt;</content><category term="presell"></category><category term="ticket"></category><category term="Train"></category></entry><entry><title>转向Wordpress?</title><link href="https://www.gfrog.net/2007/05/turn-to-wordpress/" rel="alternate"></link><published>2007-05-28T02:37:32+08:00</published><updated>2007-05-28T02:37:32+08:00</updated><author><name>gfrog</name></author><id>tag:www.gfrog.net,2007-05-28:/2007/05/turn-to-wordpress/</id><summary type="html">&lt;p&gt;最近
+&lt;a href="http://forum.chinabloggernetwork.com/viewthread.php?tid=683&amp;amp;extra=page%3D1"&gt;cbn在搞服务器合租&lt;/a&gt;
+.正好最近我现在用的服务器时不时的抽风一下,
+并且pjblog的功能实在有限,我又懒得自己动手,于是就跟着去凑了凑热闹.&lt;/p&gt;
+&lt;p&gt;cbn服务器现在已经进入了付款阶段,300米一年.
+服务器配置如下(摘自
+&lt;a href="http://blog.istef.info/2007/05/26/cbn-hosting/"&gt;花儿开了&lt;/a&gt;
+):&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;双路双核至强处理器，2G ECC 内存； &lt;br /&gt;
+服务器位于北京酒仙桥BGP机房，也是 Google.cn 所在的机房，没有电信网通互访的问题，速度超快； &lt;br /&gt;
+72松为我们提供技术支持和服务器管理，并进行数据备份； &lt;br /&gt;
+服务器为 100M 共享接入，当然实际分到的带宽也就 1-3M。 &lt;br /&gt;
+每位用户提供 1G+ 磁盘空间和 10G+/month 的带宽，之所以有 + 是因为这只是个软性限制，如果您只是合理的超出，我们是允许的； &lt;br /&gt;
+LAMP 环境，WordPress 的绝佳组合； &lt;br /&gt;
+可绑定多域名和子域名； &lt;br /&gt;
+250人民币元左右的年费（最终要视合租人数确定）；(现在已经确定收费300米/年了.)&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;说实在的,这个价格跟我现在用的空间比起来实在够贵 …&lt;/p&gt;</summary><content type="html">&lt;p&gt;最近
+&lt;a href="http://forum.chinabloggernetwork.com/viewthread.php?tid=683&amp;amp;extra=page%3D1"&gt;cbn在搞服务器合租&lt;/a&gt;
+.正好最近我现在用的服务器时不时的抽风一下,
+并且pjblog的功能实在有限,我又懒得自己动手,于是就跟着去凑了凑热闹.&lt;/p&gt;
+&lt;p&gt;cbn服务器现在已经进入了付款阶段,300米一年.
+服务器配置如下(摘自
+&lt;a href="http://blog.istef.info/2007/05/26/cbn-hosting/"&gt;花儿开了&lt;/a&gt;
+):&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;双路双核至强处理器，2G ECC 内存； &lt;br /&gt;
+服务器位于北京酒仙桥BGP机房，也是 Google.cn 所在的机房，没有电信网通互访的问题，速度超快； &lt;br /&gt;
+72松为我们提供技术支持和服务器管理，并进行数据备份； &lt;br /&gt;
+服务器为 100M 共享接入，当然实际分到的带宽也就 1-3M。 &lt;br /&gt;
+每位用户提供 1G+ 磁盘空间和 10G+/month 的带宽，之所以有 + 是因为这只是个软性限制，如果您只是合理的超出，我们是允许的； &lt;br /&gt;
+LAMP 环境，WordPress 的绝佳组合； &lt;br /&gt;
+可绑定多域名和子域名； &lt;br /&gt;
+250人民币元左右的年费（最终要视合租人数确定）；(现在已经确定收费300米/年了.)&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;说实在的,这个价格跟我现在用的空间比起来实在够贵,
+我当年买这个空间的时候才85一年.
+说起来国内还真不见得有比这再便宜的空间了.
+现在的空间前半年用起来还算可以,不过最近经常出现抽风的状况.
+而且,最致命的是,现在的空间几乎没有扩展性,服务商给你什么,你就用好了.&lt;/p&gt;
+&lt;p&gt;这点让我十分不爽.
+据说cbn的空间可以按照用户的需要定制安装,但是机器没正式运行以前,
+什么都是未知数.只能期待它会跟说的一样好了....&lt;/p&gt;
+&lt;p&gt;另外,更换空间以后就是php空间了,可以用我仰慕已久的wordpress系统了,
+不过pjblog如何转到wordpress上去,实在是个大问题.
+还有以前积累下来的搜索引擎纪录,pr值似乎都有丢掉的危险,
+不知道谁有好办法,指点指点我吧!!&lt;/p&gt;
+&lt;p&gt;如果你看到这篇日志的时候有空,请帮忙点击一下下面的链接,看一下跟访问本站的速度有多大差别,感谢回馈.&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://218.240.8.107/"&gt;http://218.240.8.107/&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;update:2007-5-29 22:30&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;刚刚在教育网里面tracert了一下上面那个地址 得到的结果如下:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;Tracing&lt;/span&gt; &lt;span class="n"&gt;route&lt;/span&gt; &lt;span class="k"&gt;to&lt;/span&gt; &lt;span class="mi"&gt;218&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;240&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;8&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;107&lt;/span&gt; &lt;span class="n"&gt;over&lt;/span&gt; &lt;span class="n"&gt;a&lt;/span&gt; &lt;span class="n"&gt;maximum&lt;/span&gt; &lt;span class="k"&gt;of&lt;/span&gt; &lt;span class="mi"&gt;30&lt;/span&gt; &lt;span class="n"&gt;hops&lt;/span&gt;
+
+ &lt;span class="mi"&gt;1&lt;/span&gt;    &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt; &lt;span class="n"&gt;ms&lt;/span&gt;    &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt; &lt;span class="n"&gt;ms&lt;/span&gt;    &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt; &lt;span class="n"&gt;ms&lt;/span&gt;  &lt;span class="mi"&gt;219&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;217&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;13&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;254&lt;/span&gt;
+ &lt;span class="mi"&gt;2&lt;/span&gt;     &lt;span class="mi"&gt;1&lt;/span&gt; &lt;span class="n"&gt;ms&lt;/span&gt;    &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt; &lt;span class="n"&gt;ms&lt;/span&gt;    &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt; &lt;span class="n"&gt;ms&lt;/span&gt;  &lt;span class="mi"&gt;192&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;168&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;21&lt;/span&gt;
+ &lt;span class="mi"&gt;3&lt;/span&gt;     &lt;span class="mi"&gt;4&lt;/span&gt; &lt;span class="n"&gt;ms&lt;/span&gt;     &lt;span class="mi"&gt;3&lt;/span&gt; &lt;span class="n"&gt;ms&lt;/span&gt;     &lt;span class="mi"&gt;4&lt;/span&gt; &lt;span class="n"&gt;ms&lt;/span&gt;  &lt;span class="mi"&gt;192&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;168&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;142&lt;/span&gt;
+ &lt;span class="mi"&gt;4&lt;/span&gt;     &lt;span class="mi"&gt;6&lt;/span&gt; &lt;span class="n"&gt;ms&lt;/span&gt;     &lt;span class="mi"&gt;6&lt;/span&gt; &lt;span class="n"&gt;ms&lt;/span&gt;     &lt;span class="mi"&gt;6&lt;/span&gt; &lt;span class="n"&gt;ms&lt;/span&gt;  &lt;span class="mi"&gt;202&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;198&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;225&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;221&lt;/span&gt;
+ &lt;span class="mi"&gt;5&lt;/span&gt;     &lt;span class="mi"&gt;5&lt;/span&gt; &lt;span class="n"&gt;ms&lt;/span&gt;     &lt;span class="mi"&gt;5&lt;/span&gt; &lt;span class="n"&gt;ms&lt;/span&gt;     &lt;span class="mi"&gt;5&lt;/span&gt; &lt;span class="n"&gt;ms&lt;/span&gt;  &lt;span class="mi"&gt;202&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;112&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;36&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;57&lt;/span&gt;
+ &lt;span class="mi"&gt;6&lt;/span&gt;    &lt;span class="mi"&gt;24&lt;/span&gt; &lt;span class="n"&gt;ms&lt;/span&gt;    &lt;span class="mi"&gt;21&lt;/span&gt; &lt;span class="n"&gt;ms&lt;/span&gt;    &lt;span class="mi"&gt;20&lt;/span&gt; &lt;span class="n"&gt;ms&lt;/span&gt;  &lt;span class="mi"&gt;202&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;112&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;36&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;170&lt;/span&gt;
+ &lt;span class="mi"&gt;7&lt;/span&gt;    &lt;span class="mi"&gt;30&lt;/span&gt; &lt;span class="n"&gt;ms&lt;/span&gt;    &lt;span class="mi"&gt;31&lt;/span&gt; &lt;span class="n"&gt;ms&lt;/span&gt;    &lt;span class="mi"&gt;31&lt;/span&gt; &lt;span class="n"&gt;ms&lt;/span&gt;  &lt;span class="mi"&gt;202&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;127&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;216&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;41&lt;/span&gt;
+ &lt;span class="mi"&gt;8&lt;/span&gt;    &lt;span class="mi"&gt;29&lt;/span&gt; &lt;span class="n"&gt;ms&lt;/span&gt;    &lt;span class="mi"&gt;29&lt;/span&gt; &lt;span class="n"&gt;ms&lt;/span&gt;     &lt;span class="o"&gt;*&lt;/span&gt;     &lt;span class="mi"&gt;202&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;112&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;53&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;74&lt;/span&gt;
+ &lt;span class="mi"&gt;9&lt;/span&gt;    &lt;span class="mi"&gt;32&lt;/span&gt; &lt;span class="n"&gt;ms&lt;/span&gt;    &lt;span class="mi"&gt;32&lt;/span&gt; &lt;span class="n"&gt;ms&lt;/span&gt;    &lt;span class="mi"&gt;30&lt;/span&gt; &lt;span class="n"&gt;ms&lt;/span&gt;  &lt;span class="mi"&gt;218&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;240&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;7&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;218&lt;/span&gt;
+&lt;span class="mi"&gt;10&lt;/span&gt;     &lt;span class="o"&gt;*&lt;/span&gt;       &lt;span class="mi"&gt;31&lt;/span&gt; &lt;span class="n"&gt;ms&lt;/span&gt;     &lt;span class="o"&gt;*&lt;/span&gt;     &lt;span class="mi"&gt;218&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;240&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;7&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;113&lt;/span&gt;
+&lt;span class="mi"&gt;11&lt;/span&gt;     &lt;span class="o"&gt;*&lt;/span&gt;        &lt;span class="o"&gt;*&lt;/span&gt;        &lt;span class="o"&gt;*&lt;/span&gt;     &lt;span class="n"&gt;Request&lt;/span&gt; &lt;span class="n"&gt;timed&lt;/span&gt; &lt;span class="k"&gt;out&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;
+&lt;span class="mi"&gt;12&lt;/span&gt;     &lt;span class="o"&gt;*&lt;/span&gt;      &lt;span class="mi"&gt;158&lt;/span&gt; &lt;span class="n"&gt;ms&lt;/span&gt;   &lt;span class="mi"&gt;158&lt;/span&gt; &lt;span class="n"&gt;ms&lt;/span&gt;  &lt;span class="mi"&gt;203&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;212&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;42&lt;/span&gt;
+&lt;span class="mi"&gt;13&lt;/span&gt;   &lt;span class="mi"&gt;170&lt;/span&gt; &lt;span class="n"&gt;ms&lt;/span&gt;   &lt;span class="mi"&gt;168&lt;/span&gt; &lt;span class="n"&gt;ms&lt;/span&gt;   &lt;span class="mi"&gt;169&lt;/span&gt; &lt;span class="n"&gt;ms&lt;/span&gt;  &lt;span class="mi"&gt;203&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;212&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;37&lt;/span&gt;
+&lt;span class="mi"&gt;14&lt;/span&gt;    &lt;span class="mi"&gt;37&lt;/span&gt; &lt;span class="n"&gt;ms&lt;/span&gt;    &lt;span class="mi"&gt;37&lt;/span&gt; &lt;span class="n"&gt;ms&lt;/span&gt;    &lt;span class="mi"&gt;37&lt;/span&gt; &lt;span class="n"&gt;ms&lt;/span&gt;  &lt;span class="mi"&gt;218&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;240&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;8&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;107&lt;/span&gt;
+
+&lt;span class="n"&gt;Trace&lt;/span&gt; &lt;span class="n"&gt;complete&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;tracert现在的主机:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;Tracing&lt;/span&gt; &lt;span class="n"&gt;route&lt;/span&gt; &lt;span class="k"&gt;to&lt;/span&gt; &lt;span class="n"&gt;gfrog&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;cn&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;210&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;51&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;22&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;163&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+&lt;span class="n"&gt;over&lt;/span&gt; &lt;span class="n"&gt;a&lt;/span&gt; &lt;span class="n"&gt;maximum&lt;/span&gt; &lt;span class="k"&gt;of&lt;/span&gt; &lt;span class="mi"&gt;30&lt;/span&gt; &lt;span class="n"&gt;hops&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+
+ &lt;span class="mi"&gt;1&lt;/span&gt;     &lt;span class="mi"&gt;1&lt;/span&gt; &lt;span class="n"&gt;ms&lt;/span&gt;    &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt; &lt;span class="n"&gt;ms&lt;/span&gt;    &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt; &lt;span class="n"&gt;ms&lt;/span&gt;  &lt;span class="mi"&gt;219&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;217&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;13&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;254&lt;/span&gt;
+ &lt;span class="mi"&gt;2&lt;/span&gt;     &lt;span class="mi"&gt;1&lt;/span&gt; &lt;span class="n"&gt;ms&lt;/span&gt;     &lt;span class="mi"&gt;1&lt;/span&gt; &lt;span class="n"&gt;ms&lt;/span&gt;     &lt;span class="mi"&gt;1&lt;/span&gt; &lt;span class="n"&gt;ms&lt;/span&gt;  &lt;span class="mi"&gt;192&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;168&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;21&lt;/span&gt;
+ &lt;span class="mi"&gt;3&lt;/span&gt;     &lt;span class="mi"&gt;6&lt;/span&gt; &lt;span class="n"&gt;ms&lt;/span&gt;     &lt;span class="mi"&gt;5&lt;/span&gt; &lt;span class="n"&gt;ms&lt;/span&gt;     &lt;span class="mi"&gt;5&lt;/span&gt; &lt;span class="n"&gt;ms&lt;/span&gt;  &lt;span class="mi"&gt;192&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;168&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;142&lt;/span&gt;
+ &lt;span class="mi"&gt;4&lt;/span&gt;     &lt;span class="mi"&gt;6&lt;/span&gt; &lt;span class="n"&gt;ms&lt;/span&gt;     &lt;span class="mi"&gt;7&lt;/span&gt; &lt;span class="n"&gt;ms&lt;/span&gt;     &lt;span class="mi"&gt;8&lt;/span&gt; &lt;span class="n"&gt;ms&lt;/span&gt;  &lt;span class="mi"&gt;202&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;198&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;225&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;221&lt;/span&gt;
+ &lt;span class="mi"&gt;5&lt;/span&gt;     &lt;span class="mi"&gt;1&lt;/span&gt; &lt;span class="n"&gt;ms&lt;/span&gt;     &lt;span class="mi"&gt;2&lt;/span&gt; &lt;span class="n"&gt;ms&lt;/span&gt;     &lt;span class="mi"&gt;2&lt;/span&gt; &lt;span class="n"&gt;ms&lt;/span&gt;  &lt;span class="mi"&gt;202&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;112&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;36&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;89&lt;/span&gt;
+ &lt;span class="mi"&gt;6&lt;/span&gt;    &lt;span class="mi"&gt;23&lt;/span&gt; &lt;span class="n"&gt;ms&lt;/span&gt;    &lt;span class="mi"&gt;22&lt;/span&gt; &lt;span class="n"&gt;ms&lt;/span&gt;    &lt;span class="mi"&gt;23&lt;/span&gt; &lt;span class="n"&gt;ms&lt;/span&gt;  &lt;span class="mi"&gt;202&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;112&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;36&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;170&lt;/span&gt;
+ &lt;span class="mi"&gt;7&lt;/span&gt;     &lt;span class="o"&gt;*&lt;/span&gt;        &lt;span class="o"&gt;*&lt;/span&gt;       &lt;span class="mi"&gt;32&lt;/span&gt; &lt;span class="n"&gt;ms&lt;/span&gt;  &lt;span class="mi"&gt;202&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;127&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;216&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;41&lt;/span&gt;
+ &lt;span class="mi"&gt;8&lt;/span&gt;    &lt;span class="mi"&gt;45&lt;/span&gt; &lt;span class="n"&gt;ms&lt;/span&gt;    &lt;span class="mi"&gt;46&lt;/span&gt; &lt;span class="n"&gt;ms&lt;/span&gt;    &lt;span class="mi"&gt;48&lt;/span&gt; &lt;span class="n"&gt;ms&lt;/span&gt;  &lt;span class="mi"&gt;202&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;112&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;36&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;250&lt;/span&gt;
+ &lt;span class="mi"&gt;9&lt;/span&gt;    &lt;span class="mi"&gt;60&lt;/span&gt; &lt;span class="n"&gt;ms&lt;/span&gt;    &lt;span class="mi"&gt;58&lt;/span&gt; &lt;span class="n"&gt;ms&lt;/span&gt;    &lt;span class="mi"&gt;59&lt;/span&gt; &lt;span class="n"&gt;ms&lt;/span&gt;  &lt;span class="mi"&gt;202&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;112&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;36&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;254&lt;/span&gt;
+&lt;span class="mi"&gt;10&lt;/span&gt;    &lt;span class="mi"&gt;53&lt;/span&gt; &lt;span class="n"&gt;ms&lt;/span&gt;    &lt;span class="mi"&gt;56&lt;/span&gt; &lt;span class="n"&gt;ms&lt;/span&gt;    &lt;span class="mi"&gt;53&lt;/span&gt; &lt;span class="n"&gt;ms&lt;/span&gt;  &lt;span class="mi"&gt;202&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;112&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;53&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;202&lt;/span&gt;
+&lt;span class="mi"&gt;11&lt;/span&gt;   &lt;span class="mi"&gt;239&lt;/span&gt; &lt;span class="n"&gt;ms&lt;/span&gt;   &lt;span class="mi"&gt;236&lt;/span&gt; &lt;span class="n"&gt;ms&lt;/span&gt;   &lt;span class="mi"&gt;237&lt;/span&gt; &lt;span class="n"&gt;ms&lt;/span&gt;  &lt;span class="mi"&gt;219&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;158&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;32&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;97&lt;/span&gt;
+&lt;span class="mi"&gt;12&lt;/span&gt;     &lt;span class="o"&gt;*&lt;/span&gt;      &lt;span class="mi"&gt;220&lt;/span&gt; &lt;span class="n"&gt;ms&lt;/span&gt;     &lt;span class="o"&gt;*&lt;/span&gt;     &lt;span class="mi"&gt;219&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;158&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;28&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;190&lt;/span&gt;
+&lt;span class="mi"&gt;13&lt;/span&gt;   &lt;span class="mi"&gt;243&lt;/span&gt; &lt;span class="n"&gt;ms&lt;/span&gt;   &lt;span class="mi"&gt;239&lt;/span&gt; &lt;span class="n"&gt;ms&lt;/span&gt;     &lt;span class="o"&gt;*&lt;/span&gt;     &lt;span class="mi"&gt;218&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;105&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;61&lt;/span&gt;
+&lt;span class="mi"&gt;14&lt;/span&gt;   &lt;span class="mi"&gt;242&lt;/span&gt; &lt;span class="n"&gt;ms&lt;/span&gt;   &lt;span class="mi"&gt;242&lt;/span&gt; &lt;span class="n"&gt;ms&lt;/span&gt;   &lt;span class="mi"&gt;249&lt;/span&gt; &lt;span class="n"&gt;ms&lt;/span&gt;  &lt;span class="mi"&gt;210&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;52&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;206&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;10&lt;/span&gt;
+&lt;span class="mi"&gt;15&lt;/span&gt;   &lt;span class="mi"&gt;228&lt;/span&gt; &lt;span class="n"&gt;ms&lt;/span&gt;   &lt;span class="mi"&gt;222&lt;/span&gt; &lt;span class="n"&gt;ms&lt;/span&gt;   &lt;span class="mi"&gt;227&lt;/span&gt; &lt;span class="n"&gt;ms&lt;/span&gt;  &lt;span class="mi"&gt;210&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;51&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;63&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;
+&lt;span class="mi"&gt;16&lt;/span&gt;   &lt;span class="mi"&gt;225&lt;/span&gt; &lt;span class="n"&gt;ms&lt;/span&gt;   &lt;span class="mi"&gt;226&lt;/span&gt; &lt;span class="n"&gt;ms&lt;/span&gt;   &lt;span class="mi"&gt;228&lt;/span&gt; &lt;span class="n"&gt;ms&lt;/span&gt;  &lt;span class="mi"&gt;210&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;51&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;63&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;66&lt;/span&gt;
+&lt;span class="mi"&gt;17&lt;/span&gt;   &lt;span class="mi"&gt;221&lt;/span&gt; &lt;span class="n"&gt;ms&lt;/span&gt;   &lt;span class="mi"&gt;229&lt;/span&gt; &lt;span class="n"&gt;ms&lt;/span&gt;     &lt;span class="o"&gt;*&lt;/span&gt;     &lt;span class="mi"&gt;210&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;51&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;22&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;163&lt;/span&gt;
+&lt;span class="mi"&gt;18&lt;/span&gt;   &lt;span class="mi"&gt;234&lt;/span&gt; &lt;span class="n"&gt;ms&lt;/span&gt;   &lt;span class="mi"&gt;228&lt;/span&gt; &lt;span class="n"&gt;ms&lt;/span&gt;     &lt;span class="o"&gt;*&lt;/span&gt;     &lt;span class="mi"&gt;210&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;51&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;22&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;163&lt;/span&gt;
+&lt;span class="mi"&gt;19&lt;/span&gt;   &lt;span class="mi"&gt;233&lt;/span&gt; &lt;span class="n"&gt;ms&lt;/span&gt;   &lt;span class="mi"&gt;229&lt;/span&gt; &lt;span class="n"&gt;ms&lt;/span&gt;   &lt;span class="mi"&gt;230&lt;/span&gt; &lt;span class="n"&gt;ms&lt;/span&gt;  &lt;span class="mi"&gt;210&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;51&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;22&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;163&lt;/span&gt;
+
+&lt;span class="n"&gt;Trace&lt;/span&gt; &lt;span class="n"&gt;complete&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;看起来速度还是差不少的,
+但是web访问218.240.8.107这个测试地址速度实在是慢的可以,
+比访问现在的主机慢很多.&lt;/p&gt;</content></entry><entry><title>都来答答这些问题吧</title><link href="https://www.gfrog.net/2007/04/interview-questions/" rel="alternate"></link><published>2007-04-20T21:47:43+08:00</published><updated>2007-04-20T21:47:43+08:00</updated><author><name>gfrog</name></author><id>tag:www.gfrog.net,2007-04-20:/2007/04/interview-questions/</id><summary type="html">&lt;p&gt;细看起来,似乎这些东西都见过.细说起来,这些东西哪个都说不明白是啥.看似能说清楚的,写起来又发现自己还是说不明白.唉,自己这半吊子水平....&lt;/p&gt;
+&lt;p&gt;来自&lt;a href="http://blog.xfocus.net/index.php?blogId=3"&gt;baozi的blog&lt;/a&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;线程和进程有什么区别&lt;/li&gt;
+&lt;li&gt;pptp和pppoe有什么区别&lt;/li&gt;
+&lt;li&gt;md5是什么算法&lt;/li&gt;
+&lt;li&gt;apache1和apache2有什么区别&lt;/li&gt;
+&lt;li&gt;电子签名怎么工作&lt;/li&gt;
+&lt;li&gt;什么是jail&lt;/li&gt;
+&lt;li&gt;spantree协议说说&lt;/li&gt;
+&lt;li&gt;列举加密算法，并且分类&lt;/li&gt;
+&lt;li&gt;什么是正则表达式，用一个 shell检测一个文件是否是c写的&lt;/li&gt;
+&lt;li&gt;邮件系统的认证方法？说一下邮件系统的证书认证。&lt;/li&gt;
+&lt;li&gt;交换机和路由器的区别&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;青蛙自己感觉能说的清楚的只有3,6,7,11.&lt;/p&gt;
+&lt;p&gt;3: md5是散列算法,或者叫摘要算法.具体咋回事,偶不知道 - -b&lt;/p&gt;
+&lt;p&gt;6: jail 一个跟系统相对隔离的环境,
+   用于安全执行一些特定的服务或者建立蜜罐.
+   第一次接触jail这个概念还是在baozi大哥在linuxsir上发的几个帖子里面.
+   从那以后一直试图自己建立jail,但是一直未遂.&lt;/p&gt;
+&lt;p&gt;7: spaningtree 生成树协议,用于消除第二层设备产生的环路.
+   这个协议是偶当年在校园网里抓包发现的第一个比较特殊的协议(相对于arp ip tcp来说 …&lt;/p&gt;</summary><content type="html">&lt;p&gt;细看起来,似乎这些东西都见过.细说起来,这些东西哪个都说不明白是啥.看似能说清楚的,写起来又发现自己还是说不明白.唉,自己这半吊子水平....&lt;/p&gt;
+&lt;p&gt;来自&lt;a href="http://blog.xfocus.net/index.php?blogId=3"&gt;baozi的blog&lt;/a&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;线程和进程有什么区别&lt;/li&gt;
+&lt;li&gt;pptp和pppoe有什么区别&lt;/li&gt;
+&lt;li&gt;md5是什么算法&lt;/li&gt;
+&lt;li&gt;apache1和apache2有什么区别&lt;/li&gt;
+&lt;li&gt;电子签名怎么工作&lt;/li&gt;
+&lt;li&gt;什么是jail&lt;/li&gt;
+&lt;li&gt;spantree协议说说&lt;/li&gt;
+&lt;li&gt;列举加密算法，并且分类&lt;/li&gt;
+&lt;li&gt;什么是正则表达式，用一个 shell检测一个文件是否是c写的&lt;/li&gt;
+&lt;li&gt;邮件系统的认证方法？说一下邮件系统的证书认证。&lt;/li&gt;
+&lt;li&gt;交换机和路由器的区别&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;青蛙自己感觉能说的清楚的只有3,6,7,11.&lt;/p&gt;
+&lt;p&gt;3: md5是散列算法,或者叫摘要算法.具体咋回事,偶不知道 - -b&lt;/p&gt;
+&lt;p&gt;6: jail 一个跟系统相对隔离的环境,
+   用于安全执行一些特定的服务或者建立蜜罐.
+   第一次接触jail这个概念还是在baozi大哥在linuxsir上发的几个帖子里面.
+   从那以后一直试图自己建立jail,但是一直未遂.&lt;/p&gt;
+&lt;p&gt;7: spaningtree 生成树协议,用于消除第二层设备产生的环路.
+   这个协议是偶当年在校园网里抓包发现的第一个比较特殊的协议(相对于arp ip tcp来说...)&lt;/p&gt;
+&lt;p&gt;11: 交换机 二层设备,根据mac-端口对应表工作
+   路由器 三层设备,根据ip-端口对应表工作&lt;/p&gt;</content></entry><entry><title>我也说说网银</title><link href="https://www.gfrog.net/2007/04/thought-about-net-bank/" rel="alternate"></link><published>2007-04-04T02:21:38+08:00</published><updated>2007-04-04T02:21:38+08:00</updated><author><name>gfrog</name></author><id>tag:www.gfrog.net,2007-04-04:/2007/04/thought-about-net-bank/</id><summary type="html">&lt;p&gt;偶是比较后知后觉的那种人,今天才看到python-chinese邮件列表里看到有人说起
+&lt;a href="http://www.billxu.com/friend/rms/an.open.letter.to.cmb.html"&gt;老徐的那封公开信&lt;/a&gt;
+.google了一下,原来几个月以前各大媒体网站原来都报道过这封信.
+老徐在公开信里面讲的那个宾馆里的故事实在是很搞笑,
+但是偶不知道activex到底在网上银行交易里面扮演一个什么样的角色,
+难道就这么不可或缺么?&lt;/p&gt;
+&lt;p&gt;于是我继续google,似乎activex只是用来防止密码被键盘钩子截获.
+似乎这只是对windows系统来说的?&lt;/p&gt;
+&lt;p&gt;对于非win系统,还有这个问题么?偶不清楚,google也没有找到答案.
+但是,activex对于windows就是安全的么? 似乎也不是,看看最近的
+&lt;a href="http://www.cnbeta.com/modules.php?name=News&amp;amp;file=article&amp;amp;mode=flat&amp;amp;sid=22289"&gt;支付宝的activex控件缺陷&lt;/a&gt;
+,看来activex反倒给系统留下了隐患.&lt;/p&gt;
+&lt;p&gt;看到很多人说国外银行的网银都不用activex的,偶继续google之.&lt;/p&gt;
+&lt;p&gt;似乎国外银行用的也跟我天朝银行是一样的东西嘛,
+除了activex.128位SSL加密,数字证书,usb-key.无非也就是这些了.&lt;/p&gt;
+&lt;p&gt;但是为啥洋人银行都不用activex呢?
+大概洋人都穷,买不起windows,又不像我天朝人手一个盗版windows.
+于是activex没了生长的土壤,自己也就躲一边去了.
+写到这里不由得感叹我天朝昌盛,连微软都要另眼相看,
+每次在天朝卖的windows都比在洋人那里卖的贵.&lt;/p&gt;
+&lt;p&gt;扯得远了,嘿嘿.
+至于这个why activex or why not activex的问题,现在还没有结果.
+网友的力量能大过银行么? 也很难说.&lt;/p&gt;
+&lt;p&gt;这次google过程 …&lt;/p&gt;</summary><content type="html">&lt;p&gt;偶是比较后知后觉的那种人,今天才看到python-chinese邮件列表里看到有人说起
+&lt;a href="http://www.billxu.com/friend/rms/an.open.letter.to.cmb.html"&gt;老徐的那封公开信&lt;/a&gt;
+.google了一下,原来几个月以前各大媒体网站原来都报道过这封信.
+老徐在公开信里面讲的那个宾馆里的故事实在是很搞笑,
+但是偶不知道activex到底在网上银行交易里面扮演一个什么样的角色,
+难道就这么不可或缺么?&lt;/p&gt;
+&lt;p&gt;于是我继续google,似乎activex只是用来防止密码被键盘钩子截获.
+似乎这只是对windows系统来说的?&lt;/p&gt;
+&lt;p&gt;对于非win系统,还有这个问题么?偶不清楚,google也没有找到答案.
+但是,activex对于windows就是安全的么? 似乎也不是,看看最近的
+&lt;a href="http://www.cnbeta.com/modules.php?name=News&amp;amp;file=article&amp;amp;mode=flat&amp;amp;sid=22289"&gt;支付宝的activex控件缺陷&lt;/a&gt;
+,看来activex反倒给系统留下了隐患.&lt;/p&gt;
+&lt;p&gt;看到很多人说国外银行的网银都不用activex的,偶继续google之.&lt;/p&gt;
+&lt;p&gt;似乎国外银行用的也跟我天朝银行是一样的东西嘛,
+除了activex.128位SSL加密,数字证书,usb-key.无非也就是这些了.&lt;/p&gt;
+&lt;p&gt;但是为啥洋人银行都不用activex呢?
+大概洋人都穷,买不起windows,又不像我天朝人手一个盗版windows.
+于是activex没了生长的土壤,自己也就躲一边去了.
+写到这里不由得感叹我天朝昌盛,连微软都要另眼相看,
+每次在天朝卖的windows都比在洋人那里卖的贵.&lt;/p&gt;
+&lt;p&gt;扯得远了,嘿嘿.
+至于这个why activex or why not activex的问题,现在还没有结果.
+网友的力量能大过银行么? 也很难说.&lt;/p&gt;
+&lt;p&gt;这次google过程,也发现了很多有趣的东东,最有意思的莫过于下面这封信了&lt;/p&gt;
+&lt;p&gt;在Mozine论坛上
+&lt;a href="http://forums.mozine.cn/index.php?showtopic=14478&amp;amp;st=0&amp;amp;p=79094&amp;amp;#entry79094"&gt;有人帖了一个北京银行客服的回信&lt;/a&gt;
+,搞笑之极.实在怀疑写这封信的那位客服人员连什么是网页都不知道.&lt;/p&gt;
+&lt;p&gt;引用一段,如下:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;您好，感谢您一直使用并支持北京银行个人网银系统，个人网银新版上线后，我们将不再支持Firefox浏览器，原因如下：&lt;/p&gt;
+&lt;p&gt;1、Firefox作为一种开源的浏览器，要求开发的语言必须具有通用性，
+   虽然firefox可以添加许多安全插件，但由于一些插件是第三方开发的，
+   所以语言的差异性就更加的显著，很有可能造成浏览时出现问题。&lt;/p&gt;
+&lt;p&gt;2、Firefox为了兼容windows，linux，unix和max os，必须制作一种统一的浏览器内核，
+   而实际上，这些操作系统的网页浏览方式是不一样的，
+   所以在css，javascript，vbscript等网页脚本语言的调用方式上也是不同的，
+   因此，在用非IE的浏览器上使用网上银行会出现样式错乱或者使用出错的情况。&lt;/p&gt;
+&lt;p&gt;3、原来的网银系统使用的框架主要是静态jsp实现方式，仅仅应用了很少的样式结构，
+   所以，对于浏览器的兼容性基本没有影响。
+   但是新的网银系统使用了较多的css和较高版本的js，
+   所以会出现对于firefox不兼容的问题。&lt;/p&gt;
+&lt;p&gt;鉴于上述原因，我们建议你使用系统自带的IE浏览器，由此给您带来的不便，敬请谅解，
+在中国传统的春节到来之际，北京银行祝您工作顺利，节日快乐，
+希望您能一如既往的支持北京银行。谢谢！　&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;有人回帖说这封信也就是标点用的还没有错误,还算比较贴切,呵呵.&lt;/p&gt;
+&lt;p&gt;ps.最后搜了一下linux下的键盘记录器,似乎只有到内核里面才能做这件事情,
+但是加载驱动之类的操作都是root才能干的,
+而linux的使用哲学就是强烈不建议使用root账户作为日常工作账户
+(ubuntu甚至干脆不给用户root账号的密码),
+这跟在windows里面没有管理员权限就寸步难行有很大的不同.&lt;/p&gt;</content></entry><entry><title>来说说bblean吧</title><link href="https://www.gfrog.net/2007/02/talk-a-bit-about-bblean/" rel="alternate"></link><published>2007-02-03T02:06:13+08:00</published><updated>2007-02-03T02:06:13+08:00</updated><author><name>gfrog</name></author><id>tag:www.gfrog.net,2007-02-03:/2007/02/talk-a-bit-about-bblean/</id><summary type="html">&lt;p&gt;看到
+&lt;a href="http://www.keyer.net/"&gt;keyer&lt;/a&gt;
+推荐的多桌面软件，让青蛙想起了bblean。正好昨天跟
+&lt;a href="http://crystalharp.blogspot.com/index.html"&gt;conan&lt;/a&gt;
+说起了它。&lt;/p&gt;
+&lt;p&gt;&lt;img alt="1" src="http://bb4win.sourceforge.net/bblean/bblean_logo.png"&gt;&lt;/p&gt;
+&lt;p&gt;对于有linux使用经验的人来说，bblean看起来会很舒服，而且也会很容易上手。
+因为bblean就是linux下面的桌面管理器blackbox的windows版本中的一个。&lt;/p&gt;
+&lt;p&gt;大量的插件可以使自己的桌面高度定制，内存占用又很低，
+对于我这种有时候想疯狂的节约内存的人是最合适不过的了。&lt;/p&gt;
+&lt;p&gt;上几个大虾们的图好了，
+青蛙自己的桌面就是用了bblean默认的布局，没有改，就不秀了。&lt;/p&gt;
+&lt;p&gt;（下面的图片都来自
+&lt;a href="http://bbs.deepin.org"&gt;deepin.org&lt;/a&gt;
+的
+&lt;a href="http://bbs.deepin.org/thread.php?fid=37"&gt;bblean&lt;/a&gt;
+版）&lt;/p&gt;
+&lt;p&gt;rmb之
+&lt;a href="http://bbs.deepin.org/read.php?tid=90727"&gt;颓废的烟头&lt;/a&gt;
+：&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://bbs.deepin.org/attachment/Mon_0701/37_99484_eb84ceb4621524a.jpg"&gt;&lt;img alt="3" src="http://bbs.deepin.org/attachment/Mon_0701/37_99484_eb84ceb4621524a.jpg"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://bbs.deepin.org/read.php?tid=14685"&gt;kavana&lt;/a&gt;
+（这个效果你能认出它是windowsXP么? :p）：&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://bbs.deepin.org/attachment/37_58072_da01620bfc2af62.jpg"&gt;&lt;img alt="4" src="http://bbs.deepin.org/attachment/37_58072_da01620bfc2af62.jpg"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://bbs.deepin.org/attachment/37_58072_366272287934ab0.jpg"&gt;&lt;img alt="5" src="http://bbs.deepin.org/attachment/37_58072_366272287934ab0.jpg"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;更多的样式跟截图看
+&lt;a href="http://bbs.deepin.org/thread.php?fid=37"&gt;这里&lt;/a&gt;
+。&lt;/p&gt;
+&lt;p&gt;发一点牢骚，青蛙发现很多bblean桌面都有很重的模仿windows工具栏的倾向。
+大概是因为很多人受windows荼毒太深，呵呵。
+但是，bblean的操作习惯跟windows完全不同，
+扔一个不伦不类的"开始"在那里， 似乎就是个摆设，
+因为在bblean里，在桌面随便什么地方点鼠标，主菜单就出来了，
+干嘛还要费事去点一下开始...&lt;/p&gt;
+&lt;p&gt;青蛙不是愤青，青蛙只想说，不要单纯的为了模仿而模仿。&lt;/p&gt;
+&lt;p&gt;有关bblean的更多情况，大家可以看这里 …&lt;/p&gt;</summary><content type="html">&lt;p&gt;看到
+&lt;a href="http://www.keyer.net/"&gt;keyer&lt;/a&gt;
+推荐的多桌面软件，让青蛙想起了bblean。正好昨天跟
+&lt;a href="http://crystalharp.blogspot.com/index.html"&gt;conan&lt;/a&gt;
+说起了它。&lt;/p&gt;
+&lt;p&gt;&lt;img alt="1" src="http://bb4win.sourceforge.net/bblean/bblean_logo.png"&gt;&lt;/p&gt;
+&lt;p&gt;对于有linux使用经验的人来说，bblean看起来会很舒服，而且也会很容易上手。
+因为bblean就是linux下面的桌面管理器blackbox的windows版本中的一个。&lt;/p&gt;
+&lt;p&gt;大量的插件可以使自己的桌面高度定制，内存占用又很低，
+对于我这种有时候想疯狂的节约内存的人是最合适不过的了。&lt;/p&gt;
+&lt;p&gt;上几个大虾们的图好了，
+青蛙自己的桌面就是用了bblean默认的布局，没有改，就不秀了。&lt;/p&gt;
+&lt;p&gt;（下面的图片都来自
+&lt;a href="http://bbs.deepin.org"&gt;deepin.org&lt;/a&gt;
+的
+&lt;a href="http://bbs.deepin.org/thread.php?fid=37"&gt;bblean&lt;/a&gt;
+版）&lt;/p&gt;
+&lt;p&gt;rmb之
+&lt;a href="http://bbs.deepin.org/read.php?tid=90727"&gt;颓废的烟头&lt;/a&gt;
+：&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://bbs.deepin.org/attachment/Mon_0701/37_99484_eb84ceb4621524a.jpg"&gt;&lt;img alt="3" src="http://bbs.deepin.org/attachment/Mon_0701/37_99484_eb84ceb4621524a.jpg"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://bbs.deepin.org/read.php?tid=14685"&gt;kavana&lt;/a&gt;
+（这个效果你能认出它是windowsXP么? :p）：&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://bbs.deepin.org/attachment/37_58072_da01620bfc2af62.jpg"&gt;&lt;img alt="4" src="http://bbs.deepin.org/attachment/37_58072_da01620bfc2af62.jpg"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://bbs.deepin.org/attachment/37_58072_366272287934ab0.jpg"&gt;&lt;img alt="5" src="http://bbs.deepin.org/attachment/37_58072_366272287934ab0.jpg"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;更多的样式跟截图看
+&lt;a href="http://bbs.deepin.org/thread.php?fid=37"&gt;这里&lt;/a&gt;
+。&lt;/p&gt;
+&lt;p&gt;发一点牢骚，青蛙发现很多bblean桌面都有很重的模仿windows工具栏的倾向。
+大概是因为很多人受windows荼毒太深，呵呵。
+但是，bblean的操作习惯跟windows完全不同，
+扔一个不伦不类的"开始"在那里， 似乎就是个摆设，
+因为在bblean里，在桌面随便什么地方点鼠标，主菜单就出来了，
+干嘛还要费事去点一下开始...&lt;/p&gt;
+&lt;p&gt;青蛙不是愤青，青蛙只想说，不要单纯的为了模仿而模仿。&lt;/p&gt;
+&lt;p&gt;有关bblean的更多情况，大家可以看这里：
+&lt;a href="http://bb4win.sourceforge.net/bblean/"&gt;http://bb4win.sourceforge.net/bblean/&lt;/a&gt;&lt;/p&gt;</content><category term="desktop"></category><category term="blackbox"></category></entry><entry><title>今日主旋律:回家</title><link href="https://www.gfrog.net/2007/01/go-back-home-today/" rel="alternate"></link><published>2007-01-25T23:41:18+08:00</published><updated>2007-01-25T23:41:18+08:00</updated><author><name>gfrog</name></author><id>tag:www.gfrog.net,2007-01-25:/2007/01/go-back-home-today/</id><summary type="html">&lt;p&gt;等这个日子实在太久了.&lt;/p&gt;
+&lt;p&gt;今天,不顾一切,回家!&lt;/p&gt;</summary><content type="html">&lt;p&gt;等这个日子实在太久了.&lt;/p&gt;
+&lt;p&gt;今天,不顾一切,回家!&lt;/p&gt;</content></entry><entry><title>网安沙龙聚会记</title><link href="https://www.gfrog.net/2007/01/niap-meetup/" rel="alternate"></link><published>2007-01-23T00:10:49+08:00</published><updated>2007-01-23T00:10:49+08:00</updated><author><name>gfrog</name></author><id>tag:www.gfrog.net,2007-01-23:/2007/01/niap-meetup/</id><summary type="html">&lt;p&gt;网安的各位终于又聚到一起了,大家一起坐了一会,然后出去饭饭.&lt;/p&gt;
+&lt;p&gt;小树跟fxlt都刚考研完毕,fxlt看来考的不错,预祝fxlt能顺利考上研究生.&lt;/p&gt;
+&lt;p&gt;小树自己说自己今年放弃考研了,明年再考,那加油一下,明年大家一起努力.&lt;/p&gt;
+&lt;p&gt;uty签去珠海了,他自己说自己跟珠海很是有缘,转了一圈又转回去了,预祝uty下学期实习顺利.&lt;/p&gt;
+&lt;p&gt;jklee今天穿的很像老师,跟以前感觉不一样,貌似jklee下学期还要讲好几门课,预祝他事事顺利.&lt;/p&gt;
+&lt;p&gt;报告完毕,任务完成.&lt;/p&gt;</summary><content type="html">&lt;p&gt;网安的各位终于又聚到一起了,大家一起坐了一会,然后出去饭饭.&lt;/p&gt;
+&lt;p&gt;小树跟fxlt都刚考研完毕,fxlt看来考的不错,预祝fxlt能顺利考上研究生.&lt;/p&gt;
+&lt;p&gt;小树自己说自己今年放弃考研了,明年再考,那加油一下,明年大家一起努力.&lt;/p&gt;
+&lt;p&gt;uty签去珠海了,他自己说自己跟珠海很是有缘,转了一圈又转回去了,预祝uty下学期实习顺利.&lt;/p&gt;
+&lt;p&gt;jklee今天穿的很像老师,跟以前感觉不一样,貌似jklee下学期还要讲好几门课,预祝他事事顺利.&lt;/p&gt;
+&lt;p&gt;报告完毕,任务完成.&lt;/p&gt;</content></entry></feed>
