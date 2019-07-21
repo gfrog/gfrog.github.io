@@ -61,178 +61,12 @@ My Life, My Love!            </a>
     <div class="row">
         <div class="col-sm-9">
             <article>
-                <h2><a href="./2011/01/shocked-seat-number/">雷人的座位号</a></h2>
+                <h2><a href="./2008/01/richard-hammond-presents-bloody-omaha/">从三到万：超级人造人技术</a></h2>
                     <div class="well well-sm">
 <footer class="post-info">
     <span class="label label-default">Date</span>
     <span class="published">
-        <i class="fa fa-calendar"></i><time datetime="2011-01-29T20:44:53+08:00"> Sat 29 January 2011</time>
-    </span>
-
-
-
-        <span class="label label-default">Category</span>
-        <a href="./category/pictures.html">Pictures</a>
-
-
-<span class="label label-default">Tags</span>
-	<a href="./tag/pictures.html">pictures</a>
-        /
-	<a href="./tag/train.html">train</a>
-    
-</footer><!-- /.post-info -->                    </div>
-                <div class="summary"><p>我已经吐槽无力了。</p>
-<p><img alt="1" src="https://lh3.googleusercontent.com/TM8A-fpr9jRl2zf4_TImd3d5PxDiKXcbnYZPIksCMLraZQeU1NWxA0wsoXAO7aDh4rD5RcYqBmWt-PNb1JW0RPFc9uOv5ISCC5k8u9KF64dCc9DC7_D4UtOw3agquYgz2WH4UGwphXQ=w800"></p>
-                    <a class="btn btn-default btn-xs" href="./2011/01/shocked-seat-number/">more ...</a>
-                </div>
-            </article>
-            <hr/>
-            <article>
-                <h2><a href="./2011/01/buggy-atm-machine/">傲娇的ATM</a></h2>
-                    <div class="well well-sm">
-<footer class="post-info">
-    <span class="label label-default">Date</span>
-    <span class="published">
-        <i class="fa fa-calendar"></i><time datetime="2011-01-14T20:41:00+08:00"> Fri 14 January 2011</time>
-    </span>
-
-
-
-        <span class="label label-default">Category</span>
-        <a href="./category/pictures.html">Pictures</a>
-
-
-<span class="label label-default">Tags</span>
-	<a href="./tag/pictures.html">pictures</a>
-        /
-	<a href="./tag/system.html">system</a>
-        /
-	<a href="./tag/crash.html">crash</a>
-    
-</footer><!-- /.post-info -->                    </div>
-                <div class="summary"><p>ATM你肿么了。。</p>
-<p><img alt="1" src="https://lh3.googleusercontent.com/xsMdn023hMyBy9qVIo2QwBd2mCQ-zxm9tFp2f1wuXn3IeXIt77wuffrFEBFMgZLMEiRpY1EL--Cur-09ItMcNrIn8K4ane2vIdxgtZC1_6YhyBgCY9ji8oN1_2az8Hv3-8PE1ee_dbs=w800"></p>
-<p><img alt="1" src="https://lh3.googleusercontent.com/WIueXZ9kcqFDzKJif2yrqu9rN6X9X7gtWVFVbeaZrKoLONJkyiSe1ekYTQemiI1sokuFf73mR4OVl8Omr4P1v8OdmiIyOh5wMJnAaipXuRXg0dVt0Qp2bK6Qlo_64RDPszeTglbdno0=w800"></p>
-                    <a class="btn btn-default btn-xs" href="./2011/01/buggy-atm-machine/">more ...</a>
-                </div>
-            </article>
-            <hr/>
-            <article>
-                <h2><a href="./2011/01/in-reply-to-id-bug-of-twitter-digest-plugin/">修复twitter digest插件的无法正确显示in-reply-to-id的bug</a></h2>
-                    <div class="well well-sm">
-<footer class="post-info">
-    <span class="label label-default">Date</span>
-    <span class="published">
-        <i class="fa fa-calendar"></i><time datetime="2011-01-08T01:41:07+08:00"> Sat 08 January 2011</time>
-    </span>
-
-
-
-        <span class="label label-default">Category</span>
-        <a href="./category/site.html">Site</a>
-
-
-<span class="label label-default">Tags</span>
-	<a href="./tag/php.html">php</a>
-        /
-	<a href="./tag/twitter.html">twitter</a>
-        /
-	<a href="./tag/wordpress.html">wordpress</a>
-        /
-	<a href="./tag/plugin.html">plugin</a>
-        /
-	<a href="./tag/patch.html">patch</a>
-    
-</footer><!-- /.post-info -->                    </div>
-                <div class="summary"><p>青蛙一直在用twitter digest插件来把tweets同步到wordpress上。
-今天检查同步过来的tweets的时候，青蛙发现所有回复其他人的推中，
-in reply to的链接都失效了，tweet id变成了科学计数法的形式。</p>
-<p>这个问题是由于twitter digest没有正确处理这么大的tweet id造成的，
-青蛙在网上搜了一下处理php大整数的方法[1]，发现只需要把这个整数sprintf成一个string就好了。
-具体的修改方法：</p>
-<div class="highlight"><pre><span></span><span class="x">    --- twitter-digest-old.php  2011-01-07 17:35:01.000000000 +0000</span>
-<span class="x">    +++ twitter-digest.php     2011-01-07 17:16:34.000000000 +0000</span>
-<span class="x">    @@ -281,7 +281,7 @@</span>
-<span class="x">        $output .= ws_make_clickable(wp_specialchars($tweet-&gt;text));</span>
-<span class="x">        if (!empty($tweet-&gt;in_reply_to_screen_name)</span>
-<span class="x">            &amp;&amp; (!empty($tweet-&gt;in_reply_to_status_id))) {</span>
-<span class="x">    -    $output .=         &#39; &lt;a …</span></pre></div>
-                    <a class="btn btn-default btn-xs" href="./2011/01/in-reply-to-id-bug-of-twitter-digest-plugin/">more ...</a>
-                </div>
-            </article>
-            <hr/>
-            <article>
-                <h2><a href="./2010/12/shutdown-account-on-dreamhost/">青蛙的Dreamhost账户正式关闭</a></h2>
-                    <div class="well well-sm">
-<footer class="post-info">
-    <span class="label label-default">Date</span>
-    <span class="published">
-        <i class="fa fa-calendar"></i><time datetime="2010-12-29T23:10:20+08:00"> Wed 29 December 2010</time>
-    </span>
-
-
-
-        <span class="label label-default">Category</span>
-        <a href="./category/site.html">Site</a>
-
-
-<span class="label label-default">Tags</span>
-	<a href="./tag/dreamhost.html">Dreamhost</a>
-        /
-	<a href="./tag/site.html">site</a>
-        /
-	<a href="./tag/sharing.html">sharing</a>
-    
-</footer><!-- /.post-info -->                    </div>
-                <div class="summary"><p>青蛙本来想让DH欠费自动停止服务的，
-但是想了一下，还是自己清理一下痕迹然后手动关闭比较好。</p>
-<p>手工删掉了所有的域名和数据库
-（这步操作十分蛋疼，后来发现关闭账户的时候会自动删除），然后取消账户。</p>
-<p>转眼之间，青蛙的网站在DH上也开了3年了，但是仍旧是没人看的状态，
-不过也无所谓，其实就是想有一块可以自由支配的地方。</p>
-<p>3年中给很多朋友们提供了免费的空间服务，青蛙觉得很开心，
-流量闲着也是闲着，拿来给朋友们练手也是很好的。</p>
-<p>在此感谢朋友们对青蛙的支持，谢谢大家。</p>
-<p>今年年中青蛙的DH帐号终于切换成无限流量和空间的了，
-于是青蛙启动了一个免费空间共享计划，但是申请者寥寥，难道是青蛙的要求太严格？</p>
-<p>青蛙在linode上的新服务器已经基本稳定了，虽然还有些细小的问题。</p>
-<p>先使用一个月看一下资源的耗费情况，如果有可能，青蛙还是想尽量给大家多提供一些免费资源来用。</p>
-                    <a class="btn btn-default btn-xs" href="./2010/12/shutdown-account-on-dreamhost/">more ...</a>
-                </div>
-            </article>
-            <hr/>
-            <article>
-                <h2><a href="./2010/12/bamboo-in-office-building/">竹子</a></h2>
-                    <div class="well well-sm">
-<footer class="post-info">
-    <span class="label label-default">Date</span>
-    <span class="published">
-        <i class="fa fa-calendar"></i><time datetime="2010-12-29T20:34:36+08:00"> Wed 29 December 2010</time>
-    </span>
-
-
-
-        <span class="label label-default">Category</span>
-        <a href="./category/pictures.html">Pictures</a>
-
-
-<span class="label label-default">Tags</span>
-	<a href="./tag/pictures.html">pictures</a>
-    
-</footer><!-- /.post-info -->                    </div>
-                <div class="summary"><p>写字楼里的竹子，这是青蛙第一次见到的活竹子，真高大。</p>
-<p><img alt="1" src="https://lh6.googleusercontent.com/-Gr4ixQoPO0U/Tg6S0HXrDSI/AAAAAAAAGjo/uz-qb8ngW_w/w800/IMG_20101229_103029.jpg"></p>
-                    <a class="btn btn-default btn-xs" href="./2010/12/bamboo-in-office-building/">more ...</a>
-                </div>
-            </article>
-            <hr/>
-            <article>
-                <h2><a href="./2010/12/merry-christmas/">圣诞快乐</a></h2>
-                    <div class="well well-sm">
-<footer class="post-info">
-    <span class="label label-default">Date</span>
-    <span class="published">
-        <i class="fa fa-calendar"></i><time datetime="2010-12-25T22:33:35+08:00"> Sat 25 December 2010</time>
+        <i class="fa fa-calendar"></i><time datetime="2008-01-19T21:50:20+08:00"> Sat 19 January 2008</time>
     </span>
 
 
@@ -241,23 +75,56 @@ in reply to的链接都失效了，tweet id变成了科学计数法的形式。<
         <a href="./category/misc.html">Misc</a>
 
 
-<span class="label label-default">Tags</span>
-	<a href="./tag/merry-christmas.html">merry christmas</a>
     
 </footer><!-- /.post-info -->                    </div>
-                <div class="summary"><p>as $subject. XD</p>
-<p><img alt="1" src="http://gfrog.net/wp-content/uploads/2010/12/merry_christmas.jpg"></p>
-                    <a class="btn btn-default btn-xs" href="./2010/12/merry-christmas/">more ...</a>
+                <div class="summary"><p>哦哦，我是标题党么？</p>
+<p>下面这段视频，
+<a href="http://www.google.com/search?q=Richard+Hammond">Richard Hammond </a>
+为首的几位哥们只用了三个人和四天时间，就拍出了诺曼底登陆的场面。</p>
+<p>比比看，跟拯救大兵瑞恩哪个更强大？</p>
+<p><span class="videobox">
+                <iframe width="640" height="390"
+                    src='https://www.youtube.com/embed/WRS9cpOMYv0'
+                    frameborder='0' webkitAllowFullScreen mozallowfullscreen
+                    allowFullScreen>
+                </iframe>
+            </span></p>
+                    <a class="btn btn-default btn-xs" href="./2008/01/richard-hammond-presents-bloody-omaha/">more ...</a>
                 </div>
             </article>
             <hr/>
             <article>
-                <h2><a href="./2010/12/recommend-plugin-wp-super-cache/">推荐插件： wp-super-cache</a></h2>
+                <h2><a href="./2008/01/a-bug-in-google-image-search/">google图片搜索的一个小bug</a></h2>
                     <div class="well well-sm">
 <footer class="post-info">
     <span class="label label-default">Date</span>
     <span class="published">
-        <i class="fa fa-calendar"></i><time datetime="2010-12-25T00:22:10+08:00"> Sat 25 December 2010</time>
+        <i class="fa fa-calendar"></i><time datetime="2008-01-17T16:51:55+08:00"> Thu 17 January 2008</time>
+    </span>
+
+
+
+        <span class="label label-default">Category</span>
+        <a href="./category/misc.html">Misc</a>
+
+
+    
+</footer><!-- /.post-info -->                    </div>
+                <div class="summary"><p><a href="http://www.yupoo.com/photos/view?id=ff80808117800d89011786e001a234a4">
+<img alt="1" src="http://pic.yupoo.com/gfrog/557924f28870/medium.jpg">
+</a></p>
+<p>图片里,红线框起来的内容.以前应该是个连接的,现在变成了一堆html标签.</p>
+                    <a class="btn btn-default btn-xs" href="./2008/01/a-bug-in-google-image-search/">more ...</a>
+                </div>
+            </article>
+            <hr/>
+            <article>
+                <h2><a href="./2008/01/try-drivel/">试验一下子Drivel</a></h2>
+                    <div class="well well-sm">
+<footer class="post-info">
+    <span class="label label-default">Date</span>
+    <span class="published">
+        <i class="fa fa-calendar"></i><time datetime="2008-01-16T22:40:49+08:00"> Wed 16 January 2008</time>
     </span>
 
 
@@ -267,31 +134,166 @@ in reply to的链接都失效了，tweet id变成了科学计数法的形式。<
 
 
 <span class="label label-default">Tags</span>
-	<a href="./tag/wordpress.html">wordpress</a>
+	<a href="./tag/blog.html">blog</a>
         /
-	<a href="./tag/site.html">site</a>
+	<a href="./tag/drivel.html">drivel</a>
         /
-	<a href="./tag/vps.html">vps</a>
-        /
-	<a href="./tag/performance.html">performance</a>
-        /
-	<a href="./tag/cache.html">cache</a>
-        /
-	<a href="./tag/plugin.html">plugin</a>
+	<a href="./tag/linux.html">Linux</a>
     
 </footer><!-- /.post-info -->                    </div>
-                <div class="summary"><p>在wowubuntu！[1]上看到的wp-super-cache这个插件，青蛙立即拿来试验了一下，功效很显著。</p>
-<p>没有优化前，青蛙用pingdom[2]测试主页面载入速度，需要将近4秒的时间。</p>
-<p>优化过后是这样：</p>
-<p><a href="http://gfrog.net/wp-content/uploads/2010/12/pingdom.jpeg"><img alt="1" src="http://gfrog.net/wp-content/uploads/2010/12/pingdom.jpeg"></a></p>
-<p>接下来需要考虑的就是怎样减小那几个js文件的载入时间了，还没找到头绪，希望能得到大牛的指点 ：）</p>
-<p>另外需要注意一下的是，如果是nginx环境安装wp-super-cache插件，
-需要的rewrite规则在[1]中有提供，但是那个版本是有问题的，这里[3]的版本才是正确的。</p>
-<p>参考资料：</p>
-<p>[1] 小内存 VPS 优化建议 (LNMP+WordPress 环境) <a href="http://wowubuntu.com/vps-optimize.html">http://wowubuntu.com/vps-optimize.html</a></p>
-<p>[2] Pingdom tools <a href="http://tools.pingdom.com">http://tools.pingdom.com</a></p>
-<p>[3] Code Exchange: nginx rewrite rules for …</p>
-                    <a class="btn btn-default btn-xs" href="./2010/12/recommend-plugin-wp-super-cache/">more ...</a>
+                <div class="summary"><p>在Linux里，找一个可以用的blog客户端可真的不是一件简单的事情。
+blog客户端本来就少，能够使用
+（这也仅仅保留在能正常使用而且不出现bt问题这个层次上）的就更少。</p>
+<p><a href="http://www.yupoo.com/photos/view?id=ff80808117800ce60117830894ba2d61"><img alt="drivel1" src="http://pic.yupoo.com/gfrog/858504f18ca2/medium.jpg"></a></p>
+<p>翻来覆去的试了几次，青蛙决定还是试下Drivel，
+这个gnome下的小东西写几个字，简单改变下格式倒是都有了，
+但是像windows live writer那样可以在客户端里修改作者，添加标签，
+设置trackback地址之类的都没有。真是简陋的够可以的。</p>
+<p><a href="http://www.yupoo.com/photos/view?id=ff80808117800ce60117830896ab2d63"><img alt="drivel2" src="http://pic.yupoo.com/gfrog/292184f18ca3/medium.jpg"></a></p>
+<p>青蛙决定先试用一段时间。
+当然，还是要继续寻找更强大的blog客户端的。
+如果能把live writer移植到linux上来就好啦。：p</p>
+                    <a class="btn btn-default btn-xs" href="./2008/01/try-drivel/">more ...</a>
+                </div>
+            </article>
+            <hr/>
+            <article>
+                <h2><a href="./2008/01/first-google-phone-in-ces-2008/">首部Google Phone亮相CES 2008</a></h2>
+                    <div class="well well-sm">
+<footer class="post-info">
+    <span class="label label-default">Date</span>
+    <span class="published">
+        <i class="fa fa-calendar"></i><time datetime="2008-01-12T22:09:50+08:00"> Sat 12 January 2008</time>
+    </span>
+
+
+
+        <span class="label label-default">Category</span>
+        <a href="./category/mobile.html">Mobile</a>
+
+
+<span class="label label-default">Tags</span>
+	<a href="./tag/google.html">google</a>
+        /
+	<a href="./tag/phone.html">phone</a>
+    
+</footer><!-- /.post-info -->                    </div>
+                <div class="summary"><p>真没想到第一部Google Phone竟然是国人做出来的。
+虽然只是号称的Google Phone（为啥只是号称？下面有说明），不过这还是很让人兴奋的。</p>
+<p><img alt="1" src="http://pic.yupoo.com/gfrog/147524ec3ad8/yxnbidc1.jpg"></p>
+<p>这部手机型号为GW4，由启碁科技（Wistron NeWeb Corp）制造，预计今年第二季度就可以上市。
+虽然现在这部手机搭载的是一个叫做MontaVista Linux 2.6的Linux系统（这就是只是“号称”的原因），
+但是在2008年3月的时候就会运行Google Android了。</p>
+<p><img alt="2" src="http://pic.yupoo.com/gfrog/340794ec3ada/2ioqbr66.jpg"></p>
+<p>GW4基于TI OMAP 1710芯片，处理器主频216MHz，64 MB 程序内存。
+包含wifi功能，一个2.5英寸的触摸屏，一个200万像素的摄像头，还有全尺寸键盘。
+它包含Opera Web 浏览器、可以与Outlook进行同步的邮件、日程表软件， MSN/Yahoo/AIM客户端，
+还有Office 及 PDF 文件阅读器，和一些 Widget 如天气 …</p>
+                    <a class="btn btn-default btn-xs" href="./2008/01/first-google-phone-in-ces-2008/">more ...</a>
+                </div>
+            </article>
+            <hr/>
+            <article>
+                <h2><a href="./2008/01/feed-output-error-2/">feed输出竟然有乱码</a></h2>
+                    <div class="well well-sm">
+<footer class="post-info">
+    <span class="label label-default">Date</span>
+    <span class="published">
+        <i class="fa fa-calendar"></i><time datetime="2008-01-11T22:08:28+08:00"> Fri 11 January 2008</time>
+    </span>
+
+
+
+        <span class="label label-default">Category</span>
+        <a href="./category/site.html">Site</a>
+
+
+    
+</footer><!-- /.post-info -->                    </div>
+                <div class="summary"><p>再次测试一下，看看是字符编码的问题，
+还是wordpress系统的问题，还是google reader的问题!</p>
+<p>-------------无奈的分割线-----------</p>
+<p><strong>update: 2008-01-11 22:40</strong></p>
+<p>feed问题已经定位，出在Aizatto's Related Posts这个插件上，
+它会截取相关日志的部分内容输出到feed里，
+但是正好碰上它截取的那部分有特殊字符，所以就挂掉了。</p>
+<p>解决办法也很简单，禁用这个插件的摘要输出功能就是了。</p>
+<p>唉，wordpress的插件啊，好用的很多，但是真是容易出毛病!</p>
+                    <a class="btn btn-default btn-xs" href="./2008/01/feed-output-error-2/">more ...</a>
+                </div>
+            </article>
+            <hr/>
+            <article>
+                <h2><a href="./2008/01/new-method-of-calculating-daily-wage-and-hourly-wage/">新的日工资和小时工资的计算方法</a></h2>
+                    <div class="well well-sm">
+<footer class="post-info">
+    <span class="label label-default">Date</span>
+    <span class="published">
+        <i class="fa fa-calendar"></i><time datetime="2008-01-10T22:24:54+08:00"> Thu 10 January 2008</time>
+    </span>
+
+
+
+        <span class="label label-default">Category</span>
+        <a href="./category/misc.html">Misc</a>
+
+
+    
+</footer><!-- /.post-info -->                    </div>
+                <div class="summary"><p>青蛙元旦的时候加了三天班，所以一直在合计这三天能拿到多少米。
+于是上网搜了下，发现了下面这个新的计算日工资和小时工资的方法。
+拿来算算，这三天赚的米用来交一个月的房租是绰绰有余了。</p>
+<p>------华丽的分割线，以下为转载------</p>
+<p><strong>关于职工全年月平均工作时间和工资折算问题的通知 </strong></p>
+<p>劳社部发[2008]3号</p>
+<p>各省、自治区、直辖市劳动和社会保障厅（局）：</p>
+<p>根据《全国年节及纪念日放假办法》（国务院令第513号）的规定，
+全体公民的节日假期由原来的10天增设为11天。
+据此，职工全年月平均制度工作天数和工资折算办法分别调整如下：</p>
+<p><strong>一、制度工作时间的计算 </strong></p>
+<p>年工作日：365天-104天（休息日）-11天（法定节假日）＝250天</p>
+<p>季工作日：250天÷4季＝62。5天/季</p>
+<p>月工作日：250天÷12月＝20。83天/月</p>
+<p>工作小时数的计算：以月、季、年的工作日乘以每日的8小时。</p>
+<p><strong>二、日工资、小时工资的折算 …</strong></p>
+                    <a class="btn btn-default btn-xs" href="./2008/01/new-method-of-calculating-daily-wage-and-hourly-wage/">more ...</a>
+                </div>
+            </article>
+            <hr/>
+            <article>
+                <h2><a href="./2008/01/how-to-configure-scalable-multicasting-on-helix-server/">How do I configure scalable multicasting on Helix Server</a></h2>
+                    <div class="well well-sm">
+<footer class="post-info">
+    <span class="label label-default">Date</span>
+    <span class="published">
+        <i class="fa fa-calendar"></i><time datetime="2008-01-10T21:57:39+08:00"> Thu 10 January 2008</time>
+    </span>
+
+
+
+        <span class="label label-default">Category</span>
+        <a href="./category/linux.html">Linux</a>
+
+
+    
+</footer><!-- /.post-info -->                    </div>
+                <div class="summary"><p><em>原文地址在
+<a href="http://na3.salesforce.com/_ui/selfservice/pkb/PublicKnowledgeSolution/d?orgId=00D500000007Hzn&amp;id=501500000007taI&amp;retURL=%2Fsol%2Fpublic%2Fsolutionbrowser.jsp%3Fsearch%3Dmulticast%26cid%3D02n500000008z1P%26orgId%3D00D500000007Hzn%26t%3D4&amp;ps=1">这里</a>
+我把它翻译成了中文,方便查看。</em></p>
+<hr>
+<p>Helix Server可以通过web方式的管理工具配置为使用可扩展多播，这篇文档只关注可扩展多播功能的配置。
+关于Helix Server功能的完整细节可以在管理向导中找到。
+Helix Server 管理向导：（第8章 多播）
+<a href="http://www.realnetworks.com/support/docs.html">http://www.realnetworks.com/support/docs.html</a></p>
+<ol>
+<li>打开Helix Server的web管理界面。</li>
+<li>点击广播分发，可扩展多播。</li>
+<li>默认的加载点是/scalable/。RealNetworks建议你使用这个默认值，但是你可以随意更改它。</li>
+<li>要建立一个新的频道，点击“+”图标，然后在“编辑频道描述”文本框中为这个多播连接输入一个名称。</li>
+<li>在“启用频道”下拉框中选择“是”来启用可扩展多播。</li>
+<li>在“启用SAP”下拉框中选择"是"来发布这个多播连接。</li>
+<li>在“路径”文本框，添加要被广播发布的流名称。如果要使用所有的广播流 …</li></ol>
+                    <a class="btn btn-default btn-xs" href="./2008/01/how-to-configure-scalable-multicasting-on-helix-server/">more ...</a>
                 </div>
             </article>
             <hr/>
@@ -349,24 +351,6 @@ in reply to的链接都失效了，tweet id变成了科学计数法的形式。<
                             href="./index24.html">24</a></li>
                     <li class=""><a
                             href="./index25.html">25</a></li>
-                    <li class=""><a
-                            href="./index26.html">26</a></li>
-                    <li class=""><a
-                            href="./index27.html">27</a></li>
-                    <li class=""><a
-                            href="./index28.html">28</a></li>
-                    <li class=""><a
-                            href="./index29.html">29</a></li>
-                    <li class=""><a
-                            href="./index30.html">30</a></li>
-                    <li class=""><a
-                            href="./index31.html">31</a></li>
-                    <li class=""><a
-                            href="./index32.html">32</a></li>
-                    <li class=""><a
-                            href="./index33.html">33</a></li>
-                    <li class=""><a
-                            href="./index34.html">34</a></li>
                 <li class="next"><a
                         href="./index21.html">&raquo;</a></li>
         </ul>
@@ -394,9 +378,6 @@ in reply to的链接都失效了，tweet id变成了科学计数法的形式。<
   <ul class="list-group" id="categories">
     <li class="list-group-item">
       <a href="./category/cyclone.html">Cyclone</a>
-    </li>
-    <li class="list-group-item">
-      <a href="./category/instagram.html">Instagram</a>
     </li>
     <li class="list-group-item">
       <a href="./category/linux.html">Linux</a>

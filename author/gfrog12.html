@@ -61,150 +61,282 @@ My Life, My Love!            </a>
     <div class="row">
         <div class="col-sm-9">
             <article>
-                <h2><a href="../2013/06/pic-of-dsic/">一张流：大连造船厂</a></h2>
+                <h2><a href="../2010/12/setup-ssl-certificate-for-https/">为https服务申请SSL证书</a></h2>
                     <div class="well well-sm">
 <footer class="post-info">
     <span class="label label-default">Date</span>
     <span class="published">
-        <i class="fa fa-calendar"></i><time datetime="2013-06-13T15:12:00+08:00"> Thu 13 June 2013</time>
+        <i class="fa fa-calendar"></i><time datetime="2010-12-21T02:23:08+08:00"> Tue 21 December 2010</time>
     </span>
 
 
 
         <span class="label label-default">Category</span>
-        <a href="../category/pictures.html">Pictures</a>
+        <a href="../category/misc.html">Misc</a>
 
 
 <span class="label label-default">Tags</span>
-	<a href="../tag/pictures.html">pictures</a>
+	<a href="../tag/https.html">https</a>
+        /
+	<a href="../tag/ssl.html">ssl</a>
+        /
+	<a href="../tag/startssl.html">startssl</a>
+        /
+	<a href="../tag/server.html">server</a>
+        /
+	<a href="../tag/setup.html">setup</a>
+        /
+	<a href="../tag/certificate.html">certificate</a>
+        /
+	<a href="../tag/openssl.html">openssl</a>
     
 </footer><!-- /.post-info -->                    </div>
-                <div class="summary"><p>原来停潜艇的地方停了两艘在建的货船。</p>
-<p><img alt="1" src="https://lh5.googleusercontent.com/-Ce0dwZ0c-44/UbrBhUw5a9I/AAAAAAAAMTA/1Keyv9bITfo/s640/6813F5F4-89B3-49A7-AF37-95C30F99B7A0.JPG"></p>
-                    <a class="btn btn-default btn-xs" href="../2013/06/pic-of-dsic/">more ...</a>
+                <div class="summary"><p>书接上文，上回书说到青蛙成功给nginx配置上了https服务，
+但是当时青蛙使用的是自签名证书，没有验证网站身份的功能；
+而且有些工具会对证书的有效性进行校验，对于这种工具，自签名证书就毫无用处了。</p>
+<p>这个时候，就需要申请一个经过CA认证的有效证书。</p>
+<p>据青蛙所知，目前提供免费SSL证书的只有StartSSL[1]一家，
+青蛙按照这两个网站的介绍[2][3]，成功申请了SSL证书。</p>
+<p>依照青蛙的经验，要成功申请证书，最好是有一个以要申请域名结尾的邮箱，
+这样可以很容易的确认域名所有权。至于邮箱服务，可以申请google app，方便，免费。</p>
+<p>有了邮箱系统之后，可以设置一个webmaster或者hostmaster账户，以便注册过程中验证域名地址。</p>
+<p>在StartSSL申请证书的时候有几点需要注意：</p>
+<p>首先，建议使用firefox申请证书，青蛙用Chromium试了一下，
+点击进入Sign-up界面的时候会出现一个错误提示，明确说明Chrome类浏览器无法申请。
+有网友说IE也没法成功申请[1]。</p>
+<p>其次，申请的时候尽量填写靠谱的个人信息，
+如果信息看起来不靠谱，很容易被拒掉。
+个人信息填写完之后会向你填写的邮箱里发送一封认证邮件，邮件中包含继续注册所需的验证码。
+输入验证码之后提示等待人工审核，青蛙遇到的审核过程很快，大概几分钟就有结果了。</p>
+<p>接下来还有一封邮件，里面有一个链接和一个认证码，访问那个连接，填上认证码 …</p>
+                    <a class="btn btn-default btn-xs" href="../2010/12/setup-ssl-certificate-for-https/">more ...</a>
                 </div>
             </article>
             <hr/>
             <article>
-                <h2><a href="../2013/06/travel-to-dalian-by-crh/">体验哈大高铁</a></h2>
+                <h2><a href="../2010/12/setup-https-in-nginx/">在NGINX上开启https</a></h2>
                     <div class="well well-sm">
 <footer class="post-info">
     <span class="label label-default">Date</span>
     <span class="published">
-        <i class="fa fa-calendar"></i><time datetime="2013-06-10T23:11:00+08:00"> Mon 10 June 2013</time>
+        <i class="fa fa-calendar"></i><time datetime="2010-12-18T15:45:25+08:00"> Sat 18 December 2010</time>
     </span>
 
 
 
         <span class="label label-default">Category</span>
-        <a href="../category/travel.html">Travel</a>
+        <a href="../category/linux.html">Linux</a>
 
 
 <span class="label label-default">Tags</span>
-	<a href="../tag/travel.html">travel</a>
+	<a href="../tag/linux.html">linux</a>
         /
-	<a href="../tag/train.html">train</a>
+	<a href="../tag/server.html">server</a>
         /
-	<a href="../tag/highspeed.html">highspeed</a>
+	<a href="../tag/nginx.html">nginx</a>
         /
-	<a href="../tag/crh.html">crh</a>
+	<a href="../tag/setup.html">setup</a>
         /
-	<a href="../tag/pictures.html">pictures</a>
+	<a href="../tag/vps.html">vps</a>
+        /
+	<a href="../tag/site.html">site</a>
     
 </footer><!-- /.post-info -->                    </div>
-                <div class="summary"><p>端午假期，青蛙因为算错了放假的日子，结果没有买到从北京直接去大连的车票。
-于是只好动车回沈阳，然后从沈阳坐高铁去大连。
-不过歪打正着，正好体验下提速之后的哈大高铁。</p>
-<p>目测哈大高铁提速之后没有太明显的晃动，当然节约的时间其实并不多，
-从冬天时候的2.5小时变成了夏天的2小时。
-不过经过隧道的时候耳朵有很明显的疼痛。</p>
-<p>车票，特等座要比二等座贵将近一倍</p>
-<p><img alt="1" src="https://lh5.googleusercontent.com/-5MRkhsq207U/UbqpdwjvDBI/AAAAAAAAMSs/y_SGGCsGGQI/s640/D6139FFE-B4FF-4B57-AA21-AFDB8F56E184.JPG"></p>
-<p>沈阳北站里动车的赠水处，在候车室最里面，难怪我之前几次都没找到。</p>
-<p><img alt="2" src="https://lh6.googleusercontent.com/-CtyF3E6KO6k/UbqpdxvkxzI/AAAAAAAAMSg/rlKkrWkqkLg/s640/CD548031-A81F-4587-B249-5E269E0ED57A.JPG"></p>
-<p>沈阳北站站牌。</p>
-<p><img alt="3" src="https://lh3.googleusercontent.com/-l1fIm9L8ErI/UbqpdwkVgUI/AAAAAAAAMSg/cjDS4Qa2dX4/s640/EF67A829-3538-4795-9755-D7B6B3F44AAB.JPG"></p>
-<p>座席，是红色的，坐起来倒还满舒服，但是两人座位这边，中间的扶手还是只有一个，同时坐满有点挤。</p>
-<p><img alt="4" src="https://lh3.googleusercontent.com/-_IuZAV8IRAo/Ubqpd7dBSgI/AAAAAAAAMSk/1WvBdDtxWXU/s640/8355F229-2185-4B6C-9ED5-157383684A2B.JPG"></p>
-<p>紧挨着司机室，甚至可以听到里面传出来路况信息通告和列车员在对讲机上喊话的声音。</p>
-<p><img alt="5" src="https://lh4.googleusercontent.com/-yZ0vePaHl3g/Ubqpd0VGB1I/AAAAAAAAMSg/8YmOPKnoNvk/s640/544D82FC-07B0-4AB7-AD0F-CA0261FA93F1.JPG"></p>
-<p>小桌板，这张拍虚了。</p>
-<p><img alt="6" src="https://lh6.googleusercontent.com/-YvZpTGC3fYE/Ubqpdx1QExI/AAAAAAAAMSg/qSejAz4pqrw/s640/6F2B35AE-4F04-445A-8AFA-400DAB8B6B45.JPG"></p>
-<p>其实特等坐没必要在候车室领水，车上列车员还会再发水的。</p>
-<p><img alt="7" src="https://lh3.googleusercontent.com/-71T0tP9dqwE/Ubqpd4Qdn7I/AAAAAAAAMSg/I-k53PGjvA8/s640/9D202B04-5E9F-4BCD-86B0-2C60FFE4FC61.JPG"></p>
-                    <a class="btn btn-default btn-xs" href="../2013/06/travel-to-dalian-by-crh/">more ...</a>
+                <div class="summary"><p>青蛙的新VPS是基于nginx的，仅仅是因为传言nginx在小内存，大压力的时候表现好一些。</p>
+<p>当然，为了获得这点好处，还是要付出一些代价的。
+例如nginx没有apache的htaccess，对每个目录的控制都需要写到nginx的配置文件中，
+这样对普通用户来说十分的不方便。</p>
+<p>哦，有点跑题，继续说https的问题，其实给nginx配置https也不复杂，
+按照网上现成的模板，改一下自己的域名和目录位置就好了。</p>
+<p>下面是一个完整的示例[1][2]：（来自<a href="http://sudone.com/nginx/nginx_ssl.html">这里</a>）</p>
+<div class="highlight"><pre><span></span><span class="nv">upstream</span> <span class="nv">test</span>.<span class="nv">com</span> {
+    <span class="nv">server</span> <span class="mi">192</span>.<span class="mi">168</span>.<span class="mi">1</span>.<span class="mi">2</span>:<span class="mi">80</span><span class="c1">;</span>
+}
+
+<span class="nv">server</span> {
+    <span class="nv">server_name</span> <span class="nv">test</span>.<span class="nv">com</span><span class="c1">;</span>
+    <span class="k">include</span> <span class="nv">port</span>.<span class="nv">conf</span><span class="c1">;</span>
+
+    <span class="nv">ssl</span> <span class="nv">on</span><span class="c1">;</span>
+    <span class="nv">ssl_certificate</span> <span class="nv">server</span>.<span class="nv">crt</span><span class="c1">; # ${nginx_install_dir}/conf/server.crt</span>
+    <span class="nv">ssl_certificate_key</span> <span class="nv">server</span>.<span class="nv">key</span><span class="c1">; # ${nginx_install_dir}/conf …</span></pre></div>
+                    <a class="btn btn-default btn-xs" href="../2010/12/setup-https-in-nginx/">more ...</a>
                 </div>
             </article>
             <hr/>
             <article>
-                <h2><a href="../2013/06/pic-of-beijing-railway-station/">一张流：北京站</a></h2>
+                <h2><a href="../2010/12/photography-sansu-in-china/">摄影三俗</a></h2>
                     <div class="well well-sm">
 <footer class="post-info">
     <span class="label label-default">Date</span>
     <span class="published">
-        <i class="fa fa-calendar"></i><time datetime="2013-06-09T23:29:00+08:00"> Sun 09 June 2013</time>
+        <i class="fa fa-calendar"></i><time datetime="2010-12-16T21:20:01+08:00"> Thu 16 December 2010</time>
     </span>
 
 
 
         <span class="label label-default">Category</span>
-        <a href="../category/pictures.html">Pictures</a>
+        <a href="../category/misc.html">Misc</a>
 
 
 <span class="label label-default">Tags</span>
-	<a href="../tag/pictures.html">pictures</a>
+	<a href="../tag/picture.html">picture</a>
     
 </footer><!-- /.post-info -->                    </div>
-                <div class="summary"><p>两列高铁同站台停车。</p>
-<p><img alt="1" src="https://lh4.googleusercontent.com/-CgbGkgBvBBE/UbrEavW_V8I/AAAAAAAAMTY/hAiHDPHX7S0/s640/BBE22D99-EFD7-4100-A043-8BE877AFFA91.JPG"></p>
-                    <a class="btn btn-default btn-xs" href="../2013/06/pic-of-beijing-railway-station/">more ...</a>
+                <div class="summary"><p>自己拍照的时候，一定要记得避开这些俗物，XD。</p>
+<p>本来青蛙计划去扫一下后海和老北京的胡同的，看来要pass掉重新选题了。</p>
+<p>帝都冬天还有什么值得拍的呢？哪里有庙会？哈</p>
+<blockquote>
+<p>中国摄影有三俗 <br />
+人像三俗：芦苇，后海，798 <br />
+夜景三俗：浦东，建外，太平山 <br />
+建筑三俗：鸟巢，巨蛋，明珠塔 <br />
+纪实三俗：老太，胡同，石库门 <br />
+旅行三俗：马代，瑞士，梅里山 <br />
+静物三俗：酒杯，水果，紫砂壶 <br />
+小品三俗：荷花，水珠，自行车 <br />
+自然风光三俗：坝上，亚丁，喀纳斯 <br />
+人文风光三俗：丽江，水乡，和土楼 <br />
+名胜古迹三俗：长城，外滩，嘉峪关 <br />
+民俗风情三俗 …</p></blockquote>
+                    <a class="btn btn-default btn-xs" href="../2010/12/photography-sansu-in-china/">more ...</a>
                 </div>
             </article>
             <hr/>
             <article>
-                <h2><a href="../2013/06/continental-saddle-bag/">马牌微型尾包</a></h2>
+                <h2><a href="../2010/12/nowhere-to-place-the-pictures/">无处安放的图片</a></h2>
                     <div class="well well-sm">
 <footer class="post-info">
     <span class="label label-default">Date</span>
     <span class="published">
-        <i class="fa fa-calendar"></i><time datetime="2013-06-08T23:05:00+08:00"> Sat 08 June 2013</time>
+        <i class="fa fa-calendar"></i><time datetime="2010-12-16T00:16:35+08:00"> Thu 16 December 2010</time>
     </span>
 
 
 
         <span class="label label-default">Category</span>
-        <a href="../category/cyclone.html">Cyclone</a>
+        <a href="../category/site.html">Site</a>
 
 
 <span class="label label-default">Tags</span>
-	<a href="../tag/bicycle.html">bicycle</a>
+	<a href="../tag/site.html">site</a>
         /
-	<a href="../tag/shopping.html">shopping</a>
+	<a href="../tag/setup.html">setup</a>
         /
 	<a href="../tag/picture.html">picture</a>
         /
-	<a href="../tag/bags.html">bags</a>
+	<a href="../tag/wordpress.html">wordpress</a>
     
 </footer><!-- /.post-info -->                    </div>
-                <div class="summary"><p>青蛙早想着收一个尾包装工具和备胎，可惜淘宝搜到的包儿都很大，不太适合公路党用。
-虽然公路党理论上不应该绑个包在车上，但是青蛙这种没有后援的屌丝只能用这方法带
-工具了。</p>
-<p>前几天水木车版上有大牛给推荐了一个小尾包，据说很小巧。青蛙立即淘宝之。</p>
-<p>到手之后虽然不像想象中的那么小，但是还算不错，比常规尾包小了很多。</p>
-<p><img alt="1" src="https://lh3.googleusercontent.com/-yvsCk4rzwDw/UbqLnVlPrBI/AAAAAAAAMSA/bTdw4jZDqNo/s640/AEB58EB8-1CBA-42C1-8DBE-E2A4D710B3BA.JPG"></p>
-<p>而且内附内胎一枚，撬胎棒两只。内胎还是马牌儿自家的，着实不错。</p>
-<p><img alt="2" src="https://lh6.googleusercontent.com/-tkuzs5PAYq8/UbqLnUyOvgI/AAAAAAAAMSA/4TH3WC9MphA/s640/2BC20AF2-B6CC-43C6-B291-F3C7BE5C2C55.JPG"></p>
-                    <a class="btn btn-default btn-xs" href="../2013/06/continental-saddle-bag/">more ...</a>
+                <div class="summary"><p>青蛙的blog经过无数次迁移，图片已经挂的挂，丢的丢，能保存到今天的所剩无几。
+为blog选择图床是一个让人头大的问题。</p>
+<p>现在有几个选择，青蛙还没有最终确定，如果您有什么好的方法，记得告诉青蛙。</p>
+<ol>
+<li>跟blog放在一起。这个方法最简单，折腾最少，wordpress完全不用修改，可以用内置的上传方法。
+     但是这样会增大备份网站的负担，如果有盗链，主机的流量恐怕顶不住。</li>
+<li>flickr、picasa。几乎完美的解法，用几乎就是因为有大墙的存在。</li>
+<li>国内图床。这种方法也不错，青蛙曾经在yupoo上放过一阵图片，现在仍然可用。
+     但是，国内的图床免费流量很少，限制超多，而且还有被删图的危险。</li>
+<li>GAE。青蛙不知道现在是否有可用的相册程序，大概需要大量折腾。
+     而且也有大墙的存在，比较危险。</li>
+<li>Amazon S3/EC2。这是一个很好的解决方法，而且Amazon的服务不像GAE那么吸引大墙的注意力，
+     可以保证稳定。不过流量仍然是一个让人担心的问题。</li>
+<li>Dropbox、SugarSync。Dropbox被墙的很彻底，SugarSync有没有外链的能力还有待考察，
+     如果可以外链，这应该是最靠谱的一个方案，除了空间比较小，但是可以通过注册多个帐号解决。</li>
+</ol>
+                    <a class="btn btn-default btn-xs" href="../2010/12/nowhere-to-place-the-pictures/">more ...</a>
                 </div>
             </article>
             <hr/>
             <article>
-                <h2><a href="../2013/05/pic-of-rosebush/">一张流：蔷薇</a></h2>
+                <h2><a href="../2010/12/setup-an-amazon-ec2-account/">注册Amazon EC2账户一枚</a></h2>
                     <div class="well well-sm">
 <footer class="post-info">
     <span class="label label-default">Date</span>
     <span class="published">
-        <i class="fa fa-calendar"></i><time datetime="2013-05-25T16:02:00+08:00"> Sat 25 May 2013</time>
+        <i class="fa fa-calendar"></i><time datetime="2010-12-16T00:02:38+08:00"> Thu 16 December 2010</time>
+    </span>
+
+
+
+        <span class="label label-default">Category</span>
+        <a href="../category/virt.html">Virt</a>
+
+
+<span class="label label-default">Tags</span>
+	<a href="../tag/amazon.html">amazon</a>
+        /
+	<a href="../tag/aws.html">aws</a>
+        /
+	<a href="../tag/ec2.html">ec2</a>
+        /
+	<a href="../tag/setup.html">setup</a>
+        /
+	<a href="../tag/account.html">account</a>
+    
+</footer><!-- /.post-info -->                    </div>
+                <div class="summary"><p>青蛙今天在水木社区LinuxApp版看到有人推荐Amazon EC2，没有忍住诱惑，去注册了一个帐号。</p>
+<p>每个EC2帐号可以免费使用1年，试用的配置(每月)</p>
+<blockquote>
+<p>750 hours of EC2 running Linux/Unix Micro instance usage <br />
+750 hours of Elastic Load Balancing plus 15GB data processing <br />
+10GB EBS存储空间、100万次IO操作 <br />
+1GB 快照存储、10,000 snapshot Get Requests and 1,000 snapshot Put Requests <br />
+全部服务合计15GB流入和15GB流出带宽.</p>
+</blockquote>
+<p>今天晚上帐号Active了，上去看了一下，实际上EC2就是一个特别一点的VPS。
+再加上Amazon的工具套件，可以很方便的启动/关闭虚拟机实例 …</p>
+                    <a class="btn btn-default btn-xs" href="../2010/12/setup-an-amazon-ec2-account/">more ...</a>
+                </div>
+            </article>
+            <hr/>
+            <article>
+                <h2><a href="../2010/12/notice-site-is-unstable/">通告：目前本博客正在进行调整</a></h2>
+                    <div class="well well-sm">
+<footer class="post-info">
+    <span class="label label-default">Date</span>
+    <span class="published">
+        <i class="fa fa-calendar"></i><time datetime="2010-12-12T08:25:06+08:00"> Sun 12 December 2010</time>
+    </span>
+
+
+
+        <span class="label label-default">Category</span>
+        <a href="../category/site.html">Site</a>
+
+
+<span class="label label-default">Tags</span>
+	<a href="../tag/site.html">site</a>
+        /
+	<a href="../tag/wordpress.html">wordpress</a>
+        /
+	<a href="../tag/dreamhost.html">dreamhost</a>
+        /
+	<a href="../tag/vps.html">vps</a>
+        /
+	<a href="../tag/setup.html">setup</a>
+    
+</footer><!-- /.post-info -->                    </div>
+                <div class="summary"><p>青蛙纠结了很久，终于决定把dreamhost换成vps。
+但是麻烦就随之而来，dremahost上自己什么都不需要管，
+wordpress传上去，简单配置一下就可以用。
+vps上就需要自己搞定web服务器，数据库，等等一大堆。</p>
+<p>希望dreamhost到期之前青蛙可以搞定vps的问题。</p>
+<p>Posted from WordPress for Android</p>
+<p><strong>Update 2010-12-14 from web</strong>:</p>
+<p>青蛙已经基本上恢复了wordpress，中间遇到很多小问题，都是迁移之前没有想到的。
+青蛙会专门写一篇日志记录这次迁移经验。</p>
+                    <a class="btn btn-default btn-xs" href="../2010/12/notice-site-is-unstable/">more ...</a>
+                </div>
+            </article>
+            <hr/>
+            <article>
+                <h2><a href="../2010/11/shadow-of-trees-2/">树影2</a></h2>
+                    <div class="well well-sm">
+<footer class="post-info">
+    <span class="label label-default">Date</span>
+    <span class="published">
+        <i class="fa fa-calendar"></i><time datetime="2010-11-09T20:21:56+08:00"> Tue 09 November 2010</time>
     </span>
 
 
@@ -214,81 +346,12 @@ My Life, My Love!            </a>
 
 
 <span class="label label-default">Tags</span>
-	<a href="../tag/pictures.html">pictures</a>
-        /
-	<a href="../tag/flowers.html">flowers</a>
+	<a href="../tag/picture.html">picture</a>
     
 </footer><!-- /.post-info -->                    </div>
-                <div class="summary"><p><img alt="1" src="https://lh4.googleusercontent.com/-sU5yoVFtkz4/Uayy5Ir3jwI/AAAAAAAAMWA/Q0Lzl6XR5bw/s640/215CB45D-E38E-4856-BA39-63190D693D0D.JPG"></p>
-                    <a class="btn btn-default btn-xs" href="../2013/05/pic-of-rosebush/">more ...</a>
-                </div>
-            </article>
-            <hr/>
-            <article>
-                <h2><a href="../2013/05/riding-olympic-park-0515/">酱油党之奥园笔记20130515</a></h2>
-                    <div class="well well-sm">
-<footer class="post-info">
-    <span class="label label-default">Date</span>
-    <span class="published">
-        <i class="fa fa-calendar"></i><time datetime="2013-05-15T22:20:00+08:00"> Wed 15 May 2013</time>
-    </span>
-
-
-
-        <span class="label label-default">Category</span>
-        <a href="../category/cyclone.html">Cyclone</a>
-
-
-<span class="label label-default">Tags</span>
-	<a href="../tag/bicycle.html">bicycle</a>
-        /
-	<a href="../tag/ridding.html">ridding</a>
-    
-</footer><!-- /.post-info -->                    </div>
-                <div class="summary"><p>今天晚上继续奥园。天气明显没有昨天给力，稍微有点冷，而且东南风严重。
-骑到五环辅路和奥体东路上明显感觉到迎面吹来的大风，然后就各种流泪，
-各种看不清路。近视党骑车就是这么杯催，弄得我再一次有换隐形眼镜的想法了。</p>
-<p>今晚在奥园的人不多，也可能青蛙去的比较晚，反正刷圈儿的寥寥几个人。</p>
-<p>晚上时间不多，来不及多刷，努力刷了两圈就闪人了。第一圈在奥体东路的红绿灯被拦住，损失20秒。轨迹：</p>
-<p><a href="http://www.endomondo.com/workouts/190110837/1816111">http://www.endomondo.com/workouts/190110837/1816111</a></p>
-<p>第二圈前三公里前面几百米有两个人，于是青蛙一直在奋力追赶。</p>
-<p><a href="http://www.endomondo.com/workouts/190115362/1816111">http://www.endomondo.com/workouts/190115362/1816111</a></p>
-<p>看上面两条轨迹，每个拐弯的地方都会损失很多速度。青蛙目前还不敢用
-公路压弯，真是比较丢人，囧。</p>
-                    <a class="btn btn-default btn-xs" href="../2013/05/riding-olympic-park-0515/">more ...</a>
-                </div>
-            </article>
-            <hr/>
-            <article>
-                <h2><a href="../2013/05/riding-olympic-park-0514/">酱油党之奥园骑行笔记20130514</a></h2>
-                    <div class="well well-sm">
-<footer class="post-info">
-    <span class="label label-default">Date</span>
-    <span class="published">
-        <i class="fa fa-calendar"></i><time datetime="2013-05-14T22:36:00+08:00"> Tue 14 May 2013</time>
-    </span>
-
-
-
-        <span class="label label-default">Category</span>
-        <a href="../category/cyclone.html">Cyclone</a>
-
-
-<span class="label label-default">Tags</span>
-	<a href="../tag/bicycle.html">bicycle</a>
-        /
-	<a href="../tag/ridding.html">ridding</a>
-    
-</footer><!-- /.post-info -->                    </div>
-                <div class="summary"><p>今天是今年第一次刷奥园。算起来比去年懒了很多，
-去年3月初的时候就已经刷了好几次了，虽然北风呼啸，但是也很锻炼人。</p>
-<p>今年疏于锻炼的下场就是，虽然换车之后体力节省了很多，但是奥园一圈仍然需要12分半，真是猪一样了。</p>
-<p><a href="http://www.endomondo.com/workouts/189633005/1816111">http://www.endomondo.com/workouts/189633005/1816111</a></p>
-<p>第一圈刷完，遇见枪兵，benying，49妹，稍微聊了一下，他们迅速撤退。青蛙一个人继续刷圈儿。</p>
-<p>奥园三圈共19.4km，用时41mins，匀速28.3 km/h。</p>
-<p>这个成绩比去年平时成绩还差，要抓紧锻炼了。</p>
-<p><a href="http://www.endomondo.com/workouts/189637874/1816111">http://www.endomondo.com/workouts/189637874/1816111</a></p>
-                    <a class="btn btn-default btn-xs" href="../2013/05/riding-olympic-park-0514/">more ...</a>
+                <div class="summary"><p>秋天的树是怎么看都看不厌的呀。</p>
+<p><img alt="1" src="https://lh3.googleusercontent.com/5aXq8inU8UxuCfnyNMx91KS_wIwYvHBxk9GkEek1pvYP4td8HYteklk7JlU_GxksbDxTeKQ-zQzP-4mWlpllfvtWK_HAXEW29nG5NBbGGHlyy-ZtyB8oC61bK1LsyMOJrzvMp4JfPbA=w1422-h1896-no"></p>
+                    <a class="btn btn-default btn-xs" href="../2010/11/shadow-of-trees-2/">more ...</a>
                 </div>
             </article>
             <hr/>
@@ -346,24 +409,6 @@ My Life, My Love!            </a>
                             href="../author/gfrog24.html">24</a></li>
                     <li class=""><a
                             href="../author/gfrog25.html">25</a></li>
-                    <li class=""><a
-                            href="../author/gfrog26.html">26</a></li>
-                    <li class=""><a
-                            href="../author/gfrog27.html">27</a></li>
-                    <li class=""><a
-                            href="../author/gfrog28.html">28</a></li>
-                    <li class=""><a
-                            href="../author/gfrog29.html">29</a></li>
-                    <li class=""><a
-                            href="../author/gfrog30.html">30</a></li>
-                    <li class=""><a
-                            href="../author/gfrog31.html">31</a></li>
-                    <li class=""><a
-                            href="../author/gfrog32.html">32</a></li>
-                    <li class=""><a
-                            href="../author/gfrog33.html">33</a></li>
-                    <li class=""><a
-                            href="../author/gfrog34.html">34</a></li>
                 <li class="next"><a
                         href="../author/gfrog13.html">&raquo;</a></li>
         </ul>
@@ -391,9 +436,6 @@ My Life, My Love!            </a>
   <ul class="list-group" id="categories">
     <li class="list-group-item">
       <a href="../category/cyclone.html">Cyclone</a>
-    </li>
-    <li class="list-group-item">
-      <a href="../category/instagram.html">Instagram</a>
     </li>
     <li class="list-group-item">
       <a href="../category/linux.html">Linux</a>

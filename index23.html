@@ -61,203 +61,12 @@ My Life, My Love!            </a>
     <div class="row">
         <div class="col-sm-9">
             <article>
-                <h2><a href="./2010/08/gfrog-tips-3/">一堆小Tips （3）</a></h2>
+                <h2><a href="./2007/06/gfw-bans-flickr/">GFW又发飙了,Flickr被封</a></h2>
                     <div class="well well-sm">
 <footer class="post-info">
     <span class="label label-default">Date</span>
     <span class="published">
-        <i class="fa fa-calendar"></i><time datetime="2010-08-10T12:07:11+08:00"> Tue 10 August 2010</time>
-    </span>
-
-
-
-        <span class="label label-default">Category</span>
-        <a href="./category/linux.html">Linux</a>
-
-
-<span class="label label-default">Tags</span>
-	<a href="./tag/linux.html">Linux</a>
-        /
-	<a href="./tag/ssh.html">ssh</a>
-        /
-	<a href="./tag/client.html">client</a>
-        /
-	<a href="./tag/shell.html">shell</a>
-        /
-	<a href="./tag/networking.html">networking</a>
-    
-</footer><!-- /.post-info -->                    </div>
-                <div class="summary"><p>今天继续关于ssh的话题。</p>
-<p>青蛙本来想把今天这个主题放在昨天一起讲的，但是这两个Tip的关联不大，最后决定还是分开说。</p>
-<p>在平时上网过程中，有可能遇到某个服务器（我们叫他S）无法访问的问题。</p>
-<p>但是如果另外一台主机（叫做P）可以访问到S，并且我们还有P上面的ssh权限，那就可以把P当作跳板，直接访问到S。</p>
-<p>假设要访问S上面的http（80）服务，那就执行如下命令：</p>
-<div class="highlight"><pre><span></span><span class="n">ssh</span><span class="w"> </span><span class="k">user</span><span class="nv">@P的地址</span><span class="w"> </span><span class="o">-</span><span class="n">L</span><span class="w"> </span><span class="mi">8080</span><span class="err">:</span><span class="nl">S的地址</span><span class="p">:</span><span class="mi">80</span><span class="w"></span>
-</pre></div>
-
-
-<p>这个命令会在本地打开8080端口，将连接转发到S的80端口上，这样就达到了从本地直接访问S的目的。</p>
-<p>事实上ssh的-L参数主要是用来建立一条客户端到服务器之间的安全隧道，以便安全的传输数据。</p>
-                    <a class="btn btn-default btn-xs" href="./2010/08/gfrog-tips-3/">more ...</a>
-                </div>
-            </article>
-            <hr/>
-            <article>
-                <h2><a href="./2010/08/gfrog-tips-2/">一堆小Tips （2）</a></h2>
-                    <div class="well well-sm">
-<footer class="post-info">
-    <span class="label label-default">Date</span>
-    <span class="published">
-        <i class="fa fa-calendar"></i><time datetime="2010-08-09T10:01:21+08:00"> Mon 09 August 2010</time>
-    </span>
-
-
-
-        <span class="label label-default">Category</span>
-        <a href="./category/linux.html">Linux</a>
-
-
-<span class="label label-default">Tags</span>
-	<a href="./tag/linux.html">Linux</a>
-        /
-	<a href="./tag/ssh.html">ssh</a>
-        /
-	<a href="./tag/configuration.html">configuration</a>
-    
-</footer><!-- /.post-info -->                    </div>
-                <div class="summary"><p>今天的Tip主题是ssh。</p>
-<p>经常有人问，为什么Linux里面的ssh那么难用呢，
-就不能有个像secureCRT那样有地址簿的东西么。</p>
-<p>答案是，<strong>有</strong>，而且不需要其他的软件，ssh自己就能搞定。</p>
-<p>要实现这个功能，首先要在~/.ssh里面建立一个config文件，并设置600权限。</p>
-<div class="highlight"><pre><span></span><span class="o">`</span><span class="n">touch</span> <span class="o">~/</span><span class="p">.</span><span class="n">ssh</span><span class="o">/</span><span class="n">config</span>
-<span class="n">chmod</span> <span class="mi">600</span> <span class="o">~/</span><span class="p">.</span><span class="n">ssh</span><span class="o">/</span><span class="n">config</span><span class="o">`</span>
-</pre></div>
-
-
-<p>然后在这个文件中加入以下内容（以10.1.1.1为例）</p>
-<div class="highlight"><pre><span></span><span class="k">Host</span> <span class="mi">1</span>                     <span class="o">#</span><span class="err">指定主机名，这个名称可以任意，取对自己方便的就可以</span>
-<span class="n">HostName</span> <span class="mi">10</span><span class="p">.</span><span class="mi">1</span><span class="p">.</span><span class="mi">1</span><span class="p">.</span><span class="mi">1</span>    <span class="o">#</span><span class="err">指定主机的</span><span class="n">IP</span><span class="err">，这里是</span><span class="mi">10</span><span class="p">.</span><span class="mi">1</span><span class="p">.</span><span class="mi">1</span><span class="p">.</span><span class="mi">1</span>
-<span class="k">User</span> <span class="n">aaa</span>                  <span class="o">#</span><span class="err">默认登录的用户名</span>
-<span class="n">Port</span> <span class="mi">22</span>                    <span class="o">#</span><span class="err">主机上</span><span class="n">sshd的端口号</span>
-</pre></div>
-
-
-<p>以后，访问10 …</p>
-                    <a class="btn btn-default btn-xs" href="./2010/08/gfrog-tips-2/">more ...</a>
-                </div>
-            </article>
-            <hr/>
-            <article>
-                <h2><a href="./2010/08/gfrog-tips-1/">一堆小Tips （1）</a></h2>
-                    <div class="well well-sm">
-<footer class="post-info">
-    <span class="label label-default">Date</span>
-    <span class="published">
-        <i class="fa fa-calendar"></i><time datetime="2010-08-06T10:17:49+08:00"> Fri 06 August 2010</time>
-    </span>
-
-
-
-        <span class="label label-default">Category</span>
-        <a href="./category/linux.html">Linux</a>
-
-
-<span class="label label-default">Tags</span>
-	<a href="./tag/ipsec.html">IPSec</a>
-        /
-	<a href="./tag/linux.html">Linux</a>
-        /
-	<a href="./tag/vpn.html">vpn</a>
-        /
-	<a href="./tag/configuration.html">configuration</a>
-    
-</footer><!-- /.post-info -->                    </div>
-                <div class="summary"><p>青蛙离职在即，在东软混了三年，在工作中积累的一些小技巧。
-估计这些技巧到了其他公司基本上用不到了。
-记录一下，方便后来人。
-青蛙准备分几天写完，每天一个小Tips。</p>
-<p>今天要说的是IPsec VPN的密码问题。</p>
-<p>搞安全的部门自然有安全部门的特色，所有的服务器都需要拨VPN才能访问。
-用Windows的童鞋们都很幸福，第一次连接的时候输入帐号密码，然后选保存密码，下次就可以直接登录了。
-但是Linux的童鞋就比较麻烦了，按照部门攻略上的办法，每次都要输入密码。</p>
-<p>青蛙在ipsec.conf(5)里面找到了这个问题的解决办法。</p>
-<p>首先要编辑一下/etc/ipsec.conf</p>
-<div class="highlight"><pre><span></span><span class="n">conn</span><span class="w"> </span><span class="k">work</span><span class="w"></span>
-
-<span class="nf">left</span><span class="o">=</span><span class="mf">10.</span><span class="n">x</span><span class="p">.</span><span class="n">x</span><span class="p">.</span><span class="n">xxx</span><span class="w"></span>
-<span class="n">leftnexthop</span><span class="o">=</span><span class="mf">10.</span><span class="n">x</span><span class="p">.</span><span class="n">x</span><span class="mf">.1</span><span class="w"></span>
-<span class="n">leftid</span><span class="o">=</span><span class="ss">&quot;C=cn,ST=liaoning,O=neusoft,OU=nsd,CN=xxx_l …</span></pre></div>
-                    <a class="btn btn-default btn-xs" href="./2010/08/gfrog-tips-1/">more ...</a>
-                </div>
-            </article>
-            <hr/>
-            <article>
-                <h2><a href="./2010/04/dreamhost-host-sharing-plan-free/">Dreamhost主机共享计划</a></h2>
-                    <div class="well well-sm">
-<footer class="post-info">
-    <span class="label label-default">Date</span>
-    <span class="published">
-        <i class="fa fa-calendar"></i><time datetime="2010-04-23T14:22:57+08:00"> Fri 23 April 2010</time>
-    </span>
-
-
-
-        <span class="label label-default">Category</span>
-        <a href="./category/site.html">Site</a>
-
-
-<span class="label label-default">Tags</span>
-	<a href="./tag/site.html">site</a>
-        /
-	<a href="./tag/dreamhost.html">dreamhost</a>
-        /
-	<a href="./tag/free.html">free</a>
-        /
-	<a href="./tag/account.html">account</a>
-        /
-	<a href="./tag/sharing.html">sharing</a>
-    
-</footer><!-- /.post-info -->                    </div>
-                <div class="summary"><p>最近青蛙的DH帐号迁移到了一台没有磁盘和流量限制的主机上。
-所以，为了避免DH资源的浪费，青蛙准备开放主机共享计划。</p>
-<p>首批准备开放10个共享名额。
-过一段时间，如果发现开放的空间没有被使用，青蛙将酌情收回并再次开放申请。</p>
-<p>这个计划是免费的，只提供搭建个人博客所需要的必要资源。
-目前青蛙的帐号已经续费到2010年底，如果不出意外的话，还会继续续费。</p>
-<p>详细计划如下：</p>
-<ol>
-<li>免费；</li>
-<li>提供5G硬盘空间，流量不限； 似乎在无限空间的主机上已经没有设置账户空间的地方了，那么用户空间跟流量一样也是无限的。</li>
-<li>只限一个站点使用，只绑定一个域名；</li>
-<li>ftp和mysql帐号各一个，没有shell和email提供</li>
-<li>提供gmail/google app；</li>
-<li>可以提供python支持（青蛙对于配置python有点陌生，对于python的支持需要青蛙探索一下）。</li>
-</ol>
-<p>对于参与者有如下要求：</p>
-<ul>
-<li>只能做个人主页/个人博客用途；</li>
-<li>禁止做下载站、放置盗版内容，禁止做采集；</li>
-<li>在不违反以上几条的前提下，可以放置广告；</li>
-<li>对于博客搭建、站点备份的问题请自己解决。</li>
-</ul>
-<p>有意者请在twitter上联系
-<a href="http://twitter.com/gfrog">@gfrog</a> 
-，介绍一下你的情况和计划，并自备域名一个。</p>
-<p><strong>Update: 目前参与本计划的成员：</strong></p>
-<ol>
-<li>爱自在 <a href="http://www.izizai.tk/">http://www.izizai.tk …</a></li></ol>
-                    <a class="btn btn-default btn-xs" href="./2010/04/dreamhost-host-sharing-plan-free/">more ...</a>
-                </div>
-            </article>
-            <hr/>
-            <article>
-                <h2><a href="./2010/02/chun-jie-kuai-le/">春节快乐</a></h2>
-                    <div class="well well-sm">
-<footer class="post-info">
-    <span class="label label-default">Date</span>
-    <span class="published">
-        <i class="fa fa-calendar"></i><time datetime="2010-02-14T21:41:05+08:00"> Sun 14 February 2010</time>
+        <i class="fa fa-calendar"></i><time datetime="2007-06-08T02:03:06+08:00"> Fri 08 June 2007</time>
     </span>
 
 
@@ -267,27 +76,35 @@ My Life, My Love!            </a>
 
 
 <span class="label label-default">Tags</span>
-	<a href="./tag/happy.html">happy</a>
+	<a href="./tag/flickr.html">Flickr</a>
         /
-	<a href="./tag/new.html">new</a>
-        /
-	<a href="./tag/year.html">year</a>
+	<a href="./tag/gfw.html">GFW</a>
     
 </footer><!-- /.post-info -->                    </div>
-                <div class="summary"><p>大家好，</p>
-<p>在虎年到来之际，青蛙在这里祝大家虎年新春快乐！吉祥如意！幸福康健！</p>
-<p>在除夕和初一短信过青蛙的童鞋们，俺就不一一回复了，在这里一并送去青蛙最美好的祝福！</p>
-                    <a class="btn btn-default btn-xs" href="./2010/02/chun-jie-kuai-le/">more ...</a>
+                <div class="summary"><p><img alt="1" src="http://l.yimg.com/www.flickr.com/images/en-us/logo_tagline_bg.gif"></p>
+<p>Flickr终于被盯上了,被GFW完美的和谐掉了.现在登录Flickr,图片都变成了红叉叉.</p>
+<p><a href="http://www.williamlong.info/archives/920.html">月光博客</a>
+消息,这次竟然是用了关键字过滤的方式,
+过滤的词语是farm1。static。flickr。com和farm2。static。flickr。com.</p>
+<p>现在,Flickr上那句广告词对于国人来说完全成了空话,看来需要改成:</p>
+<blockquote>
+<p>the unsafe way to <strong>store</strong>,<strong>search</strong>,<strong>sort</strong> and <strong>share</strong> your photos.</p>
+</blockquote>
+<p>现在用国外的服务已经丝毫没有安全感了,被和谐已经成了家常便饭.
+除了选择国内的类似服务商,我们还能有什么办法...</p>
+<p><strong>update:</strong> 邦比这里提供了几个访问Flickr的方法:</p>
+<p><a href="http://hi.baidu.com/binbinmath/blog/item/4e2cf21f9bbf8d62f724e446.html">http://hi.baidu.com/binbinmath/blog/item/4e2cf21f9bbf8d62f724e446.html</a></p>
+                    <a class="btn btn-default btn-xs" href="./2007/06/gfw-bans-flickr/">more ...</a>
                 </div>
             </article>
             <hr/>
             <article>
-                <h2><a href="./2010/02/the-end-of-year-is-approaching/">年关将至</a></h2>
+                <h2><a href="./2007/06/dreamhost-hacked/">树大招风,Dreamhost又出事故</a></h2>
                     <div class="well well-sm">
 <footer class="post-info">
     <span class="label label-default">Date</span>
     <span class="published">
-        <i class="fa fa-calendar"></i><time datetime="2010-02-07T22:41:41+08:00"> Sun 07 February 2010</time>
+        <i class="fa fa-calendar"></i><time datetime="2007-06-06T20:30:36+08:00"> Wed 06 June 2007</time>
     </span>
 
 
@@ -297,25 +114,40 @@ My Life, My Love!            </a>
 
 
 <span class="label label-default">Tags</span>
-	<a href="./tag/status.html">status</a>
+	<a href="./tag/dreamhost.html">Dreamhost</a>
         /
-	<a href="./tag/update.html">update</a>
+	<a href="./tag/hack.html">Hack</a>
     
 </footer><!-- /.post-info -->                    </div>
-                <div class="summary"><p>又到年关，年终奖发到手以后才发现辛苦干了一年，这点钱还不够过年的。</p>
-<p>这是多么令人纠结的一幕。</p>
-<p>明年，该走向哪里？</p>
-                    <a class="btn btn-default btn-xs" href="./2010/02/the-end-of-year-is-approaching/">more ...</a>
+                <div class="summary"><p><img alt="1" src="http://wiki.dreamhost.com/images/8/81/Logo-dreamhost.png"></p>
+<p>传说Dreamhost经常出事故,例如
+<a href="http://www.williamlong.info/archives/853.html">前阵子的DNS错误</a>
+.</p>
+<p>这次,DH又出事了.而且问题好像还很严重:
+<a href="http://plod.popoever.com/archives/001260.html">3500个DreamHost 用户FTP 帐号被黑</a>.</p>
+<p>前几天还想买DH的空间来着,结果
+<a href="https://www.gfrog.net/my/article.asp?id=285">因为支付的问题作罢</a>
+.看来实在是树大招风,大服务商也有大服务商的问题.</p>
+<p>不过这件事情还是给我们提了个醒,这次DH的密码似乎都是被暴力破解的.
+空间密码比较简单的要小心了,一定要给ftp设置一个强度比较高的密码,
+这样才可以有效的防止暴破.至于密码,可以用
+<a href="http://strongpasswordgenerator.com/">http://strongpasswordgenerator.com/</a>
+来在线生成一个.</p>
+<p>ps.前几天查了一下本blog的空间使用情况,才用了区区60M,
+看来还是在这个空间上老实待着吧.
+而且一年85米的空间使用费用也很容易收回.
+至少到现在我的feedsky的话题广告已经给我提供了一年的空间费用了 .</p>
+                    <a class="btn btn-default btn-xs" href="./2007/06/dreamhost-hacked/">more ...</a>
                 </div>
             </article>
             <hr/>
             <article>
-                <h2><a href="./2009/12/cat-living-in-neusoft-park/">公司园子里的肥猫</a></h2>
+                <h2><a href="./2007/06/stock-market-in-china/">股市</a></h2>
                     <div class="well well-sm">
 <footer class="post-info">
     <span class="label label-default">Date</span>
     <span class="published">
-        <i class="fa fa-calendar"></i><time datetime="2009-12-01T22:06:00+08:00"> Tue 01 December 2009</time>
+        <i class="fa fa-calendar"></i><time datetime="2007-06-05T02:58:11+08:00"> Tue 05 June 2007</time>
     </span>
 
 
@@ -325,25 +157,167 @@ My Life, My Love!            </a>
 
 
 <span class="label label-default">Tags</span>
-	<a href="./tag/picture.html">picture</a>
-        /
-	<a href="./tag/cat.html">cat</a>
+	<a href="./tag/stock.html">stock</a>
     
 </footer><!-- /.post-info -->                    </div>
-                <div class="summary"><p>这只肥猫真的是太有喜感了，每次看到它我都有冲上去折磨一番的冲动。</p>
-<p>但是这是只野猫，对人有极强的戒心，所以，我是没有办法凑到它身边去了。</p>
-<p>今天终于给它拍了几张“玉照”，可惜是用卡片拍的，稍微有点跑焦。</p>
-<p><img alt="1" src="http://gfrog.net/pic/albums/misc/DSC00314.jpg"></p>
-<p><img alt="1" src="http://gfrog.net/pic/albums/misc/DSC00315.jpg"></p>
-<p>不得不说小卡片的镜头，对焦准确的话，还真的很锐，但是焦外，烂得一塌糊涂。</p>
-<p><img alt="1" src="http://gfrog.net/pic/albums/misc/DSC00316.jpg"></p>
-<p><img alt="1" src="http://gfrog.net/pic/albums/misc/DSC00317.jpg"></p>
-<p>这个角度看，是不是很有王霸之气？ XD</p>
-<p><img alt="1" src="http://gfrog.net/pic/albums/misc/DSC00318.jpg"></p>
-<p>猛猫下山</p>
-<p><img alt="1" src="http://gfrog.net/pic/albums/misc/DSC00319.jpg"></p>
-<p><img alt="1" src="http://img.zemanta.com/pixy.gif?x-id=3aab1487-1e58-8745-b3ca-bc5ff47c3ad5"></p>
-                    <a class="btn btn-default btn-xs" href="./2009/12/cat-living-in-neusoft-park/">more ...</a>
+                <div class="summary"><p><img alt="1" src="attachments/month_0706/k20076525110.jpg"></p>
+<p>虽然这张图片是
+<a href="http://www.zj.xinhuanet.com/newscenter/2007-06/02/content_10189003.htm">假的</a>
+,但是还是很能说明问题的.</p>
+<p>前一阵子的股市确实是暴利,似乎是个人进去都能赚到手软.
+我周围的人也都琢磨着该怎么进去捞一笔.但是炒股比抢劫来钱还快么?</p>
+<p>再看下面这张</p>
+<p>4300点一路狂降到6月4号的3600多点,这才是股市.</p>
+<p><img alt="2" src="attachments/month_0706/v2007652585.png"></p>
+<p>满眼的绿色</p>
+<p><img alt="3" src="attachments/month_0706/32007653521.jpg"></p>
+                    <a class="btn btn-default btn-xs" href="./2007/06/stock-market-in-china/">more ...</a>
+                </div>
+            </article>
+            <hr/>
+            <article>
+                <h2><a href="./2007/06/verify-code/">'学文科的惨了: 史上最强的blog验证码'</a></h2>
+                    <div class="well well-sm">
+<footer class="post-info">
+    <span class="label label-default">Date</span>
+    <span class="published">
+        <i class="fa fa-calendar"></i><time datetime="2007-06-05T02:36:42+08:00"> Tue 05 June 2007</time>
+    </span>
+
+
+
+        <span class="label label-default">Category</span>
+        <a href="./category/pictures.html">Pictures</a>
+
+
+    
+</footer><!-- /.post-info -->                    </div>
+                <div class="summary"><p><img alt="1" src="http://static.flickr.com/1089/528903127_160d05351c.jpg"></p>
+<p>不知道这个blog是关于什么的,如果没学过极限,还真搞不定它呢.</p>
+                    <a class="btn btn-default btn-xs" href="./2007/06/verify-code/">more ...</a>
+                </div>
+            </article>
+            <hr/>
+            <article>
+                <h2><a href="./2007/06/train-kicket-presell/">直通旅客列车6月5日起提前10天售票</a></h2>
+                    <div class="well well-sm">
+<footer class="post-info">
+    <span class="label label-default">Date</span>
+    <span class="published">
+        <i class="fa fa-calendar"></i><time datetime="2007-06-05T02:07:53+08:00"> Tue 05 June 2007</time>
+    </span>
+
+
+
+        <span class="label label-default">Category</span>
+        <a href="./category/misc.html">Misc</a>
+
+
+<span class="label label-default">Tags</span>
+	<a href="./tag/presell.html">presell</a>
+        /
+	<a href="./tag/ticket.html">ticket</a>
+        /
+	<a href="./tag/train.html">Train</a>
+    
+</footer><!-- /.post-info -->                    </div>
+                <div class="summary"><p>以前三天两头的改预售时间实在是太烦人了,经常是按照以前的预售时间去买票的时候被告诉没开始预售或者票已经卖完了.
+这次总算规定一个统一的预售时间了.不过看起来管内车还是铁路局自己定预售时间,还是得忍受经常改预售时间的痛苦.</p>
+<hr>
+<p>铁道部：直通旅客列车6月5日起提前10天售票</p>
+<p><a href="http://news.QQ.com%E3%80%80%202007%E5%B9%B406%E6%9C%8804%E6%97%A514:22%20%E3%80%80%20%E4%B8%AD%E5%9B%BD%E6%96%B0%E9%97%BB%E7%BD%91%E3%80%80%20%E3%80%80%20">http://news.QQ.com　 2007年06月04日14:22 　 中国新闻网　 　 </a></p>
+<p>中新网6月4日电 据中国铁道部网站消息，为更加方便旅客乘火车出行，自6月5日起，铁路火车票预售期将有所调整，所有直通旅客列车车票提前10天发售。</p>
+<p>据了解，目前各大火车站的车票预售时间，是根据各铁路局实际情况制定的，
+大多数车站提前4天售票，也有部分车站提前5天、6天或10天售票。
+铁道部相关负责人称，此项措施是为了更方便旅客购票而推出的。
+自6月5日开始，所有直通旅客列车车票在票额所在铁路局管内各售票窗口提前10天发售。
+动车组和直达列车客票预售时间不变，仍提前20天售票；异地票预售期也仍保持提前20天发售。</p>
+<p>所谓直通旅客列车，就是指走行距离超出一个铁路局管内的旅客列车，
+这些列车一般为中长途列车。同时，在铁路局管内开行的旅客列车被称为管内列车，
+这些列车一般为短途列车。</p>
+<p>铁道部指出，管内旅客列车车票的预售期由各铁路局根据各局情况制定，
+但各铁路局管内各车站预售时间要保持一致。
+此外，铁道部还要求各铁路局加大营销力度，拓展销售渠道，
+积极组织往返票、联程票等异地票的发售，加强售票组织管理，
+为广大旅客出行提供便利。(林晓莺 …</p>
+                    <a class="btn btn-default btn-xs" href="./2007/06/train-kicket-presell/">more ...</a>
+                </div>
+            </article>
+            <hr/>
+            <article>
+                <h2><a href="./2007/06/fedora-7-release/">Fedora 7 正式发布了</a></h2>
+                    <div class="well well-sm">
+<footer class="post-info">
+    <span class="label label-default">Date</span>
+    <span class="published">
+        <i class="fa fa-calendar"></i><time datetime="2007-06-04T01:23:09+08:00"> Mon 04 June 2007</time>
+    </span>
+
+
+
+        <span class="label label-default">Category</span>
+        <a href="./category/linux.html">Linux</a>
+
+
+<span class="label label-default">Tags</span>
+	<a href="./tag/fedora.html">Fedora</a>
+        /
+	<a href="./tag/linux.html">Linux</a>
+        /
+	<a href="./tag/release.html">Release</a>
+    
+</footer><!-- /.post-info -->                    </div>
+                <div class="summary"><p><img alt="1" src="attachments/month_0706/22007641135.jpg"></p>
+<p>消息有点迟了,Fedora 7在我们儿童节那天发布了.</p>
+<p>新增内容已经被发的满哪都是了,我就不说了,给大家看下发行发行注记跟屏幕截图吧.</p>
+<p>发行注记在这里: http://fedoraproject.org/release-notes/RELEASE-NOTES-zh_CN/ (中文版)</p>
+<p><a href="http://fedoraproject.org/release-notes/RELEASE-NOTES-en_US/%20%28%E8%8B%B1%E6%96%87%E7%89%88%29">http://fedoraproject.org/release-notes/RELEASE-NOTES-en_US/ (英文版)</a></p>
+<p>下面是一个屏幕截图的幻灯片,
+<a href="http://fedoraproject.org/wiki/Tours/Fedora7/001_Install_Boot?action=print&amp;media=projection">请点击这里查看</a></p>
+<p><img alt="1" src="http://fedoraproject.org/images/screenshots/default-desktop.jpg"></p>
+<p>下载地址:
+<a href="http://mirrors.fedoraproject.org/publiclist/Fedora/7/">官方镜像列表</a></p>
+                    <a class="btn btn-default btn-xs" href="./2007/06/fedora-7-release/">more ...</a>
+                </div>
+            </article>
+            <hr/>
+            <article>
+                <h2><a href="./2007/05/turn-to-wordpress/">转向Wordpress?</a></h2>
+                    <div class="well well-sm">
+<footer class="post-info">
+    <span class="label label-default">Date</span>
+    <span class="published">
+        <i class="fa fa-calendar"></i><time datetime="2007-05-28T02:37:32+08:00"> Mon 28 May 2007</time>
+    </span>
+
+
+
+        <span class="label label-default">Category</span>
+        <a href="./category/misc.html">Misc</a>
+
+
+    
+</footer><!-- /.post-info -->                    </div>
+                <div class="summary"><p>最近
+<a href="http://forum.chinabloggernetwork.com/viewthread.php?tid=683&amp;extra=page%3D1">cbn在搞服务器合租</a>
+.正好最近我现在用的服务器时不时的抽风一下,
+并且pjblog的功能实在有限,我又懒得自己动手,于是就跟着去凑了凑热闹.</p>
+<p>cbn服务器现在已经进入了付款阶段,300米一年.
+服务器配置如下(摘自
+<a href="http://blog.istef.info/2007/05/26/cbn-hosting/">花儿开了</a>
+):</p>
+<blockquote>
+<p>双路双核至强处理器，2G ECC 内存； <br />
+服务器位于北京酒仙桥BGP机房，也是 Google.cn 所在的机房，没有电信网通互访的问题，速度超快； <br />
+72松为我们提供技术支持和服务器管理，并进行数据备份； <br />
+服务器为 100M 共享接入，当然实际分到的带宽也就 1-3M。 <br />
+每位用户提供 1G+ 磁盘空间和 10G+/month 的带宽，之所以有 + 是因为这只是个软性限制，如果您只是合理的超出，我们是允许的； <br />
+LAMP 环境，WordPress 的绝佳组合； <br />
+可绑定多域名和子域名； <br />
+250人民币元左右的年费（最终要视合租人数确定）；(现在已经确定收费300米/年了.)</p>
+</blockquote>
+<p>说实在的,这个价格跟我现在用的空间比起来实在够贵 …</p>
+                    <a class="btn btn-default btn-xs" href="./2007/05/turn-to-wordpress/">more ...</a>
                 </div>
             </article>
             <hr/>
@@ -401,24 +375,6 @@ My Life, My Love!            </a>
                             href="./index24.html">24</a></li>
                     <li class=""><a
                             href="./index25.html">25</a></li>
-                    <li class=""><a
-                            href="./index26.html">26</a></li>
-                    <li class=""><a
-                            href="./index27.html">27</a></li>
-                    <li class=""><a
-                            href="./index28.html">28</a></li>
-                    <li class=""><a
-                            href="./index29.html">29</a></li>
-                    <li class=""><a
-                            href="./index30.html">30</a></li>
-                    <li class=""><a
-                            href="./index31.html">31</a></li>
-                    <li class=""><a
-                            href="./index32.html">32</a></li>
-                    <li class=""><a
-                            href="./index33.html">33</a></li>
-                    <li class=""><a
-                            href="./index34.html">34</a></li>
                 <li class="next"><a
                         href="./index24.html">&raquo;</a></li>
         </ul>
@@ -446,9 +402,6 @@ My Life, My Love!            </a>
   <ul class="list-group" id="categories">
     <li class="list-group-item">
       <a href="./category/cyclone.html">Cyclone</a>
-    </li>
-    <li class="list-group-item">
-      <a href="./category/instagram.html">Instagram</a>
     </li>
     <li class="list-group-item">
       <a href="./category/linux.html">Linux</a>

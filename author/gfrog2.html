@@ -61,317 +61,393 @@ My Life, My Love!            </a>
     <div class="row">
         <div class="col-sm-9">
             <article>
-                <h2><a href="../2018/12/this-months-instagram-pictures-2018-12/">本月Instagram图片 2018-12</a></h2>
+                <h2><a href="../2013/12/new-device-pvpanic-in-qemu/">QEMU中的 pvpanic设备</a></h2>
                     <div class="well well-sm">
 <footer class="post-info">
     <span class="label label-default">Date</span>
     <span class="published">
-        <i class="fa fa-calendar"></i><time datetime="2018-12-31T23:59:59+08:00"> Mon 31 December 2018</time>
+        <i class="fa fa-calendar"></i><time datetime="2013-12-05T17:27:19+08:00"> Thu 05 December 2013</time>
     </span>
 
 
 
         <span class="label label-default">Category</span>
-        <a href="../category/instagram.html">Instagram</a>
+        <a href="../category/virt.html">Virt</a>
 
 
 <span class="label label-default">Tags</span>
-	<a href="../tag/instagram.html">instagram</a>
+	<a href="../tag/virt.html">virt</a>
         /
-	<a href="../tag/pictures.html">pictures</a>
+	<a href="../tag/qemu.html">qemu</a>
         /
-	<a href="../tag/archive.html">archive</a>
+	<a href="../tag/command.html">command</a>
+        /
+	<a href="../tag/shell.html">shell</a>
+        /
+	<a href="../tag/device.html">device</a>
     
 </footer><!-- /.post-info -->                    </div>
-                <div class="summary"><p>⏰<em>2018-12-08 19:39:05</em> #红果果
-<a href="https://www.instagram.com/p/BrH_4azgZ3TlG7u1Yjnqk6C92TVSbYDbRkhyBo0/">via Instagram</a></p>
-<p><img alt="1" src="https://scontent-lax3-2.cdninstagram.com/vp/7f5290b5842163178db0954ef755e5e3/5DAD5926/t51.2885-15/e35/47251279_141988290126840_8394475989127526097_n.jpg?_nc_ht=scontent-lax3-2.cdninstagram.com" width="75%"></p>
-<p>⏰<em>2018-12-24 20:17:42</em> 生蛋快乐。
-<a href="https://www.instagram.com/p/BrxRBUgAdRPNTAfxIsq7wgTwyx4r3m1-CAdn1A0/">via Instagram</a></p>
-<p><img alt="1" src="https://scontent-lax3-2.cdninstagram.com/vp/7dddacb871608ff4ca2c87129274c37a/5DAEF389/t51.2885-15/e35/47026518_169623640664530_1742407260735166060_n.jpg?_nc_ht=scontent-lax3-2.cdninstagram.com" width="75%"></p>
-<p>⏰<em>2018-12-31 23:19:06</em> 2018，就这样。</p>
-<p>明年见。
-<a href="https://www.instagram.com/p/BsDnV9Ggz73jWKxK_IXIFoFFEgT5YLL_jLKGUw0/">via Instagram</a></p>
-<p><img alt="1" src="https://scontent-lax3-2.cdninstagram.com/vp/4405fb0ac91540b1ada968a630c34dbc/5DA48B5E/t51.2885-15/e35/47586517_121451688894398_7598234927211892779_n.jpg?_nc_ht=scontent-lax3-2.cdninstagram.com" width="75%"></p>
-                    <a class="btn btn-default btn-xs" href="../2018/12/this-months-instagram-pictures-2018-12/">more ...</a>
+                <div class="summary"><p>pvpanic设备是在Qemu-1.5的时候引入的一个ISA设备[1]，
+旨在让hypervisor可以感知guest kernel panic，并作出相应的处理。
+在目前的实现中，pvpanic使用了一个固定的I/O端口（默认为0x505），
+向这个端口的bit 0写入1的时候，即意味着guest kernel panic发生了。</p>
+<p>首先，先来玩一玩这个设备，看看它到底会干点啥。</p>
+<p>青蛙目前用的Ubuntu Saucy 系统上面的 Qemu 版本是1.6.0。
+由于pvpanic设备在设计过程中并没有过多的考虑windows guest的情况，
+并且libvirt支持这个设备也遇到了困难，所以qemu的开发者们曾经就这个设备发生了一大串的讨论[2]。
+所以在现在的Qemu 1.7.*, 1.6.*, 1.5.4+中，这个功能都是默认关闭的，
+要使用这个pvpanic，还需要几条额外的选项：</p>
+<div class="highlight"><pre><span></span>qemu-system-x86_64 -name test-pvpanic -nodefaults -cpu host -m …</pre></div>
+                    <a class="btn btn-default btn-xs" href="../2013/12/new-device-pvpanic-in-qemu/">more ...</a>
                 </div>
             </article>
             <hr/>
             <article>
-                <h2><a href="../2018/11/this-months-instagram-pictures-2018-11/">本月Instagram图片 2018-11</a></h2>
+                <h2><a href="../2013/09/tour-of-qingdao-c/">青岛两日游（下）</a></h2>
                     <div class="well well-sm">
 <footer class="post-info">
     <span class="label label-default">Date</span>
     <span class="published">
-        <i class="fa fa-calendar"></i><time datetime="2018-11-30T23:59:59+08:00"> Fri 30 November 2018</time>
+        <i class="fa fa-calendar"></i><time datetime="2013-09-09T21:08:41+08:00"> Mon 09 September 2013</time>
     </span>
 
 
 
         <span class="label label-default">Category</span>
-        <a href="../category/instagram.html">Instagram</a>
+        <a href="../category/travel.html">Travel</a>
 
 
 <span class="label label-default">Tags</span>
-	<a href="../tag/instagram.html">instagram</a>
+	<a href="../tag/travel.html">travel</a>
+        /
+	<a href="../tag/qingdao.html">qingdao</a>
+        /
+	<a href="../tag/shandong.html">shandong</a>
         /
 	<a href="../tag/pictures.html">pictures</a>
         /
-	<a href="../tag/archive.html">archive</a>
+	<a href="../tag/ship.html">ship</a>
+        /
+	<a href="../tag/ferry.html">ferry</a>
+        /
+	<a href="../tag/huangdao.html">huangdao</a>
     
 </footer><!-- /.post-info -->                    </div>
-                <div class="summary"><p>⏰<em>2018-11-10 10:36:05</em> #红果果
-<a href="https://www.instagram.com/p/Bp-7e6BAUCGr5gvGbmLs2-Ld3R_Zlxq0o9Sn140/">via Instagram</a></p>
-<p><img alt="1" src="https://scontent-lax3-2.cdninstagram.com/vp/24bcc3b82cbe53e809323e827979b295/5DC174AE/t51.2885-15/e35/43415281_1997523070545596_3783602080289299277_n.jpg?_nc_ht=scontent-lax3-2.cdninstagram.com" width="75%"></p>
-<p>⏰<em>2018-11-16 20:45:36</em> 美式一餐。
-<a href="https://www.instagram.com/p/BqPeAYMgP0DVsbB3XSffP_OkAnquwZe-DPlQys0/">via Instagram</a></p>
-<p><img alt="1" src="https://scontent-lax3-2.cdninstagram.com/vp/a8e4272748d8c054e5a2938b76618eec/5DB11075/t51.2885-15/e35/44375952_295153741337672_7047859896878653066_n.jpg?_nc_ht=scontent-lax3-2.cdninstagram.com" width="75%"></p>
-<p><img alt="1" src="https://scontent-lax3-2.cdninstagram.com/vp/bf3842d5530729dc39a50477b71a33bd/5DB8AD12/t51.2885-15/e35/45683494_1267606900049204_7909592562278141253_n.jpg?_nc_ht=scontent-lax3-2.cdninstagram.com" width="75%"></p>
-<p>⏰<em>2018-11-19 13:18:23</em> 路了个过。休年假还跑来公司门口吃午饭，我是有多爱公司😂
-<a href="https://www.instagram.com/p/BqWZNcSAxk51XCiQ12qOpXwlCp__UGLTv9jucg0/">via Instagram</a></p>
-<p><img alt="1" src="https://scontent-lax3-2.cdninstagram.com/vp/0787b42ca5c872125e3921bca5da98bf/5DB77B49/t51.2885-15/e35/44781083_195771114680877_3607425401044268801_n.jpg?_nc_ht=scontent-lax3-2.cdninstagram.com" width="75%"></p>
-<p>⏰<em>2018-11-22 12:12:46</em> 大·棒棒，目测已竣工。放假也来公司门口报到是因为这里是进京公交终点😔</p>
-<p>ps.水果镜头依旧巨大的畸变。
-<a href="https://www.instagram.com/p/BqeAFefg1alI3TGz-8DF7WkOOG758KTLTSGycE0/">via Instagram</a></p>
-<p><img alt="1" src="https://scontent-lax3-2.cdninstagram.com/vp/9713a51fa769b85f5c66a4f4dfeda52b/5DAD7F94/t51.2885-15/e35/43187931_2198457657034994_1059595038244596358_n.jpg?_nc_ht=scontent-lax3-2.cdninstagram.com" width="75%"></p>
-                    <a class="btn btn-default btn-xs" href="../2018/11/this-months-instagram-pictures-2018-11/">more ...</a>
+                <div class="summary"><p>第二天一早，首先的目的地就是超市，仰慕已久的崂山可乐怎么能不来一发呢。</p>
+<p>甜甜的红枣味，还满好喝的。</p>
+<p><img alt="1" src="https://lh3.googleusercontent.com/DZ9-0ibw1T_z8dX_lm0t9kA2A8YySvrokSZ4ug63T8w4GFE1pnLcpENw2lzyuUn2fuf9wI4QZ4vXo22k-m4B_yz2Rm18CtOuIiAC5MVKuOpz58xj0krZzLevQNoVyvGAeAym283mbAU=s640"></p>
+<p>超市采购完毕，赶奔轮渡码头，体验一下青岛到黄岛的轮渡。</p>
+<p><span class="mapbox">
+    <iframe width="640" height="480"
+      frameborder="0" style="border:0;"
+      src="https://www.google.com/maps/embed/v1/place?key=AIzaSyB63YDb3SVNe84KeNXPh5zIjJ_uwr5vsII&q=Qingdao+Ferry+Station,+Qingdao,+Shandong&maptype=roadmap">
+    </iframe>
+</span>
+        </p>
+<p><img alt="1" src="https://lh3.googleusercontent.com/xSSecThracPJl7md9611MGxSRmAX_tKvA06eNTt0w_wJND6ML_PPHpq7AcSjPKam1FoxXA5KjJtc7Q0_qQ5v_kfnX0A8NHAGvubZkE__6xEV6tD5FotytDpgQAJYhsmExobK6AAEuR4=s640"></p>
+<p>7块钱半小时，童叟无欺良心价。</p>
+<p><img alt="1" src="https://lh3.googleusercontent.com/EXJvaNHmV1oCsnI32Bssm441_AM--XR_nTITynFib9vNpFwPfpGw9J9NyhxafGVs0hOdWPIHexJQ6hsM0m_ElJn-wXVmM7NhQUp9GE8hr6aocojPtEUq15bqiccR4Dyb5H8FZfywuc4=w640"></p>
+<p>大轮船。楼下走车，楼上走人。开闸放车了。</p>
+<p><img alt="1" src="https://lh3.googleusercontent.com/8PouBzAFonLueQ67D3zjmzOLhMmIjfEr4EohJIdPTpJivlG4TsKI2v7clcWivldLG5B9zSim2QSXnVOdP2023XAj7oclC4c8n2qZ_LRp9Aej9L16BYwwvG-7UHrX3_3szpJ6ZnCxH1o=w640"></p>
+<p>鲁胶渡2。</p>
+<p><img alt="1" src="https://lh3.googleusercontent.com/kbidIdBbAHPcJqgdXHacpe2m1cUeGxCVdFLSAyQFa4HBtpkjI26oS43soS4XL6gOb-1YRPBDuJsomOctjnaW8ujkrJmnwejJJVQTvjqR-cfWTml-fhKVN-qUEmFQp9BQxdnS60dqJbc=s640"></p>
+<p>旁边的叫鲁胶渡7。</p>
+<p><img alt="1" src="https://lh3.googleusercontent.com/JE4acQn_0pER6bMIwfukmJysOV4iw_0DKPih5hQQTJrD1IF1gVtpA_LDo9uZEFy8CO5WH8-1ArZUr_4HBBjbtdy84zGObZfOxRYkO3tzfz7pDlJzi-wEKBuAzmUqce2NERFpNcdtCYM=s640"></p>
+<p>搭轮渡的汽车也不少，不用绕行隧道，还能歇半小时。就是不知道船票价钱怎么样。</p>
+<p><img alt="1" src="https://lh3.googleusercontent.com/dcPhkXPNCCi_Fkz3voWB3NPFIMQYRxAn5bQYoRGfMJyiaD3S4V5vwyj6xyl7xvC6YGzXEngG9nckUXNbDaRRhCJpVJzMaz4m0J6Q1GPhQeVvm2sF1eylb5wO1rNaxnfOyq0sd0aAXro=s640"></p>
+<p>开船，岸边高楼林立。</p>
+<p><img alt="1" src="https://lh3.googleusercontent.com/3D3tXjuHp-nGWMZRnC-DAdGt03bvBCqq2EZNHEJPBjQ1C5hcdfDrEqiVzc9Qfs6o52jJz2AHkYJ-dtKEnJrmIhdYfj4N8IyahadbkFSJx7djrQlfB4GzTAYaCPjRWlJGg1VYa9fT5gU=s640"></p>
+<p>远远的一艘大轮船开进来。</p>
+<p><img alt="1" src="https://lh3.googleusercontent.com/KKw_W935_Fw7JemsOUrXyZFlSZmBSDl1xD3r3vkl5aNVyRSzW_QoHzy3vRcNXLLxQ6uE1Vsa51n3fl7GEJiZVB8TqURcKf9FjnIu5_QiKEqhPtl_RnCSYjqHNMCBDML83U_YBwD91sM=s640"></p>
+<p>大轮船船舷豁了一块儿是什么道理？难道这船也是汽车滚装船？</p>
+<p><img alt="1" src="https://lh3.googleusercontent.com/tj9DesVDfomCCZYGZSW-QKujcOIejR9L1wpcT_VLTb5jEUSV0s0yWcEXfSiCYkGnDyaENhzOre_AkQbD3lplBheSFxChwXvwau3GHYzlZDePPW4S9B5sUKafVQ1i-iX5PphQIVAwUQM=s640"></p>
+<p><img alt="1" src="https://lh3.googleusercontent.com/sJsCxLOivtpJn-kgmPUw-tXeu1MlmQ-B9FYnZMctJjDHt_KB5RZjFu-tDx4fmd4vVYrT6M4k_W3DnFBYMDSfzDOqe1V3R-7YUzjmrnNgm6zLWrdqgLnJmbbpDBFcW4TIMnRoMXDQfWY=s640"></p>
+<p>准备收网的渔船，随着海浪起起伏伏。</p>
+<p><img alt="1" src="https://lh3.googleusercontent.com/yc4F3gMXTUtr4Hcm06-jIo-07VN0v0VXvG0JHA2qwf5VUdsncAIma-Tse-LBgxDsvogr9ShVOURRwxn1drO6kh59iXoDFR5mdh4dLp3jABimFoKILpx7Lo7sXCbOsA_dKnZsC5ulhbA=s640"></p>
+<p><img alt="1" src="https://lh3.googleusercontent.com/QxR535c2Ul6lEwV-QVI1nn7w5dexUq3J7pXBW5Rrmi6aa3W8hIyBNcD0t2xI1D91m8SkmPpdnfD0tWOX5-TfG9Yv5UW5eWD0QJ-2UpN8rsd4Mi7UJwx1AkPKBMzbYWcLX6AkkX4kWwo=s640"></p>
+<p>看到一个大家伙，GC tanker，垃圾回收箱？</p>
+<p><img alt="1" src="https://lh3.googleusercontent.com/0GETmBaXBO-EPvycqrao5o9W86bzn4c4A0rsIc1vCYMcw8vrJgQl4mh2i_JGqg7zWEac2KMOeIEbhYKvxpOWFzj3_z_gRayAYrzpP-fZ4LLKtUSxqNMv9gVu3CWj26fpnnm3NoAlO8A=s640"></p>
+<p><img alt="1" src="https://lh3.googleusercontent.com/dQIopPZqDYNIupsV0DHmOK4Il8Tv-6Nd8kJc74b4Cm3Xp_uX65a4bmKnGtIfrKHum5SCZ1pwPfdoFlUYpzNIkPtkTAZxTKMz_hiyS9d-KYCLxE7H8pnAoe7__WvP18E8Tuq4s04h5XY=s640"></p>
+<p>屁股来一张，照片里感受不到山一样高的船的气息。</p>
+<p><img alt="1" src="https://lh3.googleusercontent.com/ytCGz_nVxcwMxchjdQp7WSU-nWZDPKC3y0_zi_JvYYJQlO50FJyYIViCTJoiRB5tvykwjQR7lhwvsGFmroZkFy1brzyGTdy7FNkqa04nA2xgSJnXhRo3ZfcH6xI2NT19QsKUAsyv0E8=s640"></p>
+<p>黄岛那边不知道是做啥的工厂。</p>
+<p><img alt="1" src="https://lh3.googleusercontent.com/qY5ksSuabnv1dVvZmlK6bGGdbsJC37IApKsuUN34DneHD4HmrcoJrqo_B-QrzlDdMVfVWpebTML1H67C50zFDvvzRMLpGCKxsnNlEv7C9FMD8LffN6xr6cmaP9Iux40cv0tGR1zVJiA=s640"></p>
+<p>黄岛轮渡站到达。</p>
+<p><img alt="1" src="https://lh3.googleusercontent.com/B8K31uAeGBzLAECPQyGs-BKvVd7qEHSf-hpwb6I-QondzFULdXcXjXTz0Tqd1wxdhzKCzHpoMJr--cBayJCLZI42hohPkORqzD0Op6wh542AbJKVfff7sUq3Ru7VLMBOxqJQYiissBE=w640"></p>
+<p>从黄岛下船之后，青蛙又坐公交回到青岛。下一站就是圣弥爱尔大教堂。</p>
+<p><span class="mapbox">
+    <iframe width="640" height="480"
+      frameborder="0" style="border:0;"
+      src="https://www.google.com/maps/embed/v1/place?key=AIzaSyB63YDb3SVNe84KeNXPh5zIjJ_uwr5vsII&q=Catholic+Cathedral+of+St.+Michael+Earl,+Qingdao&maptype=roadmap">
+    </iframe>
+</span>
+        </p>
+<p>路遇嗨嘤嘤海产品批发。</p>
+<p><img alt="1" src="https://lh3.googleusercontent.com/9feVFT_n4W2zdrmZTh7LN0la-YjBGYaTKIwiYIOt2wjuuxRTHMVWNSaBF-j_neKVyg5ZkHXEI15BE3RUY4cFXucxcQfxQxkZecntG2avxNp9ZF37l0WvC75td-kYnkMp1dQuXfuDpjw=s640"></p>
+<p>西行漫记没看过，续更没看过。</p>
+<p><img alt="1" src="https://lh3.googleusercontent.com/dlz6oKFRmj6r98TdHbH4FepLrbnB5NPu0EhNkWaaxhUTBuwVuS2_x9NotX8gJ-X9OOPnA-FFfM6hD63p76h7Ak2f9jQ5f8xg07D0yhAW2JYqgqE6WuhF8x6e-ADoelbzHXT60OU0BsE=w640"></p>
+<p>遇见教堂，和横店电影城……</p>
+<p><img alt="1" src="https://lh3.googleusercontent.com/qM7qlmp-s-osfF-NhnwmftZVfeBTEQEemojuL7Eq_7q625zLAdTZrpyhT7rQcr50rgRJlyAb5szgbyNZkmMGt3aefcsEAb4DmkCPw1yU_Vhmcu5AAo5SbIETAcDfrRAsVHdPkA9CGV4=w640"></p>
+<p>很大很气派。</p>
+<p><img alt="1" src="https://lh3.googleusercontent.com/18zFYz1j39gkfLsMivS53hF93Ob3IY7zAMdhfEiT-A1m2OHArCwlgISqDedrr29yg-ucflNZBtZWgO1RCYjGQPL1Us5FgAYqQmna-Wpc7xAvKy2Avx3O9a1G5RPSzugfZgvYThN6uo4=w640"></p>
+<p>又遇到好几对拍婚纱照的。</p>
+<p><img alt="1" src="https://lh3.googleusercontent.com/Ys0Rc4z6ayOunlyzVvkKeLqDFaTmuTwtQQ0-XQEoDDY12K1xfga64VUXlsWN5_aM-5am-V7MatYhdfiuYibFqm_sfrt1dkTUnzRqu_PyU9gEIszqCQSL_zyESV0DLmMbHuQ-JshfUBY=w640"></p>
+<p>教堂没有开放，不知道为什么。不能进去参观了，遗憾。</p>
+<p>从教堂出来 …</p>
+                    <a class="btn btn-default btn-xs" href="../2013/09/tour-of-qingdao-c/">more ...</a>
                 </div>
             </article>
             <hr/>
             <article>
-                <h2><a href="../2018/10/this-months-instagram-pictures-2018-10/">本月Instagram图片 2018-10</a></h2>
+                <h2><a href="../2013/09/tour-of-qingdao-b/">青岛两日游（中）</a></h2>
                     <div class="well well-sm">
 <footer class="post-info">
     <span class="label label-default">Date</span>
     <span class="published">
-        <i class="fa fa-calendar"></i><time datetime="2018-10-31T23:59:59+08:00"> Wed 31 October 2018</time>
+        <i class="fa fa-calendar"></i><time datetime="2013-09-09T16:05:00+08:00"> Mon 09 September 2013</time>
     </span>
 
 
 
         <span class="label label-default">Category</span>
-        <a href="../category/instagram.html">Instagram</a>
+        <a href="../category/travel.html">Travel</a>
 
 
 <span class="label label-default">Tags</span>
-	<a href="../tag/instagram.html">instagram</a>
+	<a href="../tag/travel.html">travel</a>
+        /
+	<a href="../tag/train.html">train</a>
+        /
+	<a href="../tag/qingdao.html">qingdao</a>
+        /
+	<a href="../tag/shandong.html">shandong</a>
         /
 	<a href="../tag/pictures.html">pictures</a>
         /
-	<a href="../tag/archive.html">archive</a>
+	<a href="../tag/navy.html">navy</a>
+        /
+	<a href="../tag/museum.html">museum</a>
     
 </footer><!-- /.post-info -->                    </div>
-                <div class="summary"><p>⏰<em>2018-10-04 13:25:47</em> #工程兔日常 #一年前
-<a href="https://www.instagram.com/p/Bof9fdkl_UYfkokrV6GZNoqq3gDhdMa-8WHDGM0/">via Instagram</a></p>
-<p><img alt="1" src="https://scontent-lax3-2.cdninstagram.com/vp/3bac000a8d979af58332888e9b7f5fae/5DAADEDB/t51.2885-15/e35/42488464_1958865617527719_6808620005096302117_n.jpg?_nc_ht=scontent-lax3-2.cdninstagram.com" width="75%"></p>
-<p>⏰<em>2018-10-06 10:46:46</em> #妙
-<a href="https://www.instagram.com/p/Bok04jPlhgshWOf0gPZ3uY5TaayCenItbl40900/">via Instagram</a></p>
-<p><img alt="1" src="https://scontent-lax3-2.cdninstagram.com/vp/151b753fc7fe2993c79bc4ebc65fd16a/5DB34E8E/t51.2885-15/e35/42189665_1384808444988415_7596748790128076832_n.jpg?_nc_ht=scontent-lax3-2.cdninstagram.com" width="75%"></p>
-<p>⏰<em>2018-10-06 16:23:27</em> #假装在东北
-<a href="https://www.instagram.com/p/Bolbae_FMubW2Z2MyGkl3YECafhb1x9AIZYqvY0/">via Instagram</a></p>
-<p><img alt="1" src="https://scontent-lax3-2.cdninstagram.com/vp/02b41708a98b66305f56b372caf7656d/5DBF93AF/t51.2885-15/e35/42002746_337919773630721_4659304606072602323_n.jpg?_nc_ht=scontent-lax3-2.cdninstagram.com" width="75%"></p>
-<p>⏰<em>2018-10-07 10:32:13</em> 真•魔改五队轮。
-<a href="https://www.instagram.com/p/BonYAw0FMH7kKzUKf_W2KbCfVs6XVLP8WzzwMQ0/">via Instagram</a></p>
-<p><img alt="1" src="https://scontent-lax3-2.cdninstagram.com/vp/ae1e46b7cd078712b8dc36e0e2e104b2/5DB01284/t51.2885-15/e35/42190294_2134797039865325_2982175507237720490_n.jpg?_nc_ht=scontent-lax3-2.cdninstagram.com" width="75%"></p>
-<p>⏰<em>2018-10-08 14:08:24</em> 在五环外的咖啡馆感受到了深深的恶意，这破豆子比城里的差远了，一股子酸味，都是过期豆吧？乡下人喝的咖啡品质都比城里差的远。
-<a href="https://www.instagram.com/p/BoqVjEFl1kcFUKjUU35lj1qjaw8rmFR7uMoZjI0/">via Instagram</a></p>
-<p><img alt="1" src="https://scontent-lax3-2.cdninstagram.com/vp/82a261e15f980269879c6a7a6179c96a/5DC03910/t51.2885-15/e35/42117852_2119088591752016_5209547910915488397_n.jpg?_nc_ht=scontent-lax3-2.cdninstagram.com" width="75%"></p>
-<p>⏰<em>2018-10-10 18:29:40</em> 兔几🐰
-<a href="https://www.instagram.com/p/Bov9CZXFUEEKDC4EYq1Qb1H9OZ2wn_HJLrvnRk0/">via Instagram</a></p>
-<p><img alt="1" src="https://scontent-lax3-2.cdninstagram.com/vp/4ec3ea1d4608b38fd3941252d7ecbabf/5DB5F8D5/t51.2885-15/e35/42505857_990617134441327_7266579593520195366_n.jpg?_nc_ht=scontent-lax3-2.cdninstagram.com" width="75%"></p>
-<p>⏰<em>2018-10-16 12 …</em></p>
-                    <a class="btn btn-default btn-xs" href="../2018/10/this-months-instagram-pictures-2018-10/">more ...</a>
+                <div class="summary"><p>其实从八大关回市区的路上还发生了杯具，
+青蛙本以为原路返回就行了，结果来的时候这条路是单行线，既没公交，也没办法打车。
+在地图上查了下路不远，于是决定腿着回去。</p>
+<p>不过腿着走就发现了好东西 —— 海军博物馆。
+虽然青蛙不是个军事迷，但是有大军舰在这摆着，还是很想去看看的。</p>
+<p><span class="mapbox">
+    <iframe width="640" height="480"
+      frameborder="0" style="border:0;"
+      src="https://www.google.com/maps/embed/v1/place?key=AIzaSyB63YDb3SVNe84KeNXPh5zIjJ_uwr5vsII&q=Naval+Museum,+Qingdao&maptype=roadmap">
+    </iframe>
+</span>
+        </p>
+<p><img alt="1" src="https://lh6.googleusercontent.com/-B98oG0Oma4o/UjLkNZt-OcI/AAAAAAAAOAc/s3DAdTOpYB8/s640/IMG_1338.JPG"></p>
+<p>门前的古炮，虽然牌子上写的是道光年间的，但是青蛙猜测真的文物估计不会就这么摆在大门口吧。
+而且它的成色很新呢，lol</p>
+<p><img alt="2" src="https://lh4.googleusercontent.com/-MJ9GPqcuf2Q/UjLkNVMYYgI/AAAAAAAAOAc/_KSid8Cf92M/s640/IMG_1339.JPG"></p>
+<p>门票，50羊。可惜这个116不在博物馆里。</p>
+<p><img alt="3" src="https://lh5.googleusercontent.com/-O64p2ox66uk/UjLkNSJFxSI/AAAAAAAAOAc/i8ZQuWTAXbY/s640/IMG_1340.JPG"></p>
+<p>这飞机不知道是啥型号，大概是个水上飞机。今天时间有限，岸上的飞机基本没看，直奔105舰。</p>
+<p><img alt="4" src="https://lh3.googleusercontent.com/-wm5oS8exx48/UjLkNcRPbJI/AAAAAAAAOAc/GtyUttHOPz4/s640/IMG_1341.JPG"></p>
+<p>105舰，就是“济南”舰，是051型驱逐舰的首舰，Wiki page 在<a href='#ref1'>[1]</a></p>
+<p><img alt="5" src="https://lh6.googleusercontent.com/-ozkpQXAldPg/UjLkNWsibhI/AAAAAAAAOAc/icQZAW9CeA4/s640/IMG_1342.JPG"></p>
+<p>正在摆弄机枪的小伙伴。</p>
+<p><img alt="6" src="https://lh3.googleusercontent.com/-LnzxDP3j_Mc/UjLkNVK3ebI/AAAAAAAAOAc/79PlswC4wf4/s640/IMG_1344.JPG"></p>
+<p>105退役的时候把能拆的都拆了，能剪的线也都剪了，于是驾驶仓一片乱糟糟，青蛙也就不拍了。
+来一张坐在驾驶台上眺望的照片算了。</p>
+<p><img alt="7" src="https://lh3.googleusercontent.com/-FP87WUzc09Y/UjLkNZsrEMI/AAAAAAAAOAc/HtruSYnC2O4/w640/IMG_1347.JPG"></p>
+<p>正面的火箭发射器和主炮。</p>
+<p><img alt="8" src="https://lh6.googleusercontent.com/-4s9tdYjuvLU/UjLkNT26c2I/AAAAAAAAOAc/t-cA4BsoWDc/s640/IMG_1348.JPG"></p>
+<p>130口径。</p>
+<p><img alt="9" src="https://lh4.googleusercontent.com/--z8rJ3QCInk/UjLkNS8wnhI/AAAAAAAAOAc/QLtr8q8YeEE/s640/IMG_1351.JPG"></p>
+<p>导弹发射架的说明，不过看这个牌子，就可以理解为什么这些船需要经常维护了。大概海水或者雨水的腐蚀过于严重。</p>
+<p><img alt="10" src="https://lh5.googleusercontent.com/-jQpUw5v_r2A/UjLkNVQtiXI/AAAAAAAAOAc/4InhbHOqRK8/s640/IMG_1352.JPG"></p>
+<p>531舰舷号。531是我国第一艘携带舰对空导弹的护卫舰， Wiki page …</p>
+                    <a class="btn btn-default btn-xs" href="../2013/09/tour-of-qingdao-b/">more ...</a>
                 </div>
             </article>
             <hr/>
             <article>
-                <h2><a href="../2018/09/this-months-instagram-pictures-2018-09/">本月Instagram图片 2018-09</a></h2>
+                <h2><a href="../2013/09/tour-of-qingdao-a/">青岛两日游（上）</a></h2>
                     <div class="well well-sm">
 <footer class="post-info">
     <span class="label label-default">Date</span>
     <span class="published">
-        <i class="fa fa-calendar"></i><time datetime="2018-09-30T23:59:59+08:00"> Sun 30 September 2018</time>
+        <i class="fa fa-calendar"></i><time datetime="2013-09-09T15:05:00+08:00"> Mon 09 September 2013</time>
     </span>
 
 
 
         <span class="label label-default">Category</span>
-        <a href="../category/instagram.html">Instagram</a>
+        <a href="../category/travel.html">Travel</a>
 
 
 <span class="label label-default">Tags</span>
-	<a href="../tag/instagram.html">instagram</a>
+	<a href="../tag/travel.html">travel</a>
+        /
+	<a href="../tag/train.html">train</a>
+        /
+	<a href="../tag/qingdao.html">qingdao</a>
+        /
+	<a href="../tag/shandong.html">shandong</a>
         /
 	<a href="../tag/pictures.html">pictures</a>
-        /
-	<a href="../tag/archive.html">archive</a>
     
 </footer><!-- /.post-info -->                    </div>
-                <div class="summary"><p>⏰<em>2018-09-06 12:42:58</em> 消费降级，星巴克换挂耳😭
-<a href="https://www.instagram.com/p/BnXyVRFFKdbKDJbhmgEhSH0pu_mpVtXM05GLlM0/">via Instagram</a></p>
-<p><img alt="1" src="https://scontent-lax3-2.cdninstagram.com/vp/eb7c5c7ed5d4fb03dfd73d513d344498/5DA7689E/t51.2885-15/e35/40096470_1001707686698435_303532196095108725_n.jpg?_nc_ht=scontent-lax3-2.cdninstagram.com" width="75%"></p>
-<p><img alt="1" src="https://scontent-lax3-2.cdninstagram.com/vp/81b491fec5c9b55b57ce5780d5d7ea8d/5DC61517/t51.2885-15/e35/39965045_576069552807997_479963690610114070_n.jpg?_nc_ht=scontent-lax3-2.cdninstagram.com" width="75%"></p>
-<p>⏰<em>2018-09-09 18:21:40</em> #花#
-<a href="https://www.instagram.com/p/BngHeqCFbEaxaIvoORGylr_b9QFFhY_5SuAqQU0/">via Instagram</a></p>
-<p><img alt="1" src="https://scontent-lax3-2.cdninstagram.com/vp/5f161b24e19d4d9ce373464e5b549dda/5DA980E9/t51.2885-15/e35/40670488_279629359309935_8177890832245969289_n.jpg?_nc_ht=scontent-lax3-2.cdninstagram.com" width="75%"></p>
-<p>⏰<em>2018-09-12 13:17:53</em> 前几天有人说挂耳也太贵。确实喝不起了，继续消费降级，喝回胶囊了😭
-<a href="https://www.instagram.com/p/BnnTGU4FiZxIpVP0Vks6kqwS6youT1N7afzwu00/">via Instagram</a></p>
-<p><img alt="1" src="https://scontent-lax3-2.cdninstagram.com/vp/6fde3fb2d95a7c484fe660a14bd14c9d/5DB10F51/t51.2885-15/e35/40311237_1163012747183275_875200908480816219_n.jpg?_nc_ht=scontent-lax3-2.cdninstagram.com" width="75%"></p>
-<p>⏰<em>2018-09-13 08:39:13</em> 蛤
-<a href="https://www.instagram.com/p/BnpYAKYFlXYrpv1sDz1gGmY0NTBl60SBaHeEqg0/">via Instagram</a></p>
-<p><img alt="1" src="https://scontent-lax3-2.cdninstagram.com/vp/0a5f26e16f294c1d8e1cff2928d61384/5DA1CDA0/t51.2885-15/e35/41342549_281896115753323_7964866728338677346_n.jpg?_nc_ht=scontent-lax3-2.cdninstagram.com" width="75%"></p>
-<p>⏰<em>2018-09-16 13:05:03</em> #桥
-<a href="https://www.instagram.com/p/BnxkzzklkW5-4QCBu9-nfiQKK7aqAa7mGpXlgs0/">via Instagram</a></p>
-<p><img alt="1" src="https://scontent-lax3-2.cdninstagram.com/vp/ae989e91edc4f650eb80001aa13565cf/5DC3DBD4/t51.2885-15/e35/41052000_305138573603915_9012390924187716157_n.jpg?_nc_ht=scontent-lax3-2.cdninstagram.com" width="75%"></p>
-<p>⏰<em>2018-09-16 16:32:52</em> 当街放尿，警察蜀黍竟然不管。
-<a href="https://www.instagram.com/p/Bnx8l9Cl-j7qdIW83Pwfpd25FKKi21mCtMotRg0/">via Instagram</a></p>
-<p><img alt="1" src="https://scontent-lax3-2.cdninstagram.com/vp/dc7502f62242753a4c06b255f6c55d3b/5DC6E690/t51.2885-15/e35/40550251_2116745325023489_1808122217434714126_n.jpg?_nc_ht=scontent-lax3-2.cdninstagram.com" width="75%"></p>
-<p>⏰<em>2018-09-20 12:04 …</em></p>
-                    <a class="btn btn-default btn-xs" href="../2018/09/this-months-instagram-pictures-2018-09/">more ...</a>
+                <div class="summary"><p>去青岛的计划，青蛙已经酝酿很久了，可惜迟迟没法行动。
+眼看秋天就来了，再不动弹天气就凉了，于是心一横，无论如何今年也要去一次青岛。</p>
+<p>首先就是往返车票的问题，北京站到青岛的车只有G和D了，生活在在这个被高铁的时代的
+穷游党真是太不幸了。还好之<a href="http://www.weibo.com/mnoz">MnOz</a>曾经说过黄村站还有
+一趟去青岛的普速车K709。但是8月21号订票的时候，黄村到青岛的卧铺票已经卖光了。
+本着死活都要出去玩态度的青蛙一咬牙一跺脚，干脆多花了70多大洋，买了前几站丰镇
+的车票。虽然还是比动车便宜，不过心还是淌血啊。</p>
+<p>一晚上卧铺，顺利抵达青岛地界。</p>
+<p>K709在青岛四方站技术停车将近办小时，站外的小山上挂满了青岛的著名品牌。</p>
+<p><img alt="1" src="https://lh3.googleusercontent.com/-YyOxlo27ZCo/UjLkNfnTqYI/AAAAAAAAOAc/16lZ8OJjIKI/s640/IMG_1287.JPG"></p>
+<p>抵达青岛：</p>
+<p><img alt="2" src="https://lh3.googleusercontent.com/-asqyKIQvoIs/UjLkNVgjFvI/AAAAAAAAOAc/r29YDzT9S6Y/s640/IMG_1288.JPG"></p>
+<p><img alt="3" src="https://lh3.googleusercontent.com/-WlneEQCZ5AU/UjLkNRlDyhI/AAAAAAAAOAc/pqCvPMBh7L0/s640/IMG_1289.JPG"></p>
+<p><img alt="4" src="https://lh6.googleusercontent.com/-ehmw6lFrMSA/UjLkNZYekoI/AAAAAAAAOAc/MQtjP6Qmt0E/w640/IMG_1291.JPG"></p>
+<p>听说青岛的下水道很有名：</p>
+<p><img alt="5" src="https://lh6.googleusercontent.com/-z8jc5Rn8Shc/UjLkNRx2WgI/AAAAAAAAOAc/o1so9Dq386A/s640/IMG_1290.JPG"></p>
+<p>下车直奔车站对面的长途汽车站，寻觅去崂山的汽车，
+结果被告知每天去崂山只有早上8点一班车，我们来的太晚了，想去崂山请明天赶早。</p>
+<p>没办法，只能临时更改行程，去掉游崂山的计划，改成2天青岛市内游览。</p>
+<p>先去麦当当填饱肚子。
+高端大气的楼梯，请原谅我这个帝都土鳖没在麦当当见过这么宽的楼梯：</p>
+<p><img alt="6" src="https://lh3.googleusercontent.com/-lZQ8YBb2e6g/UjLkNRyLQDI/AAAAAAAAOAc/9bp6-rwiWHY/s640/IMG_1292.JPG"></p>
+<p>吃完早午饭，先去栈桥转转。
+结果遇上栈桥在整修，没法上去，妈蛋，只好远眺了。</p>
+<p><img alt="7" src="https://lh5.googleusercontent.com/-hmUBGWOBnv4/UjLkNSoJg7I/AAAAAAAAOAc/mgXKDL8OyiI/s640/IMG_1295.JPG"></p>
+<p>栈桥旁边的海滩，礁石上都是海蛎子啊海蛎子。</p>
+<p><img alt="8" src="https://lh3.googleusercontent.com/-4pp3akSSE8Q/UjLkNfHDtaI/AAAAAAAAOAc/-coOwMqylJk/s640/IMG_1296.JPG"></p>
+<p>海滩上密密麻麻的海蛎子 …</p>
+                    <a class="btn btn-default btn-xs" href="../2013/09/tour-of-qingdao-a/">more ...</a>
                 </div>
             </article>
             <hr/>
             <article>
-                <h2><a href="../2018/08/this-months-instagram-pictures-2018-08/">本月Instagram图片 2018-08</a></h2>
+                <h2><a href="../2013/07/outing-jiming-dak-in-hebei/">探访鸡鸣驿</a></h2>
                     <div class="well well-sm">
 <footer class="post-info">
     <span class="label label-default">Date</span>
     <span class="published">
-        <i class="fa fa-calendar"></i><time datetime="2018-08-31T23:59:59+08:00"> Fri 31 August 2018</time>
+        <i class="fa fa-calendar"></i><time datetime="2013-07-06T23:41:00+08:00"> Sat 06 July 2013</time>
     </span>
 
 
 
         <span class="label label-default">Category</span>
-        <a href="../category/instagram.html">Instagram</a>
+        <a href="../category/travel.html">Travel</a>
 
 
 <span class="label label-default">Tags</span>
-	<a href="../tag/instagram.html">instagram</a>
+	<a href="../tag/travel.html">travel</a>
+        /
+	<a href="../tag/bus.html">bus</a>
+        /
+	<a href="../tag/hebei.html">hebei</a>
         /
 	<a href="../tag/pictures.html">pictures</a>
-        /
-	<a href="../tag/archive.html">archive</a>
     
 </footer><!-- /.post-info -->                    </div>
-                <div class="summary"><p>⏰<em>2018-08-02 13:19:06</em> 好像很惨
-<a href="https://www.instagram.com/p/Bl9upZplSnfeI_q74wtt6Ot0wVlE2fXsvEKvGY0/">via Instagram</a></p>
-<p><img alt="1" src="https://scontent-lax3-2.cdninstagram.com/vp/e92e7b5a08e7c434f18d3edecbc7f22f/5DA17540/t51.2885-15/e35/38080842_192511698289864_1163173617312202752_n.jpg?_nc_ht=scontent-lax3-2.cdninstagram.com" width="75%"></p>
-<p>⏰<em>2018-08-02 18:50:48</em> 0x10000
-<a href="https://www.instagram.com/p/Bl-UmvHlKl7wjUbsUXihRI5l-kTcbiUWniZIZY0/">via Instagram</a></p>
-<p><img alt="1" src="https://scontent-lax3-2.cdninstagram.com/vp/f617bb85eab78d95878e88f9dbed8fb0/5DA0018B/t51.2885-15/e35/37655881_516028988820664_396013155970449408_n.jpg?_nc_ht=scontent-lax3-2.cdninstagram.com" width="75%"></p>
-<p>⏰<em>2018-08-06 15:03:41</em> RIP
-<a href="https://www.instagram.com/p/BmINy5lF2lcSv9foAK7cVKkMfJovyN47dfOKc80/">via Instagram</a></p>
-<p><img alt="1" src="https://scontent-lax3-2.cdninstagram.com/vp/d0eb1209ffd4499fd679e21b85031f41/5DAF1C79/t51.2885-15/e35/37369139_1611528325642617_4756265346439053312_n.jpg?_nc_ht=scontent-lax3-2.cdninstagram.com" width="75%"></p>
-<p>⏰<em>2018-08-11 19:37:43</em> IG你需要一个精准按地区投放广告的策略了。
-<a href="https://www.instagram.com/p/BmVlIR_Fgy0oJH2Y9ZdvlQOLNpzeNNVTjJImJM0/">via Instagram</a></p>
-<p><img alt="1" src="https://scontent-lax3-2.cdninstagram.com/vp/c8094abea16250cdce974cbd0c8ef8d8/5DA47AC1/t51.2885-15/e35/38682766_315223752552227_5406150647726735360_n.jpg?_nc_ht=scontent-lax3-2.cdninstagram.com" width="75%"></p>
-<p>⏰<em>2018-08-15 13:46:51</em> hin大一根😆
-<a href="https://www.instagram.com/p/BmfQJ6vFtjgfjU42YJUVKnLEHoEflLTXmSl9Pg0/">via Instagram</a></p>
-<p><img alt="1" src="https://scontent-lax3-2.cdninstagram.com/vp/3293f10d9574d0aa9ead9f0bd2d55153/5DC15E86/t51.2885-15/e35/38097265_2312667725440664_1237345198548189184_n.jpg?_nc_ht=scontent-lax3-2.cdninstagram.com" width="75%"></p>
-<p>⏰<em>2018-08-17 07:28:25</em> +1s
-<a href="https://www.instagram.com/p/Bmjub_4l4qELqGyjV4BaKc_ZrE_1Nt738eja_k0/">via Instagram</a></p>
-<p><img alt="1" src="https://scontent-lax3-2.cdninstagram.com/vp/16f010f73254a1239b941b7a9aead101/5DAF6EBD/t51.2885-15/e35/38080986_355176645020832_1889961841338089472_n.jpg?_nc_ht=scontent-lax3-2.cdninstagram.com" width="75%"></p>
-<p>⏰<em>2018-08-17 14:55:00</em> 中午路遇事故。
-<a href="https://www.instagram.com/p/Bmkhi2XldVTrpfl645cQ8yxci7M1VzHx29eYmU0/">via Instagram</a></p>
-<p><img alt="1" src="https://scontent-lax3-2.cdninstagram.com/vp/dbb33d08fbed995a3e559f9f3cde9450/5DAFCCDA/t51.2885-15/e35/38800255_335003687238502_1872408151085547520_n.jpg?_nc_ht=scontent-lax3-2.cdninstagram.com" width="75%"></p>
-<p>⏰<em>2018-08-17 …</em></p>
-                    <a class="btn btn-default btn-xs" href="../2018/08/this-months-instagram-pictures-2018-08/">more ...</a>
+                <div class="summary"><p>青蛙这周有点感冒的迹象，所以没法出去得瑟骑车，只好搞点简单的户外活动了。
+昨天跟<a href="http://www.weibo.com/mnoz">MnOz</a>商量着走丰沙线，顺路逛一下传说中的鸡鸣驿。</p>
+<p>话说这个鸡鸣驿，还真是大有来头。大话西游最后那段城墙激吻，就是在这拍的。
+传说亮剑里李云龙轰掉的那个城门楼，也是鸡鸣驿的西门。</p>
+<p>原计划是周六早上坐S2到沙城那班车S287，到沙城下，然后换乘公交到鸡鸣驿的。
+结果到了北京北站一看，排队坐S2的队伍已经里三层外三层了，车站广播里一直
+在叫唤着下一班S2已经是10点多的了。周末去郊区旅游的人还真是多。</p>
+<p>没办法，只好赶奔德胜门换乘公交，880到下花园然后往回走到鸡鸣驿。</p>
+<p>880的始发站在德胜门的东南角，青蛙今天坐的是去下花园的支线。
+8点多点儿到的时候站牌下面已经排了好长的队伍了。还好上车之后还剩了最后排
+的两个座位，不然又得等下一趟车。</p>
+<p>有公交卡的话车票20羊，这是河北段的车票，北京段的直接刷卡，4.8羊。</p>
+<p><img alt="1" src="https://lh4.googleusercontent.com/-3jDGwQ0tq5o/UeK8UhlDQFI/AAAAAAAAMvg/Sr2bUqYFtgs/s640/IMG_0935.JPG"></p>
+<p>沿G6出六环，到昌平，一路顺畅。这辆公交在昌平西关停了一下，但是车上已经
+坐满了，没人上车。</p>
+<p>在居庸关之前，G6上毫无意外的堵车了。
+公交车走走停停，很是难受。</p>
+<p><img alt="2" src="https://lh3.googleusercontent.com/-aTQ1uwc8Vmo/UeK8UgY2HSI/AAAAAAAAMvg/EhCoeJfFsvw/s640/IMG_0938.JPG"></p>
+<p>爬过八达岭之后突然就不堵车了，估计还是因为某些大卡车在八达岭之前的爬坡
+路段爬不动，导致整体车流都很慢 …</p>
+                    <a class="btn btn-default btn-xs" href="../2013/07/outing-jiming-dak-in-hebei/">more ...</a>
                 </div>
             </article>
             <hr/>
             <article>
-                <h2><a href="../2018/07/this-months-instagram-pictures-2018-07/">本月Instagram图片 2018-07</a></h2>
+                <h2><a href="../2013/06/pic-of-dsic/">一张流：大连造船厂</a></h2>
                     <div class="well well-sm">
 <footer class="post-info">
     <span class="label label-default">Date</span>
     <span class="published">
-        <i class="fa fa-calendar"></i><time datetime="2018-07-31T23:59:59+08:00"> Tue 31 July 2018</time>
+        <i class="fa fa-calendar"></i><time datetime="2013-06-13T15:12:00+08:00"> Thu 13 June 2013</time>
     </span>
 
 
 
         <span class="label label-default">Category</span>
-        <a href="../category/instagram.html">Instagram</a>
+        <a href="../category/pictures.html">Pictures</a>
 
 
 <span class="label label-default">Tags</span>
-	<a href="../tag/instagram.html">instagram</a>
-        /
 	<a href="../tag/pictures.html">pictures</a>
-        /
-	<a href="../tag/archive.html">archive</a>
     
 </footer><!-- /.post-info -->                    </div>
-                <div class="summary"><p>⏰<em>2018-07-01 22:51:34</em> 冰峰来一发
-<a href="https://www.instagram.com/p/BksWuP8Fsmu7rC7kBtuAPA-eKul363xbOk0eYk0/">via Instagram</a></p>
-<p><img alt="1" src="https://scontent-lax3-2.cdninstagram.com/vp/910213b3a6b2d5722d306a78c598c984/5DB2AB85/t51.2885-15/e35/35575385_188638091833735_4056031565174538240_n.jpg?_nc_ht=scontent-lax3-2.cdninstagram.com" width="75%"></p>
-<p>⏰<em>2018-07-02 14:23:41</em> 正面战场抗战还是十分惨烈的。
-<a href="https://www.instagram.com/p/BkuBZNtFNo6rFAXnur27VfW_hX7m_CgXZcD-oE0/">via Instagram</a></p>
-<p><img alt="1" src="https://scontent-lax3-2.cdninstagram.com/vp/9828ef7b8c92946acb301725af367293/5DC395F1/t51.2885-15/e35/36148833_238665203588931_7233157464030445568_n.jpg?_nc_ht=scontent-lax3-2.cdninstagram.com" width="75%"></p>
-<p><img alt="1" src="https://scontent-lax3-2.cdninstagram.com/vp/22275456438501cc83fcb3594d29ac74/5DA4594A/t51.2885-15/e35/35294640_246819382568209_3965815180121604096_n.jpg?_nc_ht=scontent-lax3-2.cdninstagram.com" width="75%"></p>
-<p><img alt="1" src="https://scontent-lax3-2.cdninstagram.com/vp/cab94d2eaabc77c2e4f4ad281678d50c/5DB5F99D/t51.2885-15/e35/35999161_1994380627539528_650932543163465728_n.jpg?_nc_ht=scontent-lax3-2.cdninstagram.com" width="75%"></p>
-<p>⏰<em>2018-07-02 16:04:29</em> 本来以为是小人书，翻开一看竟然是电影画本。
-<a href="https://www.instagram.com/p/BkuM7f4lB_vSJ-Xl3cTKGTWqwzzbpZ4ipk6fic0/">via Instagram</a></p>
-<p><img alt="1" src="https://scontent-lax3-2.cdninstagram.com/vp/6e3219674245f3c56ac66fa8a4459265/5DA99A15/t51.2885-15/e35/35522355_256729688428625_420786630412992512_n.jpg?_nc_ht=scontent-lax3-2.cdninstagram.com" width="75%"></p>
-<p><img alt="1" src="https://scontent-lax3-2.cdninstagram.com/vp/e3e069321013610855d81631fe7d5932/5DC43F07/t51.2885-15/e35/35574605_926942710799566_7995444125333716992_n.jpg?_nc_ht=scontent-lax3-2.cdninstagram.com" width="75%"></p>
-<p>⏰<em>2018-07-02 17:58:40</em> 大棒棒快完工了
-<a href="https://www.instagram.com/p/BkuZ_4DFSOj4Np0lCwULH9erXB05pjhdfZmJwU0/">via Instagram</a></p>
-<p><img alt="1" src="https://scontent-lax3-2.cdninstagram.com/vp/ce62dc80e303bc999d7da6fbed50dca3/5DA06E1B/t51.2885-15/e35/35616356_233116334083406_3903897054681759744_n.jpg?_nc_ht=scontent-lax3-2.cdninstagram.com" width="75%"></p>
-<p>⏰<em>2018-07-05 18:44:36</em> 狂风大作，难道要下雨？
-<a href="https://www.instagram.com/p/Bk2No32FiCzQMGJGSBxERsa-HDUqhha1jGhEmM0/">via Instagram</a></p>
-<p><img alt="1" src="https://scontent-lax3-2.cdninstagram.com/vp/0229ad88db8e69427002aa73cd7ce8fe/5DC44BE3/t51.2885-15/e35/35998672_173906190136358_4762989856475316224_n.jpg?_nc_ht=scontent-lax3-2.cdninstagram.com" width="75%"></p>
-<p>⏰<em>2018-07-07 18:57:27</em> 不在家也有咖啡喝了。
-<a href="https://www.instagram.com/p/Bk7YssZlWa5dEv01jkWHm-ay8WusMfgg4jeWEM0/">via Instagram</a></p>
-<p><img alt="1" src="https://scontent-lax3-2.cdninstagram.com/vp/75f57a7651f443f5c92748f1551fd7bc/5DBD356E/t51.2885-15/e35/36136802_271325156949150_1549481152216039424_n.jpg?_nc_ht=scontent-lax3-2.cdninstagram.com" width="75%"></p>
-<p>⏰<em>2018-07-08 20:54:24</em> 上次来还下雪呢…… 转眼半年 …</p>
-                    <a class="btn btn-default btn-xs" href="../2018/07/this-months-instagram-pictures-2018-07/">more ...</a>
+                <div class="summary"><p>原来停潜艇的地方停了两艘在建的货船。</p>
+<p><img alt="1" src="https://lh5.googleusercontent.com/-Ce0dwZ0c-44/UbrBhUw5a9I/AAAAAAAAMTA/1Keyv9bITfo/s640/6813F5F4-89B3-49A7-AF37-95C30F99B7A0.JPG"></p>
+                    <a class="btn btn-default btn-xs" href="../2013/06/pic-of-dsic/">more ...</a>
                 </div>
             </article>
             <hr/>
             <article>
-                <h2><a href="../2018/06/this-months-instagram-pictures-2018-06/">本月Instagram图片 2018-06</a></h2>
+                <h2><a href="../2013/06/travel-to-dalian-by-crh/">体验哈大高铁</a></h2>
                     <div class="well well-sm">
 <footer class="post-info">
     <span class="label label-default">Date</span>
     <span class="published">
-        <i class="fa fa-calendar"></i><time datetime="2018-06-30T23:59:59+08:00"> Sat 30 June 2018</time>
+        <i class="fa fa-calendar"></i><time datetime="2013-06-10T23:11:00+08:00"> Mon 10 June 2013</time>
     </span>
 
 
 
         <span class="label label-default">Category</span>
-        <a href="../category/instagram.html">Instagram</a>
+        <a href="../category/travel.html">Travel</a>
 
 
 <span class="label label-default">Tags</span>
-	<a href="../tag/instagram.html">instagram</a>
+	<a href="../tag/travel.html">travel</a>
+        /
+	<a href="../tag/train.html">train</a>
+        /
+	<a href="../tag/highspeed.html">highspeed</a>
+        /
+	<a href="../tag/crh.html">crh</a>
         /
 	<a href="../tag/pictures.html">pictures</a>
-        /
-	<a href="../tag/archive.html">archive</a>
     
 </footer><!-- /.post-info -->                    </div>
-                <div class="summary"><p>⏰<em>2018-06-01 00:08:15</em> 话说慧忠北里那边修的这个像马桶似的是个啥玩意？
-<a href="https://www.instagram.com/p/Bjcq2vrlpU6hykx9jklwjuc6qAtCGl-V7eA3xI0/">via Instagram</a></p>
-<p><img alt="1" src="https://scontent-lax3-2.cdninstagram.com/vp/032b209e88f0919545fd37f80c6a996f/5DB451D6/t51.2885-15/e35/32975852_212359179372459_4585060313568641024_n.jpg?_nc_ht=scontent-lax3-2.cdninstagram.com" width="75%"></p>
-<p>⏰<em>2018-06-01 21:18:53</em> 今天份的奥体
-<a href="https://www.instagram.com/p/Bje8RItlspQxA6EIUd9Njl2vA0-1kmxAoLyTh40/">via Instagram</a></p>
-<p><img alt="1" src="https://scontent-lax3-2.cdninstagram.com/vp/d1d1369f57f83b42ec4e9d03d6cd740b/5DB72889/t51.2885-15/e35/33399773_201079160704732_7080498250268016640_n.jpg?_nc_ht=scontent-lax3-2.cdninstagram.com" width="75%"></p>
-<p>⏰<em>2018-06-01 21:27:14</em> 钉子变身大火箭😆
-<a href="https://www.instagram.com/p/Bje9OUhFHphrZX7Bv1FF976lbuALzkGh1PNN8Y0/">via Instagram</a></p>
-<p><img alt="1" src="https://scontent-lax3-2.cdninstagram.com/vp/d322fdc7f612fff49cac133eb462ad1d/5DA8FD03/t51.2885-15/e35/33479922_594296910953534_5838491191137533952_n.jpg?_nc_ht=scontent-lax3-2.cdninstagram.com" width="75%"></p>
-<p>⏰<em>2018-06-01 21:39:21</em> 麻麻有灰碟！
-<a href="https://www.instagram.com/p/Bje-nAaFexKMuw0UIp0qSnSjpB-3EDbXfyU5nw0/">via Instagram</a></p>
-<p><img alt="1" src="https://scontent-lax3-2.cdninstagram.com/vp/8081315a18ce6b0729d07da3c0c6a328/5DAF9F56/t51.2885-15/e35/33479922_2173530199551155_5562300329871015936_n.jpg?_nc_ht=scontent-lax3-2.cdninstagram.com" width="75%"></p>
-<p>⏰<em>2018-06-03 20:46:09</em> 玲珑塔，塔玲珑，玲珑宝塔不止七层😓 所以玲珑塔还有另一个。
-<a href="https://www.instagram.com/p/BjkCHGDlbtwqyl3VOC43nixecDOCh03CQ1EiYk0/">via Instagram</a></p>
-<p><img alt="1" src="https://scontent-lax3-2.cdninstagram.com/vp/6a30f97e4ebc5f3f8b6cff69403cb136/5DAD49A1/t51.2885-15/e35/33210279_211647586224844_8392115553761755136_n.jpg?_nc_ht=scontent-lax3-2.cdninstagram.com" width="75%"></p>
-<p>⏰<em>2018-06-03 20:46:51</em> 钉子下面音乐喷泉了解一下？
-<a href="https://www.instagram.com/p/BjkCMUMlc4XGSZRNSSInp3MEEqW_ABK1ezb3ko0/">via Instagram</a></p>
-<p><img alt="1" src="https://scontent-lax3-2.cdninstagram.com/vp/57ffe20601e276d41a29b75956f48ad7/5DB6279B/t51.2885-15/e35/34164487_637850036561476_1493148584500002816_n.jpg?_nc_ht=scontent-lax3-2.cdninstagram.com" width="75%"></p>
-<p>⏰<em>2018-06-03 20:57:22</em> 小亭几 …</p>
-                    <a class="btn btn-default btn-xs" href="../2018/06/this-months-instagram-pictures-2018-06/">more ...</a>
+                <div class="summary"><p>端午假期，青蛙因为算错了放假的日子，结果没有买到从北京直接去大连的车票。
+于是只好动车回沈阳，然后从沈阳坐高铁去大连。
+不过歪打正着，正好体验下提速之后的哈大高铁。</p>
+<p>目测哈大高铁提速之后没有太明显的晃动，当然节约的时间其实并不多，
+从冬天时候的2.5小时变成了夏天的2小时。
+不过经过隧道的时候耳朵有很明显的疼痛。</p>
+<p>车票，特等座要比二等座贵将近一倍</p>
+<p><img alt="1" src="https://lh5.googleusercontent.com/-5MRkhsq207U/UbqpdwjvDBI/AAAAAAAAMSs/y_SGGCsGGQI/s640/D6139FFE-B4FF-4B57-AA21-AFDB8F56E184.JPG"></p>
+<p>沈阳北站里动车的赠水处，在候车室最里面，难怪我之前几次都没找到。</p>
+<p><img alt="2" src="https://lh6.googleusercontent.com/-CtyF3E6KO6k/UbqpdxvkxzI/AAAAAAAAMSg/rlKkrWkqkLg/s640/CD548031-A81F-4587-B249-5E269E0ED57A.JPG"></p>
+<p>沈阳北站站牌。</p>
+<p><img alt="3" src="https://lh3.googleusercontent.com/-l1fIm9L8ErI/UbqpdwkVgUI/AAAAAAAAMSg/cjDS4Qa2dX4/s640/EF67A829-3538-4795-9755-D7B6B3F44AAB.JPG"></p>
+<p>座席，是红色的，坐起来倒还满舒服，但是两人座位这边，中间的扶手还是只有一个，同时坐满有点挤。</p>
+<p><img alt="4" src="https://lh3.googleusercontent.com/-_IuZAV8IRAo/Ubqpd7dBSgI/AAAAAAAAMSk/1WvBdDtxWXU/s640/8355F229-2185-4B6C-9ED5-157383684A2B.JPG"></p>
+<p>紧挨着司机室，甚至可以听到里面传出来路况信息通告和列车员在对讲机上喊话的声音。</p>
+<p><img alt="5" src="https://lh4.googleusercontent.com/-yZ0vePaHl3g/Ubqpd0VGB1I/AAAAAAAAMSg/8YmOPKnoNvk/s640/544D82FC-07B0-4AB7-AD0F-CA0261FA93F1.JPG"></p>
+<p>小桌板，这张拍虚了。</p>
+<p><img alt="6" src="https://lh6.googleusercontent.com/-YvZpTGC3fYE/Ubqpdx1QExI/AAAAAAAAMSg/qSejAz4pqrw/s640/6F2B35AE-4F04-445A-8AFA-400DAB8B6B45.JPG"></p>
+<p>其实特等坐没必要在候车室领水，车上列车员还会再发水的。</p>
+<p><img alt="7" src="https://lh3.googleusercontent.com/-71T0tP9dqwE/Ubqpd4Qdn7I/AAAAAAAAMSg/I-k53PGjvA8/s640/9D202B04-5E9F-4BCD-86B0-2C60FFE4FC61.JPG"></p>
+                    <a class="btn btn-default btn-xs" href="../2013/06/travel-to-dalian-by-crh/">more ...</a>
                 </div>
             </article>
             <hr/>
@@ -429,24 +505,6 @@ My Life, My Love!            </a>
                             href="../author/gfrog24.html">24</a></li>
                     <li class=""><a
                             href="../author/gfrog25.html">25</a></li>
-                    <li class=""><a
-                            href="../author/gfrog26.html">26</a></li>
-                    <li class=""><a
-                            href="../author/gfrog27.html">27</a></li>
-                    <li class=""><a
-                            href="../author/gfrog28.html">28</a></li>
-                    <li class=""><a
-                            href="../author/gfrog29.html">29</a></li>
-                    <li class=""><a
-                            href="../author/gfrog30.html">30</a></li>
-                    <li class=""><a
-                            href="../author/gfrog31.html">31</a></li>
-                    <li class=""><a
-                            href="../author/gfrog32.html">32</a></li>
-                    <li class=""><a
-                            href="../author/gfrog33.html">33</a></li>
-                    <li class=""><a
-                            href="../author/gfrog34.html">34</a></li>
                 <li class="next"><a
                         href="../author/gfrog3.html">&raquo;</a></li>
         </ul>
@@ -474,9 +532,6 @@ My Life, My Love!            </a>
   <ul class="list-group" id="categories">
     <li class="list-group-item">
       <a href="../category/cyclone.html">Cyclone</a>
-    </li>
-    <li class="list-group-item">
-      <a href="../category/instagram.html">Instagram</a>
     </li>
     <li class="list-group-item">
       <a href="../category/linux.html">Linux</a>
