@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html lang="zh_cn" prefix="og: http://ogp.me/ns# fb: https://www.facebook.com/2008/fbml">
 <head>
-    <title>Authors - My Life, My Love!</title>
+    <title>Search - My Life, My Love!
+</title>
     <!-- Using the latest rendering mode for IE -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta charset="utf-8">
@@ -26,6 +27,7 @@
     <link href="./theme/css/font-awesome.min.css" rel="stylesheet">
 
     <link href="./theme/css/pygments/default.css" rel="stylesheet">
+    <link href="./theme/tipuesearch/tipuesearch.css" rel="stylesheet">
     <link rel="stylesheet" href="./theme/css/style.css" type="text/css"/>
 
         <link href="./feeds/all.atom.xml" type="application/atom+xml" rel="alternate"
@@ -47,6 +49,11 @@ My Life, My Love!            </a>
             <ul class="nav navbar-nav">
             </ul>
             <ul class="nav navbar-nav navbar-right">
+              <li><span>
+                <form class="navbar-search" action="/search.html">
+                  <input type="text" class="search-query" placeholder="Search" name="q" id="tipue_search_input" required>
+                </form></span>
+              </li>
             </ul>
         </div>
         <!-- /.navbar-collapse -->
@@ -60,8 +67,7 @@ My Life, My Love!            </a>
 <div class="container">
     <div class="row">
         <div class="col-sm-9">
-  <h1>Authors on My Life, My Love!</h1>
-        <li><a href="./author/gfrog.html">gfrog</a> (169)</li>
+<div id="tipue_search_content"></div>
         </div>
         <div class="col-sm-3" id="sidebar">
             <aside>
@@ -204,5 +210,16 @@ My Life, My Love!            </a>
     <!-- End Google Analytics Code -->
 
 
+    <script src="./tipuesearch_content.js"></script>
+    <script type="text/javascript" src="./theme/tipuesearch/tipuesearch_set.js"></script>
+    <script type="text/javascript" src="./theme/tipuesearch/tipuesearch.min.js"></script>
+    <script>
+    $(document).ready(function() {
+      $('#tipue_search_input').tipuesearch({
+        'show': 10,
+        'newWindow': false
+      });
+    });
+    </script>
 </body>
 </html>
