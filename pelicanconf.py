@@ -65,7 +65,8 @@ PLUGINS = [
             "pelican-gist",
             "pelican-cover-image",
             "liquid_tags.gmap",
-            "sitemap"
+            "sitemap",
+            "tipue_search"
           ]
 
 
@@ -91,6 +92,8 @@ except FileNotFoundError:
 
 IGNORE_FILES = ['.#*', '*posts*', '*pages*']
 PAGE_PATHS= []
+
+DIRECT_TEMPLATES = ('index', 'categories', 'tags', 'archives', 'search')
 
 SITEMAP = {
     'format': 'xml',
