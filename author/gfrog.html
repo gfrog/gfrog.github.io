@@ -67,6 +67,59 @@ My Life, My Love!            </a>
     <div class="row">
         <div class="col-sm-9">
             <article>
+                <h2><a href="../2019/07/recover-rabbitmq-cluster-after-partitioning/">从 partitioning （脑裂）中恢复 RabbitMQ 集群</a></h2>
+                    <div class="well well-sm">
+<footer class="post-info">
+    <span class="label label-default">Date</span>
+    <span class="published">
+        <i class="fa fa-calendar"></i><time datetime="2019-07-30T21:36:08+08:00"> Tue 30 July 2019</time>
+    </span>
+
+
+
+        <span class="label label-default">Category</span>
+        <a href="../category/cloud.html">Cloud</a>
+
+
+<span class="label label-default">Tags</span>
+	<a href="../tag/cloud.html">cloud</a>
+        /
+	<a href="../tag/rabbitmq.html">rabbitmq</a>
+        /
+	<a href="../tag/cluster.html">cluster</a>
+        /
+	<a href="../tag/recover.html">recover</a>
+        /
+	<a href="../tag/partition.html">partition</a>
+        /
+	<a href="../tag/juju.html">juju</a>
+    
+</footer><!-- /.post-info -->                    </div>
+                <div class="summary"><p><img alt="rabbitmq" src="https://miro.medium.com/max/1200/1*UnYL-2r54_7AnEwQv0cVxA.png"></p>
+<p><em>（本文为
+<a href="https://gist.github.com/niedbalski/69a72103adad4f0f9609a0857c9810a4">https://gist.github.com/niedbalski/69a72103adad4f0f9609a0857c9810a4</a>
+的翻译文档。
+）</em></p>
+<p>1) 检查 Cluster 状态。</p>
+<div class="highlight"><pre><span></span>Mnesia<span class="o">(</span><span class="s1">&#39;rabbit@juju-machine-30-lxd-11&#39;</span><span class="o">)</span>: ** ERROR ** mnesia_event got <span class="o">{</span>inconsistent_database, running_partitioned_network, <span class="s1">&#39;rabbit@juju-machine-29-lxd-9&#39;</span><span class="o">}</span>
+
+$ sudo rabbitmqctl cluster_status
+</pre></div>
+
+
+<p>2) 选择合适的节点作为 master 节点。</p>
+<p><em>（注：这个步骤很重要，如果没有选择合适的 master节点，很容易造成消息丢失）</em></p>
+<p># 通过连接数。</p>
+<div class="highlight"><pre><span></span>$ juju run --service rabbitmq-server <span class="s2">&quot;sudo ss -t state established -nt &#39;( sport = :amqp )&#39; | wc -l&quot;</span>
+</pre></div>
+
+
+<p># 最新的 …</p>
+                    <a class="btn btn-default btn-xs" href="../2019/07/recover-rabbitmq-cluster-after-partitioning/">more ...</a>
+                </div>
+            </article>
+            <hr/>
+            <article>
                 <h2><a href="../2019/07/fix-python-virtualenv-after-python-upgrade/">修复因为 Python 升级导致的失效 virtualenv 环境</a></h2>
                     <div class="well well-sm">
 <footer class="post-info">
@@ -385,53 +438,6 @@ var locations = [
                 </div>
             </article>
             <hr/>
-            <article>
-                <h2><a href="../2013/12/2013-summary-and-2014-outlook/">2013年终总结及2014年新年目标</a></h2>
-                    <div class="well well-sm">
-<footer class="post-info">
-    <span class="label label-default">Date</span>
-    <span class="published">
-        <i class="fa fa-calendar"></i><time datetime="2013-12-31T21:14:10+08:00"> Tue 31 December 2013</time>
-    </span>
-
-
-
-        <span class="label label-default">Category</span>
-        <a href="../category/misc.html">Misc</a>
-
-
-<span class="label label-default">Tags</span>
-	<a href="../tag/update.html">update</a>
-        /
-	<a href="../tag/status.html">status</a>
-        /
-	<a href="../tag/summary.html">summary</a>
-        /
-	<a href="../tag/outlook.html">outlook</a>
-    
-</footer><!-- /.post-info -->                    </div>
-                <div class="summary"><p>辞旧迎新，又是一年年终总结和新年展望的时候。</p>
-<p><strong>首先，工作。</strong></p>
-<p>今年青蛙完成了来北京三年之后的第一个转折：换工作。
-虽然这次换工作是在年度计划之中的，但是确实是在原来公司的团队里发现了问题，以至于不得不提前离开。</p>
-<p>（也是由于拖延症的关系，一直到年底，换工作的blog也没有写完，只好在这里简单写一下对前公司的感想了）
-青蛙的前东家，也就是Red Hat，实际上是一家非常不错的公司。青蛙刚刚进去的时候，体会到的是宽松活泼又快速的工作方式。
-在这种工作环境里，工作本身就是件很有意思的事情。
-首先，在每个人保证自觉性的前提下，老板们基本不会过多的过问进度方面的问题，
-只要能完成任务，剩下的时间可以随意安排。于是青蛙自己就有了很多学习和研究的时间。</p>
-<p>但是，随着老员工的离去和新鲜血液的加入，这种工作氛围慢慢的没有了。
-青蛙最常听到的抱怨就是任务太重以至于不得不加班…… 大概是太多华为来的家伙把加班文化带到了这里？
-一个工资不到华为三分之一，每天还要加班到8-9点钟的公司，实在不能说是一个好选择。
-于是很多人离开也完全可以理解。</p>
-<p>在这种环境下，青蛙开始慢慢的跟找上门的猎头接触，并且参加了一些面试。
-但是出去看过了才发现自身很多的不足，例如基本功不扎实，编码能力不足……
-然后回过头来再看看身边的同事，每天都为一些鸡毛蒜皮的小事情扯来扯去，
-完全没有值得自己学习借鉴的地方。于是青蛙下定决心，一定要在工作满三年之前离开。</p>
-<p>然后在<a href="http://weibo.com/ubuntumotu">侯总</a>的帮助和引荐下 …</p>
-                    <a class="btn btn-default btn-xs" href="../2013/12/2013-summary-and-2014-outlook/">more ...</a>
-                </div>
-            </article>
-            <hr/>
 
         <ul class="pagination">
                 <li class="prev disabled"><a href="#">&laquo;</a></li>
@@ -510,6 +516,9 @@ var locations = [
 <li class="list-group-item">
   <h4>Categories</h4>
   <ul class="list-group" id="categories">
+    <li class="list-group-item">
+      <a href="../category/cloud.html">Cloud</a>
+    </li>
     <li class="list-group-item">
       <a href="../category/cyclone.html">Cyclone</a>
     </li>

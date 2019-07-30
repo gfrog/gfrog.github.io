@@ -67,6 +67,46 @@ My Life, My Love!            </a>
     <div class="row">
         <div class="col-sm-9">
             <article>
+                <h2><a href="../2008/01/number-of-domains-on-one-dreamhost-server/">Dreamhost主机上的用户数</a></h2>
+                    <div class="well well-sm">
+<footer class="post-info">
+    <span class="label label-default">Date</span>
+    <span class="published">
+        <i class="fa fa-calendar"></i><time datetime="2008-01-19T22:23:55+08:00"> Sat 19 January 2008</time>
+    </span>
+
+
+
+        <span class="label label-default">Category</span>
+        <a href="../category/site.html">Site</a>
+
+
+<span class="label label-default">Tags</span>
+	<a href="../tag/dreamhost.html">Dreamhost</a>
+        /
+	<a href="../tag/hosting.html">hosting</a>
+        /
+	<a href="../tag/overselling.html">overselling</a>
+    
+</footer><!-- /.post-info -->                    </div>
+                <div class="summary"><p>ssh到我的DH主机上总感觉慢慢的，很不爽。</p>
+<p>今天在这里发现了下面两条命令，可以分别查看主机上ssh的用户数和总用户数。</p>
+<div class="highlight"><pre><span></span>$ grep -i /home/ /etc/passwd <span class="p">|</span> wc -l
+
+$ grep -i /home/ /etc/passwd <span class="p">|</span> grep /bin/.*sh$ <span class="p">|</span> wc -l
+</pre></div>
+
+
+<p>查了一下，我的空间所在的这个主机上有108个ssh帐户，379个ftp/ssh用户。</p>
+<p>vmstat看下负载，真的是够高。</p>
+<div class="highlight"><pre><span></span><span class="n">procs</span> <span class="c1">-----------memory---------- ---swap-- -----io---- --system-- ----cpu----</span>
+ <span class="n">r</span>  <span class="n">b</span>   <span class="n">swpd</span>   <span class="k">free</span>   <span class="n">buff</span>  <span class="k">cache</span>   <span class="n">si</span>   <span class="n">so</span>    <span class="n">bi</span>    <span class="n">bo</span>   <span class="k">in</span>    <span class="n">cs</span> <span class="n">us</span> <span class="n">sy</span> <span class="n">id</span> <span class="n">wa</span>
+ <span class="mi">0 …</span></pre></div>
+                    <a class="btn btn-default btn-xs" href="../2008/01/number-of-domains-on-one-dreamhost-server/">more ...</a>
+                </div>
+            </article>
+            <hr/>
+            <article>
                 <h2><a href="../2008/01/richard-hammond-presents-bloody-omaha/">从三到万：超级人造人技术</a></h2>
                     <div class="well well-sm">
 <footer class="post-info">
@@ -266,43 +306,6 @@ blog客户端本来就少，能够使用
                 </div>
             </article>
             <hr/>
-            <article>
-                <h2><a href="../2008/01/how-to-configure-scalable-multicasting-on-helix-server/">How do I configure scalable multicasting on Helix Server</a></h2>
-                    <div class="well well-sm">
-<footer class="post-info">
-    <span class="label label-default">Date</span>
-    <span class="published">
-        <i class="fa fa-calendar"></i><time datetime="2008-01-10T21:57:39+08:00"> Thu 10 January 2008</time>
-    </span>
-
-
-
-        <span class="label label-default">Category</span>
-        <a href="../category/linux.html">Linux</a>
-
-
-    
-</footer><!-- /.post-info -->                    </div>
-                <div class="summary"><p><em>原文地址在
-<a href="http://na3.salesforce.com/_ui/selfservice/pkb/PublicKnowledgeSolution/d?orgId=00D500000007Hzn&amp;id=501500000007taI&amp;retURL=%2Fsol%2Fpublic%2Fsolutionbrowser.jsp%3Fsearch%3Dmulticast%26cid%3D02n500000008z1P%26orgId%3D00D500000007Hzn%26t%3D4&amp;ps=1">这里</a>
-我把它翻译成了中文,方便查看。</em></p>
-<hr>
-<p>Helix Server可以通过web方式的管理工具配置为使用可扩展多播，这篇文档只关注可扩展多播功能的配置。
-关于Helix Server功能的完整细节可以在管理向导中找到。
-Helix Server 管理向导：（第8章 多播）
-<a href="http://www.realnetworks.com/support/docs.html">http://www.realnetworks.com/support/docs.html</a></p>
-<ol>
-<li>打开Helix Server的web管理界面。</li>
-<li>点击广播分发，可扩展多播。</li>
-<li>默认的加载点是/scalable/。RealNetworks建议你使用这个默认值，但是你可以随意更改它。</li>
-<li>要建立一个新的频道，点击“+”图标，然后在“编辑频道描述”文本框中为这个多播连接输入一个名称。</li>
-<li>在“启用频道”下拉框中选择“是”来启用可扩展多播。</li>
-<li>在“启用SAP”下拉框中选择"是"来发布这个多播连接。</li>
-<li>在“路径”文本框，添加要被广播发布的流名称。如果要使用所有的广播流 …</li></ol>
-                    <a class="btn btn-default btn-xs" href="../2008/01/how-to-configure-scalable-multicasting-on-helix-server/">more ...</a>
-                </div>
-            </article>
-            <hr/>
 
         <ul class="pagination">
                 <li class="prev"><a href="../author/gfrog19.html">&laquo;</a>
@@ -382,6 +385,9 @@ Helix Server 管理向导：（第8章 多播）
 <li class="list-group-item">
   <h4>Categories</h4>
   <ul class="list-group" id="categories">
+    <li class="list-group-item">
+      <a href="../category/cloud.html">Cloud</a>
+    </li>
     <li class="list-group-item">
       <a href="../category/cyclone.html">Cyclone</a>
     </li>

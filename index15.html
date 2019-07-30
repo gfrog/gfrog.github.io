@@ -67,6 +67,39 @@ My Life, My Love!            </a>
     <div class="row">
         <div class="col-sm-9">
             <article>
+                <h2><a href="./2009/09/lightning/">闪电</a></h2>
+                    <div class="well well-sm">
+<footer class="post-info">
+    <span class="label label-default">Date</span>
+    <span class="published">
+        <i class="fa fa-calendar"></i><time datetime="2009-09-11T23:31:15+08:00"> Fri 11 September 2009</time>
+    </span>
+
+
+
+        <span class="label label-default">Category</span>
+        <a href="./category/pictures.html">Pictures</a>
+
+
+<span class="label label-default">Tags</span>
+	<a href="./tag/pictures.html">pictures</a>
+        /
+	<a href="./tag/lightning.html">lightning</a>
+    
+</footer><!-- /.post-info -->                    </div>
+                <div class="summary"><p>2009年9月11日，雷雨。</p>
+<p>在阳台上蹲守了半小时，浪费快门无数，终于蹲到了2张闪电。</p>
+<p>因为没有快门线，没用B门。
+直接用30秒曝光，30秒以后再按一次快门，如此反复。</p>
+<p>第一次拍，傻傻的没有经验，拍到闪电以后还在傻傻的曝光，没有用遮光板把镜头挡住，所以闪电没有那么壮丽。</p>
+<p><a href="http://gfrog.net/pic/live_in_shenyang/img_0627.jpg.html"><img alt="1" src="http://gfrog.net/pic/albums/live_in_shenyang/img_0627.jpg"></a></p>
+<p><a href="http://gfrog.net/pic/live_in_shenyang/img_0644.jpg.html"><img alt="1" src="http://gfrog.net/pic/albums/live_in_shenyang/img_0644.jpg"></a></p>
+<p><img alt="1" src="http://img.zemanta.com/pixy.gif?x-id=3b13835c-6fc4-8c0b-82bf-47ea658700ac"></p>
+                    <a class="btn btn-default btn-xs" href="./2009/09/lightning/">more ...</a>
+                </div>
+            </article>
+            <hr/>
+            <article>
                 <h2><a href="./2009/08/successfully-upgrade-wordpress/">成功升级wordpress</a></h2>
                     <div class="well well-sm">
 <footer class="post-info">
@@ -303,67 +336,6 @@ UltraVPN基于Openvpn，简单易用，
                 </div>
             </article>
             <hr/>
-            <article>
-                <h2><a href="./2008/12/tips-about-freebsd-installation-and-upgrade/">关于FreeBSD系统安装和升级的几个技巧</a></h2>
-                    <div class="well well-sm">
-<footer class="post-info">
-    <span class="label label-default">Date</span>
-    <span class="published">
-        <i class="fa fa-calendar"></i><time datetime="2008-12-27T22:45:53+08:00"> Sat 27 December 2008</time>
-    </span>
-
-
-
-        <span class="label label-default">Category</span>
-        <a href="./category/misc.html">Misc</a>
-
-
-<span class="label label-default">Tags</span>
-	<a href="./tag/freebsd.html">freebsd</a>
-        /
-	<a href="./tag/installation.html">installation</a>
-        /
-	<a href="./tag/shell.html">shell</a>
-        /
-	<a href="./tag/configuration.html">configuration</a>
-    
-</footer><!-- /.post-info -->                    </div>
-                <div class="summary"><p><img alt="1" src="http://www.freebsd.org/logo/logo-full.png"></p>
-<p>青蛙今天又开始在VMWare上继续倒腾FreeBSD。
-话说上次给FreeBSD划分的虚拟硬盘太小了，
-csup了一下系统和ports就把分区吃光光了。
-所以今天青蛙从头又装了一遍FreeBSD，在安装和升级的过程中遇到了不少问题，在这里统一做一个记录。</p>
-<p>首先，是青蛙又把root密码搞丢了。这已经是第N次刚刚装上系统就要恢复密码了。
-不过今天的原因是这样的，青蛙在安装的时候不小心修改了系统的keymap设置，
-结果按照正常键盘顺序输入的字符，变成了不知道是什么符号。
-当青蛙发现这个问题并改过来keymap之后，root密码就一直错误了。
-没办法，上网google一下。流程如下[1]：</p>
-<p>第一步，启动到freebsd的single user模式，
-也就是出现freebsd的启动菜单的时候按4；
-等着系统启动，最后会提示指定shell的位置或者按回车继续，
-这里直接按回车就ok。</p>
-<p><img alt="freebsd-boot" src="http://gfrog.net/wp-content/uploads/2008/12/windowslivewriterfreebsdtipsaboutfreebsdinstallationandup-b1ffreebsd-boot-3.jpg"></p>
-<p>第二步，在shell里执行如下命令：</p>
-<div class="highlight"><pre><span></span><span class="o">#</span> <span class="n">fsck</span> <span class="o">-</span><span class="n">p</span>
-<span class="o">#</span> <span class="n">mount</span> <span class="o">-</span><span class="n">u</span> <span class="o">/</span>
-<span class="o">#</span> <span class="n">mount</span> <span class="o">-</span><span class="n">t</span> <span class="n">ufs</span> <span class="o">-</span><span class="n">a</span>
-</pre></div>
-
-
-<p>第三步，用passwd修改root密码。</p>
-<p>青蛙在这啰嗦一句：现在想想当时的错误操作就是在设置终端那步，
-青蛙打开keymap的设置对话框看了一眼，
-估计那个时候就直接选择了第一个键盘类型，然后就那么错了。
-对比各种Linux的安装过程，
-keymap的设置有一个默认不做任何改变的选项，
-青蛙在FreeBSD里面就没有找到，
-看来FreeBSD在这种细节上还需要继续努力。</p>
-<p>由于FreeBSD的默认shell是csh，所以青蛙用起来十分的不顺手，
-上网google到几个贴心小设置 …</p>
-                    <a class="btn btn-default btn-xs" href="./2008/12/tips-about-freebsd-installation-and-upgrade/">more ...</a>
-                </div>
-            </article>
-            <hr/>
 
         <ul class="pagination">
                 <li class="prev"><a href="./index14.html">&laquo;</a>
@@ -443,6 +415,9 @@ keymap的设置有一个默认不做任何改变的选项，
 <li class="list-group-item">
   <h4>Categories</h4>
   <ul class="list-group" id="categories">
+    <li class="list-group-item">
+      <a href="./category/cloud.html">Cloud</a>
+    </li>
     <li class="list-group-item">
       <a href="./category/cyclone.html">Cyclone</a>
     </li>

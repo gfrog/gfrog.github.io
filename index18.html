@@ -67,6 +67,57 @@ My Life, My Love!            </a>
     <div class="row">
         <div class="col-sm-9">
             <article>
+                <h2><a href="./2008/03/glinux-setup-build-directory/">glinux开发摘要(2)-构建目录结构</a></h2>
+                    <div class="well well-sm">
+<footer class="post-info">
+    <span class="label label-default">Date</span>
+    <span class="published">
+        <i class="fa fa-calendar"></i><time datetime="2008-03-16T23:18:34+08:00"> Sun 16 March 2008</time>
+    </span>
+
+
+
+        <span class="label label-default">Category</span>
+        <a href="./category/linux.html">Linux</a>
+
+
+<span class="label label-default">Tags</span>
+	<a href="./tag/linux.html">linux</a>
+        /
+	<a href="./tag/lfs.html">lfs</a>
+        /
+	<a href="./tag/build.html">build</a>
+        /
+	<a href="./tag/directory.html">directory</a>
+        /
+	<a href="./tag/setup.html">setup</a>
+    
+</footer><!-- /.post-info -->                    </div>
+                <div class="summary"><p><em>下面的操作步骤青蛙基本上是从
+<a href="http://www.linuxfromscratch.org/lfs/view/6.3">lfs6.3</a>
+学来的，所以会有$LFS这个变量，如果你对lfs也有兴趣，可以
+<a href="http://www.linuxfromscratch.org/">去它的官方网站</a>
+看看。</em></p>
+<p>青蛙编译完成了toolchain以后，就可以开始建造glinux的目录体系了。</p>
+<p>首先，构造虚拟内核文件系统(Virtual Kernel File Systems)，这个东东是跟内核通信的一个途径。</p>
+<p>执行下面的命令，来建立文件系统的挂载点：</p>
+<div class="highlight"><pre><span></span><span class="n">mkdir</span> <span class="o">-</span><span class="n">pv</span> <span class="err">$</span><span class="n">LFS</span><span class="o">/</span><span class="err">{</span><span class="n">dev</span><span class="p">,</span><span class="n">proc</span><span class="p">,</span><span class="n">sys</span><span class="err">}</span>
+</pre></div>
+
+
+<p>然后，建立几个必要的设备文件，</p>
+<div class="highlight"><pre><span></span><span class="n">mknod</span> <span class="o">-</span><span class="n">m</span> <span class="mi">600</span> <span class="err">$</span><span class="n">LFS</span><span class="o">/</span><span class="n">dev</span><span class="o">/</span><span class="n">console</span> <span class="k">c</span> <span class="mi">5</span> <span class="mi">1</span>
+<span class="n">mknod</span> <span class="o">-</span><span class="n">m</span> <span class="mi">666</span> <span class="err">$</span><span class="n">LFS</span><span class="o">/</span><span class="n">dev</span><span class="o">/</span><span class="k">null</span> <span class="k">c</span> <span class="mi">1</span> <span class="mi">3</span>
+</pre></div>
+
+
+<p>青蛙准备用udev来管理设备文件，所以只建立这两个文件就够了，
+其他文件udev会在系统启动的时候自动创建 …</p>
+                    <a class="btn btn-default btn-xs" href="./2008/03/glinux-setup-build-directory/">more ...</a>
+                </div>
+            </article>
+            <hr/>
+            <article>
                 <h2><a href="./2008/03/glinux-setup-compile-environment/">glinux开发摘要(1)--编译环境制作</a></h2>
                     <div class="well well-sm">
 <footer class="post-info">
@@ -318,31 +369,6 @@ google了一大把关键字，看了一大叠邮件列表，
                 </div>
             </article>
             <hr/>
-            <article>
-                <h2><a href="./2008/02/year-has-passed-and-formally-work-begin/">年关已过，正式开始工作</a></h2>
-                    <div class="well well-sm">
-<footer class="post-info">
-    <span class="label label-default">Date</span>
-    <span class="published">
-        <i class="fa fa-calendar"></i><time datetime="2008-02-16T10:36:00+08:00"> Sat 16 February 2008</time>
-    </span>
-
-
-
-        <span class="label label-default">Category</span>
-        <a href="./category/misc.html">Misc</a>
-
-
-    
-</footer><!-- /.post-info -->                    </div>
-                <div class="summary"><p>终于过完年了。</p>
-<p>在家闲了10多天，都快闲出毛病了。</p>
-<p>明天，开始上班。</p>
-<p>新的一年，新的起点。加油工作！</p>
-                    <a class="btn btn-default btn-xs" href="./2008/02/year-has-passed-and-formally-work-begin/">more ...</a>
-                </div>
-            </article>
-            <hr/>
 
         <ul class="pagination">
                 <li class="prev"><a href="./index17.html">&laquo;</a>
@@ -422,6 +448,9 @@ google了一大把关键字，看了一大叠邮件列表，
 <li class="list-group-item">
   <h4>Categories</h4>
   <ul class="list-group" id="categories">
+    <li class="list-group-item">
+      <a href="./category/cloud.html">Cloud</a>
+    </li>
     <li class="list-group-item">
       <a href="./category/cyclone.html">Cyclone</a>
     </li>

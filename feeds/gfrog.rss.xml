@@ -1,5 +1,89 @@
 <?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0"><channel><title>My Life, My Love! - gfrog</title><link>https://www.gfrog.net/</link><description>指点江山 激昂文字 修身隆德 自然自我</description><lastBuildDate>Wed, 17 Jul 2019 20:48:27 +0800</lastBuildDate><item><title>修复因为 Python 升级导致的失效 virtualenv 环境</title><link>https://www.gfrog.net/2019/07/fix-python-virtualenv-after-python-upgrade/</link><description>&lt;p&gt;&lt;img alt="python and macos" src="https://i1.wp.com/www.alexwhittemore.com/wp-content/uploads/2018/08/Untitled-drawing.jpg?ssl=1"&gt;&lt;/p&gt;
+<rss version="2.0"><channel><title>My Life, My Love! - gfrog</title><link>https://www.gfrog.net/</link><description>指点江山 激昂文字 修身隆德 自然自我</description><lastBuildDate>Tue, 30 Jul 2019 21:36:08 +0800</lastBuildDate><item><title>从 partitioning （脑裂）中恢复 RabbitMQ 集群</title><link>https://www.gfrog.net/2019/07/recover-rabbitmq-cluster-after-partitioning/</link><description>&lt;p&gt;&lt;img alt="rabbitmq" src="https://miro.medium.com/max/1200/1*UnYL-2r54_7AnEwQv0cVxA.png"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;（本文为
+&lt;a href="https://gist.github.com/niedbalski/69a72103adad4f0f9609a0857c9810a4"&gt;https://gist.github.com/niedbalski/69a72103adad4f0f9609a0857c9810a4&lt;/a&gt;
+的翻译文档。
+）&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;1) 检查 Cluster 状态。&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;Mnesia&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;rabbit@juju-machine-30-lxd-11&amp;#39;&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt;: ** ERROR ** mnesia_event got &lt;span class="o"&gt;{&lt;/span&gt;inconsistent_database, running_partitioned_network, &lt;span class="s1"&gt;&amp;#39;rabbit@juju-machine-29-lxd-9&amp;#39;&lt;/span&gt;&lt;span class="o"&gt;}&lt;/span&gt;
+
+$ sudo rabbitmqctl cluster_status
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;2) 选择合适的节点作为 master 节点。&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;（注：这个步骤很重要，如果没有选择合适的 master节点，很容易造成消息丢失）&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;# 通过连接数。&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ juju run --service rabbitmq-server &lt;span class="s2"&gt;&amp;quot;sudo ss -t state established -nt &amp;#39;( sport = :amqp )&amp;#39; | wc -l&amp;quot;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;# 最新的 mnesia。&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ juju run --service rabbitmq-server &lt;span class="s1"&gt;&amp;#39;sudo find /var/lib/rabbitmq/mnesia -type f | xargs ls -ltr | tail -n 1 | cut -d &amp;quot; &amp;quot; -f13 | xargs -I {} stat -c &amp;quot;%y&amp;quot; {}&amp;#39;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;# Openstack 队列中包含最多的消息数。&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ juju run --service rabbitmq-server &lt;span class="s2"&gt;&amp;quot;sudo rabbitmqctl list_queues -p openstack messages | awk &amp;#39;{s+=\$1}END{print s}&amp;#39;&amp;quot;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;3) 在非 master 节点上停止所有的 epmd/erl进程。&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ /etc/init/rabbitmq-server stop
+$ sudo killall epmd
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;em&gt;（注：在 juju 的环境里还需要关掉 jujud 以免 juju 自作主张重启 rabbitmq server）&lt;/em&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ sudo systemctl stop jujud-unit-rabbitmq-server-0.service
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;确认所有的 rabbitmq 进程都被杀掉了：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ sudo ps -U rabbitmq -o pid --no-heading
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;4) 删除 mnesia，重新启动 rabbitmq 服务，然后停止 app。&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ sudo mv /var/lib/rabbitmq/mnesia /var/lib/rabbitmq/mnesia-back
+$ sudo service rabbitmq-server start
+$ sudo rabbitmqctl stop_app
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;确认 rabbitmq 服务启动，并且未加入 cluster。 (&lt;code&gt;$ sudo rabbitmqctl cluster_status&lt;/code&gt;)&lt;/p&gt;
+&lt;p&gt;5) 在 master 节点上忘记（forget） 其他节点。&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ sudo rabbitmqctl stop_app
+$ sudo rabbitmqctl forget_cluster_node rabbit@trashed-slave
+$ sudo rabbitmqctl start_app
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;em&gt;（注：这里应该有比较重要的一步，就是检查所有节点上的 &lt;code&gt;cluster_name&lt;/code&gt;。
+一定要确保其他节点上的&lt;code&gt;cluster_name&lt;/code&gt;跟 master 节点一致。所以青蛙把这一步作为5.1）&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;5.1) 检查并确认 &lt;code&gt;cluster_name&lt;/code&gt;。&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ juju run --application rabbitmq-server &lt;span class="s2"&gt;&amp;quot;sudo rabbitmqctl cluster_status |grep cluster_name&amp;quot;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;如果 &lt;code&gt;cluster_name&lt;/code&gt; 不一致，需要在其他节点上修改&lt;code&gt;cluster_name&lt;/code&gt;：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ sudo rabbitmqctl set_cluster_name rabbit@juju-machine-29-lxd-9
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;6) 将节点加入 cluster，在要加入的节点上执行：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ sudo rabbitmqctl join_cluster rabbit@master
+$ sudo rabbitmqctl start_app
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;7) 检查 clutser 状态。&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ juju run --application rabbitmq-server &lt;span class="s2"&gt;&amp;quot;sudo rabbitmqctl cluster_status&amp;quot;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;8) 建议将 rabbitmq-server charm 的 &lt;code&gt;cluster-partitioning-handling&lt;/code&gt; 选项设置为 &lt;code&gt;autoheal&lt;/code&gt;。&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://github.com/openstack/charm-rabbitmq-server/blob/master/config.yaml#L39"&gt;https://github.com/openstack/charm-rabbitmq-server/blob/master/config.yaml#L39&lt;/a&gt;&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">gfrog</dc:creator><pubDate>Tue, 30 Jul 2019 21:36:08 +0800</pubDate><guid isPermaLink="false">tag:www.gfrog.net,2019-07-30:/2019/07/recover-rabbitmq-cluster-after-partitioning/</guid><category>cloud</category><category>rabbitmq</category><category>cluster</category><category>recover</category><category>partition</category><category>juju</category></item><item><title>修复因为 Python 升级导致的失效 virtualenv 环境</title><link>https://www.gfrog.net/2019/07/fix-python-virtualenv-after-python-upgrade/</link><description>&lt;p&gt;&lt;img alt="python and macos" src="https://i1.wp.com/www.alexwhittemore.com/wp-content/uploads/2018/08/Untitled-drawing.jpg?ssl=1"&gt;&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;（图片借用
 &lt;a href="https://www.alexwhittemore.com/python-on-macos-best-practices/"&gt;PYTHON ON MACOS: BEST PRACTICES&lt;/a&gt;
 的标题图，这篇文档也是关于MacOS上面运行python和virtualenv的。）&lt;/em&gt;&lt;/p&gt;

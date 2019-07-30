@@ -67,6 +67,67 @@ My Life, My Love!            </a>
     <div class="row">
         <div class="col-sm-9">
             <article>
+                <h2><a href="./2008/12/tips-about-freebsd-installation-and-upgrade/">关于FreeBSD系统安装和升级的几个技巧</a></h2>
+                    <div class="well well-sm">
+<footer class="post-info">
+    <span class="label label-default">Date</span>
+    <span class="published">
+        <i class="fa fa-calendar"></i><time datetime="2008-12-27T22:45:53+08:00"> Sat 27 December 2008</time>
+    </span>
+
+
+
+        <span class="label label-default">Category</span>
+        <a href="./category/misc.html">Misc</a>
+
+
+<span class="label label-default">Tags</span>
+	<a href="./tag/freebsd.html">freebsd</a>
+        /
+	<a href="./tag/installation.html">installation</a>
+        /
+	<a href="./tag/shell.html">shell</a>
+        /
+	<a href="./tag/configuration.html">configuration</a>
+    
+</footer><!-- /.post-info -->                    </div>
+                <div class="summary"><p><img alt="1" src="http://www.freebsd.org/logo/logo-full.png"></p>
+<p>青蛙今天又开始在VMWare上继续倒腾FreeBSD。
+话说上次给FreeBSD划分的虚拟硬盘太小了，
+csup了一下系统和ports就把分区吃光光了。
+所以今天青蛙从头又装了一遍FreeBSD，在安装和升级的过程中遇到了不少问题，在这里统一做一个记录。</p>
+<p>首先，是青蛙又把root密码搞丢了。这已经是第N次刚刚装上系统就要恢复密码了。
+不过今天的原因是这样的，青蛙在安装的时候不小心修改了系统的keymap设置，
+结果按照正常键盘顺序输入的字符，变成了不知道是什么符号。
+当青蛙发现这个问题并改过来keymap之后，root密码就一直错误了。
+没办法，上网google一下。流程如下[1]：</p>
+<p>第一步，启动到freebsd的single user模式，
+也就是出现freebsd的启动菜单的时候按4；
+等着系统启动，最后会提示指定shell的位置或者按回车继续，
+这里直接按回车就ok。</p>
+<p><img alt="freebsd-boot" src="http://gfrog.net/wp-content/uploads/2008/12/windowslivewriterfreebsdtipsaboutfreebsdinstallationandup-b1ffreebsd-boot-3.jpg"></p>
+<p>第二步，在shell里执行如下命令：</p>
+<div class="highlight"><pre><span></span><span class="o">#</span> <span class="n">fsck</span> <span class="o">-</span><span class="n">p</span>
+<span class="o">#</span> <span class="n">mount</span> <span class="o">-</span><span class="n">u</span> <span class="o">/</span>
+<span class="o">#</span> <span class="n">mount</span> <span class="o">-</span><span class="n">t</span> <span class="n">ufs</span> <span class="o">-</span><span class="n">a</span>
+</pre></div>
+
+
+<p>第三步，用passwd修改root密码。</p>
+<p>青蛙在这啰嗦一句：现在想想当时的错误操作就是在设置终端那步，
+青蛙打开keymap的设置对话框看了一眼，
+估计那个时候就直接选择了第一个键盘类型，然后就那么错了。
+对比各种Linux的安装过程，
+keymap的设置有一个默认不做任何改变的选项，
+青蛙在FreeBSD里面就没有找到，
+看来FreeBSD在这种细节上还需要继续努力。</p>
+<p>由于FreeBSD的默认shell是csh，所以青蛙用起来十分的不顺手，
+上网google到几个贴心小设置 …</p>
+                    <a class="btn btn-default btn-xs" href="./2008/12/tips-about-freebsd-installation-and-upgrade/">more ...</a>
+                </div>
+            </article>
+            <hr/>
+            <article>
                 <h2><a href="./2008/12/announce-this-blog-has-paid-for-next-year/">公告：此空间续费完毕</a></h2>
                     <div class="well well-sm">
 <footer class="post-info">
@@ -311,36 +372,6 @@ My Life, My Love!            </a>
                 </div>
             </article>
             <hr/>
-            <article>
-                <h2><a href="./2008/05/google-change-favicon/">G to g, google for kids?</a></h2>
-                    <div class="well well-sm">
-<footer class="post-info">
-    <span class="label label-default">Date</span>
-    <span class="published">
-        <i class="fa fa-calendar"></i><time datetime="2008-05-31T23:52:18+08:00"> Sat 31 May 2008</time>
-    </span>
-
-
-
-        <span class="label label-default">Category</span>
-        <a href="./category/misc.html">Misc</a>
-
-
-    
-</footer><!-- /.post-info -->                    </div>
-                <div class="summary"><p><img alt="1" src="http://www.google.com/intl/en_ALL/images/logo.gif"></p>
-<p>不经意之间，google的全球网站全部都悄悄的更换了favicon，
-从一个大大的G换成了一个cute g。
-今天早上青蛙发现这个变化的时候，第一反应就是：</p>
-<p>google一定是为儿童节更换的图标。</p>
-<p>但是过了几分钟，才想起来，“六一”只是中国宝宝的节日啊，
-难不成全球的google站点都在为中国宝宝们庆祝节日？</p>
-<p><strong>update 2008-06-01</strong>：原来“六一”是全世界宝宝的节日啊。</p>
-<p>我承认，我没有小学毕业证，大家鄙视我吧。 -____-</p>
-                    <a class="btn btn-default btn-xs" href="./2008/05/google-change-favicon/">more ...</a>
-                </div>
-            </article>
-            <hr/>
 
         <ul class="pagination">
                 <li class="prev"><a href="./index15.html">&laquo;</a>
@@ -420,6 +451,9 @@ My Life, My Love!            </a>
 <li class="list-group-item">
   <h4>Categories</h4>
   <ul class="list-group" id="categories">
+    <li class="list-group-item">
+      <a href="./category/cloud.html">Cloud</a>
+    </li>
     <li class="list-group-item">
       <a href="./category/cyclone.html">Cyclone</a>
     </li>

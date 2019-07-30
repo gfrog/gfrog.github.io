@@ -67,6 +67,31 @@ My Life, My Love!            </a>
     <div class="row">
         <div class="col-sm-9">
             <article>
+                <h2><a href="../2013/04/-pic-of-green-leaves/">一张流：绿叶</a></h2>
+                    <div class="well well-sm">
+<footer class="post-info">
+    <span class="label label-default">Date</span>
+    <span class="published">
+        <i class="fa fa-calendar"></i><time datetime="2013-04-18T15:21:00+08:00"> Thu 18 April 2013</time>
+    </span>
+
+
+
+        <span class="label label-default">Category</span>
+        <a href="../category/pictures.html">Pictures</a>
+
+
+<span class="label label-default">Tags</span>
+	<a href="../tag/pictures.html">pictures</a>
+    
+</footer><!-- /.post-info -->                    </div>
+                <div class="summary"><p>真喜欢这种风格，绿色，阳光，生命，还有最关键的：希望。</p>
+<p><img alt="1" src="https://lh5.googleusercontent.com/-e9Cvxy2ampQ/UXTkS_FNS_I/AAAAAAAAKlc/TjpS8izTddw/s640/940302F2-B06E-44CA-BCCC-C32995614735.JPG"></p>
+                    <a class="btn btn-default btn-xs" href="../2013/04/-pic-of-green-leaves/">more ...</a>
+                </div>
+            </article>
+            <hr/>
+            <article>
                 <h2><a href="../2013/04/some-demo-for-python-varients-scope/">Python中关于变量作用域的一些demo</a></h2>
                     <div class="well well-sm">
 <footer class="post-info">
@@ -293,60 +318,6 @@ My Life, My Love!            </a>
                 </div>
             </article>
             <hr/>
-            <article>
-                <h2><a href="../2013/01/foward-dns-packet-with-tunnel/">我们来打洞：转发DNS包</a></h2>
-                    <div class="well well-sm">
-<footer class="post-info">
-    <span class="label label-default">Date</span>
-    <span class="published">
-        <i class="fa fa-calendar"></i><time datetime="2013-01-06T22:22:44+08:00"> Sun 06 January 2013</time>
-    </span>
-
-
-
-        <span class="label label-default">Category</span>
-        <a href="../category/linux.html">Linux</a>
-
-
-<span class="label label-default">Tags</span>
-	<a href="../tag/linux.html">linux</a>
-        /
-	<a href="../tag/desktop.html">desktop</a>
-        /
-	<a href="../tag/ssh.html">ssh</a>
-        /
-	<a href="../tag/tunnel.html">tunnel</a>
-        /
-	<a href="../tag/client.html">client</a>
-        /
-	<a href="../tag/networking.html">networking</a>
-        /
-	<a href="../tag/dns.html">dns</a>
-        /
-	<a href="../tag/shell.html">shell</a>
-    
-</footer><!-- /.post-info -->                    </div>
-                <div class="summary"><p>基于某些众所周知的原因，在天朝上网非常需要勇气和技术。
-今天在跟某人聊天时了解到Chrome竟然没办法使用proxy进行DNS查询&lt;1&gt;， 导致DNS查询结果持续被污染。
-虽然用proxychains能把一切流量塞进代理里面，
-不过用proxychains启动浏览器的话，各种自动代理插件就失效了，所以这是个得不偿失的方法。
-青蛙晚上的时候突然想到iptables是不是可以把DNS查询流量转发进ssh tunnel呢？
-上网google一番之后，发现这是可行的，而且其实用不到iptables，只要nc就够了。</p>
-<p>要用SSH Tunnel转发DNS流量，最大的问题是要把DNS协议使用的UDP协议转换为TCP协议，然后在proxy端还要转换回来。
-所以目前青蛙想到的方案有一个很大的缺陷，就是如果ssh服务器上不提供nc命令的话，下面的操作是没法完成的。</p>
-<p>首先，用SSH连接ssh服务器，这里青蛙打了一套组合拳，ssh -L + -D组合，分别负责DNS流量和普通数据流量：</p>
-<div class="highlight"><pre><span></span><span class="n">ssh</span><span class="w"> </span><span class="o">-</span><span class="n">D1080</span><span class="w"> </span><span class="o">-</span><span class="nl">L5353</span><span class="p">:</span><span class="mf">127.0.0.1</span><span class="err">:</span><span class="mi">5353</span><span class="w"> </span><span class="k">user</span><span class="nv">@ssh</span><span class="o">-</span><span class="n">server</span><span class="w"></span>
-</pre></div>
-
-
-<p>-L 参数的目的是在本地机器上打开一个5353端口，发送到这个端口的数据都会被转发到ssh服务器上的5353端口上。</p>
-<p>然后，在ssh服务器上执行：</p>
-<div class="highlight"><pre><span></span><span class="n">server$</span> <span class="n">mkfifo</span> <span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">fifo</span>
-<span class="n">server …</span></pre></div>
-                    <a class="btn btn-default btn-xs" href="../2013/01/foward-dns-packet-with-tunnel/">more ...</a>
-                </div>
-            </article>
-            <hr/>
 
         <ul class="pagination">
                 <li class="prev"><a href="../author/gfrog3.html">&laquo;</a>
@@ -426,6 +397,9 @@ My Life, My Love!            </a>
 <li class="list-group-item">
   <h4>Categories</h4>
   <ul class="list-group" id="categories">
+    <li class="list-group-item">
+      <a href="../category/cloud.html">Cloud</a>
+    </li>
     <li class="list-group-item">
       <a href="../category/cyclone.html">Cyclone</a>
     </li>

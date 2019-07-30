@@ -67,6 +67,43 @@ My Life, My Love!            </a>
     <div class="row">
         <div class="col-sm-9">
             <article>
+                <h2><a href="../2008/01/how-to-configure-scalable-multicasting-on-helix-server/">How do I configure scalable multicasting on Helix Server</a></h2>
+                    <div class="well well-sm">
+<footer class="post-info">
+    <span class="label label-default">Date</span>
+    <span class="published">
+        <i class="fa fa-calendar"></i><time datetime="2008-01-10T21:57:39+08:00"> Thu 10 January 2008</time>
+    </span>
+
+
+
+        <span class="label label-default">Category</span>
+        <a href="../category/linux.html">Linux</a>
+
+
+    
+</footer><!-- /.post-info -->                    </div>
+                <div class="summary"><p><em>原文地址在
+<a href="http://na3.salesforce.com/_ui/selfservice/pkb/PublicKnowledgeSolution/d?orgId=00D500000007Hzn&amp;id=501500000007taI&amp;retURL=%2Fsol%2Fpublic%2Fsolutionbrowser.jsp%3Fsearch%3Dmulticast%26cid%3D02n500000008z1P%26orgId%3D00D500000007Hzn%26t%3D4&amp;ps=1">这里</a>
+我把它翻译成了中文,方便查看。</em></p>
+<hr>
+<p>Helix Server可以通过web方式的管理工具配置为使用可扩展多播，这篇文档只关注可扩展多播功能的配置。
+关于Helix Server功能的完整细节可以在管理向导中找到。
+Helix Server 管理向导：（第8章 多播）
+<a href="http://www.realnetworks.com/support/docs.html">http://www.realnetworks.com/support/docs.html</a></p>
+<ol>
+<li>打开Helix Server的web管理界面。</li>
+<li>点击广播分发，可扩展多播。</li>
+<li>默认的加载点是/scalable/。RealNetworks建议你使用这个默认值，但是你可以随意更改它。</li>
+<li>要建立一个新的频道，点击“+”图标，然后在“编辑频道描述”文本框中为这个多播连接输入一个名称。</li>
+<li>在“启用频道”下拉框中选择“是”来启用可扩展多播。</li>
+<li>在“启用SAP”下拉框中选择"是"来发布这个多播连接。</li>
+<li>在“路径”文本框，添加要被广播发布的流名称。如果要使用所有的广播流 …</li></ol>
+                    <a class="btn btn-default btn-xs" href="../2008/01/how-to-configure-scalable-multicasting-on-helix-server/">more ...</a>
+                </div>
+            </article>
+            <hr/>
+            <article>
                 <h2><a href="../2008/01/feedsky-verify-code/">feedsky验证码</a></h2>
                     <div class="well well-sm">
 <footer class="post-info">
@@ -272,34 +309,6 @@ dmask=777,fmask=777, 共享分区的读写权限,这里设成777了.根据自己
                 </div>
             </article>
             <hr/>
-            <article>
-                <h2><a href="../2007/06/fuck-tnnd-sina-blog/">fuck tnnd的新浪</a></h2>
-                    <div class="well well-sm">
-<footer class="post-info">
-    <span class="label label-default">Date</span>
-    <span class="published">
-        <i class="fa fa-calendar"></i><time datetime="2007-06-26T22:44:32+08:00"> Tue 26 June 2007</time>
-    </span>
-
-
-
-        <span class="label label-default">Category</span>
-        <a href="../category/misc.html">Misc</a>
-
-
-<span class="label label-default">Tags</span>
-	<a href="../tag/blog.html">blog</a>
-        /
-	<a href="../tag/sina.html">sina</a>
-    
-</footer><!-- /.post-info -->                    </div>
-                <div class="summary"><p>妈的</p>
-<p>blog连个图片都不给看</p>
-<p>还tm有脸叫门户</p>
-                    <a class="btn btn-default btn-xs" href="../2007/06/fuck-tnnd-sina-blog/">more ...</a>
-                </div>
-            </article>
-            <hr/>
 
         <ul class="pagination">
                 <li class="prev"><a href="../author/gfrog20.html">&laquo;</a>
@@ -379,6 +388,9 @@ dmask=777,fmask=777, 共享分区的读写权限,这里设成777了.根据自己
 <li class="list-group-item">
   <h4>Categories</h4>
   <ul class="list-group" id="categories">
+    <li class="list-group-item">
+      <a href="../category/cloud.html">Cloud</a>
+    </li>
     <li class="list-group-item">
       <a href="../category/cyclone.html">Cyclone</a>
     </li>
