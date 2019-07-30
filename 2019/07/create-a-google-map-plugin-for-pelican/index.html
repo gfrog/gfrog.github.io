@@ -130,7 +130,7 @@ My Life, My Love!            </a>
 <p>于是青蛙一怒之下自己照猫画虎写了个liquid_tag版本的google map，竟然也能用了。</p>
 <p>目前这个plugin支持map和direction模式，青蛙还在考虑要不要添加街景模式。</p>
 <p>添加map的方法：</p>
-<div class="highlight"><pre><span></span><span class="w">    </span><span class="err">{</span><span class="o">%</span><span class="w"> </span><span class="n">gmap</span><span class="w"> </span><span class="ss">&quot;location&quot;</span><span class="w"> </span><span class="n">mode</span><span class="w"> </span><span class="o">[</span><span class="n">maptype</span><span class="o">]</span><span class="w"> </span><span class="o">[</span><span class="n">align</span><span class="o">]</span><span class="w"> </span><span class="o">[</span><span class="n">width</span><span class="o">]</span><span class="w"> </span><span class="o">[</span><span class="n">height</span><span class="o">]</span><span class="w"> </span><span class="o">%</span><span class="err">}</span><span class="w"></span>
+<div class="highlight"><pre><span></span><span class="x">    {% gmap &quot;location&quot; mode [maptype] [align] [width] [height] %}</span>
 </pre></div>
 
 
@@ -150,7 +150,7 @@ My Life, My Love!            </a>
 </span>
         </p>
 <p>添加direction（导航）的方法：</p>
-<div class="highlight"><pre><span></span><span class="w">    </span><span class="err">{</span><span class="o">%</span><span class="w"> </span><span class="n">gdirection</span><span class="w"> </span><span class="ss">&quot;origin&quot;</span><span class="w"> </span><span class="ss">&quot;destination&quot;</span><span class="w"> </span><span class="o">[</span><span class="n">&quot;waypoints&quot;</span><span class="o">]</span><span class="w"> </span><span class="n">mode</span><span class="w"> </span><span class="o">[</span><span class="n">maptype</span><span class="o">]</span><span class="w"> </span><span class="o">[</span><span class="n">align</span><span class="o">]</span><span class="w"> </span><span class="o">[</span><span class="n">width</span><span class="o">]</span><span class="w"> </span><span class="o">[</span><span class="n">height</span><span class="o">]</span><span class="w"> </span><span class="o">%</span><span class="err">}</span><span class="w"></span>
+<div class="highlight"><pre><span></span><span class="x">    {% gdirection &quot;origin&quot; &quot;destination&quot; [&quot;waypoints&quot;] mode [maptype] [align] [width] [height] %}</span>
 </pre></div>
 
 
@@ -172,7 +172,7 @@ My Life, My Love!            </a>
 <p>如果你也想在pelican里面使用这个插件，可以在
 <a href="https://console.cloud.google.com/projectselector2/google/maps-apis/api-list?supportedpurview=project&amp;project&amp;folder&amp;organizationId">Google cloud plateform console</a>
 申请一个MAP API key，然后在<code>pelicanconfig.py</code>文件里加入API key配置：</p>
-<div class="highlight"><pre><span></span><span class="n">GMAPS_API_KEY</span> <span class="o">=</span> <span class="ss">&quot;YOUR_API_KEY_HERE&quot;</span>
+<div class="highlight"><pre><span></span><span class="n">GMAPS_API_KEY</span> <span class="o">=</span> <span class="s2">&quot;YOUR_API_KEY_HERE&quot;</span>
 </pre></div>
 
 
