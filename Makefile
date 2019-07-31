@@ -1,6 +1,7 @@
 PY?=python3
 PELICAN?=pelican
 PELICANOPTS=
+SEDPROGRAM=gsed
 
 PROXY_ENV=proxychains4
 
@@ -44,6 +45,7 @@ help:
 
 html:
 	$(PROXY_ENV) $(PELICAN) $(INPUTDIR) -o $(OUTPUTDIR) -s $(CONFFILE) $(PELICANOPTS)
+	grep '<table>' $(OUTPUTDIR)  -rl  --include '*.html' \ | xargs $(SEDPROGRAM) -i 's/<table>/<table class="table table-condensed table-bordered table-hover">/'
 
 clean:
 	[ ! -d $(OUTPUTDIR) ] || rm -rf $(OUTPUTDIR)
@@ -75,6 +77,7 @@ endif
 
 publish:
 	$(PROXY_ENV) $(PELICAN) $(INPUTDIR) -o $(OUTPUTDIR) -s $(PUBLISHCONF) $(PELICANOPTS)
+	grep '<table>' $(OUTPUTDIR)  -rl  --include '*.html' \ | xargs $(SEDPROGRAM) -i 's/<table>/<table class="table table-condensed table-bordered table-hover">/'
 
 github: publish
 	ghp-import -pf -m "Generate Pelican site" -b $(GITHUB_PAGES_BRANCH) $(OUTPUTDIR)
