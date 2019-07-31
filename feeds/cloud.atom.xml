@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>My Life, My Love! - Cloud</title><link href="https://www.gfrog.net/" rel="alternate"></link><link href="https://www.gfrog.net/feeds/cloud.atom.xml" rel="self"></link><id>https://www.gfrog.net/</id><updated>2019-07-30T21:36:08+08:00</updated><subtitle>指点江山 激昂文字 修身隆德 自然自我</subtitle><entry><title>从 partitioning （脑裂）中恢复 RabbitMQ 集群</title><link href="https://www.gfrog.net/2019/07/recover-rabbitmq-cluster-after-partitioning/" rel="alternate"></link><published>2019-07-30T21:36:08+08:00</published><updated>2019-07-30T21:36:08+08:00</updated><author><name>gfrog</name></author><id>tag:www.gfrog.net,2019-07-30:/2019/07/recover-rabbitmq-cluster-after-partitioning/</id><summary type="html">&lt;p&gt;&lt;img alt="rabbitmq" src="https://miro.medium.com/max/1200/1*UnYL-2r54_7AnEwQv0cVxA.png"&gt;&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>My Life, My Love! - Cloud</title><link href="https://www.gfrog.net/" rel="alternate"></link><link href="https://www.gfrog.net/feeds/cloud.atom.xml" rel="self"></link><id>https://www.gfrog.net/</id><updated>2019-07-30T21:36:08+08:00</updated><subtitle>指点江山 激昂文字 修身隆德 自然自我</subtitle><entry><title>从分区（partitioning）中恢复 RabbitMQ 集群</title><link href="https://www.gfrog.net/2019/07/recover-rabbitmq-cluster-after-partitioning/" rel="alternate"></link><published>2019-07-30T21:36:08+08:00</published><updated>2019-07-30T21:36:08+08:00</updated><author><name>gfrog</name></author><id>tag:www.gfrog.net,2019-07-30:/2019/07/recover-rabbitmq-cluster-after-partitioning/</id><summary type="html">&lt;p&gt;&lt;img alt="rabbitmq" src="https://miro.medium.com/max/1200/1*UnYL-2r54_7AnEwQv0cVxA.png"&gt;&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;（本文为
 &lt;a href="https://gist.github.com/niedbalski/69a72103adad4f0f9609a0857c9810a4"&gt;https://gist.github.com/niedbalski/69a72103adad4f0f9609a0857c9810a4&lt;/a&gt;
 的翻译文档。
@@ -102,4 +102,10 @@ $ sudo rabbitmqctl start_app
 
 
 &lt;p&gt;8) 建议将 rabbitmq-server charm 的 &lt;code&gt;cluster-partitioning-handling&lt;/code&gt; 选项设置为 &lt;code&gt;autoheal&lt;/code&gt;。&lt;/p&gt;
-&lt;p&gt;&lt;a href="https://github.com/openstack/charm-rabbitmq-server/blob/master/config.yaml#L39"&gt;https://github.com/openstack/charm-rabbitmq-server/blob/master/config.yaml#L39&lt;/a&gt;&lt;/p&gt;</content><category term="cloud"></category><category term="rabbitmq"></category><category term="cluster"></category><category term="recover"></category><category term="partition"></category><category term="juju"></category></entry></feed>
+&lt;p&gt;&lt;em&gt;（注：这里需要注意&lt;code&gt;autoheal&lt;/code&gt;可能会使rabbitmq丢失数据，所以也应该谨慎使用过。）&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://github.com/openstack/charm-rabbitmq-server/blob/master/config.yaml#L39"&gt;https://github.com/openstack/charm-rabbitmq-server/blob/master/config.yaml#L39&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Update:&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;关于 rabbitmq 基本内容，以及 partition 和 brain split 的一个介绍。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;关于RabbitMq你必须深入理解的内容 &lt;a href="https://zhuanlan.zhihu.com/p/60141062"&gt;https://zhuanlan.zhihu.com/p/60141062&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><category term="cloud"></category><category term="rabbitmq"></category><category term="cluster"></category><category term="recover"></category><category term="partition"></category><category term="juju"></category></entry></feed>

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh_cn" prefix="og: http://ogp.me/ns# fb: https://www.facebook.com/2008/fbml">
 <head>
-    <title>从 partitioning （脑裂）中恢复 RabbitMQ 集群 - My Life, My Love!</title>
+    <title>从分区（partitioning）中恢复 RabbitMQ 集群 - My Life, My Love!</title>
     <!-- Using the latest rendering mode for IE -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta charset="utf-8">
@@ -17,7 +17,7 @@
 
         <meta property="og:site_name" content="My Life, My Love!" />
         <meta property="og:type" content="article"/>
-        <meta property="og:title" content="从 partitioning （脑裂）中恢复 RabbitMQ 集群"/>
+        <meta property="og:title" content="从分区（partitioning）中恢复 RabbitMQ 集群"/>
         <meta property="og:url" content="../../../2019/07/recover-rabbitmq-cluster-after-partitioning/"/>
         <meta property="og:description" content="（本文为 https://gist.github.com/niedbalski/69a72103adad4f0f9609a0857c9810a4 的翻译文档。 ） 1) 检查 Cluster 状态。 Mnesia(&#39;rabbit@juju-machine-30-lxd-11&#39;): ** ERROR ** mnesia_event got {inconsistent_database, running_partitioned_network, &#39;rabbit@juju-machine-29-lxd-9&#39;} $ sudo rabbitmqctl cluster_status 2) 选择合适的节点作为 master 节点。 （注：这个步骤很重要，如果没有选择合适的 master节点，很容易造成消息丢失） # 通过连接数。 $ juju run --service rabbitmq-server &#34;sudo ss -t state established -nt &#39;( sport = :amqp )&#39; | wc -l&#34; # 最新的 …"/>
         <meta property="article:published_time" content="2019-07-30" />
@@ -84,8 +84,8 @@ My Life, My Love!            </a>
                 <h1>
                     <a href="../../../2019/07/recover-rabbitmq-cluster-after-partitioning/"
                        rel="bookmark"
-                       title="Permalink to 从 partitioning （脑裂）中恢复 RabbitMQ 集群">
-                        从 partitioning （脑裂）中恢复 RabbitMQ 集群
+                       title="Permalink to 从分区（partitioning）中恢复 RabbitMQ 集群">
+                        从分区（partitioning）中恢复 RabbitMQ 集群
                     </a>
                 </h1>
             </header>
@@ -203,7 +203,13 @@ $ sudo rabbitmqctl start_app
 
 
 <p>8) 建议将 rabbitmq-server charm 的 <code>cluster-partitioning-handling</code> 选项设置为 <code>autoheal</code>。</p>
+<p><em>（注：这里需要注意<code>autoheal</code>可能会使rabbitmq丢失数据，所以也应该谨慎使用过。）</em></p>
 <p><a href="https://github.com/openstack/charm-rabbitmq-server/blob/master/config.yaml#L39">https://github.com/openstack/charm-rabbitmq-server/blob/master/config.yaml#L39</a></p>
+<p><strong>Update:</strong></p>
+<p>关于 rabbitmq 基本内容，以及 partition 和 brain split 的一个介绍。</p>
+<ul>
+<li>关于RabbitMq你必须深入理解的内容 <a href="https://zhuanlan.zhihu.com/p/60141062">https://zhuanlan.zhihu.com/p/60141062</a></li>
+</ul>
             </div>
             <!-- /.entry-content -->
     <hr/>
@@ -220,7 +226,7 @@ $ sudo rabbitmqctl start_app
 
                         this.page.identifier = '2019-07-30-recover-rabbitmq-cluster-after-partitioning';
                         this.page.url = 'https://www.gfrog.net/2019/07/recover-rabbitmq-cluster-after-partitioning/';
-                    this.page.title = '从 partitioning （脑裂）中恢复 RabbitMQ 集群';
+                    this.page.title = '从分区（partitioning）中恢复 RabbitMQ 集群';
             };
 
             /* * * DON'T EDIT BELOW THIS LINE * * */
