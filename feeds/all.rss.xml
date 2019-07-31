@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0"><channel><title>My Life, My Love!</title><link>https://www.gfrog.net/</link><description>指点江山 激昂文字 修身隆德 自然自我</description><lastBuildDate>Tue, 30 Jul 2019 21:36:08 +0800</lastBuildDate><item><title>从分区（partitioning）中恢复 RabbitMQ 集群</title><link>https://www.gfrog.net/2019/07/recover-rabbitmq-cluster-after-partitioning/</link><description>&lt;p&gt;&lt;img alt="rabbitmq" src="https://miro.medium.com/max/1200/1*UnYL-2r54_7AnEwQv0cVxA.png"&gt;&lt;/p&gt;
-&lt;p&gt;&lt;em&gt;（本文为
+<rss version="2.0"><channel><title>My Life, My Love!</title><link>https://www.gfrog.net/</link><description>指点江山 激昂文字 修身隆德 自然自我</description><lastBuildDate>Tue, 30 Jul 2019 21:36:08 +0800</lastBuildDate><item><title>从分区（partitioning）中恢复 RabbitMQ 集群</title><link>https://www.gfrog.net/2019/07/recover-rabbitmq-cluster-after-partitioning/</link><description>&lt;p&gt;&lt;em&gt;（本文为
 &lt;a href="https://gist.github.com/niedbalski/69a72103adad4f0f9609a0857c9810a4"&gt;https://gist.github.com/niedbalski/69a72103adad4f0f9609a0857c9810a4&lt;/a&gt;
 的翻译文档。
 ）&lt;/em&gt;&lt;/p&gt;
@@ -12,7 +11,7 @@ $ sudo rabbitmqctl cluster_status
 
 
 &lt;p&gt;2) 选择合适的节点作为 master 节点。&lt;/p&gt;
-&lt;p&gt;&lt;em&gt;（注：这个步骤很重要，如果没有选择合适的 master节点，很容易造成消息丢失）&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;（注：这个步骤很重要，如果没有选择合适的 master 节点，很容易造成消息丢失）&lt;/em&gt;&lt;/p&gt;
 &lt;p&gt;# 通过连接数。&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ juju run --service rabbitmq-server &lt;span class="s2"&gt;&amp;quot;sudo ss -t state established -nt &amp;#39;( sport = :amqp )&amp;#39; | wc -l&amp;quot;&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
@@ -28,7 +27,7 @@ $ sudo rabbitmqctl cluster_status
 &lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;p&gt;3) 在非 master 节点上停止所有的 epmd/erl进程。&lt;/p&gt;
+&lt;p&gt;3) 在非 master 节点上停止所有的 epmd/erl 进程。&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ /etc/init/rabbitmq-server stop
 $ sudo killall epmd
 &lt;/pre&gt;&lt;/div&gt;
@@ -66,7 +65,7 @@ $ sudo rabbitmqctl start_app
 &lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;p&gt;如果 &lt;code&gt;cluster_name&lt;/code&gt; 不一致，需要在其他节点上修改&lt;code&gt;cluster_name&lt;/code&gt;：&lt;/p&gt;
+&lt;p&gt;如果 &lt;code&gt;cluster_name&lt;/code&gt; 不一致，需要在其他节点上修改 &lt;code&gt;cluster_name&lt;/code&gt;：&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ sudo rabbitmqctl set_cluster_name rabbit@juju-machine-29-lxd-9
 &lt;/pre&gt;&lt;/div&gt;
 
@@ -83,14 +82,13 @@ $ sudo rabbitmqctl start_app
 
 
 &lt;p&gt;8) 建议将 rabbitmq-server charm 的 &lt;code&gt;cluster-partitioning-handling&lt;/code&gt; 选项设置为 &lt;code&gt;autoheal&lt;/code&gt;。&lt;/p&gt;
-&lt;p&gt;&lt;em&gt;（注：这里需要注意&lt;code&gt;autoheal&lt;/code&gt;可能会使rabbitmq丢失数据，所以也应该谨慎使用过。）&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;（注：这里需要注意&lt;code&gt;autoheal&lt;/code&gt;可能会使 rabbitmq 丢失数据，所以也应该谨慎使用过。）&lt;/em&gt;&lt;/p&gt;
 &lt;p&gt;&lt;a href="https://github.com/openstack/charm-rabbitmq-server/blob/master/config.yaml#L39"&gt;https://github.com/openstack/charm-rabbitmq-server/blob/master/config.yaml#L39&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Update:&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;关于 rabbitmq 基本内容，以及 partition 和 brain split 的一个介绍。&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;关于RabbitMq你必须深入理解的内容 &lt;a href="https://zhuanlan.zhihu.com/p/60141062"&gt;https://zhuanlan.zhihu.com/p/60141062&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">gfrog</dc:creator><pubDate>Tue, 30 Jul 2019 21:36:08 +0800</pubDate><guid isPermaLink="false">tag:www.gfrog.net,2019-07-30:/2019/07/recover-rabbitmq-cluster-after-partitioning/</guid><category>cloud</category><category>rabbitmq</category><category>cluster</category><category>recover</category><category>partition</category><category>juju</category></item><item><title>修复因为 Python 升级导致的失效 virtualenv 环境</title><link>https://www.gfrog.net/2019/07/fix-python-virtualenv-after-python-upgrade/</link><description>&lt;p&gt;&lt;img alt="python and macos" src="https://i1.wp.com/www.alexwhittemore.com/wp-content/uploads/2018/08/Untitled-drawing.jpg?ssl=1"&gt;&lt;/p&gt;
-&lt;p&gt;&lt;em&gt;（图片借用
+&lt;/ul&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">gfrog</dc:creator><pubDate>Tue, 30 Jul 2019 21:36:08 +0800</pubDate><guid isPermaLink="false">tag:www.gfrog.net,2019-07-30:/2019/07/recover-rabbitmq-cluster-after-partitioning/</guid><category>cloud</category><category>rabbitmq</category><category>cluster</category><category>recover</category><category>partition</category><category>juju</category></item><item><title>修复因为 Python 升级导致的失效 virtualenv 环境</title><link>https://www.gfrog.net/2019/07/fix-python-virtualenv-after-python-upgrade/</link><description>&lt;p&gt;&lt;em&gt;（标题图片借用
 &lt;a href="https://www.alexwhittemore.com/python-on-macos-best-practices/"&gt;PYTHON ON MACOS: BEST PRACTICES&lt;/a&gt;
 的标题图，这篇文档也是关于MacOS上面运行python和virtualenv的。）&lt;/em&gt;&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;（本篇日志为
@@ -123,7 +121,7 @@ Trace/BPT trap: &lt;span class="m"&gt;5&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;p&gt;这里我使用了OS X自带的BSD 
+&lt;p&gt;这里我使用了OS X自带的BSD
 &lt;a href="http://www.openbsd.org/cgi-bin/man.cgi/OpenBSD-current/man1/find.1?query=find"&gt;find&lt;/a&gt;
 命令。&lt;/p&gt;
 &lt;p&gt;最后一步，重建你的virtualenv。&lt;/p&gt;
@@ -466,8 +464,7 @@ var locations = [
 &lt;p&gt;[1] &lt;a href="http://iza.ac/posts/2014/03/google-embed/"&gt;Google Embed&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;[2] &lt;a href="https://pypi.org/project/google_embed/"&gt;google_embed&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;[3] &lt;a href="https://github.com/getpelican/pelican-plugins/blob/master/liquid_tags/Readme.md"&gt;Liquid-style Tags&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;[4] &lt;a href="https://developers.google.com/maps/documentation/javascript/examples/geocoding-simple"&gt;Geocoding Service | Maps JavaScript API | Google Developers&lt;/a&gt;&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">gfrog</dc:creator><pubDate>Tue, 09 Jul 2019 14:27:10 +0800</pubDate><guid isPermaLink="false">tag:www.gfrog.net,2019-07-09:/2019/07/create-a-google-map-plugin-for-pelican/</guid><category>pelican</category><category>google</category><category>map</category><category>python</category><category>script</category><category>coding</category><category>github</category></item><item><title>将Instagram内容导入Blog</title><link>https://www.gfrog.net/2019/07/import-instagram-pictures-into-blog/</link><description>&lt;p&gt;&lt;img alt="1" src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Instagram_logo.svg/1200px-Instagram_logo.svg.png" width="400px"&gt;&lt;/p&gt;
-&lt;p&gt;青蛙关站的这几年，虽然没有写blog，但是instagram和twitter发了可真不少。
+&lt;p&gt;[4] &lt;a href="https://developers.google.com/maps/documentation/javascript/examples/geocoding-simple"&gt;Geocoding Service | Maps JavaScript API | Google Developers&lt;/a&gt;&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">gfrog</dc:creator><pubDate>Tue, 09 Jul 2019 14:27:10 +0800</pubDate><guid isPermaLink="false">tag:www.gfrog.net,2019-07-09:/2019/07/create-a-google-map-plugin-for-pelican/</guid><category>pelican</category><category>google</category><category>map</category><category>python</category><category>script</category><category>coding</category><category>github</category></item><item><title>将Instagram内容导入Blog</title><link>https://www.gfrog.net/2019/07/import-instagram-pictures-into-blog/</link><description>&lt;p&gt;青蛙关站的这几年，虽然没有写blog，但是instagram和twitter发了可真不少。
 今天研究了下怎么导入instagram的照片和twitter的条目。
 看起来instagram很容易实现，因为有一个python的客户端
 &lt;a href="https://instaloader.github.io/"&gt;Instaloader&lt;/a&gt;
@@ -556,17 +553,17 @@ for post in profile.get_posts():
         i = 0&lt;/code&gt;&lt;/pre&gt;
     &lt;/noscript&gt;
 &lt;/div&gt;
-&lt;p&gt;目前没有解决的问题有两个：&lt;/p&gt;
+&lt;p&gt;目前没有解决的问题有两个，这两点以后有时间再研究吧。&lt;/p&gt;
 &lt;ul&gt;
+&lt;li&gt;如果有新的instagram内容，可能需要有一个daemon每天监测然后转换成markdown。&lt;/li&gt;
 &lt;li&gt;&lt;del&gt;没办法处理视频内容，现在只是把视频文件链接留下了，但是没办法直接在blog播放。
-  之后有时间需要找一个嵌入video的办法。&lt;/del&gt;
+  之后有时间需要找一个嵌入video的办法。
   &lt;strong&gt;Update:&lt;/strong&gt; 原来liquid_tags.video插件就可以插入video，只需要在post里写
   &lt;code&gt;{ % video link width height % }&lt;/code&gt;
-  就好了。&lt;/li&gt;
-&lt;li&gt;如果有新的instagram内容，可能需要有一个daemon每天监测然后转换成markdown。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;这两点以后有时间再研究吧。&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">gfrog</dc:creator><pubDate>Thu, 04 Jul 2019 00:07:46 +0800</pubDate><guid isPermaLink="false">tag:www.gfrog.net,2019-07-04:/2019/07/import-instagram-pictures-into-blog/</guid><category>site</category><category>instagram</category><category>python</category></item><item><title>本站重新恢复</title><link>https://www.gfrog.net/2019/07/this-blog-recovered-on-github/</link><description>&lt;p&gt;&lt;img src="https://cdn.mos.cms.futurecdn.net/1e01a79c2d42ec9f16e6ffbc512e5423-650-80.jpg" width="300"&gt;&lt;/p&gt;
-&lt;p&gt;目前本站已经在github上恢复，从2007-2013年的数据大部分已经可以访问。&lt;/p&gt;
+  就好了。&lt;/del&gt;
+  &lt;strong&gt;Update 2:&lt;/strong&gt; Instagram 的 video link 几天之后就失效了。
+  所以目前青蛙的办法是直接在 Instram 里面导出 video 的 embed code，贴到 post 里面就好。&lt;/li&gt;
+&lt;/ul&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">gfrog</dc:creator><pubDate>Thu, 04 Jul 2019 00:07:46 +0800</pubDate><guid isPermaLink="false">tag:www.gfrog.net,2019-07-04:/2019/07/import-instagram-pictures-into-blog/</guid><category>site</category><category>instagram</category><category>python</category></item><item><title>本站重新恢复</title><link>https://www.gfrog.net/2019/07/this-blog-recovered-on-github/</link><description>&lt;p&gt;目前本站已经在github上恢复，从2007-2013年的数据大部分已经可以访问。&lt;/p&gt;
 &lt;p&gt;从上海出差回来之后，青蛙突然有了把blog恢复的动力。
 努力了三天，重新使用pelican构建了blog，
 然后review了一遍之前的post，修复了一大堆错误。&lt;/p&gt;
@@ -576,8 +573,7 @@ for post in profile.get_posts():
 &lt;p&gt;本站域名：&lt;/p&gt;
 &lt;h2&gt;&lt;a href="https://www.gfrog.net/"&gt;https://www.gfrog.net/&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;源码：&lt;/p&gt;
-&lt;p&gt;&lt;a href="https://github.com/gfrog/gfrog.github.io"&gt;https://github.com/gfrog/gfrog.github.io&lt;/a&gt;&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">gfrog</dc:creator><pubDate>Wed, 03 Jul 2019 01:08:39 +0800</pubDate><guid isPermaLink="false">tag:www.gfrog.net,2019-07-03:/2019/07/this-blog-recovered-on-github/</guid><category>site</category><category>github</category><category>pelican</category></item><item><title>上海五日游杂记</title><link>https://www.gfrog.net/2019/06/five-days-tour-in-shanghai/</link><description>&lt;p&gt;&lt;img alt="1" src="https://lh3.googleusercontent.com/JqXPGYzWGHLA_TvmD0yPkMswbnBH3I6lPaslG1lYqT_Cn2QlFSPgllt0vqQoZz7p_Cz05I7i9-WX-dOwV71bwgqhOthkSJbSWRtc2fQZSuT9ukAIzsFVHMnipaZ7b_5waXJg4E3S6yQ=w900"&gt;&lt;/p&gt;
-&lt;p&gt;青蛙对于魔都向往已久，虽然到过魔都很多次，然而并没有太多机会在魔都玩一玩。
+&lt;p&gt;&lt;a href="https://github.com/gfrog/gfrog.github.io"&gt;https://github.com/gfrog/gfrog.github.io&lt;/a&gt;&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">gfrog</dc:creator><pubDate>Wed, 03 Jul 2019 01:08:39 +0800</pubDate><guid isPermaLink="false">tag:www.gfrog.net,2019-07-03:/2019/07/this-blog-recovered-on-github/</guid><category>site</category><category>github</category><category>pelican</category></item><item><title>上海五日游杂记</title><link>https://www.gfrog.net/2019/06/five-days-tour-in-shanghai/</link><description>&lt;p&gt;青蛙对于魔都向往已久，虽然到过魔都很多次，然而并没有太多机会在魔都玩一玩。
 刚好六月在魔都有KubeCon展会，趁着开会的机会，青蛙利用周末在魔都转了转。&lt;/p&gt;
 &lt;p&gt;不知道是不是刚好赶上了气温最适宜的那几天，
 在帝都被热吐了之后， 到魔都竟然感觉气温舒适宜人，
@@ -699,16 +695,46 @@ for post in profile.get_posts():
 &lt;p&gt;回家的伴手礼自然是大白兔🐰啦。&lt;/p&gt;
 &lt;p&gt;&lt;img alt="1" src="https://lh3.googleusercontent.com/-wNNYV2Hj0WyhDRLzhJiwDV6hwnANSpuYoAZExuMMdC0RQtfmx9ik5oFnSDp2NAXEmZLuglu9InFOW80TF13_B-A5Spd2XPO4kegrM3MVvR_giJ3IO6SizzmRsysNhNPz-jw6HRg3j4=s640"&gt;&lt;/p&gt;
 &lt;p&gt;到达帝都，开始搬砖。&lt;/p&gt;
-&lt;p&gt;&lt;img alt="1" src="https://lh3.googleusercontent.com/lyYXhzPpo1Bs_RCcwef-Bnt9yan_MEkeR6rDMrRtxJPFhlKDDYykOzIQHAGIXEcX4K5--VN50VJ8wmBPH-9ibBQQBG5rZSmXO35zlO3nFkBRJN_Y6yYzgxhSPl883OiZeooOfpMcISI=w640"&gt;&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">gfrog</dc:creator><pubDate>Thu, 27 Jun 2019 17:06:16 +0800</pubDate><guid isPermaLink="false">tag:www.gfrog.net,2019-06-27:/2019/06/five-days-tour-in-shanghai/</guid><category>travel</category><category>tour</category><category>shanghai</category><category>train</category><category>waitan</category><category>building</category><category>coffee</category><category>shop</category></item><item><title>体验上海轮渡</title><link>https://www.gfrog.net/2019/06/take-shanghai-ferry-service/</link><description>&lt;p&gt;&lt;img alt="1" src="https://lh3.googleusercontent.com/aoDCyW-nshJZr_3V74idoeqKFOHi0GRtK5vddBTaB80ttvNuoK8POkRUk3jq1rQYWKhT2uziu1aOOix-qdV8fc97LMZeCdJpWpPLtQFx3QMhiTMkIH0C9tmv--DTbK0ZdZfXRh9w_aE=w300"&gt;&lt;/p&gt;
-&lt;p&gt;青蛙自从前些年部分遍历帝都地铁之后，已经很久没做过遍历公交这种事情了。
+&lt;p&gt;&lt;img alt="1" src="https://lh3.googleusercontent.com/lyYXhzPpo1Bs_RCcwef-Bnt9yan_MEkeR6rDMrRtxJPFhlKDDYykOzIQHAGIXEcX4K5--VN50VJ8wmBPH-9ibBQQBG5rZSmXO35zlO3nFkBRJN_Y6yYzgxhSPl883OiZeooOfpMcISI=w640"&gt;&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">gfrog</dc:creator><pubDate>Thu, 27 Jun 2019 17:06:16 +0800</pubDate><guid isPermaLink="false">tag:www.gfrog.net,2019-06-27:/2019/06/five-days-tour-in-shanghai/</guid><category>travel</category><category>tour</category><category>shanghai</category><category>train</category><category>waitan</category><category>building</category><category>coffee</category><category>shop</category></item><item><title>体验上海轮渡</title><link>https://www.gfrog.net/2019/06/take-shanghai-ferry-service/</link><description>&lt;p&gt;青蛙自从前些年部分遍历帝都地铁之后，已经很久没做过遍历公交这种事情了。
 这次来到魔都，有一上午时间没地方去，所以决定部分遍历魔都轮渡线路。
 遍历的目标就是从外滩沿黄浦江向上，到南浦大桥结束。&lt;/p&gt;
 &lt;p&gt;这其中需要乘坐5条线路，经过8个渡口：&lt;/p&gt;
-&lt;p&gt;金陵东路渡口 &amp;lt;= 东金线 =&amp;gt; 东昌路渡口&lt;/p&gt;
-&lt;p&gt;复兴东路渡口 &amp;lt;= 东复线 =&amp;gt; 东昌路渡口&lt;/p&gt;
-&lt;p&gt;复兴东路渡口 &amp;lt;= 杨复线 =&amp;gt; 杨家渡渡口&lt;/p&gt;
-&lt;p&gt;董家渡渡口&amp;nbsp;&amp;nbsp; &amp;lt;= 塘董线 =&amp;gt; 塘桥渡口&lt;/p&gt;
-&lt;p&gt;陆家浜渡口&amp;nbsp;&amp;nbsp; &amp;lt;= 南陆线 =&amp;gt; 南码头渡口&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;浦西&lt;/th&gt;
+&lt;th&gt;线路&lt;/th&gt;
+&lt;th&gt;浦东&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;金陵东路渡口&lt;/td&gt;
+&lt;td&gt;东金线&lt;/td&gt;
+&lt;td&gt;东昌路渡口&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;复兴东路渡口&lt;/td&gt;
+&lt;td&gt;东复线&lt;/td&gt;
+&lt;td&gt;东昌路渡口&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;复兴东路渡口&lt;/td&gt;
+&lt;td&gt;杨复线&lt;/td&gt;
+&lt;td&gt;杨家渡渡口&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;董家渡渡口&lt;/td&gt;
+&lt;td&gt;塘董线&lt;/td&gt;
+&lt;td&gt;塘桥渡口&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;陆家浜渡口&lt;/td&gt;
+&lt;td&gt;南陆线&lt;/td&gt;
+&lt;td&gt;南码头渡口&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
 &lt;script&gt;
 var locations = [
 ['金陵东路渡口', '金陵东路渡口, huangpu, shanghai', '#jinling-east-road'],

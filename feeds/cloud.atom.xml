@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>My Life, My Love! - Cloud</title><link href="https://www.gfrog.net/" rel="alternate"></link><link href="https://www.gfrog.net/feeds/cloud.atom.xml" rel="self"></link><id>https://www.gfrog.net/</id><updated>2019-07-30T21:36:08+08:00</updated><subtitle>指点江山 激昂文字 修身隆德 自然自我</subtitle><entry><title>从分区（partitioning）中恢复 RabbitMQ 集群</title><link href="https://www.gfrog.net/2019/07/recover-rabbitmq-cluster-after-partitioning/" rel="alternate"></link><published>2019-07-30T21:36:08+08:00</published><updated>2019-07-30T21:36:08+08:00</updated><author><name>gfrog</name></author><id>tag:www.gfrog.net,2019-07-30:/2019/07/recover-rabbitmq-cluster-after-partitioning/</id><summary type="html">&lt;p&gt;&lt;img alt="rabbitmq" src="https://miro.medium.com/max/1200/1*UnYL-2r54_7AnEwQv0cVxA.png"&gt;&lt;/p&gt;
-&lt;p&gt;&lt;em&gt;（本文为
+<feed xmlns="http://www.w3.org/2005/Atom"><title>My Life, My Love! - Cloud</title><link href="https://www.gfrog.net/" rel="alternate"></link><link href="https://www.gfrog.net/feeds/cloud.atom.xml" rel="self"></link><id>https://www.gfrog.net/</id><updated>2019-07-30T21:36:08+08:00</updated><subtitle>指点江山 激昂文字 修身隆德 自然自我</subtitle><entry><title>从分区（partitioning）中恢复 RabbitMQ 集群</title><link href="https://www.gfrog.net/2019/07/recover-rabbitmq-cluster-after-partitioning/" rel="alternate"></link><published>2019-07-30T21:36:08+08:00</published><updated>2019-07-30T21:36:08+08:00</updated><author><name>gfrog</name></author><id>tag:www.gfrog.net,2019-07-30:/2019/07/recover-rabbitmq-cluster-after-partitioning/</id><summary type="html">&lt;p&gt;&lt;em&gt;（本文为
 &lt;a href="https://gist.github.com/niedbalski/69a72103adad4f0f9609a0857c9810a4"&gt;https://gist.github.com/niedbalski/69a72103adad4f0f9609a0857c9810a4&lt;/a&gt;
 的翻译文档。
 ）&lt;/em&gt;&lt;/p&gt;
@@ -12,14 +11,9 @@ $ sudo rabbitmqctl cluster_status
 
 
 &lt;p&gt;2) 选择合适的节点作为 master 节点。&lt;/p&gt;
-&lt;p&gt;&lt;em&gt;（注：这个步骤很重要，如果没有选择合适的 master节点，很容易造成消息丢失）&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;（注：这个步骤很重要，如果没有选择合适的 master 节点，很容易造成消息丢失）&lt;/em&gt;&lt;/p&gt;
 &lt;p&gt;# 通过连接数。&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ juju run --service rabbitmq-server &lt;span class="s2"&gt;&amp;quot;sudo ss -t state established -nt &amp;#39;( sport = :amqp )&amp;#39; | wc -l&amp;quot;&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;p&gt;# 最新的 …&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;img alt="rabbitmq" src="https://miro.medium.com/max/1200/1*UnYL-2r54_7AnEwQv0cVxA.png"&gt;&lt;/p&gt;
-&lt;p&gt;&lt;em&gt;（本文为
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ juju run --service rabbitmq-server &lt;span class="s2"&gt;&amp;quot;sudo ss -t state established -nt &amp;#39;( sport = :amqp )&amp;#39; | wc -l …&lt;/span&gt;&lt;/pre&gt;&lt;/div&gt;</summary><content type="html">&lt;p&gt;&lt;em&gt;（本文为
 &lt;a href="https://gist.github.com/niedbalski/69a72103adad4f0f9609a0857c9810a4"&gt;https://gist.github.com/niedbalski/69a72103adad4f0f9609a0857c9810a4&lt;/a&gt;
 的翻译文档。
 ）&lt;/em&gt;&lt;/p&gt;
@@ -31,7 +25,7 @@ $ sudo rabbitmqctl cluster_status
 
 
 &lt;p&gt;2) 选择合适的节点作为 master 节点。&lt;/p&gt;
-&lt;p&gt;&lt;em&gt;（注：这个步骤很重要，如果没有选择合适的 master节点，很容易造成消息丢失）&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;（注：这个步骤很重要，如果没有选择合适的 master 节点，很容易造成消息丢失）&lt;/em&gt;&lt;/p&gt;
 &lt;p&gt;# 通过连接数。&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ juju run --service rabbitmq-server &lt;span class="s2"&gt;&amp;quot;sudo ss -t state established -nt &amp;#39;( sport = :amqp )&amp;#39; | wc -l&amp;quot;&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
@@ -47,7 +41,7 @@ $ sudo rabbitmqctl cluster_status
 &lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;p&gt;3) 在非 master 节点上停止所有的 epmd/erl进程。&lt;/p&gt;
+&lt;p&gt;3) 在非 master 节点上停止所有的 epmd/erl 进程。&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ /etc/init/rabbitmq-server stop
 $ sudo killall epmd
 &lt;/pre&gt;&lt;/div&gt;
@@ -85,7 +79,7 @@ $ sudo rabbitmqctl start_app
 &lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;p&gt;如果 &lt;code&gt;cluster_name&lt;/code&gt; 不一致，需要在其他节点上修改&lt;code&gt;cluster_name&lt;/code&gt;：&lt;/p&gt;
+&lt;p&gt;如果 &lt;code&gt;cluster_name&lt;/code&gt; 不一致，需要在其他节点上修改 &lt;code&gt;cluster_name&lt;/code&gt;：&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ sudo rabbitmqctl set_cluster_name rabbit@juju-machine-29-lxd-9
 &lt;/pre&gt;&lt;/div&gt;
 
@@ -102,7 +96,7 @@ $ sudo rabbitmqctl start_app
 
 
 &lt;p&gt;8) 建议将 rabbitmq-server charm 的 &lt;code&gt;cluster-partitioning-handling&lt;/code&gt; 选项设置为 &lt;code&gt;autoheal&lt;/code&gt;。&lt;/p&gt;
-&lt;p&gt;&lt;em&gt;（注：这里需要注意&lt;code&gt;autoheal&lt;/code&gt;可能会使rabbitmq丢失数据，所以也应该谨慎使用过。）&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;（注：这里需要注意&lt;code&gt;autoheal&lt;/code&gt;可能会使 rabbitmq 丢失数据，所以也应该谨慎使用过。）&lt;/em&gt;&lt;/p&gt;
 &lt;p&gt;&lt;a href="https://github.com/openstack/charm-rabbitmq-server/blob/master/config.yaml#L39"&gt;https://github.com/openstack/charm-rabbitmq-server/blob/master/config.yaml#L39&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Update:&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;关于 rabbitmq 基本内容，以及 partition 和 brain split 的一个介绍。&lt;/p&gt;

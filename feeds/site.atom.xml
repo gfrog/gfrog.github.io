@@ -341,8 +341,7 @@ var locations = [
 &lt;p&gt;[1] &lt;a href="http://iza.ac/posts/2014/03/google-embed/"&gt;Google Embed&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;[2] &lt;a href="https://pypi.org/project/google_embed/"&gt;google_embed&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;[3] &lt;a href="https://github.com/getpelican/pelican-plugins/blob/master/liquid_tags/Readme.md"&gt;Liquid-style Tags&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;[4] &lt;a href="https://developers.google.com/maps/documentation/javascript/examples/geocoding-simple"&gt;Geocoding Service | Maps JavaScript API | Google Developers&lt;/a&gt;&lt;/p&gt;</content><category term="pelican"></category><category term="google"></category><category term="map"></category><category term="python"></category><category term="script"></category><category term="coding"></category><category term="github"></category></entry><entry><title>将Instagram内容导入Blog</title><link href="https://www.gfrog.net/2019/07/import-instagram-pictures-into-blog/" rel="alternate"></link><published>2019-07-04T00:07:46+08:00</published><updated>2019-07-04T00:07:46+08:00</updated><author><name>gfrog</name></author><id>tag:www.gfrog.net,2019-07-04:/2019/07/import-instagram-pictures-into-blog/</id><summary type="html">&lt;p&gt;&lt;img alt="1" src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Instagram_logo.svg/1200px-Instagram_logo.svg.png" width="400px"&gt;&lt;/p&gt;
-&lt;p&gt;青蛙关站的这几年，虽然没有写blog，但是instagram和twitter发了可真不少。
+&lt;p&gt;[4] &lt;a href="https://developers.google.com/maps/documentation/javascript/examples/geocoding-simple"&gt;Geocoding Service | Maps JavaScript API | Google Developers&lt;/a&gt;&lt;/p&gt;</content><category term="pelican"></category><category term="google"></category><category term="map"></category><category term="python"></category><category term="script"></category><category term="coding"></category><category term="github"></category></entry><entry><title>将Instagram内容导入Blog</title><link href="https://www.gfrog.net/2019/07/import-instagram-pictures-into-blog/" rel="alternate"></link><published>2019-07-04T00:07:46+08:00</published><updated>2019-07-04T00:07:46+08:00</updated><author><name>gfrog</name></author><id>tag:www.gfrog.net,2019-07-04:/2019/07/import-instagram-pictures-into-blog/</id><summary type="html">&lt;p&gt;青蛙关站的这几年，虽然没有写blog，但是instagram和twitter发了可真不少。
 今天研究了下怎么导入instagram的照片和twitter的条目。
 看起来instagram很容易实现，因为有一个python的客户端
 &lt;a href="https://instaloader.github.io/"&gt;Instaloader&lt;/a&gt;
@@ -368,8 +367,7 @@ profile = instaloader.Profile.from_username(L.context, "gfrogcn")
 new_template ="""title: Instagram Picture %s
 date: %s 23:59:59
 slug: instagram-picture-%s
-category …&lt;/code&gt;&lt;/pre&gt;&lt;/noscript&gt;&lt;/div&gt;</summary><content type="html">&lt;p&gt;&lt;img alt="1" src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Instagram_logo.svg/1200px-Instagram_logo.svg.png" width="400px"&gt;&lt;/p&gt;
-&lt;p&gt;青蛙关站的这几年，虽然没有写blog，但是instagram和twitter发了可真不少。
+category …&lt;/code&gt;&lt;/pre&gt;&lt;/noscript&gt;&lt;/div&gt;</summary><content type="html">&lt;p&gt;青蛙关站的这几年，虽然没有写blog，但是instagram和twitter发了可真不少。
 今天研究了下怎么导入instagram的照片和twitter的条目。
 看起来instagram很容易实现，因为有一个python的客户端
 &lt;a href="https://instaloader.github.io/"&gt;Instaloader&lt;/a&gt;
@@ -458,16 +456,17 @@ for post in profile.get_posts():
         i = 0&lt;/code&gt;&lt;/pre&gt;
     &lt;/noscript&gt;
 &lt;/div&gt;
-&lt;p&gt;目前没有解决的问题有两个：&lt;/p&gt;
+&lt;p&gt;目前没有解决的问题有两个，这两点以后有时间再研究吧。&lt;/p&gt;
 &lt;ul&gt;
+&lt;li&gt;如果有新的instagram内容，可能需要有一个daemon每天监测然后转换成markdown。&lt;/li&gt;
 &lt;li&gt;&lt;del&gt;没办法处理视频内容，现在只是把视频文件链接留下了，但是没办法直接在blog播放。
-  之后有时间需要找一个嵌入video的办法。&lt;/del&gt;
+  之后有时间需要找一个嵌入video的办法。
   &lt;strong&gt;Update:&lt;/strong&gt; 原来liquid_tags.video插件就可以插入video，只需要在post里写
   &lt;code&gt;{ % video link width height % }&lt;/code&gt;
-  就好了。&lt;/li&gt;
-&lt;li&gt;如果有新的instagram内容，可能需要有一个daemon每天监测然后转换成markdown。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;这两点以后有时间再研究吧。&lt;/p&gt;</content><category term="site"></category><category term="instagram"></category><category term="python"></category></entry><entry><title>Wordpress转换到Octopress</title><link href="https://www.gfrog.net/2013/03/convert-wordpress-to-octopress/" rel="alternate"></link><published>2013-03-08T21:11:00+08:00</published><updated>2013-03-08T21:11:00+08:00</updated><author><name>gfrog</name></author><id>tag:www.gfrog.net,2013-03-08:/2013/03/convert-wordpress-to-octopress/</id><summary type="html">&lt;p&gt;今天青蛙下定决心干掉Wordpress了，不为别的，就因为
+  就好了。&lt;/del&gt;
+  &lt;strong&gt;Update 2:&lt;/strong&gt; Instagram 的 video link 几天之后就失效了。
+  所以目前青蛙的办法是直接在 Instram 里面导出 video 的 embed code，贴到 post 里面就好。&lt;/li&gt;
+&lt;/ul&gt;</content><category term="site"></category><category term="instagram"></category><category term="python"></category></entry><entry><title>Wordpress转换到Octopress</title><link href="https://www.gfrog.net/2013/03/convert-wordpress-to-octopress/" rel="alternate"></link><published>2013-03-08T21:11:00+08:00</published><updated>2013-03-08T21:11:00+08:00</updated><author><name>gfrog</name></author><id>tag:www.gfrog.net,2013-03-08:/2013/03/convert-wordpress-to-octopress/</id><summary type="html">&lt;p&gt;今天青蛙下定决心干掉Wordpress了，不为别的，就因为
 在大天朝访问Openshift不靠谱的连接状态。&lt;/p&gt;
 &lt;p&gt;把Wordpress转换到Octopress这件事，对于天天泡在github
 上的青蛙来说，实在是简单到爆了。github账户有了，ruby

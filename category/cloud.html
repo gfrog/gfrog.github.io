@@ -97,8 +97,14 @@ My Life, My Love!            </a>
 	<a href="../tag/juju.html">juju</a>
     
 </footer><!-- /.post-info -->                    </div>
-                <div class="summary"><p><img alt="rabbitmq" src="https://miro.medium.com/max/1200/1*UnYL-2r54_7AnEwQv0cVxA.png"></p>
-<p><em>（本文为
+    <div class='cover_image'>
+        <figure>
+            <center>
+                <img width='500' src="https://miro.medium.com/max/1200/1*UnYL-2r54_7AnEwQv0cVxA.png" alt="Cover image">
+            </center>
+        </figure>
+    </div>
+                <div class="summary"><p><em>（本文为
 <a href="https://gist.github.com/niedbalski/69a72103adad4f0f9609a0857c9810a4">https://gist.github.com/niedbalski/69a72103adad4f0f9609a0857c9810a4</a>
 的翻译文档。
 ）</em></p>
@@ -110,13 +116,9 @@ $ sudo rabbitmqctl cluster_status
 
 
 <p>2) 选择合适的节点作为 master 节点。</p>
-<p><em>（注：这个步骤很重要，如果没有选择合适的 master节点，很容易造成消息丢失）</em></p>
+<p><em>（注：这个步骤很重要，如果没有选择合适的 master 节点，很容易造成消息丢失）</em></p>
 <p># 通过连接数。</p>
-<div class="highlight"><pre><span></span>$ juju run --service rabbitmq-server <span class="s2">&quot;sudo ss -t state established -nt &#39;( sport = :amqp )&#39; | wc -l&quot;</span>
-</pre></div>
-
-
-<p># 最新的 …</p>
+<div class="highlight"><pre><span></span>$ juju run --service rabbitmq-server <span class="s2">&quot;sudo ss -t state established -nt &#39;( sport = :amqp )&#39; | wc -l …</span></pre></div>
                     <a class="btn btn-default btn-xs" href="../2019/07/recover-rabbitmq-cluster-after-partitioning/">more ...</a>
                 </div>
             </article>

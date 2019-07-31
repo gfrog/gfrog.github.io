@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>My Life, My Love! - Misc</title><link href="https://www.gfrog.net/" rel="alternate"></link><link href="https://www.gfrog.net/feeds/misc.atom.xml" rel="self"></link><id>https://www.gfrog.net/</id><updated>2019-07-03T01:08:39+08:00</updated><subtitle>指点江山 激昂文字 修身隆德 自然自我</subtitle><entry><title>本站重新恢复</title><link href="https://www.gfrog.net/2019/07/this-blog-recovered-on-github/" rel="alternate"></link><published>2019-07-03T01:08:39+08:00</published><updated>2019-07-03T01:08:39+08:00</updated><author><name>gfrog</name></author><id>tag:www.gfrog.net,2019-07-03:/2019/07/this-blog-recovered-on-github/</id><summary type="html">&lt;p&gt;&lt;img src="https://cdn.mos.cms.futurecdn.net/1e01a79c2d42ec9f16e6ffbc512e5423-650-80.jpg" width="300"&gt;&lt;/p&gt;
-&lt;p&gt;目前本站已经在github上恢复，从2007-2013年的数据大部分已经可以访问。&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>My Life, My Love! - Misc</title><link href="https://www.gfrog.net/" rel="alternate"></link><link href="https://www.gfrog.net/feeds/misc.atom.xml" rel="self"></link><id>https://www.gfrog.net/</id><updated>2019-07-03T01:08:39+08:00</updated><subtitle>指点江山 激昂文字 修身隆德 自然自我</subtitle><entry><title>本站重新恢复</title><link href="https://www.gfrog.net/2019/07/this-blog-recovered-on-github/" rel="alternate"></link><published>2019-07-03T01:08:39+08:00</published><updated>2019-07-03T01:08:39+08:00</updated><author><name>gfrog</name></author><id>tag:www.gfrog.net,2019-07-03:/2019/07/this-blog-recovered-on-github/</id><summary type="html">&lt;p&gt;目前本站已经在github上恢复，从2007-2013年的数据大部分已经可以访问。&lt;/p&gt;
 &lt;p&gt;从上海出差回来之后，青蛙突然有了把blog恢复的动力。
 努力了三天，重新使用pelican构建了blog，
 然后review了一遍之前的post，修复了一大堆错误。&lt;/p&gt;
@@ -10,8 +9,7 @@
 &lt;p&gt;本站域名：&lt;/p&gt;
 &lt;h2&gt;&lt;a href="https://www.gfrog.net/"&gt;https://www.gfrog.net/&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;源码：&lt;/p&gt;
-&lt;p&gt;&lt;a href="https://github.com/gfrog/gfrog.github.io"&gt;https://github.com/gfrog/gfrog.github.io&lt;/a&gt;&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;img src="https://cdn.mos.cms.futurecdn.net/1e01a79c2d42ec9f16e6ffbc512e5423-650-80.jpg" width="300"&gt;&lt;/p&gt;
-&lt;p&gt;目前本站已经在github上恢复，从2007-2013年的数据大部分已经可以访问。&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://github.com/gfrog/gfrog.github.io"&gt;https://github.com/gfrog/gfrog.github.io&lt;/a&gt;&lt;/p&gt;</summary><content type="html">&lt;p&gt;目前本站已经在github上恢复，从2007-2013年的数据大部分已经可以访问。&lt;/p&gt;
 &lt;p&gt;从上海出差回来之后，青蛙突然有了把blog恢复的动力。
 努力了三天，重新使用pelican构建了blog，
 然后review了一遍之前的post，修复了一大堆错误。&lt;/p&gt;

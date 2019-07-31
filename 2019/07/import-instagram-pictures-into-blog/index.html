@@ -110,8 +110,14 @@ My Life, My Love!            </a>
     
 </footer><!-- /.post-info -->                    </div>
                 </div>
-                <p><img alt="1" src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Instagram_logo.svg/1200px-Instagram_logo.svg.png" width="400px"></p>
-<p>青蛙关站的这几年，虽然没有写blog，但是instagram和twitter发了可真不少。
+    <div class='cover_image'>
+        <figure>
+            <center>
+                <img width='500' src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Instagram_logo.svg/1200px-Instagram_logo.svg.png" alt="Cover image">
+            </center>
+        </figure>
+    </div>
+                <p>青蛙关站的这几年，虽然没有写blog，但是instagram和twitter发了可真不少。
 今天研究了下怎么导入instagram的照片和twitter的条目。
 看起来instagram很容易实现，因为有一个python的客户端
 <a href="https://instaloader.github.io/">Instaloader</a>
@@ -200,16 +206,17 @@ for post in profile.get_posts():
         i = 0</code></pre>
     </noscript>
 </div>
-<p>目前没有解决的问题有两个：</p>
+<p>目前没有解决的问题有两个，这两点以后有时间再研究吧。</p>
 <ul>
+<li>如果有新的instagram内容，可能需要有一个daemon每天监测然后转换成markdown。</li>
 <li><del>没办法处理视频内容，现在只是把视频文件链接留下了，但是没办法直接在blog播放。
-  之后有时间需要找一个嵌入video的办法。</del>
+  之后有时间需要找一个嵌入video的办法。
   <strong>Update:</strong> 原来liquid_tags.video插件就可以插入video，只需要在post里写
   <code>{ % video link width height % }</code>
-  就好了。</li>
-<li>如果有新的instagram内容，可能需要有一个daemon每天监测然后转换成markdown。</li>
+  就好了。</del>
+  <strong>Update 2:</strong> Instagram 的 video link 几天之后就失效了。
+  所以目前青蛙的办法是直接在 Instram 里面导出 video 的 embed code，贴到 post 里面就好。</li>
 </ul>
-<p>这两点以后有时间再研究吧。</p>
             </div>
             <!-- /.entry-content -->
 <section class="well" id="related-posts">

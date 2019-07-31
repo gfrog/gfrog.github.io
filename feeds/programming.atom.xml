@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>My Life, My Love! - Programming</title><link href="https://www.gfrog.net/" rel="alternate"></link><link href="https://www.gfrog.net/feeds/programming.atom.xml" rel="self"></link><id>https://www.gfrog.net/</id><updated>2019-07-17T20:48:27+08:00</updated><subtitle>指点江山 激昂文字 修身隆德 自然自我</subtitle><entry><title>修复因为 Python 升级导致的失效 virtualenv 环境</title><link href="https://www.gfrog.net/2019/07/fix-python-virtualenv-after-python-upgrade/" rel="alternate"></link><published>2019-07-17T20:48:27+08:00</published><updated>2019-07-17T20:48:27+08:00</updated><author><name>gfrog</name></author><id>tag:www.gfrog.net,2019-07-17:/2019/07/fix-python-virtualenv-after-python-upgrade/</id><summary type="html">&lt;p&gt;&lt;img alt="python and macos" src="https://i1.wp.com/www.alexwhittemore.com/wp-content/uploads/2018/08/Untitled-drawing.jpg?ssl=1"&gt;&lt;/p&gt;
-&lt;p&gt;&lt;em&gt;（图片借用
+<feed xmlns="http://www.w3.org/2005/Atom"><title>My Life, My Love! - Programming</title><link href="https://www.gfrog.net/" rel="alternate"></link><link href="https://www.gfrog.net/feeds/programming.atom.xml" rel="self"></link><id>https://www.gfrog.net/</id><updated>2019-07-17T20:48:27+08:00</updated><subtitle>指点江山 激昂文字 修身隆德 自然自我</subtitle><entry><title>修复因为 Python 升级导致的失效 virtualenv 环境</title><link href="https://www.gfrog.net/2019/07/fix-python-virtualenv-after-python-upgrade/" rel="alternate"></link><published>2019-07-17T20:48:27+08:00</published><updated>2019-07-17T20:48:27+08:00</updated><author><name>gfrog</name></author><id>tag:www.gfrog.net,2019-07-17:/2019/07/fix-python-virtualenv-after-python-upgrade/</id><summary type="html">&lt;p&gt;&lt;em&gt;（标题图片借用
 &lt;a href="https://www.alexwhittemore.com/python-on-macos-best-practices/"&gt;PYTHON ON MACOS: BEST PRACTICES&lt;/a&gt;
 的标题图，这篇文档也是关于MacOS上面运行python和virtualenv的。）&lt;/em&gt;&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;（本篇日志为
@@ -13,8 +12,7 @@
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;~: &lt;span class="nb"&gt;cd&lt;/span&gt; ~/src/my_app
 ~/src/my_app: &lt;span class="nb"&gt;source&lt;/span&gt; venv/bin/activate
 &lt;span class="o"&gt;[&lt;/span&gt;venv&lt;span class="o"&gt;]&lt;/span&gt; ~/src/my_app: python
-dyld …&lt;/pre&gt;&lt;/div&gt;</summary><content type="html">&lt;p&gt;&lt;img alt="python and macos" src="https://i1.wp.com/www.alexwhittemore.com/wp-content/uploads/2018/08/Untitled-drawing.jpg?ssl=1"&gt;&lt;/p&gt;
-&lt;p&gt;&lt;em&gt;（图片借用
+dyld …&lt;/pre&gt;&lt;/div&gt;</summary><content type="html">&lt;p&gt;&lt;em&gt;（标题图片借用
 &lt;a href="https://www.alexwhittemore.com/python-on-macos-best-practices/"&gt;PYTHON ON MACOS: BEST PRACTICES&lt;/a&gt;
 的标题图，这篇文档也是关于MacOS上面运行python和virtualenv的。）&lt;/em&gt;&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;（本篇日志为
@@ -47,7 +45,7 @@ Trace/BPT trap: &lt;span class="m"&gt;5&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;p&gt;这里我使用了OS X自带的BSD 
+&lt;p&gt;这里我使用了OS X自带的BSD
 &lt;a href="http://www.openbsd.org/cgi-bin/man.cgi/OpenBSD-current/man1/find.1?query=find"&gt;find&lt;/a&gt;
 命令。&lt;/p&gt;
 &lt;p&gt;最后一步，重建你的virtualenv。&lt;/p&gt;
