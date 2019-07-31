@@ -53,14 +53,15 @@ AUTHOR_FEED_RSS = None
 
 PLUGIN_PATHS = ["plugins"]
 PLUGINS = [
-           "cjk-auto-spacing",
-           "related_posts",
-           "photos",
-           "liquid_tags.video",
-           "liquid_tags.gram",
-           "liquid_tags.youtube",
-           "i18n_subsites",
-           "pelican-gist"
+            "cjk-auto-spacing",
+            "related_posts",
+            "photos",
+            "liquid_tags.video",
+            "liquid_tags.gram",
+            "liquid_tags.youtube",
+            "i18n_subsites",
+            "pelican-gist",
+            "pelican-cover-image"
           ]
 
 
