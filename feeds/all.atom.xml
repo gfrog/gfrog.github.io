@@ -1,19 +1,69 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>My Life, My Love!</title><link href="https://www.gfrog.net/" rel="alternate"></link><link href="https://www.gfrog.net/feeds/all.atom.xml" rel="self"></link><id>https://www.gfrog.net/</id><updated>2019-07-30T21:36:08+08:00</updated><subtitle>指点江山 激昂文字 修身隆德 自然自我</subtitle><entry><title>从分区（partitioning）中恢复 RabbitMQ 集群</title><link href="https://www.gfrog.net/2019/07/recover-rabbitmq-cluster-after-partitioning/" rel="alternate"></link><published>2019-07-30T21:36:08+08:00</published><updated>2019-07-30T21:36:08+08:00</updated><author><name>gfrog</name></author><id>tag:www.gfrog.net,2019-07-30:/2019/07/recover-rabbitmq-cluster-after-partitioning/</id><summary type="html">&lt;p&gt;&lt;em&gt;（本文为
-&lt;a href="https://gist.github.com/niedbalski/69a72103adad4f0f9609a0857c9810a4"&gt;https://gist.github.com/niedbalski/69a72103adad4f0f9609a0857c9810a4&lt;/a&gt;
-的翻译文档。
+<feed xmlns="http://www.w3.org/2005/Atom"><title>My Life, My Love!</title><link href="https://www.gfrog.net/" rel="alternate"></link><link href="https://www.gfrog.net/feeds/all.atom.xml" rel="self"></link><id>https://www.gfrog.net/</id><updated>2019-08-01T14:28:11+08:00</updated><subtitle>指点江山 激昂文字 修身隆德 自然自我</subtitle><entry><title>夏季的蝉鸣</title><link href="https://www.gfrog.net/2019/08/cicada-sound-in-summer/" rel="alternate"></link><published>2019-08-01T14:28:11+08:00</published><updated>2019-08-01T14:28:11+08:00</updated><author><name>gfrog</name></author><id>tag:www.gfrog.net,2019-08-01:/2019/08/cicada-sound-in-summer/</id><summary type="html">&lt;p&gt;夏天的时候经常被窗外的蝉叫声吵得睡不着觉，之前青蛙一直觉得这是噪音。最近几年被吵醒的次数更多了，于是仔细分辨下蝉叫声，竟然还有各种不同。&lt;/p&gt;</summary><content type="html">&lt;p&gt;夏天的时候经常被窗外的蝉叫声吵得睡不着觉，之前青蛙一直觉得这是噪音。
+最近几年被吵醒的次数更多了，于是仔细分辨下蝉叫声，竟然还有各种不同。&lt;/p&gt;
+&lt;p&gt;例如，在北京最可能听到的声音是这样的：&lt;/p&gt;
+&lt;p&gt;&lt;span class="videobox"&gt;
+                &lt;iframe width="640" height="390"
+                    src='https://www.youtube.com/embed/0Ia3SsP3zkU'
+                    frameborder='0' webkitAllowFullScreen mozallowfullscreen
+                    allowFullScreen&gt;
+                &lt;/iframe&gt;
+            &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;据说它们叫黑柞蝉，长这样：&lt;/p&gt;
+&lt;p&gt;&lt;img alt="黑柞蝉" src="https://pic4.zhimg.com/80/v2-fa07bca75ac46b7c5a1ec5fdc0feae59_hd.jpg"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;（图片转自知乎&lt;a href="https://www.zhihu.com/question/33742530"&gt;鹿鸣呦呦的回答&lt;/a&gt;）&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;偶尔还会听到真的知了知了叫的：&lt;/p&gt;
+&lt;p&gt;&lt;span class="videobox"&gt;
+                &lt;iframe width="640" height="390"
+                    src='https://www.youtube.com/embed/9KO8rc1fUyQ'
+                    frameborder='0' webkitAllowFullScreen mozallowfullscreen
+                    allowFullScreen&gt;
+                &lt;/iframe&gt;
+            &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;据说它们叫蒙古寒蝉，长这个样子：&lt;/p&gt;
+&lt;p&gt;&lt;img alt="蒙古寒蝉" src="https://pic2.zhimg.com/80/v2-4fe1591f356c6379da04e897d970435f_hd.jpg"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;（图片转自知乎&lt;a href="https://www.zhihu.com/question/33742530"&gt;鹿鸣呦呦的回答&lt;/a&gt;）&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;但是，如果去东北，蝉叫声很大概率会变成：&lt;/p&gt;
+&lt;p&gt;&lt;span class="videobox"&gt;
+                &lt;iframe width="640" height="390"
+                    src='https://www.youtube.com/embed/QA1vRV8Yh1Y'
+                    frameborder='0' webkitAllowFullScreen mozallowfullscreen
+                    allowFullScreen&gt;
+                &lt;/iframe&gt;
+            &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;这种蝉叫做斑透翅蝉（Hyalessa maculaticollis）。知乎上的一个回答
+（&lt;a href="https://www.zhihu.com/question/35721670"&gt;北纬多少度以上的地区就没有蝉了？&lt;/a&gt;）
+大概是解释这几种蝉比较详细的一个回答了，
+不但给出了各种蝉叫声的视频，还贴出了关于蝉的分布情况的链接：&lt;/p&gt;
+&lt;p&gt;&lt;img alt="cicada fauna" src="http://www.agr.gc.ca/resources/prod/img/science/ecorc/images/cicada33.jpg"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;（图片来自网站：
+&lt;a href="http://www.agr.gc.ca/eng/science-and-innovation/agriculture-and-agri-food-research-centres-and-collections/canadian-national-collection-of-insects-arachnids-and-nematodes-cnc/archived-content-cicada/archived-content-cicada-17-of-46/?id=1229114733204"&gt;Cicada (17 of 46)&lt;/a&gt;
+，里面有更加详细的种群介绍。
 ）&lt;/em&gt;&lt;/p&gt;
-&lt;p&gt;1) 检查 Cluster 状态。&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;Mnesia&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;rabbit@juju-machine-30-lxd-11&amp;#39;&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt;: ** ERROR ** mnesia_event got &lt;span class="o"&gt;{&lt;/span&gt;inconsistent_database, running_partitioned_network, &lt;span class="s1"&gt;&amp;#39;rabbit@juju-machine-29-lxd-9&amp;#39;&lt;/span&gt;&lt;span class="o"&gt;}&lt;/span&gt;
-
-$ sudo rabbitmqctl cluster_status
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;p&gt;2) 选择合适的节点作为 master 节点。&lt;/p&gt;
-&lt;p&gt;&lt;em&gt;（注：这个步骤很重要，如果没有选择合适的 master 节点，很容易造成消息丢失）&lt;/em&gt;&lt;/p&gt;
-&lt;p&gt;# 通过连接数。&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ juju run --service rabbitmq-server &lt;span class="s2"&gt;&amp;quot;sudo ss -t state established -nt &amp;#39;( sport = :amqp )&amp;#39; | wc -l …&lt;/span&gt;&lt;/pre&gt;&lt;/div&gt;</summary><content type="html">&lt;p&gt;&lt;em&gt;（本文为
+&lt;p&gt;从这个图上看日本、韩国、辽东半岛、山东半岛，还有华中华南地区是一个分布区，
+中国的另外大部分地区是另一个分布区，
+所以青蛙觉得这大概就是大连的蝉叫声跟北京显著不同的原因了。&lt;/p&gt;
+&lt;p&gt;这个知乎回答里面提到了收集北美地区的各种蝉叫声的网站：&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://www.cicadamania.com/audio/"&gt;Cicada Mania&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;另外青蛙还找到了收集日本韩国蝉叫声的网站：&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://zikade.world.coocan.jp/cicadasongaac_e.html"&gt;http://zikade.world.coocan.jp/cicadasongaac_e.html&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;用斑透翅蝉这个学名找到了更多的视频和图片，看这个家伙撅着屁股叫的多卖力。&lt;/p&gt;
+&lt;p&gt;&lt;span class="videobox"&gt;
+                &lt;iframe width="640" height="390"
+                    src='https://www.youtube.com/embed/HuILWh2hD3o'
+                    frameborder='0' webkitAllowFullScreen mozallowfullscreen
+                    allowFullScreen&gt;
+                &lt;/iframe&gt;
+            &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;不过这个知乎回答里面并没有回答题目本身的灵魂拷问：&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;北纬多少度以上的地区就没有蝉了？&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;就青蛙自己的经历来说，吉林省的某些地区夏天还能听到蝉鸣，但是已经没有特别密集了。&lt;/p&gt;
+&lt;p&gt;在网上找了一下，只有零星的一些帖子或者知乎回答提到了北方一些地区有蝉，
+但是没有系统性的讲解中国蝉分布情况的帖子。&lt;/p&gt;
+&lt;p&gt;青蛙翻到了一本叫做
+&lt;a href="https://books.google.com/books?id=ZP5MAAAAYAAJ"&gt;《中国蝉科志: 同翅目. 蝉总科》&lt;/a&gt;
+的书，似乎里面有蝉分布情况的介绍，但是这本书在网上几乎找不见，所以也没法查阅了。&lt;/p&gt;
+&lt;p&gt;看来青蛙有机会要去图书馆找找这本书才能回答这个究级问题了。&lt;/p&gt;</content><category term="cicada"></category><category term="summaer"></category><category term="sound"></category><category term="video"></category><category term="song"></category></entry><entry><title>从分区（partitioning）中恢复 RabbitMQ 集群</title><link href="https://www.gfrog.net/2019/07/recover-rabbitmq-cluster-after-partitioning/" rel="alternate"></link><published>2019-07-30T21:36:08+08:00</published><updated>2019-07-30T21:36:08+08:00</updated><author><name>gfrog</name></author><id>tag:www.gfrog.net,2019-07-30:/2019/07/recover-rabbitmq-cluster-after-partitioning/</id><summary type="html">&lt;p&gt;&lt;em&gt;（本文为 &lt;a href="https://gist.github.com/niedbalski/69a72103adad4f0f9609a0857c9810a4"&gt;https://gist.github.com/niedbalski/69a72103adad4f0f9609a0857c9810a4&lt;/a&gt; 的翻译文档。）&lt;/em&gt;&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;em&gt;（本文为
 &lt;a href="https://gist.github.com/niedbalski/69a72103adad4f0f9609a0857c9810a4"&gt;https://gist.github.com/niedbalski/69a72103adad4f0f9609a0857c9810a4&lt;/a&gt;
 的翻译文档。
 ）&lt;/em&gt;&lt;/p&gt;
@@ -102,20 +152,7 @@ $ sudo rabbitmqctl start_app
 &lt;p&gt;关于 rabbitmq 基本内容，以及 partition 和 brain split 的一个介绍。&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;关于RabbitMq你必须深入理解的内容 &lt;a href="https://zhuanlan.zhihu.com/p/60141062"&gt;https://zhuanlan.zhihu.com/p/60141062&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><category term="cloud"></category><category term="rabbitmq"></category><category term="cluster"></category><category term="recover"></category><category term="partition"></category><category term="juju"></category></entry><entry><title>修复因为 Python 升级导致的失效 virtualenv 环境</title><link href="https://www.gfrog.net/2019/07/fix-python-virtualenv-after-python-upgrade/" rel="alternate"></link><published>2019-07-17T20:48:27+08:00</published><updated>2019-07-17T20:48:27+08:00</updated><author><name>gfrog</name></author><id>tag:www.gfrog.net,2019-07-17:/2019/07/fix-python-virtualenv-after-python-upgrade/</id><summary type="html">&lt;p&gt;&lt;em&gt;（标题图片借用
-&lt;a href="https://www.alexwhittemore.com/python-on-macos-best-practices/"&gt;PYTHON ON MACOS: BEST PRACTICES&lt;/a&gt;
-的标题图，这篇文档也是关于MacOS上面运行python和virtualenv的。）&lt;/em&gt;&lt;/p&gt;
-&lt;p&gt;&lt;em&gt;（本篇日志为
-&lt;a href="http://www.jeremycade.com/python/osx/homebrew/2015/03/02/fixing-virtualenv-after-a-python-upgrade/"&gt;How to fix your Python virtualenv after a Homebrew Python upgrade&lt;/a&gt;
-的翻译文档）&lt;/em&gt;&lt;/p&gt;
-&lt;p&gt;你在使用Homebrew管理你的OS X上面的Python嘛？最近有没有升级过Python？&lt;/p&gt;
-&lt;p&gt;我遇到的情况是Python 3的一个小更新：从3.4.2到3.4.3。
-这个升级足够让virtualenv里面的符号连接（symbolic links）失效了。&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;例如&lt;/strong&gt;&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;~: &lt;span class="nb"&gt;cd&lt;/span&gt; ~/src/my_app
-~/src/my_app: &lt;span class="nb"&gt;source&lt;/span&gt; venv/bin/activate
-&lt;span class="o"&gt;[&lt;/span&gt;venv&lt;span class="o"&gt;]&lt;/span&gt; ~/src/my_app: python
-dyld …&lt;/pre&gt;&lt;/div&gt;</summary><content type="html">&lt;p&gt;&lt;em&gt;（标题图片借用
+&lt;/ul&gt;</content><category term="cloud"></category><category term="rabbitmq"></category><category term="cluster"></category><category term="recover"></category><category term="partition"></category><category term="juju"></category></entry><entry><title>修复因为 Python 升级导致的失效 virtualenv 环境</title><link href="https://www.gfrog.net/2019/07/fix-python-virtualenv-after-python-upgrade/" rel="alternate"></link><published>2019-07-17T20:48:27+08:00</published><updated>2019-07-17T20:48:27+08:00</updated><author><name>gfrog</name></author><id>tag:www.gfrog.net,2019-07-17:/2019/07/fix-python-virtualenv-after-python-upgrade/</id><summary type="html">&lt;p&gt;&lt;em&gt;（本篇日志为How to fix your Python virtualenv after a Homebrew Python upgrade的翻译文档）&lt;/em&gt;&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;em&gt;（标题图片借用
 &lt;a href="https://www.alexwhittemore.com/python-on-macos-best-practices/"&gt;PYTHON ON MACOS: BEST PRACTICES&lt;/a&gt;
 的标题图，这篇文档也是关于MacOS上面运行python和virtualenv的。）&lt;/em&gt;&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;（本篇日志为
@@ -165,23 +202,7 @@ Trace/BPT trap: &lt;span class="m"&gt;5&lt;/span&gt;
 &lt;code&gt;python3 -m venv VENV_DIR&lt;/code&gt;
 这种方式创建virtualenv的时候，并不会创建符号连接。&lt;/p&gt;
 &lt;p&gt;所以结论是，在MacOS上尽量使用python内置的venv模块，
-而不是使用virtualenv包。&lt;/p&gt;</content><category term="python"></category><category term="python3"></category><category term="virtualenv"></category><category term="macos"></category><category term="osx"></category><category term="homebrew"></category><category term="shell"></category></entry><entry><title>Pelican 的 Google Map 插件</title><link href="https://www.gfrog.net/2019/07/create-a-google-map-plugin-for-pelican/" rel="alternate"></link><published>2019-07-09T14:27:10+08:00</published><updated>2019-07-09T14:27:10+08:00</updated><author><name>gfrog</name></author><id>tag:www.gfrog.net,2019-07-09:/2019/07/create-a-google-map-plugin-for-pelican/</id><summary type="html">&lt;p&gt;青蛙最近整理照片和blog的时候，一直想想在blog post里添加一个地图。
-但是pelican似乎没有靠谱的google map plugin。
-虽然有一个
-&lt;a href="https://pypi.org/project/google_embed/"&gt;google_embed&lt;/a&gt;
-，但是似乎现在不能用了，按照它的README写好map之后，post里面完全不会转义。&lt;/p&gt;
-&lt;p&gt;于是青蛙一怒之下自己照猫画虎写了个liquid_tag版本的google map，竟然也能用了。&lt;/p&gt;
-&lt;p&gt;目前这个plugin支持map和direction模式，青蛙还在考虑要不要添加街景模式。&lt;/p&gt;
-&lt;p&gt;添加map的方法：&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="x"&gt;    {% gmap &amp;quot;location&amp;quot; mode [maptype] [align] [width] [height] %}&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;p&gt;&lt;code&gt;location&lt;/code&gt;：必选项，指定地点，必须包含双引号，支持中文。&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;mode&lt;/code&gt;：必选项，地图模式，有&lt;code&gt;place&lt;/code&gt;和&lt;code&gt;search&lt;/code&gt;选项，
-指定地图显示单个地点或者搜索location中的关键字&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;maptype&lt;/code&gt;：地图的显示模式，包含&lt;code&gt;roadmap&lt;/code&gt;和&lt;code&gt;satelite&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;align&lt;/code&gt;：地图在页面中的对齐方式，&lt;code&gt;left&lt;/code&gt;、&lt;code&gt;center&lt;/code&gt;或者&lt;code&gt;right …&lt;/code&gt;&lt;/p&gt;</summary><content type="html">&lt;p&gt;青蛙最近整理照片和blog的时候，一直想想在blog post里添加一个地图。
+而不是使用virtualenv包。&lt;/p&gt;</content><category term="python"></category><category term="python3"></category><category term="virtualenv"></category><category term="macos"></category><category term="osx"></category><category term="homebrew"></category><category term="shell"></category></entry><entry><title>Pelican 的 Google Map 插件</title><link href="https://www.gfrog.net/2019/07/create-a-google-map-plugin-for-pelican/" rel="alternate"></link><published>2019-07-09T14:27:10+08:00</published><updated>2019-07-09T14:27:10+08:00</updated><author><name>gfrog</name></author><id>tag:www.gfrog.net,2019-07-09:/2019/07/create-a-google-map-plugin-for-pelican/</id><summary type="html">&lt;p&gt;青蛙最近整理照片和blog的时候，一直想想在blog post里添加一个地图。 但是pelican似乎没有靠谱的google map plugin。 虽然有一个google_embed，但是似乎现在不能用了，按照它的README写好map之后，post里面完全不会转义。 于是青蛙一怒之下自己照猫画虎写了个liquid_tag版本的google map，竟然也能用了。&lt;/p&gt;</summary><content type="html">&lt;p&gt;青蛙最近整理照片和blog的时候，一直想想在blog post里添加一个地图。
 但是pelican似乎没有靠谱的google map plugin。
 虽然有一个
 &lt;a href="https://pypi.org/project/google_embed/"&gt;google_embed&lt;/a&gt;
@@ -507,33 +528,7 @@ var locations = [
 &lt;p&gt;[1] &lt;a href="http://iza.ac/posts/2014/03/google-embed/"&gt;Google Embed&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;[2] &lt;a href="https://pypi.org/project/google_embed/"&gt;google_embed&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;[3] &lt;a href="https://github.com/getpelican/pelican-plugins/blob/master/liquid_tags/Readme.md"&gt;Liquid-style Tags&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;[4] &lt;a href="https://developers.google.com/maps/documentation/javascript/examples/geocoding-simple"&gt;Geocoding Service | Maps JavaScript API | Google Developers&lt;/a&gt;&lt;/p&gt;</content><category term="pelican"></category><category term="google"></category><category term="map"></category><category term="python"></category><category term="script"></category><category term="coding"></category><category term="github"></category></entry><entry><title>将Instagram内容导入Blog</title><link href="https://www.gfrog.net/2019/07/import-instagram-pictures-into-blog/" rel="alternate"></link><published>2019-07-04T00:07:46+08:00</published><updated>2019-07-04T00:07:46+08:00</updated><author><name>gfrog</name></author><id>tag:www.gfrog.net,2019-07-04:/2019/07/import-instagram-pictures-into-blog/</id><summary type="html">&lt;p&gt;青蛙关站的这几年，虽然没有写blog，但是instagram和twitter发了可真不少。
-今天研究了下怎么导入instagram的照片和twitter的条目。
-看起来instagram很容易实现，因为有一个python的客户端
-&lt;a href="https://instaloader.github.io/"&gt;Instaloader&lt;/a&gt;
-。&lt;/p&gt;
-&lt;p&gt;首先，用pip把这个客户端装上&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ pip3 install instaloader
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;p&gt;然后，自己搞个脚本，从instagram数据里面直接生成markdown文件，写的不太好看，不过数据基本完美导入Blog了。&lt;/p&gt;
-&lt;div class="gist"&gt;
-    &lt;script src='https://gist.github.com/92087c750e9293213b69f0f1765e3fad.js'&gt;&lt;/script&gt;
-    &lt;noscript&gt;
-        &lt;pre&gt;&lt;code&gt;import instaloader
-import os
-import time
-
-L=instaloader.Instaloader()
-L.interactive_login("gfrogcn")
-
-profile = instaloader.Profile.from_username(L.context, "gfrogcn")
-
-new_template ="""title: Instagram Picture %s
-date: %s 23:59:59
-slug: instagram-picture-%s
-category …&lt;/code&gt;&lt;/pre&gt;&lt;/noscript&gt;&lt;/div&gt;</summary><content type="html">&lt;p&gt;青蛙关站的这几年，虽然没有写blog，但是instagram和twitter发了可真不少。
+&lt;p&gt;[4] &lt;a href="https://developers.google.com/maps/documentation/javascript/examples/geocoding-simple"&gt;Geocoding Service | Maps JavaScript API | Google Developers&lt;/a&gt;&lt;/p&gt;</content><category term="pelican"></category><category term="google"></category><category term="map"></category><category term="python"></category><category term="script"></category><category term="coding"></category><category term="github"></category></entry><entry><title>将Instagram内容导入Blog</title><link href="https://www.gfrog.net/2019/07/import-instagram-pictures-into-blog/" rel="alternate"></link><published>2019-07-04T00:07:46+08:00</published><updated>2019-07-04T00:07:46+08:00</updated><author><name>gfrog</name></author><id>tag:www.gfrog.net,2019-07-04:/2019/07/import-instagram-pictures-into-blog/</id><summary type="html">&lt;p&gt;青蛙关站的这几年，虽然没有写blog，但是instagram和twitter发了可真不少。今天研究了下怎么导入instagram的照片和twitter的条目。看起来instagram很容易实现，因为有一个python的客户端Instaloader。&lt;/p&gt;</summary><content type="html">&lt;p&gt;青蛙关站的这几年，虽然没有写blog，但是instagram和twitter发了可真不少。
 今天研究了下怎么导入instagram的照片和twitter的条目。
 看起来instagram很容易实现，因为有一个python的客户端
 &lt;a href="https://instaloader.github.io/"&gt;Instaloader&lt;/a&gt;
@@ -652,40 +647,7 @@ for post in profile.get_posts():
 &lt;p&gt;本站域名：&lt;/p&gt;
 &lt;h2&gt;&lt;a href="https://www.gfrog.net/"&gt;https://www.gfrog.net/&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;源码：&lt;/p&gt;
-&lt;p&gt;&lt;a href="https://github.com/gfrog/gfrog.github.io"&gt;https://github.com/gfrog/gfrog.github.io&lt;/a&gt;&lt;/p&gt;</content><category term="site"></category><category term="github"></category><category term="pelican"></category></entry><entry><title>上海五日游杂记</title><link href="https://www.gfrog.net/2019/06/five-days-tour-in-shanghai/" rel="alternate"></link><published>2019-06-27T17:06:16+08:00</published><updated>2019-06-27T17:06:16+08:00</updated><author><name>gfrog</name></author><id>tag:www.gfrog.net,2019-06-27:/2019/06/five-days-tour-in-shanghai/</id><summary type="html">&lt;p&gt;青蛙对于魔都向往已久，虽然到过魔都很多次，然而并没有太多机会在魔都玩一玩。
-刚好六月在魔都有KubeCon展会，趁着开会的机会，青蛙利用周末在魔都转了转。&lt;/p&gt;
-&lt;p&gt;不知道是不是刚好赶上了气温最适宜的那几天，
-在帝都被热吐了之后， 到魔都竟然感觉气温舒适宜人，
-在外面溜达感受黄浦江上的阵阵凉风，惬意的很。&lt;/p&gt;
-&lt;p&gt;夏天去魔都肯定要坐火车的啊，不然坐飞机延误起来不一定要多久。&lt;/p&gt;
-&lt;p&gt;&lt;img alt="1" src="https://lh3.googleusercontent.com/Fn_uVSViMQepYjz8X-agQp21VU1zwZbshQgWBOkLf6mhDV0Yg-ue4-M_Nowh7OL6XnkDucJjb1suwE9qaVR2hRogzkI0M_q9umZEaeOlz7WiTx9IgexjZxAQF1PQVx6buIdjgUg-VV0=s640"&gt;&lt;/p&gt;
-&lt;p&gt;兔子屎色动卧，顶着D车头衔的T车，
-这车虽然叫D，但是大部分时间都跑在京沪普线上，
-价钱却跟真正的D车票价看齐， 铁总真是赚的一手好钱。&lt;/p&gt;
-&lt;p&gt;&lt;img alt="1" src="https://lh3.googleusercontent.com/kXpUAt-ZVeYw6EVvXhquHccxSLrCs85HqAbg69tMxBNeTN0DD6-3kuLyNt0Vdl9FP71R5mCjg-_z5a_dYb0IHgPpOrVabsUeoMRqrbokdLWFvTZTFDot1igl_UHKDXI-lTSjDMsfXg4=s640"&gt;&lt;/p&gt;
-&lt;p&gt;联通手机在京沪线上基本没法用，只有2G和隐隐约约的3G，
-甚至到某些车站都没有4G信号，真是无奈到家。&lt;/p&gt;
-&lt;p&gt;开掌上高铁连车上Wi-Fi速度也渣到爆，甚至有时候连这个app都没法连接。
-相比起前几天青蛙去法国体验的法国高铁爸爸的app，
-显示路线图实时速度，还能显示wifi覆盖情况，
-在线预订餐车餐食，目的地及沿途景点介绍。
-最重要的是上网速度飞快！&lt;/p&gt;
-&lt;p&gt;&lt;img alt="1" src="https://lh3.googleusercontent.com/bn8WUIZLLtPM6nJp472H2GVCAn3rEkiTKI8YsdQPZLRrcxNFPW306WlCB4GX7Gly_2XEdjicCYP8-yvVor3sWO6GWC6ralwFlBUEA-8pljba30fFsAV_Wkb0lhMZyK_H06MK82uAQ7A=w320"&gt;
-&lt;img alt="1" src="https://lh3.googleusercontent.com/pNYjz4DtOENMlKcmDyZRVAq4wE1afps_dtezxv-bH_QXjbZ3khQDfOGRjPX0GPga7TNilk6l7VotJixSWRrY33vC4R4p8ImqeIYnjImyDKw95xD_8wGb018hZ-PrX6swT5VoRzVfO5Y=w320"&gt;&lt;/p&gt;
-&lt;p&gt;上海站到达，似乎上局放弃普速车站了？
-上海站也是破破烂烂的早期火车站形象。&lt;/p&gt;
-&lt;p&gt;&lt;img alt="1" src="https://lh3.googleusercontent.com/2Ie2jMCgSuhgIQ4gavUODj6rUanfOEGV45klYqOk07nJQ-HQfsfZEoplW0XY-xbiAB7DgZ1WHeOUxFi3rHpd_UdckSebp_jjjg1pOPG7lsIIitYInLM53YfxKv4AaPH4KzdMDxF-1hM=s640"&gt;&lt;/p&gt;
-&lt;p&gt;一大早的人民广场，非常安静， 旁边广场上有一群白衣服老人家打太极拳。
-照片尽头就是准备入住的饭店。&lt;/p&gt;
-&lt;p&gt;青蛙拍完这张照片2分钟后就遭到了便便毒气攻击。
-上海市中心这种地方，紧靠着市政府，竟然有很多露宿街头的和随地大小便的人。
-似乎魔都真是金玉其外。&lt;/p&gt;
-&lt;p&gt;&lt;img alt="1" src="https://lh3.googleusercontent.com/zmmzJJwpB4vf3s6k-Lly2XQLoisHvJzmELijBCe7zD2M3vpVMnU-4ueEWSYvVVPusMwuRN9qXxtdohv26a3bjIr3VSK9hEbWWMgb3YhXX4qLUTPbp-15j7xTKyez9QOILi6wDlg6NDU=w640"&gt;&lt;/p&gt;
-&lt;p&gt;一大早的南京路 vs 晚上的南京路，反差巨大。
-不过让青蛙想起了盛京的中街。&lt;/p&gt;
-&lt;p&gt;&lt;img alt="1" src="https://lh3.googleusercontent.com/XZIKwk605WjSjJE4X-ha898DvfIy2ps-z3KGdK6RvL5ZipGQnZhXXug0Mv07G-l15Ncj1KHGwJ0PkSI2vFN02db9UWcGPhAki0ef6Fa1oYcqJz0rMLDgTCk-iRvpo4ifkWyz0RvH5Xo=w640"&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img alt="1" src="https://lh3.googleusercontent.com/02gOk4YjQHnseob03MJMSL1XuaS5_htkAHPzDbC9h6B84fqGNWh_KCbUp6wQM4mj82VTug6Ts1EXhxnErmL3Jr38on84PSit3CqkoKWl_Y3L1tuOv7doqRhP4bt7vnSDbIcIO_Nz_ks=w640"&gt;&lt;/p&gt;
-&lt;p&gt;魔都奇葩楼之一： 金刚钻 …&lt;/p&gt;</summary><content type="html">&lt;p&gt;青蛙对于魔都向往已久，虽然到过魔都很多次，然而并没有太多机会在魔都玩一玩。
+&lt;p&gt;&lt;a href="https://github.com/gfrog/gfrog.github.io"&gt;https://github.com/gfrog/gfrog.github.io&lt;/a&gt;&lt;/p&gt;</content><category term="site"></category><category term="github"></category><category term="pelican"></category></entry><entry><title>上海五日游杂记</title><link href="https://www.gfrog.net/2019/06/five-days-tour-in-shanghai/" rel="alternate"></link><published>2019-06-27T17:06:16+08:00</published><updated>2019-06-27T17:06:16+08:00</updated><author><name>gfrog</name></author><id>tag:www.gfrog.net,2019-06-27:/2019/06/five-days-tour-in-shanghai/</id><summary type="html">&lt;p&gt;青蛙对于魔都向往已久，虽然到过魔都很多次，然而并没有太多机会在魔都玩一玩。刚好六月在魔都有KubeCon展会，趁着开会的机会，青蛙利用周末在魔都转了转。&lt;/p&gt;</summary><content type="html">&lt;p&gt;青蛙对于魔都向往已久，虽然到过魔都很多次，然而并没有太多机会在魔都玩一玩。
 刚好六月在魔都有KubeCon展会，趁着开会的机会，青蛙利用周末在魔都转了转。&lt;/p&gt;
 &lt;p&gt;不知道是不是刚好赶上了气温最适宜的那几天，
 在帝都被热吐了之后， 到魔都竟然感觉气温舒适宜人，
@@ -807,52 +769,7 @@ for post in profile.get_posts():
 &lt;p&gt;回家的伴手礼自然是大白兔🐰啦。&lt;/p&gt;
 &lt;p&gt;&lt;img alt="1" src="https://lh3.googleusercontent.com/-wNNYV2Hj0WyhDRLzhJiwDV6hwnANSpuYoAZExuMMdC0RQtfmx9ik5oFnSDp2NAXEmZLuglu9InFOW80TF13_B-A5Spd2XPO4kegrM3MVvR_giJ3IO6SizzmRsysNhNPz-jw6HRg3j4=s640"&gt;&lt;/p&gt;
 &lt;p&gt;到达帝都，开始搬砖。&lt;/p&gt;
-&lt;p&gt;&lt;img alt="1" src="https://lh3.googleusercontent.com/lyYXhzPpo1Bs_RCcwef-Bnt9yan_MEkeR6rDMrRtxJPFhlKDDYykOzIQHAGIXEcX4K5--VN50VJ8wmBPH-9ibBQQBG5rZSmXO35zlO3nFkBRJN_Y6yYzgxhSPl883OiZeooOfpMcISI=w640"&gt;&lt;/p&gt;</content><category term="travel"></category><category term="tour"></category><category term="shanghai"></category><category term="train"></category><category term="waitan"></category><category term="building"></category><category term="coffee"></category><category term="shop"></category></entry><entry><title>体验上海轮渡</title><link href="https://www.gfrog.net/2019/06/take-shanghai-ferry-service/" rel="alternate"></link><published>2019-06-23T22:18:06+08:00</published><updated>2019-07-15T21:18:06+08:00</updated><author><name>gfrog</name></author><id>tag:www.gfrog.net,2019-06-23:/2019/06/take-shanghai-ferry-service/</id><summary type="html">&lt;p&gt;青蛙自从前些年部分遍历帝都地铁之后，已经很久没做过遍历公交这种事情了。
-这次来到魔都，有一上午时间没地方去，所以决定部分遍历魔都轮渡线路。
-遍历的目标就是从外滩沿黄浦江向上，到南浦大桥结束。&lt;/p&gt;
-&lt;p&gt;这其中需要乘坐5条线路，经过8个渡口：&lt;/p&gt;
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;浦西&lt;/th&gt;
-&lt;th&gt;线路&lt;/th&gt;
-&lt;th&gt;浦东&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;金陵东路渡口&lt;/td&gt;
-&lt;td&gt;东金线&lt;/td&gt;
-&lt;td&gt;东昌路渡口&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;复兴东路渡口&lt;/td&gt;
-&lt;td&gt;东复线&lt;/td&gt;
-&lt;td&gt;东昌路渡口&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;复兴东路渡口&lt;/td&gt;
-&lt;td&gt;杨复线&lt;/td&gt;
-&lt;td&gt;杨家渡渡口&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;董家渡渡口&lt;/td&gt;
-&lt;td&gt;塘董线&lt;/td&gt;
-&lt;td&gt;塘桥渡口&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;陆家浜渡口&lt;/td&gt;
-&lt;td&gt;南陆线&lt;/td&gt;
-&lt;td&gt;南码头渡口&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;script&gt;
-var locations = [
-['金陵东路渡口', '金陵东路渡口, huangpu, shanghai', '#jinling-east-road'],
-['东昌路渡口', 'Dongchang Road Ferry, pudong xinqu, shanghai', '#dongchang-road'],
-['复兴东路渡口', '复兴东路渡口, huangpu, shanghai', '#fuxing-east-road'],
-['杨家渡渡口', '杨家渡渡口, pudong …&lt;/script&gt;</summary><content type="html">&lt;p&gt;青蛙自从前些年部分遍历帝都地铁之后，已经很久没做过遍历公交这种事情了。
+&lt;p&gt;&lt;img alt="1" src="https://lh3.googleusercontent.com/lyYXhzPpo1Bs_RCcwef-Bnt9yan_MEkeR6rDMrRtxJPFhlKDDYykOzIQHAGIXEcX4K5--VN50VJ8wmBPH-9ibBQQBG5rZSmXO35zlO3nFkBRJN_Y6yYzgxhSPl883OiZeooOfpMcISI=w640"&gt;&lt;/p&gt;</content><category term="travel"></category><category term="tour"></category><category term="shanghai"></category><category term="train"></category><category term="waitan"></category><category term="building"></category><category term="coffee"></category><category term="shop"></category></entry><entry><title>体验上海轮渡</title><link href="https://www.gfrog.net/2019/06/take-shanghai-ferry-service/" rel="alternate"></link><published>2019-06-23T22:18:06+08:00</published><updated>2019-07-15T21:18:06+08:00</updated><author><name>gfrog</name></author><id>tag:www.gfrog.net,2019-06-23:/2019/06/take-shanghai-ferry-service/</id><summary type="html">&lt;p&gt;青蛙自从前些年部分遍历帝都地铁之后，已经很久没做过遍历公交这种事情了。这次来到魔都，有一上午时间没地方去，所以决定部分遍历魔都轮渡线路。遍历的目标就是从外滩沿黄浦江向上，到南浦大桥结束。&lt;/p&gt;</summary><content type="html">&lt;p&gt;青蛙自从前些年部分遍历帝都地铁之后，已经很久没做过遍历公交这种事情了。
 这次来到魔都，有一上午时间没地方去，所以决定部分遍历魔都轮渡线路。
 遍历的目标就是从外滩沿黄浦江向上，到南浦大桥结束。&lt;/p&gt;
 &lt;p&gt;这其中需要乘坐5条线路，经过8个渡口：&lt;/p&gt;

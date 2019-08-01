@@ -81,6 +81,60 @@ My Life, My Love!            </a>
     <div class="row">
         <div class="col-sm-9">
             <article>
+                <h2><a href="./2008/03/enable-markdown-highlight-in-vim/">在VIM中打开Markdown文件高亮</a></h2>
+                    <div class="well well-sm">
+<footer class="post-info">
+    <span class="label label-default">Date</span>
+    <span class="published">
+        <i class="fa fa-calendar"></i><time datetime="2008-03-20T00:29:34+08:00"> Thu 20 March 2008</time>
+    </span>
+
+
+
+        <span class="label label-default">Category</span>
+        <a href="./category/vim.html">VIM</a>
+
+
+<span class="label label-default">Tags</span>
+	<a href="./tag/vim.html">VIM</a>
+        /
+	<a href="./tag/markdown.html">Markdown</a>
+        /
+	<a href="./tag/configuration.html">configuration</a>
+        /
+	<a href="./tag/vimrc.html">vimrc</a>
+    
+</footer><!-- /.post-info -->                    </div>
+                <div class="summary"><p><a href="http://daringfireball.net/projects/Markdown/">Markdown</a>
+是John Gruber设计的一个文本标记系统，相比html，它很简单，
+便于手工编写，而且它还支持
+<a href="http://wordpress.org/">Wordpress</a>
+，
+<a href="http://michelf.com/projects/php-Markdown/">有一个用于wordpress的插件</a>
+。青蛙决定用vim+Markdown来编写blog，看起来他们是一对强大的组合 :)</p>
+<p>首先要去
+<a href="http://www.vim.org/">Vim</a>
+的官方网站
+<a href="http://www.vim.org/scripts/script.php?script_id=1242">下载Markdown的语法高亮插件</a>
+，并把它复制到"~/.vim/syntax/"目录下面。
+然后，新建一个"~/.vim/ftdetect/mkd.vim"文件，在其中加入下面的内容：</p>
+<div class="highlight"><pre><span></span><span class="s2">&quot;</span><span class="s"> markdown filetype file</span>
+<span class="k">if</span> <span class="nv">exists</span><span class="ss">(</span><span class="s2">&quot;</span><span class="s">did_load_filetypes</span><span class="s2">&quot;</span><span class="ss">)</span>
+  <span class="nv">finish</span>
+<span class="k">endif</span>
+<span class="nv">augroup</span> <span class="nv">markdown</span>
+  <span class="nv">au</span><span class="o">!</span> <span class="nv">BufRead</span>,<span class="nv">BufNewFile</span> <span class="o">*</span>.<span class="nv">mkd</span>   <span class="nv">setfiletype</span> <span class="nv">mkd</span>
+<span class="nv">augroup</span> <span class="k">END</span>
+</pre></div>
+
+
+<p>并在"~/.vimrc"文件中添加如下内容：</p>
+<div class="highlight"><pre><span></span><span class="s2">&quot;</span><span class="s">Markdown …</span></pre></div>
+                    <a class="btn btn-default btn-xs" href="./2008/03/enable-markdown-highlight-in-vim/">more ...</a>
+                </div>
+            </article>
+            <hr/>
+            <article>
                 <h2><a href="./2008/03/glinux-setup-build-directory/">glinux开发摘要(2)-构建目录结构</a></h2>
                     <div class="well well-sm">
 <footer class="post-info">
@@ -354,32 +408,6 @@ google了一大把关键字，看了一大叠邮件列表，
 <p><strong>更新：</strong> [2008-03-02 11:33] 放上日志里提到的补丁文件和libqq.so。</p>
 <p><a href="http://www.divshare.com/download/3927060-345">qq …</a></p>
                     <a class="btn btn-default btn-xs" href="./2008/03/solution-of-qq-null-group-name-in-pidgin/">more ...</a>
-                </div>
-            </article>
-            <hr/>
-            <article>
-                <h2><a href="./2008/03/my-mind-deep-into-confusion/">陷入迷茫</a></h2>
-                    <div class="well well-sm">
-<footer class="post-info">
-    <span class="label label-default">Date</span>
-    <span class="published">
-        <i class="fa fa-calendar"></i><time datetime="2008-03-01T21:53:16+08:00"> Sat 01 March 2008</time>
-    </span>
-
-
-
-        <span class="label label-default">Category</span>
-        <a href="./category/misc.html">Misc</a>
-
-
-    
-</footer><!-- /.post-info -->                    </div>
-                <div class="summary"><p>过了一个年，青蛙又长了一岁。</p>
-<p>但是年过完了，青蛙却处于一种混沌状态，不知道自己应该干点什么，好不容易想做点事情，又没法专心。</p>
-<p>想更新blog想了很久，找到几个有趣的东西想写，但是就是没法静下心来写一篇日志。</p>
-<p>难道是一个假期把心放散了？</p>
-<p><strong>不能保持这种状况，要静下心，踏踏实实做点事情了！</strong></p>
-                    <a class="btn btn-default btn-xs" href="./2008/03/my-mind-deep-into-confusion/">more ...</a>
                 </div>
             </article>
             <hr/>

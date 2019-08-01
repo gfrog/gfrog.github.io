@@ -81,6 +81,53 @@ My Life, My Love!            </a>
     <div class="row">
         <div class="col-sm-9">
             <article>
+                <h2><a href="./2013/05/args-in-python-exception/">Python Exception class中的args属性</a></h2>
+                    <div class="well well-sm">
+<footer class="post-info">
+    <span class="label label-default">Date</span>
+    <span class="published">
+        <i class="fa fa-calendar"></i><time datetime="2013-05-13T13:09:00+08:00"> Mon 13 May 2013</time>
+    </span>
+
+
+
+        <span class="label label-default">Category</span>
+        <a href="./category/programming.html">Programming</a>
+
+
+<span class="label label-default">Tags</span>
+	<a href="./tag/python.html">python</a>
+        /
+	<a href="./tag/coding.html">coding</a>
+        /
+	<a href="./tag/script.html">script</a>
+        /
+	<a href="./tag/programming.html">programming</a>
+    
+</footer><!-- /.post-info -->                    </div>
+                <div class="summary"><p>话说今天青蛙遇到了一个bug，在某个Exception里抛出了TypeError Exception，
+青蛙仔细查了半天，才想到Exception有一个内置属性args，刚好跟这个Exception
+定义中的args重名。</p>
+<p>首先看下这个Exception的定义：</p>
+<div class="highlight"><pre><span></span><span class="n">In</span> <span class="p">[</span><span class="mi">4</span><span class="p">]:</span> <span class="k">class</span> <span class="nc">E</span><span class="p">(</span><span class="ne">Exception</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">):</span>
+        <span class="ne">Exception</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">a</span> <span class="o">=</span> <span class="n">a</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">args</span> <span class="o">=</span> <span class="n">b</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">c</span> <span class="o">=</span> <span class="n">c</span>
+    <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="s2">&quot;a = </span><span class="si">%r</span><span class="s2">, b = </span><span class="si">%r</span><span class="s2">, c = </span><span class="si">%r</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">a</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">args</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">c</span><span class="p">)</span>
+<span class="o">....</span><span class="p">:</span>
+</pre></div>
+
+
+<p>当这个Exception被触发时，又引发了一个TypeError：</p>
+<div class="highlight"><pre><span></span><span class="n">In …</span></pre></div>
+                    <a class="btn btn-default btn-xs" href="./2013/05/args-in-python-exception/">more ...</a>
+                </div>
+            </article>
+            <hr/>
+            <article>
                 <h2><a href="./2013/04/-pic-of-green-leaves/">一张流：绿叶</a></h2>
                     <div class="well well-sm">
 <footer class="post-info">
@@ -293,42 +340,6 @@ My Life, My Love!            </a>
 <p><img alt="4" src="https://lh3.googleusercontent.com/nvcA3aGbRQLT4dIu16gW1pbLOecHX32GVCmL1o0sGUK54k3Iby-tv5MS2rPUXq-VWpDVwjg2zxOwofZLYJXoHBJWkKlfSt9Oy-o6oX9I77ZgrtVPAO23hoPQv2VaGEPloCBW47DzOnE=w640"></p>
 <p>现在办公室的温度湿度真是太不适合生物生存了。 -___-</p>
                     <a class="btn btn-default btn-xs" href="./2013/03/pics-of-flowers-in-office/">more ...</a>
-                </div>
-            </article>
-            <hr/>
-            <article>
-                <h2><a href="./2013/01/2013-01-30-new-road-bike-focus/">终于入了公路车</a></h2>
-                    <div class="well well-sm">
-<footer class="post-info">
-    <span class="label label-default">Date</span>
-    <span class="published">
-        <i class="fa fa-calendar"></i><time datetime="2013-01-30T21:17:25+08:00"> Wed 30 January 2013</time>
-    </span>
-
-
-
-        <span class="label label-default">Category</span>
-        <a href="./category/cyclone.html">Cyclone</a>
-
-
-<span class="label label-default">Tags</span>
-	<a href="./tag/bicycle.html">bicycle</a>
-        /
-	<a href="./tag/shopping.html">shopping</a>
-        /
-	<a href="./tag/pictures.html">pictures</a>
-        /
-	<a href="./tag/road.html">road</a>
-    
-</footer><!-- /.post-info -->                    </div>
-                <div class="summary"><p>纠结了良久，终于下手买了公路车。</p>
-<p>新车是去年款的Focus Focus Izalco Team Ergoride 3.0 Force 2012，
-英国直邮过来，被海关拦住叫了400羊的税。</p>
-<p><img alt="1" src="https://lh3.googleusercontent.com/RM0VJjn8l0OrszIO8qahhAk3w67v8YGJYG8NJxZ-yQMa-DKYX1wPnJZ7eN2hNuw2GfJhp0kKpyewDKR2Jc39TuCkD_4UIUPE7tqHFiyjav3HLb6lzMOaX7Br25dIdiJcu2py2hXw_d0=w640"></p>
-<p><img alt="1" src="https://lh3.googleusercontent.com/7_jOJTz_nDoC-roq6YXmxbmgRF1P9WTB7RMNT72Psu4UuJh0fsAn4cfQWETxfCgtgmBLZ_2AyeHj3VlYzzBL2bq1wAEPJWXMpunpchnruJ9kigXAIpeWeYaXvudxjbqFzdpIQH3R42o=w640"></p>
-<p><img alt="2" src="https://lh3.googleusercontent.com/fqk-RYteESHtF-0LyzbSzNhU0nCCy56bDMAFyAJWmAlI-cX2WahU3lAr274c6yPbjqUgrcuh6fa72ZSHzrdShK2Kjqhq_oJgnOQ2xsc0jNtYNqdMELrFA3GtVmQjXXceVyWMHNSuzss=w640"></p>
-<p><img alt="3" src="https://lh3.googleusercontent.com/P44vgGU5oOpv0mNUA2xKS0tWgcYoaIPR7Ob17rGo6ZFQkao_uT6VvYFHxUA1iI-obKk3ub6_x-FYvdAvWyqHUQT5oSfoxogU29MW0Z32EJfA5rJjbprKZC1MGMKqlnyl0tKRSHyziZo=w640"></p>
-                    <a class="btn btn-default btn-xs" href="./2013/01/2013-01-30-new-road-bike-focus/">more ...</a>
                 </div>
             </article>
             <hr/>

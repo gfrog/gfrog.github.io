@@ -1,19 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>My Life, My Love! - Cloud</title><link href="https://www.gfrog.net/" rel="alternate"></link><link href="https://www.gfrog.net/feeds/cloud.atom.xml" rel="self"></link><id>https://www.gfrog.net/</id><updated>2019-07-30T21:36:08+08:00</updated><subtitle>指点江山 激昂文字 修身隆德 自然自我</subtitle><entry><title>从分区（partitioning）中恢复 RabbitMQ 集群</title><link href="https://www.gfrog.net/2019/07/recover-rabbitmq-cluster-after-partitioning/" rel="alternate"></link><published>2019-07-30T21:36:08+08:00</published><updated>2019-07-30T21:36:08+08:00</updated><author><name>gfrog</name></author><id>tag:www.gfrog.net,2019-07-30:/2019/07/recover-rabbitmq-cluster-after-partitioning/</id><summary type="html">&lt;p&gt;&lt;em&gt;（本文为
-&lt;a href="https://gist.github.com/niedbalski/69a72103adad4f0f9609a0857c9810a4"&gt;https://gist.github.com/niedbalski/69a72103adad4f0f9609a0857c9810a4&lt;/a&gt;
-的翻译文档。
-）&lt;/em&gt;&lt;/p&gt;
-&lt;p&gt;1) 检查 Cluster 状态。&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;Mnesia&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;rabbit@juju-machine-30-lxd-11&amp;#39;&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt;: ** ERROR ** mnesia_event got &lt;span class="o"&gt;{&lt;/span&gt;inconsistent_database, running_partitioned_network, &lt;span class="s1"&gt;&amp;#39;rabbit@juju-machine-29-lxd-9&amp;#39;&lt;/span&gt;&lt;span class="o"&gt;}&lt;/span&gt;
-
-$ sudo rabbitmqctl cluster_status
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;p&gt;2) 选择合适的节点作为 master 节点。&lt;/p&gt;
-&lt;p&gt;&lt;em&gt;（注：这个步骤很重要，如果没有选择合适的 master 节点，很容易造成消息丢失）&lt;/em&gt;&lt;/p&gt;
-&lt;p&gt;# 通过连接数。&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ juju run --service rabbitmq-server &lt;span class="s2"&gt;&amp;quot;sudo ss -t state established -nt &amp;#39;( sport = :amqp )&amp;#39; | wc -l …&lt;/span&gt;&lt;/pre&gt;&lt;/div&gt;</summary><content type="html">&lt;p&gt;&lt;em&gt;（本文为
+<feed xmlns="http://www.w3.org/2005/Atom"><title>My Life, My Love! - Cloud</title><link href="https://www.gfrog.net/" rel="alternate"></link><link href="https://www.gfrog.net/feeds/cloud.atom.xml" rel="self"></link><id>https://www.gfrog.net/</id><updated>2019-07-30T21:36:08+08:00</updated><subtitle>指点江山 激昂文字 修身隆德 自然自我</subtitle><entry><title>从分区（partitioning）中恢复 RabbitMQ 集群</title><link href="https://www.gfrog.net/2019/07/recover-rabbitmq-cluster-after-partitioning/" rel="alternate"></link><published>2019-07-30T21:36:08+08:00</published><updated>2019-07-30T21:36:08+08:00</updated><author><name>gfrog</name></author><id>tag:www.gfrog.net,2019-07-30:/2019/07/recover-rabbitmq-cluster-after-partitioning/</id><summary type="html">&lt;p&gt;&lt;em&gt;（本文为 &lt;a href="https://gist.github.com/niedbalski/69a72103adad4f0f9609a0857c9810a4"&gt;https://gist.github.com/niedbalski/69a72103adad4f0f9609a0857c9810a4&lt;/a&gt; 的翻译文档。）&lt;/em&gt;&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;em&gt;（本文为
 &lt;a href="https://gist.github.com/niedbalski/69a72103adad4f0f9609a0857c9810a4"&gt;https://gist.github.com/niedbalski/69a72103adad4f0f9609a0857c9810a4&lt;/a&gt;
 的翻译文档。
 ）&lt;/em&gt;&lt;/p&gt;

@@ -69,6 +69,48 @@ My Life, My Love!            </a>
     <div class="row">
         <div class="col-sm-9">
             <article>
+                <h2><a href="../2019/08/cicada-sound-in-summer/">夏季的蝉鸣</a></h2>
+                    <div class="well well-sm">
+<footer class="post-info">
+    <span class="label label-default">Date</span>
+    <span class="published">
+        <i class="fa fa-calendar"></i><time datetime="2019-08-01T14:28:11+08:00"> Thu 01 August 2019</time>
+    </span>
+
+
+
+        <span class="label label-default">Category</span>
+        <a href="../category/misc.html">Misc</a>
+
+
+<span class="label label-default">Tags</span>
+	<a href="../tag/cicada.html">cicada</a>
+        /
+	<a href="../tag/summaer.html">summaer</a>
+        /
+	<a href="../tag/sound.html">sound</a>
+        /
+	<a href="../tag/video.html">video</a>
+        /
+	<a href="../tag/song.html">song</a>
+    
+</footer><!-- /.post-info -->                    </div>
+    <div class='cover_image'>
+        <figure>
+            <center>
+                <img width='500' src="https://wx3.sinaimg.cn/large/005ztyuLly4fulx4qxh73j30dw08xt8x.jpg" alt="Cover image">
+                <figcaption>
+                        Image by <a href="https://www.weibo.com/ttarticle/p/show?id=2309404276913207147965">为什么一到夏天蝉就叫个不停？竟然是因为这个原因…</a>
+                </figcaption>
+            </center>
+        </figure>
+    </div>
+                <div class="summary"><p>夏天的时候经常被窗外的蝉叫声吵得睡不着觉，之前青蛙一直觉得这是噪音。最近几年被吵醒的次数更多了，于是仔细分辨下蝉叫声，竟然还有各种不同。</p>
+                    <a class="btn btn-default btn-xs" href="../2019/08/cicada-sound-in-summer/">more ...</a>
+                </div>
+            </article>
+            <hr/>
+            <article>
                 <h2><a href="../2019/07/this-blog-recovered-on-github/">本站重新恢复</a></h2>
                     <div class="well well-sm">
 <footer class="post-info">
@@ -330,66 +372,6 @@ My Life, My Love!            </a>
 Python方面，似乎2012以来没有太多的进展，代码量明显不如2011年多，质量似乎也变差了。
 年初制定的编码量计划根本没有达到，接下来四个月要在这方面努力才行 …</p>
                     <a class="btn btn-default btn-xs" href="../2012/08/2012-mid-year-summary/">more ...</a>
-                </div>
-            </article>
-            <hr/>
-            <article>
-                <h2><a href="../2012/07/split-pdf-doc-with-pypdf-module/">使用pyPdf切割pdf文档</a></h2>
-                    <div class="well well-sm">
-<footer class="post-info">
-    <span class="label label-default">Date</span>
-    <span class="published">
-        <i class="fa fa-calendar"></i><time datetime="2012-07-30T22:43:51+08:00"> Mon 30 July 2012</time>
-    </span>
-
-
-
-        <span class="label label-default">Category</span>
-        <a href="../category/misc.html">Misc</a>
-
-
-<span class="label label-default">Tags</span>
-	<a href="../tag/ptyhon.html">ptyhon</a>
-        /
-	<a href="../tag/coding.html">coding</a>
-        /
-	<a href="../tag/script.html">script</a>
-        /
-	<a href="../tag/pdf.html">pdf</a>
-        /
-	<a href="../tag/modification.html">modification</a>
-    
-</footer><!-- /.post-info -->                    </div>
-                <div class="summary"><p>青蛙拿到一份扫描版的pdf文档，每个pdf页包含了两页实际书籍页面，
-这种文档放在6寸Kindle上基本就是杯具了。于是青蛙试图找工具把他们切割掉。
-根据<a href="http://note1day.com/">铄日博客</a>的推荐试验了
-<a href="http://note1day.com/2012/01/paper4kindle/">paper4kindle</a>
-和
-<a href="http://note1day.com/2011/12/k2pdfopt/">k2pdfopt</a>，
-但是papaer4kindle切割出来的文档页面错乱了，而且也没有修正pdf歪斜的功能，
-剪裁输出的文档很难看。
-k2pdfopt就更没法看了，从image识别文档的技术先进，
-但是对于每页pdf包含2页实际页面的文档，k2pdfopt基本无能为力。</p>
-<p>青蛙本想探索一下paper4kindle输出之后页面错乱的问题，
-结果这玩意竟然不开源，又看到作者说花了几小时就搞出来了，
-那青蛙也看看pypdf包，试试能不能直接写代码自己搞定。</p>
-<p>花了半下午时间看了下pypdf（ http://pybrary.net/pyPdf/ ）的API，
-然后直接把例子代码复制下来改吧改吧，
-咱也基本实现了paper4kindle的核心功能了，成功把那份文档处理掉了。
-至于那些花哨的界面啥的，有空再玩吧。
-代码先贴在这里，没有整理，暂时先不贴到github了，
-准备下一步尝试添加旋转页面的功能。</p>
-<p>编码的时候发现了两个问题，</p>
-<ul>
-<li>设置mediaBox的位置之前需要先copy一份page对象，
-    否则设置right的mediaBox的时候竟然会影响left的值，
-    猜测是pypdf模块内部直接返回了page对象的引用，并没有复制一份返回。</li>
-<li>这份文档无法用paper4kindle编辑的原因是实际上文档的四个角坐标是反的，
-    大概文档扫描之后被顺时针旋转了90度。</li>
-</ul>
-<p>最后小小鄙视一下用python、用开源库写代码竟然不继续开源的某些软件作者。</p>
-<div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/env python …</span></pre></div>
-                    <a class="btn btn-default btn-xs" href="../2012/07/split-pdf-doc-with-pypdf-module/">more ...</a>
                 </div>
             </article>
             <hr/>

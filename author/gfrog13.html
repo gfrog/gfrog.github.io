@@ -67,6 +67,46 @@ My Life, My Love!            </a>
     <div class="row">
         <div class="col-sm-9">
             <article>
+                <h2><a href="../2010/12/notice-site-is-unstable/">通告：目前本博客正在进行调整</a></h2>
+                    <div class="well well-sm">
+<footer class="post-info">
+    <span class="label label-default">Date</span>
+    <span class="published">
+        <i class="fa fa-calendar"></i><time datetime="2010-12-12T08:25:06+08:00"> Sun 12 December 2010</time>
+    </span>
+
+
+
+        <span class="label label-default">Category</span>
+        <a href="../category/site.html">Site</a>
+
+
+<span class="label label-default">Tags</span>
+	<a href="../tag/site.html">site</a>
+        /
+	<a href="../tag/wordpress.html">wordpress</a>
+        /
+	<a href="../tag/dreamhost.html">dreamhost</a>
+        /
+	<a href="../tag/vps.html">vps</a>
+        /
+	<a href="../tag/setup.html">setup</a>
+    
+</footer><!-- /.post-info -->                    </div>
+                <div class="summary"><p>青蛙纠结了很久，终于决定把dreamhost换成vps。
+但是麻烦就随之而来，dremahost上自己什么都不需要管，
+wordpress传上去，简单配置一下就可以用。
+vps上就需要自己搞定web服务器，数据库，等等一大堆。</p>
+<p>希望dreamhost到期之前青蛙可以搞定vps的问题。</p>
+<p>Posted from WordPress for Android</p>
+<p><strong>Update 2010-12-14 from web</strong>:</p>
+<p>青蛙已经基本上恢复了wordpress，中间遇到很多小问题，都是迁移之前没有想到的。
+青蛙会专门写一篇日志记录这次迁移经验。</p>
+                    <a class="btn btn-default btn-xs" href="../2010/12/notice-site-is-unstable/">more ...</a>
+                </div>
+            </article>
+            <hr/>
+            <article>
                 <h2><a href="../2010/11/shadow-of-trees-2/">树影2</a></h2>
                     <div class="well well-sm">
 <footer class="post-info">
@@ -282,52 +322,6 @@ NAT模式下还不能直接跟Host系统通信。</p>
 <p>这个命令会在本地打开8080端口，将连接转发到S的80端口上，这样就达到了从本地直接访问S的目的。</p>
 <p>事实上ssh的-L参数主要是用来建立一条客户端到服务器之间的安全隧道，以便安全的传输数据。</p>
                     <a class="btn btn-default btn-xs" href="../2010/08/gfrog-tips-3/">more ...</a>
-                </div>
-            </article>
-            <hr/>
-            <article>
-                <h2><a href="../2010/08/gfrog-tips-2/">一堆小Tips （2）</a></h2>
-                    <div class="well well-sm">
-<footer class="post-info">
-    <span class="label label-default">Date</span>
-    <span class="published">
-        <i class="fa fa-calendar"></i><time datetime="2010-08-09T10:01:21+08:00"> Mon 09 August 2010</time>
-    </span>
-
-
-
-        <span class="label label-default">Category</span>
-        <a href="../category/linux.html">Linux</a>
-
-
-<span class="label label-default">Tags</span>
-	<a href="../tag/linux.html">Linux</a>
-        /
-	<a href="../tag/ssh.html">ssh</a>
-        /
-	<a href="../tag/configuration.html">configuration</a>
-    
-</footer><!-- /.post-info -->                    </div>
-                <div class="summary"><p>今天的Tip主题是ssh。</p>
-<p>经常有人问，为什么Linux里面的ssh那么难用呢，
-就不能有个像secureCRT那样有地址簿的东西么。</p>
-<p>答案是，<strong>有</strong>，而且不需要其他的软件，ssh自己就能搞定。</p>
-<p>要实现这个功能，首先要在~/.ssh里面建立一个config文件，并设置600权限。</p>
-<div class="highlight"><pre><span></span><span class="o">`</span><span class="n">touch</span> <span class="o">~/</span><span class="p">.</span><span class="n">ssh</span><span class="o">/</span><span class="n">config</span>
-<span class="n">chmod</span> <span class="mi">600</span> <span class="o">~/</span><span class="p">.</span><span class="n">ssh</span><span class="o">/</span><span class="n">config</span><span class="o">`</span>
-</pre></div>
-
-
-<p>然后在这个文件中加入以下内容（以10.1.1.1为例）</p>
-<div class="highlight"><pre><span></span><span class="k">Host</span> <span class="mi">1</span>                     <span class="o">#</span><span class="err">指定主机名，这个名称可以任意，取对自己方便的就可以</span>
-<span class="n">HostName</span> <span class="mi">10</span><span class="p">.</span><span class="mi">1</span><span class="p">.</span><span class="mi">1</span><span class="p">.</span><span class="mi">1</span>    <span class="o">#</span><span class="err">指定主机的</span><span class="n">IP</span><span class="err">，这里是</span><span class="mi">10</span><span class="p">.</span><span class="mi">1</span><span class="p">.</span><span class="mi">1</span><span class="p">.</span><span class="mi">1</span>
-<span class="k">User</span> <span class="n">aaa</span>                  <span class="o">#</span><span class="err">默认登录的用户名</span>
-<span class="n">Port</span> <span class="mi">22</span>                    <span class="o">#</span><span class="err">主机上</span><span class="n">sshd的端口号</span>
-</pre></div>
-
-
-<p>以后，访问10 …</p>
-                    <a class="btn btn-default btn-xs" href="../2010/08/gfrog-tips-2/">more ...</a>
                 </div>
             </article>
             <hr/>

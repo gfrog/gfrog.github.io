@@ -1,21 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>My Life, My Love! - Site</title><link href="https://www.gfrog.net/" rel="alternate"></link><link href="https://www.gfrog.net/feeds/site.atom.xml" rel="self"></link><id>https://www.gfrog.net/</id><updated>2019-07-09T14:27:10+08:00</updated><subtitle>指点江山 激昂文字 修身隆德 自然自我</subtitle><entry><title>Pelican 的 Google Map 插件</title><link href="https://www.gfrog.net/2019/07/create-a-google-map-plugin-for-pelican/" rel="alternate"></link><published>2019-07-09T14:27:10+08:00</published><updated>2019-07-09T14:27:10+08:00</updated><author><name>gfrog</name></author><id>tag:www.gfrog.net,2019-07-09:/2019/07/create-a-google-map-plugin-for-pelican/</id><summary type="html">&lt;p&gt;青蛙最近整理照片和blog的时候，一直想想在blog post里添加一个地图。
-但是pelican似乎没有靠谱的google map plugin。
-虽然有一个
-&lt;a href="https://pypi.org/project/google_embed/"&gt;google_embed&lt;/a&gt;
-，但是似乎现在不能用了，按照它的README写好map之后，post里面完全不会转义。&lt;/p&gt;
-&lt;p&gt;于是青蛙一怒之下自己照猫画虎写了个liquid_tag版本的google map，竟然也能用了。&lt;/p&gt;
-&lt;p&gt;目前这个plugin支持map和direction模式，青蛙还在考虑要不要添加街景模式。&lt;/p&gt;
-&lt;p&gt;添加map的方法：&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="x"&gt;    {% gmap &amp;quot;location&amp;quot; mode [maptype] [align] [width] [height] %}&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;p&gt;&lt;code&gt;location&lt;/code&gt;：必选项，指定地点，必须包含双引号，支持中文。&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;mode&lt;/code&gt;：必选项，地图模式，有&lt;code&gt;place&lt;/code&gt;和&lt;code&gt;search&lt;/code&gt;选项，
-指定地图显示单个地点或者搜索location中的关键字&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;maptype&lt;/code&gt;：地图的显示模式，包含&lt;code&gt;roadmap&lt;/code&gt;和&lt;code&gt;satelite&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;align&lt;/code&gt;：地图在页面中的对齐方式，&lt;code&gt;left&lt;/code&gt;、&lt;code&gt;center&lt;/code&gt;或者&lt;code&gt;right …&lt;/code&gt;&lt;/p&gt;</summary><content type="html">&lt;p&gt;青蛙最近整理照片和blog的时候，一直想想在blog post里添加一个地图。
+<feed xmlns="http://www.w3.org/2005/Atom"><title>My Life, My Love! - Site</title><link href="https://www.gfrog.net/" rel="alternate"></link><link href="https://www.gfrog.net/feeds/site.atom.xml" rel="self"></link><id>https://www.gfrog.net/</id><updated>2019-07-09T14:27:10+08:00</updated><subtitle>指点江山 激昂文字 修身隆德 自然自我</subtitle><entry><title>Pelican 的 Google Map 插件</title><link href="https://www.gfrog.net/2019/07/create-a-google-map-plugin-for-pelican/" rel="alternate"></link><published>2019-07-09T14:27:10+08:00</published><updated>2019-07-09T14:27:10+08:00</updated><author><name>gfrog</name></author><id>tag:www.gfrog.net,2019-07-09:/2019/07/create-a-google-map-plugin-for-pelican/</id><summary type="html">&lt;p&gt;青蛙最近整理照片和blog的时候，一直想想在blog post里添加一个地图。 但是pelican似乎没有靠谱的google map plugin。 虽然有一个google_embed，但是似乎现在不能用了，按照它的README写好map之后，post里面完全不会转义。 于是青蛙一怒之下自己照猫画虎写了个liquid_tag版本的google map，竟然也能用了。&lt;/p&gt;</summary><content type="html">&lt;p&gt;青蛙最近整理照片和blog的时候，一直想想在blog post里添加一个地图。
 但是pelican似乎没有靠谱的google map plugin。
 虽然有一个
 &lt;a href="https://pypi.org/project/google_embed/"&gt;google_embed&lt;/a&gt;
@@ -341,33 +325,7 @@ var locations = [
 &lt;p&gt;[1] &lt;a href="http://iza.ac/posts/2014/03/google-embed/"&gt;Google Embed&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;[2] &lt;a href="https://pypi.org/project/google_embed/"&gt;google_embed&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;[3] &lt;a href="https://github.com/getpelican/pelican-plugins/blob/master/liquid_tags/Readme.md"&gt;Liquid-style Tags&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;[4] &lt;a href="https://developers.google.com/maps/documentation/javascript/examples/geocoding-simple"&gt;Geocoding Service | Maps JavaScript API | Google Developers&lt;/a&gt;&lt;/p&gt;</content><category term="pelican"></category><category term="google"></category><category term="map"></category><category term="python"></category><category term="script"></category><category term="coding"></category><category term="github"></category></entry><entry><title>将Instagram内容导入Blog</title><link href="https://www.gfrog.net/2019/07/import-instagram-pictures-into-blog/" rel="alternate"></link><published>2019-07-04T00:07:46+08:00</published><updated>2019-07-04T00:07:46+08:00</updated><author><name>gfrog</name></author><id>tag:www.gfrog.net,2019-07-04:/2019/07/import-instagram-pictures-into-blog/</id><summary type="html">&lt;p&gt;青蛙关站的这几年，虽然没有写blog，但是instagram和twitter发了可真不少。
-今天研究了下怎么导入instagram的照片和twitter的条目。
-看起来instagram很容易实现，因为有一个python的客户端
-&lt;a href="https://instaloader.github.io/"&gt;Instaloader&lt;/a&gt;
-。&lt;/p&gt;
-&lt;p&gt;首先，用pip把这个客户端装上&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ pip3 install instaloader
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;p&gt;然后，自己搞个脚本，从instagram数据里面直接生成markdown文件，写的不太好看，不过数据基本完美导入Blog了。&lt;/p&gt;
-&lt;div class="gist"&gt;
-    &lt;script src='https://gist.github.com/92087c750e9293213b69f0f1765e3fad.js'&gt;&lt;/script&gt;
-    &lt;noscript&gt;
-        &lt;pre&gt;&lt;code&gt;import instaloader
-import os
-import time
-
-L=instaloader.Instaloader()
-L.interactive_login("gfrogcn")
-
-profile = instaloader.Profile.from_username(L.context, "gfrogcn")
-
-new_template ="""title: Instagram Picture %s
-date: %s 23:59:59
-slug: instagram-picture-%s
-category …&lt;/code&gt;&lt;/pre&gt;&lt;/noscript&gt;&lt;/div&gt;</summary><content type="html">&lt;p&gt;青蛙关站的这几年，虽然没有写blog，但是instagram和twitter发了可真不少。
+&lt;p&gt;[4] &lt;a href="https://developers.google.com/maps/documentation/javascript/examples/geocoding-simple"&gt;Geocoding Service | Maps JavaScript API | Google Developers&lt;/a&gt;&lt;/p&gt;</content><category term="pelican"></category><category term="google"></category><category term="map"></category><category term="python"></category><category term="script"></category><category term="coding"></category><category term="github"></category></entry><entry><title>将Instagram内容导入Blog</title><link href="https://www.gfrog.net/2019/07/import-instagram-pictures-into-blog/" rel="alternate"></link><published>2019-07-04T00:07:46+08:00</published><updated>2019-07-04T00:07:46+08:00</updated><author><name>gfrog</name></author><id>tag:www.gfrog.net,2019-07-04:/2019/07/import-instagram-pictures-into-blog/</id><summary type="html">&lt;p&gt;青蛙关站的这几年，虽然没有写blog，但是instagram和twitter发了可真不少。今天研究了下怎么导入instagram的照片和twitter的条目。看起来instagram很容易实现，因为有一个python的客户端Instaloader。&lt;/p&gt;</summary><content type="html">&lt;p&gt;青蛙关站的这几年，虽然没有写blog，但是instagram和twitter发了可真不少。
 今天研究了下怎么导入instagram的照片和twitter的条目。
 看起来instagram很容易实现，因为有一个python的客户端
 &lt;a href="https://instaloader.github.io/"&gt;Instaloader&lt;/a&gt;

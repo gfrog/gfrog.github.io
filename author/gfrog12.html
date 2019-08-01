@@ -67,6 +67,54 @@ My Life, My Love!            </a>
     <div class="row">
         <div class="col-sm-9">
             <article>
+                <h2><a href="../2010/12/enable-smtp-send-mail-in-wordpress/">配置wordpress的邮件发送功能</a></h2>
+                    <div class="well well-sm">
+<footer class="post-info">
+    <span class="label label-default">Date</span>
+    <span class="published">
+        <i class="fa fa-calendar"></i><time datetime="2010-12-22T23:53:26+08:00"> Wed 22 December 2010</time>
+    </span>
+
+
+
+        <span class="label label-default">Category</span>
+        <a href="../category/site.html">Site</a>
+
+
+<span class="label label-default">Tags</span>
+	<a href="../tag/mail.html">mail</a>
+        /
+	<a href="../tag/plugin.html">plugin</a>
+        /
+	<a href="../tag/smtp.html">smtp</a>
+        /
+	<a href="../tag/wordpress.html">wordpress</a>
+        /
+	<a href="../tag/setup.html">setup</a>
+        /
+	<a href="../tag/server.html">server</a>
+    
+</footer><!-- /.post-info -->                    </div>
+                <div class="summary"><p>青蛙继续倒腾vps，今天的主题是调教wordpress发送邮件。</p>
+<p>之前在Dreamhost上面，邮件系统已经配置好了，wordpress不需要任何设置就可以直接发送邮件。
+到了vps上之后，青蛙为了节省资源，没有安装邮件服务器，所以想要发送邮件，还需要自己折腾。</p>
+<p>青蛙首先是想到了配置一个轻量级的MTA，例如msmtp之类的，
+然后修改php.ini的sendmail_path参数，使它指向msmtp。
+这样php程序就具有邮件发送能力了，但是这样产生的问题就是邮件的发送服务器是固定的，
+而且需要配置一个帐号来做登录服务器，如果某个用户希望使用自己的服务器发送某些邮件，
+这样配置就无法实现了。</p>
+<p>为了实现完美的解决方案，青蛙又搜了一圈，发现了wordpress已经集成了一个PHPMailer[1]类，
+并且提供了一个wp_mail函数[2]来发送邮件，
+有很多设置SMTP的插件[3]方便我们配置SMTP服务器和外发邮件帐号信息。</p>
+<p>青蛙选择了WP Mail SMTP插件，非常简单，把所有参数填好，wordpress就可以发送邮件了。</p>
+<p>参考资料：</p>
+<p>[1] PHPMailer <a href="http://phpmailer.worxware.com/">http://phpmailer.worxware.com/</a></p>
+<p>[2] Function Reference/wp_mail <a href="http://codex.wordpress.org/Function_Reference/wp_mail">http://codex …</a></p>
+                    <a class="btn btn-default btn-xs" href="../2010/12/enable-smtp-send-mail-in-wordpress/">more ...</a>
+                </div>
+            </article>
+            <hr/>
+            <article>
                 <h2><a href="../2010/12/install-xmind-in-fedora-with-deb-package/">Install Xmind in Fedora with deb package</a></h2>
                     <div class="well well-sm">
 <footer class="post-info">
@@ -329,46 +377,6 @@ My Life, My Love!            </a>
 <p>今天晚上帐号Active了，上去看了一下，实际上EC2就是一个特别一点的VPS。
 再加上Amazon的工具套件，可以很方便的启动/关闭虚拟机实例 …</p>
                     <a class="btn btn-default btn-xs" href="../2010/12/setup-an-amazon-ec2-account/">more ...</a>
-                </div>
-            </article>
-            <hr/>
-            <article>
-                <h2><a href="../2010/12/notice-site-is-unstable/">通告：目前本博客正在进行调整</a></h2>
-                    <div class="well well-sm">
-<footer class="post-info">
-    <span class="label label-default">Date</span>
-    <span class="published">
-        <i class="fa fa-calendar"></i><time datetime="2010-12-12T08:25:06+08:00"> Sun 12 December 2010</time>
-    </span>
-
-
-
-        <span class="label label-default">Category</span>
-        <a href="../category/site.html">Site</a>
-
-
-<span class="label label-default">Tags</span>
-	<a href="../tag/site.html">site</a>
-        /
-	<a href="../tag/wordpress.html">wordpress</a>
-        /
-	<a href="../tag/dreamhost.html">dreamhost</a>
-        /
-	<a href="../tag/vps.html">vps</a>
-        /
-	<a href="../tag/setup.html">setup</a>
-    
-</footer><!-- /.post-info -->                    </div>
-                <div class="summary"><p>青蛙纠结了很久，终于决定把dreamhost换成vps。
-但是麻烦就随之而来，dremahost上自己什么都不需要管，
-wordpress传上去，简单配置一下就可以用。
-vps上就需要自己搞定web服务器，数据库，等等一大堆。</p>
-<p>希望dreamhost到期之前青蛙可以搞定vps的问题。</p>
-<p>Posted from WordPress for Android</p>
-<p><strong>Update 2010-12-14 from web</strong>:</p>
-<p>青蛙已经基本上恢复了wordpress，中间遇到很多小问题，都是迁移之前没有想到的。
-青蛙会专门写一篇日志记录这次迁移经验。</p>
-                    <a class="btn btn-default btn-xs" href="../2010/12/notice-site-is-unstable/">more ...</a>
                 </div>
             </article>
             <hr/>

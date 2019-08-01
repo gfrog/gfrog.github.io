@@ -5,28 +5,28 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>https://www.gfrog.net/</loc>
-<lastmod>2019-07-31T14:23:01-00:00</lastmod>
+<lastmod>2019-08-01T18:48:48-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>https://www.gfrog.net/archives.html</loc>
-<lastmod>2019-07-31T14:23:01-00:00</lastmod>
+<lastmod>2019-08-01T18:48:48-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>https://www.gfrog.net/tags.html</loc>
-<lastmod>2019-07-31T14:23:01-00:00</lastmod>
+<lastmod>2019-08-01T18:48:48-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>https://www.gfrog.net/categories.html</loc>
-<lastmod>2019-07-31T14:23:01-00:00</lastmod>
+<lastmod>2019-08-01T18:48:48-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
@@ -41,6 +41,13 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
 <loc>https://www.gfrog.net/pages/tweets-archive.html</loc>
 <lastmod>2019-07-19T13:08:50+08:00</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>https://www.gfrog.net/2019/08/cicada-sound-in-summer/</loc>
+<lastmod>2019-08-01T14:28:11+08:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
@@ -1237,7 +1244,7 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>https://www.gfrog.net/author/gfrog.html</loc>
-<lastmod>2019-07-30T21:36:08+08:06</lastmod>
+<lastmod>2019-08-01T14:28:11+08:06</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>

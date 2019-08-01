@@ -97,33 +97,7 @@ My Life, My Love!            </a>
             </center>
         </figure>
     </div>
-                <div class="summary"><p>青蛙关站的这几年，虽然没有写blog，但是instagram和twitter发了可真不少。
-今天研究了下怎么导入instagram的照片和twitter的条目。
-看起来instagram很容易实现，因为有一个python的客户端
-<a href="https://instaloader.github.io/">Instaloader</a>
-。</p>
-<p>首先，用pip把这个客户端装上</p>
-<div class="highlight"><pre><span></span>$ pip3 install instaloader
-</pre></div>
-
-
-<p>然后，自己搞个脚本，从instagram数据里面直接生成markdown文件，写的不太好看，不过数据基本完美导入Blog了。</p>
-<div class="gist">
-    <script src='https://gist.github.com/92087c750e9293213b69f0f1765e3fad.js'></script>
-    <noscript>
-        <pre><code>import instaloader
-import os
-import time
-
-L=instaloader.Instaloader()
-L.interactive_login("gfrogcn")
-
-profile = instaloader.Profile.from_username(L.context, "gfrogcn")
-
-new_template ="""title: Instagram Picture %s
-date: %s 23:59:59
-slug: instagram-picture-%s
-category …</code></pre></noscript></div>
+                <div class="summary"><p>青蛙关站的这几年，虽然没有写blog，但是instagram和twitter发了可真不少。今天研究了下怎么导入instagram的照片和twitter的条目。看起来instagram很容易实现，因为有一个python的客户端Instaloader。</p>
                     <a class="btn btn-default btn-xs" href="../2019/07/import-instagram-pictures-into-blog/">more ...</a>
                 </div>
             </article>

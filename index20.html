@@ -81,6 +81,54 @@ My Life, My Love!            </a>
     <div class="row">
         <div class="col-sm-9">
             <article>
+                <h2><a href="./2008/01/config-file-in-debian-interfaces-1/">Debian里的配置文件：网卡配置/etc/network/interfaces（1）</a></h2>
+                    <div class="well well-sm">
+<footer class="post-info">
+    <span class="label label-default">Date</span>
+    <span class="published">
+        <i class="fa fa-calendar"></i><time datetime="2008-01-21T23:27:22+08:00"> Mon 21 January 2008</time>
+    </span>
+
+
+
+        <span class="label label-default">Category</span>
+        <a href="./category/linux.html">Linux</a>
+
+
+<span class="label label-default">Tags</span>
+	<a href="./tag/debian.html">debian</a>
+        /
+	<a href="./tag/linux.html">linux</a>
+        /
+	<a href="./tag/network.html">network</a>
+        /
+	<a href="./tag/interfaces.html">interfaces</a>
+    
+</footer><!-- /.post-info -->                    </div>
+                <div class="summary"><p><em>青蛙准备写一个系列文章，介绍一些Debian/Ubuntu里面常用的配置文件。
+当然，Linux系统中的配置文件多如牛毛，青蛙见过配过的也只是寥寥几个。
+不过，青蛙会把配置过的配置文件尽量详细的介绍一下，
+一是方便自己以后查阅，二来也是为广大Debianer做贡献了。</em></p>
+<p><em>下面开始正文。</em></p>
+<p>话说Debian系的网卡配置跟Redhat系很不一样，
+Redhat是放在/etc/sysconfig/network-scripts目录下面的一大堆文件里面，
+要修改？你一个一个文件来过吧。</p>
+<p>Debian系的则是存在/etc/network/interfaces文件里面，
+无论有多少块网卡，统统扔在这个文件里。下面就来看一下这个文件的内容。</p>
+<p>首先，一个基本的配置大概是下面这个样子：</p>
+<div class="highlight"><pre><span></span><span class="n">auto</span> <span class="n">lo</span>
+<span class="n">iface</span> <span class="n">lo</span> <span class="n">inet</span> <span class="n">loopback</span>
+
+<span class="o">#</span> <span class="n">The</span> <span class="k">primary</span> <span class="n">network</span> <span class="n">interface</span>
+<span class="n">auto</span> <span class="n">eth0</span>
+<span class="n">iface</span> <span class="n">eth0</span> <span class="n">inet</span> <span class="k">static</span>
+     <span class="n">address</span> <span class="mi">192</span><span class="p">.</span><span class="mi">168</span><span class="p">.</span><span class="mi">0</span><span class="p">.</span><span class="mi">42</span>
+     <span class="n">network</span> <span class="mi">192 …</span></pre></div>
+                    <a class="btn btn-default btn-xs" href="./2008/01/config-file-in-debian-interfaces-1/">more ...</a>
+                </div>
+            </article>
+            <hr/>
+            <article>
                 <h2><a href="./2008/01/number-of-domains-on-one-dreamhost-server/">Dreamhost主机上的用户数</a></h2>
                     <div class="well well-sm">
 <footer class="post-info">
@@ -280,43 +328,6 @@ blog客户端本来就少，能够使用
 <p>解决办法也很简单，禁用这个插件的摘要输出功能就是了。</p>
 <p>唉，wordpress的插件啊，好用的很多，但是真是容易出毛病!</p>
                     <a class="btn btn-default btn-xs" href="./2008/01/feed-output-error-2/">more ...</a>
-                </div>
-            </article>
-            <hr/>
-            <article>
-                <h2><a href="./2008/01/new-method-of-calculating-daily-wage-and-hourly-wage/">新的日工资和小时工资的计算方法</a></h2>
-                    <div class="well well-sm">
-<footer class="post-info">
-    <span class="label label-default">Date</span>
-    <span class="published">
-        <i class="fa fa-calendar"></i><time datetime="2008-01-10T22:24:54+08:00"> Thu 10 January 2008</time>
-    </span>
-
-
-
-        <span class="label label-default">Category</span>
-        <a href="./category/misc.html">Misc</a>
-
-
-    
-</footer><!-- /.post-info -->                    </div>
-                <div class="summary"><p>青蛙元旦的时候加了三天班，所以一直在合计这三天能拿到多少米。
-于是上网搜了下，发现了下面这个新的计算日工资和小时工资的方法。
-拿来算算，这三天赚的米用来交一个月的房租是绰绰有余了。</p>
-<p>------华丽的分割线，以下为转载------</p>
-<p><strong>关于职工全年月平均工作时间和工资折算问题的通知 </strong></p>
-<p>劳社部发[2008]3号</p>
-<p>各省、自治区、直辖市劳动和社会保障厅（局）：</p>
-<p>根据《全国年节及纪念日放假办法》（国务院令第513号）的规定，
-全体公民的节日假期由原来的10天增设为11天。
-据此，职工全年月平均制度工作天数和工资折算办法分别调整如下：</p>
-<p><strong>一、制度工作时间的计算 </strong></p>
-<p>年工作日：365天-104天（休息日）-11天（法定节假日）＝250天</p>
-<p>季工作日：250天÷4季＝62。5天/季</p>
-<p>月工作日：250天÷12月＝20。83天/月</p>
-<p>工作小时数的计算：以月、季、年的工作日乘以每日的8小时。</p>
-<p><strong>二、日工资、小时工资的折算 …</strong></p>
-                    <a class="btn btn-default btn-xs" href="./2008/01/new-method-of-calculating-daily-wage-and-hourly-wage/">more ...</a>
                 </div>
             </article>
             <hr/>

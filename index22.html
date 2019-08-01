@@ -81,6 +81,55 @@ My Life, My Love!            </a>
     <div class="row">
         <div class="col-sm-9">
             <article>
+                <h2><a href="./2007/07/mount-windows-shared-folder-with-smbfs/">关于linux下访问windows共享的问题</a></h2>
+                    <div class="well well-sm">
+<footer class="post-info">
+    <span class="label label-default">Date</span>
+    <span class="published">
+        <i class="fa fa-calendar"></i><time datetime="2007-07-15T08:48:06+08:00"> Sun 15 July 2007</time>
+    </span>
+
+
+
+        <span class="label label-default">Category</span>
+        <a href="./category/linux.html">Linux</a>
+
+
+<span class="label label-default">Tags</span>
+	<a href="./tag/linux.html">Linux</a>
+        /
+	<a href="./tag/samba.html">Samba</a>
+        /
+	<a href="./tag/shared.html">Shared</a>
+        /
+	<a href="./tag/windows.html">Windows</a>
+    
+</footer><!-- /.post-info -->                    </div>
+                <div class="summary"><p>首先，需要安装smbfs包</p>
+<div class="highlight"><pre><span></span><span class="o">#</span> <span class="n">aptitude</span> <span class="n">install</span> <span class="n">smbfs</span>
+</pre></div>
+
+
+<p>如果没有安装这个包,挂载共享分区时会出现以下错误</p>
+<blockquote>
+<p>smbfs: mount_data version 1919251317 is not supported.</p>
+</blockquote>
+<p>然后,挂载windows共享的命令是</p>
+<div class="highlight"><pre><span></span><span class="n">mount</span>  <span class="o">-</span><span class="n">t</span> <span class="n">smbfs</span> <span class="o">//</span><span class="n">ip</span><span class="o">/</span><span class="err">共享名</span> <span class="o">-</span><span class="n">o</span> <span class="n">username</span><span class="o">=</span><span class="err">用户名</span><span class="p">,</span><span class="n">password</span><span class="o">=</span><span class="err">密码</span><span class="p">,</span><span class="n">iocharset</span><span class="o">=</span><span class="n">utf</span><span class="o">-</span><span class="mi">8</span><span class="p">,</span><span class="n">dmask</span><span class="o">=</span><span class="mi">777</span><span class="p">,</span><span class="n">fmask</span><span class="o">=</span><span class="mi">777</span> <span class="o">/</span><span class="n">media</span><span class="o">/</span><span class="n">smb</span>
+</pre></div>
+
+
+<p>说下参数,</p>
+<blockquote>
+<p>ip,共享名,就是要访问的windows共享资源了 <br />
+用户名,密码,是在那个windows系统上的用户名密码. <br />
+dmask=777,fmask=777, 共享分区的读写权限,这里设成777了.根据自己需要改吧. <br />
+/media …</p></blockquote>
+                    <a class="btn btn-default btn-xs" href="./2007/07/mount-windows-shared-folder-with-smbfs/">more ...</a>
+                </div>
+            </article>
+            <hr/>
+            <article>
                 <h2><a href="./2007/06/fuck-tnnd-sina-blog/">fuck tnnd的新浪</a></h2>
                     <div class="well well-sm">
 <footer class="post-info">
@@ -255,55 +304,6 @@ My Life, My Love!            </a>
 <p><a href="http://www.yupoo.com/photos/view?id=ff80808113090b1601130c96432066ff">logos</a></p>
 <p>由<a href="null">gfrog</a>上传于<a href="http://www.yupoo.com/">Yupoo</a>.</p>
                     <a class="btn btn-default btn-xs" href="./2007/06/let-us-yupoo/">more ...</a>
-                </div>
-            </article>
-            <hr/>
-            <article>
-                <h2><a href="./2007/06/are-u-ready-face-gfw/">面对GFW,你准备好了么?</a></h2>
-                    <div class="well well-sm">
-<footer class="post-info">
-    <span class="label label-default">Date</span>
-    <span class="published">
-        <i class="fa fa-calendar"></i><time datetime="2007-06-09T02:06:04+08:00"> Sat 09 June 2007</time>
-    </span>
-
-
-
-        <span class="label label-default">Category</span>
-        <a href="./category/misc.html">Misc</a>
-
-
-<span class="label label-default">Tags</span>
-	<a href="./tag/gfw.html">GFW</a>
-    
-</footer><!-- /.post-info -->                    </div>
-                <div class="summary"><p><img alt="1" src="attachments/month_0706/92007692627.jpg"></p>
-<p>昨天Flickr被封又引发了一次大规模批判GFW的行动,
-<a href="http://blog.donews.com/keso/archive/2007/06/08/1173239.aspx">keso</a>
-在日志里fxxk GFW.</p>
-<p>如果大家对某W有深仇大恨,那么就来这里发泄一下吧:</p>
-<p><a href="http://blog.donews.com/keepwalking/archive/2006/06/01/898146.aspx"><img alt="1" src="http://blog.donews.com/images/blog_donews_com/keepwalking/86223/r_wd.jpg"></a></p>
-<p>不过发泄完了还得继续想法跳墙是不.这里有几个办法.</p>
-<ol>
-<li>使用tor之类的匿名代理软件.
-    例如
-    <a href="http://soft.lzzxt.com">小众软件</a>
-    推荐的
-    <a href="http://soft.lzzxt.com/fug/">突破网络访问三剑客</a>
-    还有
-    <a href="http://soft.lzzxt.com/Java-Anon-Proxy">Java Anon Proxy </a>
-    .使用匿名代理的好处是可以完美访问被GFWed的各类网站,
-    例如维基百科,google快照,还有my opera.一次设置,然后就可以无视GFW了.</li>
-<li>使用web代理网站. web方式的匿名代理，例如下面两个
-    <a href="http://www.68q.net/">http://www.68q.net/</a>
-    和
-    <a href="http://www.9i7.cn/">http://www.9i7.cn/</a>
-    还有专门针对某网站的,例如pkblogs.com就是针对blogspot的代理.</li>
-<li>修改hosts文件.
-    这个只针对被关键字GFWed的网站,这种类型修改hosts文件,强制将域名解析成ip就可以访问被封掉的服务了.
-    例如这次针对Flickr,可以把下面两行添加到hosts文件里:
-    farm1。static。flickr。com 68 …</li></ol>
-                    <a class="btn btn-default btn-xs" href="./2007/06/are-u-ready-face-gfw/">more ...</a>
                 </div>
             </article>
             <hr/>

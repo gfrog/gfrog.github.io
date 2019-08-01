@@ -102,23 +102,13 @@ My Life, My Love!            </a>
         <figure>
             <center>
                 <img width='500' src="https://i1.wp.com/www.alexwhittemore.com/wp-content/uploads/2018/08/Untitled-drawing.jpg?ssl=1" alt="Cover image">
+                <figcaption>
+                        Image by <a href="https://www.alexwhittemore.com/python-on-macos-best-practices/">PYTHON ON MACOS: BEST PRACTICES</a>
+                </figcaption>
             </center>
         </figure>
     </div>
-                <div class="summary"><p><em>（标题图片借用
-<a href="https://www.alexwhittemore.com/python-on-macos-best-practices/">PYTHON ON MACOS: BEST PRACTICES</a>
-的标题图，这篇文档也是关于MacOS上面运行python和virtualenv的。）</em></p>
-<p><em>（本篇日志为
-<a href="http://www.jeremycade.com/python/osx/homebrew/2015/03/02/fixing-virtualenv-after-a-python-upgrade/">How to fix your Python virtualenv after a Homebrew Python upgrade</a>
-的翻译文档）</em></p>
-<p>你在使用Homebrew管理你的OS X上面的Python嘛？最近有没有升级过Python？</p>
-<p>我遇到的情况是Python 3的一个小更新：从3.4.2到3.4.3。
-这个升级足够让virtualenv里面的符号连接（symbolic links）失效了。</p>
-<p><strong>例如</strong></p>
-<div class="highlight"><pre><span></span>~: <span class="nb">cd</span> ~/src/my_app
-~/src/my_app: <span class="nb">source</span> venv/bin/activate
-<span class="o">[</span>venv<span class="o">]</span> ~/src/my_app: python
-dyld …</pre></div>
+                <div class="summary"><p><em>（本篇日志为How to fix your Python virtualenv after a Homebrew Python upgrade的翻译文档）</em></p>
                     <a class="btn btn-default btn-xs" href="../2019/07/fix-python-virtualenv-after-python-upgrade/">more ...</a>
                 </div>
             </article>
@@ -164,23 +154,7 @@ dyld …</pre></div>
             </center>
         </figure>
     </div>
-                <div class="summary"><p>青蛙最近整理照片和blog的时候，一直想想在blog post里添加一个地图。
-但是pelican似乎没有靠谱的google map plugin。
-虽然有一个
-<a href="https://pypi.org/project/google_embed/">google_embed</a>
-，但是似乎现在不能用了，按照它的README写好map之后，post里面完全不会转义。</p>
-<p>于是青蛙一怒之下自己照猫画虎写了个liquid_tag版本的google map，竟然也能用了。</p>
-<p>目前这个plugin支持map和direction模式，青蛙还在考虑要不要添加街景模式。</p>
-<p>添加map的方法：</p>
-<div class="highlight"><pre><span></span><span class="x">    {% gmap &quot;location&quot; mode [maptype] [align] [width] [height] %}</span>
-</pre></div>
-
-
-<p><code>location</code>：必选项，指定地点，必须包含双引号，支持中文。</p>
-<p><code>mode</code>：必选项，地图模式，有<code>place</code>和<code>search</code>选项，
-指定地图显示单个地点或者搜索location中的关键字</p>
-<p><code>maptype</code>：地图的显示模式，包含<code>roadmap</code>和<code>satelite</code></p>
-<p><code>align</code>：地图在页面中的对齐方式，<code>left</code>、<code>center</code>或者<code>right …</code></p>
+                <div class="summary"><p>青蛙最近整理照片和blog的时候，一直想想在blog post里添加一个地图。 但是pelican似乎没有靠谱的google map plugin。 虽然有一个google_embed，但是似乎现在不能用了，按照它的README写好map之后，post里面完全不会转义。 于是青蛙一怒之下自己照猫画虎写了个liquid_tag版本的google map，竟然也能用了。</p>
                     <a class="btn btn-default btn-xs" href="../2019/07/create-a-google-map-plugin-for-pelican/">more ...</a>
                 </div>
             </article>
@@ -215,33 +189,7 @@ dyld …</pre></div>
             </center>
         </figure>
     </div>
-                <div class="summary"><p>青蛙关站的这几年，虽然没有写blog，但是instagram和twitter发了可真不少。
-今天研究了下怎么导入instagram的照片和twitter的条目。
-看起来instagram很容易实现，因为有一个python的客户端
-<a href="https://instaloader.github.io/">Instaloader</a>
-。</p>
-<p>首先，用pip把这个客户端装上</p>
-<div class="highlight"><pre><span></span>$ pip3 install instaloader
-</pre></div>
-
-
-<p>然后，自己搞个脚本，从instagram数据里面直接生成markdown文件，写的不太好看，不过数据基本完美导入Blog了。</p>
-<div class="gist">
-    <script src='https://gist.github.com/92087c750e9293213b69f0f1765e3fad.js'></script>
-    <noscript>
-        <pre><code>import instaloader
-import os
-import time
-
-L=instaloader.Instaloader()
-L.interactive_login("gfrogcn")
-
-profile = instaloader.Profile.from_username(L.context, "gfrogcn")
-
-new_template ="""title: Instagram Picture %s
-date: %s 23:59:59
-slug: instagram-picture-%s
-category …</code></pre></noscript></div>
+                <div class="summary"><p>青蛙关站的这几年，虽然没有写blog，但是instagram和twitter发了可真不少。今天研究了下怎么导入instagram的照片和twitter的条目。看起来instagram很容易实现，因为有一个python的客户端Instaloader。</p>
                     <a class="btn btn-default btn-xs" href="../2019/07/import-instagram-pictures-into-blog/">more ...</a>
                 </div>
             </article>

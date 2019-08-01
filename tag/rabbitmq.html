@@ -103,21 +103,7 @@ My Life, My Love!            </a>
             </center>
         </figure>
     </div>
-                <div class="summary"><p><em>（本文为
-<a href="https://gist.github.com/niedbalski/69a72103adad4f0f9609a0857c9810a4">https://gist.github.com/niedbalski/69a72103adad4f0f9609a0857c9810a4</a>
-的翻译文档。
-）</em></p>
-<p>1) 检查 Cluster 状态。</p>
-<div class="highlight"><pre><span></span>Mnesia<span class="o">(</span><span class="s1">&#39;rabbit@juju-machine-30-lxd-11&#39;</span><span class="o">)</span>: ** ERROR ** mnesia_event got <span class="o">{</span>inconsistent_database, running_partitioned_network, <span class="s1">&#39;rabbit@juju-machine-29-lxd-9&#39;</span><span class="o">}</span>
-
-$ sudo rabbitmqctl cluster_status
-</pre></div>
-
-
-<p>2) 选择合适的节点作为 master 节点。</p>
-<p><em>（注：这个步骤很重要，如果没有选择合适的 master 节点，很容易造成消息丢失）</em></p>
-<p># 通过连接数。</p>
-<div class="highlight"><pre><span></span>$ juju run --service rabbitmq-server <span class="s2">&quot;sudo ss -t state established -nt &#39;( sport = :amqp )&#39; | wc -l …</span></pre></div>
+                <div class="summary"><p><em>（本文为 <a href="https://gist.github.com/niedbalski/69a72103adad4f0f9609a0857c9810a4">https://gist.github.com/niedbalski/69a72103adad4f0f9609a0857c9810a4</a> 的翻译文档。）</em></p>
                     <a class="btn btn-default btn-xs" href="../2019/07/recover-rabbitmq-cluster-after-partitioning/">more ...</a>
                 </div>
             </article>
