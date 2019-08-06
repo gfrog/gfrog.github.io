@@ -67,6 +67,58 @@ My Life, My Love!            </a>
     <div class="row">
         <div class="col-sm-9">
             <article>
+                <h2><a href="../2008/03/markdown-syntax-basic/">Markdown语法摘要</a></h2>
+                    <div class="well well-sm">
+<footer class="post-info">
+    <span class="label label-default">Date</span>
+    <span class="published">
+        <i class="fa fa-calendar"></i><time datetime="2008-03-20T00:30:34+08:00"> Thu 20 March 2008</time>
+    </span>
+
+
+
+        <span class="label label-default">Category</span>
+        <a href="../category/programming.html">Programming</a>
+
+
+<span class="label label-default">Tags</span>
+	<a href="../tag/markdown.html">Markdown</a>
+        /
+	<a href="../tag/syntax.html">syntax</a>
+    
+</footer><!-- /.post-info -->                    </div>
+                <div class="summary"><p>下面是Markdown语法的简要列表，便于以后查阅。
+以下内容主要从
+<a href="http://www.leninlee.cn">牧码志</a>
+整理，感谢leninlee的辛勤劳动。</p>
+<ul>
+<li>
+<p>链接的添加，共有三种形式，Markdown支持相对链接。</p>
+<blockquote>
+<p><code>&lt;链接&gt;</code>：这种形式只是简单的标出链接； <br />
+<code>[文字](链接 "标题")</code>：给文字添加链接，其中标题是可选的； <br />
+<code>[文字][标记]</code>：给文字添加链接，链接在下面的一个以<code>[标记]</code>开头的新行（一般是文章末尾）给出。
+或者直接以<code>[文字][]</code>这种形式编写，在下面的新行中使用<code>[文字]</code>:链接的形式声明链接。</p>
+</blockquote>
+</li>
+<li>
+<p>图片的添加：跟链接比起来，图片只是多了在前面多了一个叹号<code>!</code>。</p>
+</li>
+<li>
+<p>标题格式：Markdown提供了2种方式。</p>
+<blockquote>
+<p>第一种是在标题前面加上1~6个<code>#</code>表示<code>&lt;h1&gt;</code>~<code>&lt;h6&gt;</code>。 <br />
+第二种是在标题下面另起一行，输入四个以上的等号<code>=</code>来表示<code>&lt;h1&gt;</code>，
+输入四个以上的减号<code>-</code>来表示<code>&lt;h2&gt;</code>。</p>
+</blockquote>
+</li>
+<li>
+<p>粗体和斜体：用星号"*"或者下划线 …</p></li></ul>
+                    <a class="btn btn-default btn-xs" href="../2008/03/markdown-syntax-basic/">more ...</a>
+                </div>
+            </article>
+            <hr/>
+            <article>
                 <h2><a href="../2008/03/enable-markdown-highlight-in-vim/">在VIM中打开Markdown文件高亮</a></h2>
                     <div class="well well-sm">
 <footer class="post-info">
@@ -344,56 +396,6 @@ google了一大把关键字，看了一大叠邮件列表，
 <p>第二个，执行sudo -k，这个命令是用来清除sudo的时间戳，
 下次执行sudo的时候它会跟你重新要密码。</p>
                     <a class="btn btn-default btn-xs" href="../2008/03/solution-of-system-time-changes-cause-sudo-error/">more ...</a>
-                </div>
-            </article>
-            <hr/>
-            <article>
-                <h2><a href="../2008/03/solution-of-qq-null-group-name-in-pidgin/">pidgin中群名称变为NULL的解决办法</a></h2>
-                    <div class="well well-sm">
-<footer class="post-info">
-    <span class="label label-default">Date</span>
-    <span class="published">
-        <i class="fa fa-calendar"></i><time datetime="2008-03-02T10:21:58+08:00"> Sun 02 March 2008</time>
-    </span>
-
-
-
-        <span class="label label-default">Category</span>
-        <a href="../category/linux.html">Linux</a>
-
-
-<span class="label label-default">Tags</span>
-	<a href="../tag/linux.html">linux</a>
-        /
-	<a href="../tag/desktop.html">desktop</a>
-        /
-	<a href="../tag/qq.html">qq</a>
-        /
-	<a href="../tag/pidgin.html">pidgin</a>
-        /
-	<a href="../tag/patch.html">patch</a>
-    
-</footer><!-- /.post-info -->                    </div>
-                <div class="summary"><p>前阵子pidgin从2.x版本升级到了2.3.1以后，
-青蛙的QQ的群名称就全部变成了NULL，
-然后所有群的消息都跑到了一起，看的我眼花缭乱。
-于是青蛙就眼巴巴的等着pidgin的升级。</p>
-<p>这不，它终于升级到了2.4.0了，结果这个问题还是没改！</p>
-<p>看来老外是靠不住的，只能靠自己了。
-青蛙拿起google一划拉，还真找到点东西。</p>
-<p>这不，
-<a href="http://www.linuxsir.org/bbs/thread323211.html">Linuxsir上的linuxahah同学说</a>
-，这是因为死TX修改了协议导致的，并且放出了一个补丁。</p>
-<p>但是这个补丁需要打到pidgin的源码里面重新编译，鉴于青蛙前N次编译pidgin的结果都是失败而告终，这个方法还是放弃了。</p>
-<p>于是青蛙继续google，发现
-<a href="http://www.linuxsir.org/bbs/post1798882-10.html">Linuxsir的marklf大牛说</a>
-，这个问题还是因为pidgin中的libqq.so引起的，
-只要用以前版本的libqq.so替换现在的版本就可以了。</p>
-<p>这个方法很好很强大，只要找到2.x版本的libqq.so文件就，然后把它复制到/usr/lib/purple-2/就可以了。</p>
-<p>困扰了青蛙好久的问题解决了，终于可以开心的聊QQ了 :D</p>
-<p><strong>更新：</strong> [2008-03-02 11:33] 放上日志里提到的补丁文件和libqq.so。</p>
-<p><a href="http://www.divshare.com/download/3927060-345">qq …</a></p>
-                    <a class="btn btn-default btn-xs" href="../2008/03/solution-of-qq-null-group-name-in-pidgin/">more ...</a>
                 </div>
             </article>
             <hr/>

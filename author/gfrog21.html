@@ -67,6 +67,36 @@ My Life, My Love!            </a>
     <div class="row">
         <div class="col-sm-9">
             <article>
+                <h2><a href="../2008/01/feed-output-error-2/">feed输出竟然有乱码</a></h2>
+                    <div class="well well-sm">
+<footer class="post-info">
+    <span class="label label-default">Date</span>
+    <span class="published">
+        <i class="fa fa-calendar"></i><time datetime="2008-01-11T22:08:28+08:00"> Fri 11 January 2008</time>
+    </span>
+
+
+
+        <span class="label label-default">Category</span>
+        <a href="../category/site.html">Site</a>
+
+
+    
+</footer><!-- /.post-info -->                    </div>
+                <div class="summary"><p>再次测试一下，看看是字符编码的问题，
+还是wordpress系统的问题，还是google reader的问题!</p>
+<p>-------------无奈的分割线-----------</p>
+<p><strong>update: 2008-01-11 22:40</strong></p>
+<p>feed问题已经定位，出在Aizatto's Related Posts这个插件上，
+它会截取相关日志的部分内容输出到feed里，
+但是正好碰上它截取的那部分有特殊字符，所以就挂掉了。</p>
+<p>解决办法也很简单，禁用这个插件的摘要输出功能就是了。</p>
+<p>唉，wordpress的插件啊，好用的很多，但是真是容易出毛病!</p>
+                    <a class="btn btn-default btn-xs" href="../2008/01/feed-output-error-2/">more ...</a>
+                </div>
+            </article>
+            <hr/>
+            <article>
                 <h2><a href="../2008/01/new-method-of-calculating-daily-wage-and-hourly-wage/">新的日工资和小时工资的计算方法</a></h2>
                     <div class="well well-sm">
 <footer class="post-info">
@@ -271,29 +301,6 @@ usb 4-4: new high speed USB device using ehci_hcd and address 7 <br />
 ehci_hcd 0000:00:1d.7: port 4 reset error -110 <br />
 hub 4-0:1.0: hub_port_status failed (err …</p></blockquote>
                     <a class="btn btn-default btn-xs" href="../2007/07/linux-usb-mod-conflict/">more ...</a>
-                </div>
-            </article>
-            <hr/>
-            <article>
-                <h2><a href="../2007/07/feed-output-error/">feed输出似乎有问题</a></h2>
-                    <div class="well well-sm">
-<footer class="post-info">
-    <span class="label label-default">Date</span>
-    <span class="published">
-        <i class="fa fa-calendar"></i><time datetime="2007-07-15T20:54:32+08:00"> Sun 15 July 2007</time>
-    </span>
-
-
-
-        <span class="label label-default">Category</span>
-        <a href="../category/site.html">Site</a>
-
-
-    
-</footer><!-- /.post-info -->                    </div>
-                <div class="summary"><p>现在本播feed输出似乎一直停在说验证码的那篇日志上，问题的原因未知。</p>
-<p>实在是懒得改了，先凑合一下，这个空间马上到期了，到时候换去wordpress。</p>
-                    <a class="btn btn-default btn-xs" href="../2007/07/feed-output-error/">more ...</a>
                 </div>
             </article>
             <hr/>

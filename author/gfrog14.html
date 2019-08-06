@@ -67,6 +67,48 @@ My Life, My Love!            </a>
     <div class="row">
         <div class="col-sm-9">
             <article>
+                <h2><a href="../2010/08/gfrog-tips-3/">一堆小Tips （3）</a></h2>
+                    <div class="well well-sm">
+<footer class="post-info">
+    <span class="label label-default">Date</span>
+    <span class="published">
+        <i class="fa fa-calendar"></i><time datetime="2010-08-10T12:07:11+08:00"> Tue 10 August 2010</time>
+    </span>
+
+
+
+        <span class="label label-default">Category</span>
+        <a href="../category/linux.html">Linux</a>
+
+
+<span class="label label-default">Tags</span>
+	<a href="../tag/linux.html">Linux</a>
+        /
+	<a href="../tag/ssh.html">ssh</a>
+        /
+	<a href="../tag/client.html">client</a>
+        /
+	<a href="../tag/shell.html">shell</a>
+        /
+	<a href="../tag/networking.html">networking</a>
+    
+</footer><!-- /.post-info -->                    </div>
+                <div class="summary"><p>今天继续关于ssh的话题。</p>
+<p>青蛙本来想把今天这个主题放在昨天一起讲的，但是这两个Tip的关联不大，最后决定还是分开说。</p>
+<p>在平时上网过程中，有可能遇到某个服务器（我们叫他S）无法访问的问题。</p>
+<p>但是如果另外一台主机（叫做P）可以访问到S，并且我们还有P上面的ssh权限，那就可以把P当作跳板，直接访问到S。</p>
+<p>假设要访问S上面的http（80）服务，那就执行如下命令：</p>
+<div class="highlight"><pre><span></span><span class="n">ssh</span><span class="w"> </span><span class="k">user</span><span class="nv">@P的地址</span><span class="w"> </span><span class="o">-</span><span class="n">L</span><span class="w"> </span><span class="mi">8080</span><span class="err">:</span><span class="nl">S的地址</span><span class="p">:</span><span class="mi">80</span><span class="w"></span>
+</pre></div>
+
+
+<p>这个命令会在本地打开8080端口，将连接转发到S的80端口上，这样就达到了从本地直接访问S的目的。</p>
+<p>事实上ssh的-L参数主要是用来建立一条客户端到服务器之间的安全隧道，以便安全的传输数据。</p>
+                    <a class="btn btn-default btn-xs" href="../2010/08/gfrog-tips-3/">more ...</a>
+                </div>
+            </article>
+            <hr/>
+            <article>
                 <h2><a href="../2010/08/gfrog-tips-2/">一堆小Tips （2）</a></h2>
                     <div class="well well-sm">
 <footer class="post-info">
@@ -308,49 +350,6 @@ My Life, My Love!            </a>
 <p><img alt="1" src="http://gfrog.net/pic/albums/misc/DSC00319.jpg"></p>
 <p><img alt="1" src="http://img.zemanta.com/pixy.gif?x-id=3aab1487-1e58-8745-b3ca-bc5ff47c3ad5"></p>
                     <a class="btn btn-default btn-xs" href="../2009/12/cat-living-in-neusoft-park/">more ...</a>
-                </div>
-            </article>
-            <hr/>
-            <article>
-                <h2><a href="../2009/11/test-from-scribefire/">测试ScribeFire</a></h2>
-                    <div class="well well-sm">
-<footer class="post-info">
-    <span class="label label-default">Date</span>
-    <span class="published">
-        <i class="fa fa-calendar"></i><time datetime="2009-11-30T15:25:50+08:00"> Mon 30 November 2009</time>
-    </span>
-
-
-
-        <span class="label label-default">Category</span>
-        <a href="../category/site.html">Site</a>
-
-
-<span class="label label-default">Tags</span>
-	<a href="../tag/blog.html">blog</a>
-        /
-	<a href="../tag/site.html">site</a>
-        /
-	<a href="../tag/wordpress.html">wordpress</a>
-        /
-	<a href="../tag/client.html">client</a>
-        /
-	<a href="../tag/browser.html">browser</a>
-    
-</footer><!-- /.post-info -->                    </div>
-                <div class="summary"><p>选来选去，Linux下最靠谱的blog客户端还是ScribeFire，
-其他的不是没有所见即所得的编辑方式，就是经常crash，
-或者就是很久很久不更新。</p>
-<p>青蛙以前试用过ScribeFire，这次再装上，
-发现这个小东东的可用性明显增强了，很好很强大啊。
-除了没有windows live writer那么多的插件，其他都很完美。
-借着这样顺手的工具，青蛙正在慢慢恢复blog的状态。：P</p>
-<p><strong>update:</strong></p>
-<p>发表这篇日志的时候，青蛙发现ScribeFire竟然可以直接编辑slug，那么青蛙在
-<a href="https://www.gfrog.net/2009/11/test-blogging-from-blackberry/">上一篇日志</a>
-里说到的在标题栏里些slug的问题也不存在了，ScribeFire真好。</p>
-<p><img alt="1" src="http://img.zemanta.com/pixy.gif?x-id=8e7934b7-e28d-8a36-9b30-c2199958536f"></p>
-                    <a class="btn btn-default btn-xs" href="../2009/11/test-from-scribefire/">more ...</a>
                 </div>
             </article>
             <hr/>
