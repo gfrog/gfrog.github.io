@@ -14,7 +14,7 @@
 &lt;p&gt;&lt;code&gt;location&lt;/code&gt;：必选项，指定地点，必须包含双引号，支持中文。&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;mode&lt;/code&gt;：必选项，地图模式，有&lt;code&gt;place&lt;/code&gt;和&lt;code&gt;search&lt;/code&gt;选项，
 指定地图显示单个地点或者搜索location中的关键字&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;maptype&lt;/code&gt;：地图的显示模式，包含&lt;code&gt;roadmap&lt;/code&gt;和&lt;code&gt;satelite&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;maptype&lt;/code&gt;：地图的显示模式，包含&lt;code&gt;roadmap&lt;/code&gt;、&lt;code&gt;satellite&lt;/code&gt;、&lt;code&gt;hybrid&lt;/code&gt;和&lt;code&gt;terrain&lt;/code&gt;。&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;align&lt;/code&gt;：地图在页面中的对齐方式，&lt;code&gt;left&lt;/code&gt;、&lt;code&gt;center&lt;/code&gt;或者&lt;code&gt;right&lt;/code&gt;&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;width&lt;/code&gt;：地图宽度&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;height&lt;/code&gt;：地图高度&lt;/p&gt;
@@ -36,7 +36,7 @@
 &lt;p&gt;&lt;code&gt;waypoints&lt;/code&gt;：指定途经点，必须包含双引号，支持中文。&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;mode&lt;/code&gt;：必选项，导航模式，有&lt;code&gt;driving&lt;/code&gt;、&lt;code&gt;walking&lt;/code&gt;、&lt;code&gt;bicycling&lt;/code&gt;、
 &lt;code&gt;transit&lt;/code&gt;和&lt;code&gt;flying&lt;/code&gt;选项。&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;maptype&lt;/code&gt;：地图的显示模式，包含&lt;code&gt;roadmap&lt;/code&gt;和&lt;code&gt;satelite&lt;/code&gt;。&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;maptype&lt;/code&gt;：地图的显示模式，包含&lt;code&gt;roadmap&lt;/code&gt;、&lt;code&gt;satellite&lt;/code&gt;、&lt;code&gt;hybrid&lt;/code&gt;和&lt;code&gt;terrain&lt;/code&gt;。&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;align&lt;/code&gt;：地图在页面中的对齐方式，&lt;code&gt;left&lt;/code&gt;、&lt;code&gt;center&lt;/code&gt;或者&lt;code&gt;right&lt;/code&gt;。&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;width&lt;/code&gt;：地图宽度。&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;height&lt;/code&gt;：地图高度。&lt;/p&gt;
