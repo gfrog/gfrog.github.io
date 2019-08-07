@@ -245,3 +245,9 @@ _（为什么link要用拼音呢？因为英语名字太长啦）_
 ![1](https://scontent-lax3-2.cdninstagram.com/vp/96715f64950ae773f2c0fbc131f7b107/5DB2E5BD/t51.2885-15/e35/19933236_774542152727804_3585988342845538304_n.jpg?_nc_ht=scontent-lax3-2.cdninstagram.com)
 
 ![1](https://scontent-lax3-2.cdninstagram.com/vp/8de76fd8eabf007ca36bde7f03c3f1a7/5DABDC28/t51.2885-15/e35/19765168_155354265014046_2516519066412253184_n.jpg?_nc_ht=scontent-lax3-2.cdninstagram.com)
+
+
+**Update:** 补一张卢沟桥的门票，票价20羊。
+2018年再去的时候才发现普通票丑到爆炸，2017年的门票大概是纪念版。
+
+![卢沟桥门票](https://lh3.googleusercontent.com/O3eIgjGdK2REqZINrzKSijPv_a0QDrQcqd-SFQTDiSwPUj5L85hMviuuOW03GUUSj7vrNiVNYRZEtYBUH97M0pyw92jjxnjFbfeTzG4rq__ym2nb1FtVZMr4vr_r3ZVc-Ua-ZQl-w0E=s1050-no)
