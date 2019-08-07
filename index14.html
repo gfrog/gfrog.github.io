@@ -81,6 +81,59 @@ My Life, My Love!            </a>
     <div class="row">
         <div class="col-sm-9">
             <article>
+                <h2><a href="./2010/08/gfrog-tips-4/">一堆小Tips （4）</a></h2>
+                    <div class="well well-sm">
+<footer class="post-info">
+    <span class="label label-default">Date</span>
+    <span class="published">
+        <i class="fa fa-calendar"></i><time datetime="2010-08-11T16:51:15+08:00"> Wed 11 August 2010</time>
+    </span>
+
+
+
+        <span class="label label-default">Category</span>
+        <a href="./category/linux.html">Linux</a>
+
+
+<span class="label label-default">Tags</span>
+	<a href="./tag/kvm.html">kvm</a>
+        /
+	<a href="./tag/linux.html">Linux</a>
+        /
+	<a href="./tag/networking.html">networking</a>
+        /
+	<a href="./tag/shell.html">shell</a>
+    
+</footer><!-- /.post-info -->                    </div>
+                <div class="summary"><p>今天的Tip是关于虚拟化的。</p>
+<p>问题的起因是青蛙当时使用的VirtualBox的网络配置很不方便，
+guset系统启动之后不能改网络连接类型不说（后来的版本做了改进，但是用着还是不够舒服），
+NAT模式下还不能直接跟Host系统通信。</p>
+<p>于是青蛙痛下决心，学习了一下Linux tap和br设备的用法，
+写了一个小脚本来搞定虚拟机的网络问题。</p>
+<p>这个脚本同样也可以用于KVM的虚拟机。</p>
+<p>这个脚本会根据配置文件建立一系列的tap设备，
+然后桥街到几个br设备上去，然后在br上设置好IP，
+如果需要NAT功能则配置iptables规则。</p>
+<p>脚本文件在这里：</p>
+<p><a href="http://gfrog.googlecode.com/hg/script/vnet.sh">http://gfrog.googlecode.com/hg/script/vnet.sh</a></p>
+<p>配置文件如下：</p>
+<div class="highlight"><pre><span></span><span class="k">USER</span><span class="o">=</span><span class="n">gfrog</span><span class="w">           </span><span class="n">#指定建立tap设备时所用的用户名</span><span class="w"></span>
+<span class="n">VNET_NUM</span><span class="o">=</span><span class="mi">2</span><span class="w">         </span><span class="n">#需要建立的虚拟网络数</span><span class="w"></span>
+<span class="n">EXITIF</span><span class="o">=</span><span class="n">eth0</span><span class="w">           </span><span class="n">#SNAT的出口接口</span><span class="w"></span>
+
+<span class="n">#以下是每个虚拟网络的配置</span><span class="w"></span>
+<span class="o">[</span><span class="n">vnet1</span><span class="o">]</span><span class="w"></span>
+<span class="n">VETH_NUM</span><span class="o">=</span><span class="mi">4</span><span class="w">          </span><span class="n">#虚拟网络中包含的tap设备数</span><span class="w"></span>
+<span class="n">VNET_IP</span><span class="o">=</span><span class="mf">11.11.1.1</span><span class="o">/</span><span class="mi">24</span><span class="w">  </span><span class="n">#虚拟网络br设备上配置的ip地址</span><span class="w"></span>
+<span class="n">DONAT</span><span class="o">=</span><span class="k">no</span><span class="w">                  </span><span class="n">#是否需要做nat</span><span class="w"></span>
+
+<span class="o">[</span><span class="n">vnet2 …</span></pre></div>
+                    <a class="btn btn-default btn-xs" href="./2010/08/gfrog-tips-4/">more ...</a>
+                </div>
+            </article>
+            <hr/>
+            <article>
                 <h2><a href="./2010/08/gfrog-tips-3/">一堆小Tips （3）</a></h2>
                     <div class="well well-sm">
 <footer class="post-info">
@@ -326,44 +379,6 @@ My Life, My Love!            </a>
 <p>这是多么令人纠结的一幕。</p>
 <p>明年，该走向哪里？</p>
                     <a class="btn btn-default btn-xs" href="./2010/02/the-end-of-year-is-approaching/">more ...</a>
-                </div>
-            </article>
-            <hr/>
-            <article>
-                <h2><a href="./2009/12/cat-living-in-neusoft-park/">公司园子里的肥猫</a></h2>
-                    <div class="well well-sm">
-<footer class="post-info">
-    <span class="label label-default">Date</span>
-    <span class="published">
-        <i class="fa fa-calendar"></i><time datetime="2009-12-01T22:06:00+08:00"> Tue 01 December 2009</time>
-    </span>
-
-
-
-        <span class="label label-default">Category</span>
-        <a href="./category/pictures.html">Pictures</a>
-
-
-<span class="label label-default">Tags</span>
-	<a href="./tag/picture.html">picture</a>
-        /
-	<a href="./tag/cat.html">cat</a>
-    
-</footer><!-- /.post-info -->                    </div>
-                <div class="summary"><p>这只肥猫真的是太有喜感了，每次看到它我都有冲上去折磨一番的冲动。</p>
-<p>但是这是只野猫，对人有极强的戒心，所以，我是没有办法凑到它身边去了。</p>
-<p>今天终于给它拍了几张“玉照”，可惜是用卡片拍的，稍微有点跑焦。</p>
-<p><img alt="1" src="http://gfrog.net/pic/albums/misc/DSC00314.jpg"></p>
-<p><img alt="1" src="http://gfrog.net/pic/albums/misc/DSC00315.jpg"></p>
-<p>不得不说小卡片的镜头，对焦准确的话，还真的很锐，但是焦外，烂得一塌糊涂。</p>
-<p><img alt="1" src="http://gfrog.net/pic/albums/misc/DSC00316.jpg"></p>
-<p><img alt="1" src="http://gfrog.net/pic/albums/misc/DSC00317.jpg"></p>
-<p>这个角度看，是不是很有王霸之气？ XD</p>
-<p><img alt="1" src="http://gfrog.net/pic/albums/misc/DSC00318.jpg"></p>
-<p>猛猫下山</p>
-<p><img alt="1" src="http://gfrog.net/pic/albums/misc/DSC00319.jpg"></p>
-<p><img alt="1" src="http://img.zemanta.com/pixy.gif?x-id=3aab1487-1e58-8745-b3ca-bc5ff47c3ad5"></p>
-                    <a class="btn btn-default btn-xs" href="./2009/12/cat-living-in-neusoft-park/">more ...</a>
                 </div>
             </article>
             <hr/>

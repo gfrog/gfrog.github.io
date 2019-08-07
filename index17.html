@@ -81,6 +81,53 @@ My Life, My Love!            </a>
     <div class="row">
         <div class="col-sm-9">
             <article>
+                <h2><a href="./2008/11/make-windows-like-linux/">像Linux一样的Windows</a></h2>
+                    <div class="well well-sm">
+<footer class="post-info">
+    <span class="label label-default">Date</span>
+    <span class="published">
+        <i class="fa fa-calendar"></i><time datetime="2008-11-05T00:57:42+08:00"> Wed 05 November 2008</time>
+    </span>
+
+
+
+        <span class="label label-default">Category</span>
+        <a href="./category/misc.html">Misc</a>
+
+
+<span class="label label-default">Tags</span>
+	<a href="./tag/windows.html">windows</a>
+        /
+	<a href="./tag/linux.html">linux</a>
+        /
+	<a href="./tag/desktop.html">desktop</a>
+        /
+	<a href="./tag/blackbox.html">blackbox</a>
+    
+</footer><!-- /.post-info -->                    </div>
+                <div class="summary"><p>谁说Windows的易用性好！？</p>
+<p>用惯了Linux，换到Windows上真的是超级不适应。
+别的不说，就说复制粘贴都需要^C、^V的按个不停，
+就是一种很影响效率的方式。
+还有那个傻呼呼的cmd窗口，怎么能比的上bash简洁？</p>
+<p>这次换到windows平台，装好系统干的第一件事就是把
+<a href="http://www.cygwin.com">Cygwin</a>
+装上，有了熟悉的命令行，熟悉的VIM，才有工作的动力。：P</p>
+<p>然后再把explorer换成
+<a href="http://bb4win.sourceforge.net/bblean/">bbLean</a>
+，恩，这次跟linux比较像了！
+但是还是没找到怎么样把窗口置顶的方法，
+没法像在Linux里那样方便的把一个窗口钉在顶端。
+（bbLean的更多图片可以参考
+<a href="/2007/02/talk-a-bit-about-bblean/">青蛙以前的日志</a>
+）</p>
+<p>实际上，被Windows惯坏的人太多了！</p>
+<p><a href="http://gfrog.net/wp-content/uploads/2008/11/200811050040183361.jpg"><img alt="desktop" src="http://gfrog.net/wp-content/uploads/2008/11/20081105004018336-thumb1.jpg"></a></p>
+                    <a class="btn btn-default btn-xs" href="./2008/11/make-windows-like-linux/">more ...</a>
+                </div>
+            </article>
+            <hr/>
+            <article>
                 <h2><a href="./2008/11/say-something-in-beginning-of-nov/">好吧，该说点什么了</a></h2>
                     <div class="well well-sm">
 <footer class="post-info">
@@ -333,53 +380,6 @@ My Life, My Love!            </a>
 <p>开发工具使用GUN Toolchain，使用GCC3.4.4以上版本和ulibc0.9.26以上版本。</p>
 <p>这东东售价最低99欧元。</p>
                     <a class="btn btn-default btn-xs" href="./2008/03/picotux-tiny-linux-device/">more ...</a>
-                </div>
-            </article>
-            <hr/>
-            <article>
-                <h2><a href="./2008/03/install-bugzilla-in-dreamhost/">在Dreamhost主机上安装bugzilla</a></h2>
-                    <div class="well well-sm">
-<footer class="post-info">
-    <span class="label label-default">Date</span>
-    <span class="published">
-        <i class="fa fa-calendar"></i><time datetime="2008-03-22T00:23:55+08:00"> Sat 22 March 2008</time>
-    </span>
-
-
-
-        <span class="label label-default">Category</span>
-        <a href="./category/site.html">Site</a>
-
-
-<span class="label label-default">Tags</span>
-	<a href="./tag/bugzilla.html">bugzilla</a>
-        /
-	<a href="./tag/dreamhost.html">Dreamhost</a>
-        /
-	<a href="./tag/linux.html">Linux</a>
-    
-</footer><!-- /.post-info -->                    </div>
-                <div class="summary"><p><a href="http://www.bugzilla.org/">bugzilla</a>
-是
-<a href="http://www.mozilla.org/">mozilla</a>
-一个很好的开源bug管理软件。
-青蛙准备在glinux的开发过程中用它来管理发现的bug。</p>
-<p>但是dreamhost上没有bugzilla的自动安装功能，青蛙按照
-<a href="http://wiki.dreamhost.com/Bugzilla#Installing_Bugzilla">dreamhost的wiki上面介绍的方法</a>
-安装时，又有很多perl模块没有，而且在dreamhost的主机上也没有权限安装这些perl模块。
-所以，青蛙决定先在主机上自己搞一个perl。</p>
-<p>perl的安装方法很简单，
-<a href="http://wiki.dreamhost.com/Perl#Path_to_the_Perl_interpreter">dreamhost的wiki也有介绍</a>
-。青蛙选择的是perl5.8.8，因为wiki上头说有一个针对dreamhost环境的补丁要打
-（补丁文件在
-<a href="http://schwern.org/~schwern/src/dreamhost-5.8.8-cwd.patch">这里</a>
-下载）。</p>
-<p>打上补丁以后，执行：</p>
-<div class="highlight"><pre><span></span><span class="n">sh</span> <span class="n">Configure</span> <span class="o">-</span><span class="n">Dusethreads</span> <span class="o">-</span><span class="n">Duselargefiles</span> <span class="o">-</span><span class="n">Dccflags</span><span class="o">=-</span><span class="n">DDEBIAN</span>
-<span class="o">-</span><span class="n">Dcccdlflags</span><span class="o">=-</span><span class="n">fPIC</span> <span class="o">-</span><span class="n">Darchname</span><span class="o">=</span><span class="n">i386</span><span class="o">-</span><span class="n">linux</span> <span class="o">-</span><span class="n">Dprefix</span><span class="o">=~/</span><span class="n">apps</span>
-<span class="o">-</span><span class="n">Dpager</span><span class="o">=/</span><span class="n">usr</span><span class="o">/</span><span class="n">bin</span><span class="o">/</span><span class="n">sensible</span><span class="o">-</span><span class="n">pager</span> <span class="o">-</span><span class="n">Uafs</span> <span class="o">-</span><span class="n">Ud_csh</span> <span class="o">-</span><span class="n">Uusesfio</span>
-<span class="o">-</span><span class="n">Uusenm</span> <span class="o">-</span><span class="n">Duseshrplib</span> <span class="o">-</span><span class="n">Dvendorlib</span><span class="o">=/</span><span class="n">usr</span><span class="o">/</span><span class="k">share …</span></pre></div>
-                    <a class="btn btn-default btn-xs" href="./2008/03/install-bugzilla-in-dreamhost/">more ...</a>
                 </div>
             </article>
             <hr/>

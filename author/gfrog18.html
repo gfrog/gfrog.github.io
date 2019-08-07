@@ -67,6 +67,53 @@ My Life, My Love!            </a>
     <div class="row">
         <div class="col-sm-9">
             <article>
+                <h2><a href="../2008/03/install-bugzilla-in-dreamhost/">在Dreamhost主机上安装bugzilla</a></h2>
+                    <div class="well well-sm">
+<footer class="post-info">
+    <span class="label label-default">Date</span>
+    <span class="published">
+        <i class="fa fa-calendar"></i><time datetime="2008-03-22T00:23:55+08:00"> Sat 22 March 2008</time>
+    </span>
+
+
+
+        <span class="label label-default">Category</span>
+        <a href="../category/site.html">Site</a>
+
+
+<span class="label label-default">Tags</span>
+	<a href="../tag/bugzilla.html">bugzilla</a>
+        /
+	<a href="../tag/dreamhost.html">Dreamhost</a>
+        /
+	<a href="../tag/linux.html">Linux</a>
+    
+</footer><!-- /.post-info -->                    </div>
+                <div class="summary"><p><a href="http://www.bugzilla.org/">bugzilla</a>
+是
+<a href="http://www.mozilla.org/">mozilla</a>
+一个很好的开源bug管理软件。
+青蛙准备在glinux的开发过程中用它来管理发现的bug。</p>
+<p>但是dreamhost上没有bugzilla的自动安装功能，青蛙按照
+<a href="http://wiki.dreamhost.com/Bugzilla#Installing_Bugzilla">dreamhost的wiki上面介绍的方法</a>
+安装时，又有很多perl模块没有，而且在dreamhost的主机上也没有权限安装这些perl模块。
+所以，青蛙决定先在主机上自己搞一个perl。</p>
+<p>perl的安装方法很简单，
+<a href="http://wiki.dreamhost.com/Perl#Path_to_the_Perl_interpreter">dreamhost的wiki也有介绍</a>
+。青蛙选择的是perl5.8.8，因为wiki上头说有一个针对dreamhost环境的补丁要打
+（补丁文件在
+<a href="http://schwern.org/~schwern/src/dreamhost-5.8.8-cwd.patch">这里</a>
+下载）。</p>
+<p>打上补丁以后，执行：</p>
+<div class="highlight"><pre><span></span><span class="n">sh</span> <span class="n">Configure</span> <span class="o">-</span><span class="n">Dusethreads</span> <span class="o">-</span><span class="n">Duselargefiles</span> <span class="o">-</span><span class="n">Dccflags</span><span class="o">=-</span><span class="n">DDEBIAN</span>
+<span class="o">-</span><span class="n">Dcccdlflags</span><span class="o">=-</span><span class="n">fPIC</span> <span class="o">-</span><span class="n">Darchname</span><span class="o">=</span><span class="n">i386</span><span class="o">-</span><span class="n">linux</span> <span class="o">-</span><span class="n">Dprefix</span><span class="o">=~/</span><span class="n">apps</span>
+<span class="o">-</span><span class="n">Dpager</span><span class="o">=/</span><span class="n">usr</span><span class="o">/</span><span class="n">bin</span><span class="o">/</span><span class="n">sensible</span><span class="o">-</span><span class="n">pager</span> <span class="o">-</span><span class="n">Uafs</span> <span class="o">-</span><span class="n">Ud_csh</span> <span class="o">-</span><span class="n">Uusesfio</span>
+<span class="o">-</span><span class="n">Uusenm</span> <span class="o">-</span><span class="n">Duseshrplib</span> <span class="o">-</span><span class="n">Dvendorlib</span><span class="o">=/</span><span class="n">usr</span><span class="o">/</span><span class="k">share …</span></pre></div>
+                    <a class="btn btn-default btn-xs" href="../2008/03/install-bugzilla-in-dreamhost/">more ...</a>
+                </div>
+            </article>
+            <hr/>
+            <article>
                 <h2><a href="../2008/03/markdown-syntax-basic/">Markdown语法摘要</a></h2>
                     <div class="well well-sm">
 <footer class="post-info">
@@ -355,47 +402,6 @@ google了一大把关键字，看了一大叠邮件列表，
 <code>$ tar zxvf VMware-workstation-6.0.2-59824.i386.tar.gz</code>。</li>
 <li><code># cd  vmware-distrib &amp;&amp; ./vmware-install.pl</code>。一路回车，到提示是否执行 …</li></ul>
                     <a class="btn btn-default btn-xs" href="../2008/03/vmware6-installation-in-2-6-24-kernel/">more ...</a>
-                </div>
-            </article>
-            <hr/>
-            <article>
-                <h2><a href="../2008/03/solution-of-system-time-changes-cause-sudo-error/">修改系统时间引起sudo罢工的解决办法</a></h2>
-                    <div class="well well-sm">
-<footer class="post-info">
-    <span class="label label-default">Date</span>
-    <span class="published">
-        <i class="fa fa-calendar"></i><time datetime="2008-03-02T22:38:04+08:00"> Sun 02 March 2008</time>
-    </span>
-
-
-
-        <span class="label label-default">Category</span>
-        <a href="../category/linux.html">Linux</a>
-
-
-<span class="label label-default">Tags</span>
-	<a href="../tag/linux.html">linux</a>
-        /
-	<a href="../tag/sudo.html">sudo</a>
-        /
-	<a href="../tag/error.html">error</a>
-        /
-	<a href="../tag/system.html">system</a>
-        /
-	<a href="../tag/time.html">time</a>
-    
-</footer><!-- /.post-info -->                    </div>
-                <div class="summary"><p>青蛙今天使用sudo之后，把系统时间往回调了几小时，
-然后sudo就罢工了，提示下面的信息：</p>
-<blockquote>
-<p>sudo: timestamp too far in the future</p>
-</blockquote>
-<p>改时间竟然还能改出毛病，这个sudo真是太fz了。
-青蛙拿着这个出错信息一google，发现了俩解决方法。</p>
-<p>第一个，不黄很暴力，用root权限删除/var/run/sudo目录。</p>
-<p>第二个，执行sudo -k，这个命令是用来清除sudo的时间戳，
-下次执行sudo的时候它会跟你重新要密码。</p>
-                    <a class="btn btn-default btn-xs" href="../2008/03/solution-of-system-time-changes-cause-sudo-error/">more ...</a>
                 </div>
             </article>
             <hr/>

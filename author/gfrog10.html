@@ -67,6 +67,71 @@ My Life, My Love!            </a>
     <div class="row">
         <div class="col-sm-9">
             <article>
+                <h2><a href="../2011/10/procmail-kdialog-mail-notifyer/">procmail + kdialog 构建邮件提醒脚本</a></h2>
+                    <div class="well well-sm">
+<footer class="post-info">
+    <span class="label label-default">Date</span>
+    <span class="published">
+        <i class="fa fa-calendar"></i><time datetime="2011-10-09T16:47:35+08:00"> Sun 09 October 2011</time>
+    </span>
+
+
+
+        <span class="label label-default">Category</span>
+        <a href="../category/linux.html">Linux</a>
+
+
+<span class="label label-default">Tags</span>
+	<a href="../tag/linux.html">linux</a>
+        /
+	<a href="../tag/mail.html">mail</a>
+        /
+	<a href="../tag/client.html">client</a>
+        /
+	<a href="../tag/mutt.html">mutt</a>
+        /
+	<a href="../tag/configuration.html">configuration</a>
+        /
+	<a href="../tag/setup.html">setup</a>
+        /
+	<a href="../tag/desktop.html">desktop</a>
+        /
+	<a href="../tag/procmail.html">procmail</a>
+    
+</footer><!-- /.post-info -->                    </div>
+                <div class="summary"><p>Mutt真的是神器，越用越觉得爽。
+可惜命令行模式的工具都有个弊端：跟X交互能力比较弱，
+例如Mutt就木有邮件提醒功能。</p>
+<p>之前在Gnome2的年代里还有
+<a href="http://www.nongnu.org/mailnotify/">mail-notification</a>
+可以对付用（这玩意占用系统资源狂多，似乎是通过监视文件更改来提醒的），
+在Gnome3之后这个工具就完全不工作了，而且又没有后续版本。</p>
+<p>青蛙抛弃Gnome，换成KDE之后，也没有找到KDE下的邮件提醒工具，于是一直酝酿着自己写一个。</p>
+<p>实现邮件提醒功能，无非就是监控邮箱变更，可以在几个点检查：</p>
+<ul>
+<li>直接使用POP/IMAP协议检查服务器端</li>
+<li>监视MTA动作</li>
+<li>监视MDA动作</li>
+<li>监视MUA动作</li>
+<li>监视邮箱文件/目录更改</li>
+</ul>
+<p>直接访问服务器是最直接的办法，但是既然MTA都把邮件收下来了，
+再去监视服务器就有点绕腾了，这种方法监视gmail/hotmail之类的邮箱还是很不错的。</p>
+<p>监视MUA的动作，
+<a href="http://www.adam8157.info">adam8157</a>同学
+<a href="http://www.adam8157.info/blog/2010/05/mutt-filter-notify/">就是这么做的</a>，
+监视Mutt startusbar的特殊字符串，通过Mutt的filter发送notify消息。</p>
+<p>监视邮箱文件/目录变化就是
+<a href="http://www.nongnu.org/mailnotify/">mail-notification</a>
+的做法了，但是如果不想轮询的话，大概需要内核开启inotify支持。</p>
+<p>监视MTA动作，青蛙没有仔细研究，似乎还是需要MDA的某些行为处理，
+所以青蛙直接用了在MDA里加入提醒脚本的方法。</p>
+<p>监视MDA动作，就是青蛙的做法 …</p>
+                    <a class="btn btn-default btn-xs" href="../2011/10/procmail-kdialog-mail-notifyer/">more ...</a>
+                </div>
+            </article>
+            <hr/>
+            <article>
                 <h2><a href="../2011/09/riding-ming-tomb-reservior-0903/">十三陵水库笔记20110903</a></h2>
                     <div class="well well-sm">
 <footer class="post-info">
@@ -273,35 +338,6 @@ AVG：21.9</p>
 <p>准备好为森林做点什么了嘛？</p>
 <p><img alt="image" src="https://lh3.googleusercontent.com/1-BMFY-QZ2YyieB_q2flOmNG-9CbUsQ027Mad0K0G-p1ceGY5HfYJJxqv8ttNXRHjQCFzB25PYW2lsnCSeQ_WbgaazpvaYAw_0qyOI3NY16ehK3-dhIhoA6ea6ihtwZlZfZ4UgA4dM8=w800"></p>
                     <a class="btn btn-default btn-xs" href="../2011/06/wed-badge-of-2011/">more ...</a>
-                </div>
-            </article>
-            <hr/>
-            <article>
-                <h2><a href="../2011/03/potted-strawberry/">盆栽草莓</a></h2>
-                    <div class="well well-sm">
-<footer class="post-info">
-    <span class="label label-default">Date</span>
-    <span class="published">
-        <i class="fa fa-calendar"></i><time datetime="2011-03-05T22:42:01+08:00"> Sat 05 March 2011</time>
-    </span>
-
-
-
-        <span class="label label-default">Category</span>
-        <a href="../category/pictures.html">Pictures</a>
-
-
-<span class="label label-default">Tags</span>
-	<a href="../tag/pictures.html">pictures</a>
-        /
-	<a href="../tag/strawberry.html">strawberry</a>
-    
-</footer><!-- /.post-info -->                    </div>
-                <div class="summary"><p>很久很久没有见过活草莓啦，今天在超市发见到这个真的让我眼前一亮。</p>
-<p>不禁想起小时候在自家后院摘草莓的日子。
-似乎当年的那片草莓早就不见了，只剩怀念。</p>
-<p><img alt="image" src="https://lh3.googleusercontent.com/h69-HEmAtK0tfh70n37u297Rux_nm35ym5cb4YdMELvtsxyzRmXpJdEV_-LbDRLac3Pbo8Cf6zu7yzx_Rmm-ObXxolvHlnUIGArVt88mPNvfzmUPvM2DSfzO_KL2wVXfAOUdr9fi7rk=w800"></p>
-                    <a class="btn btn-default btn-xs" href="../2011/03/potted-strawberry/">more ...</a>
                 </div>
             </article>
             <hr/>

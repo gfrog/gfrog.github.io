@@ -67,6 +67,47 @@ My Life, My Love!            </a>
     <div class="row">
         <div class="col-sm-9">
             <article>
+                <h2><a href="../2008/03/solution-of-system-time-changes-cause-sudo-error/">修改系统时间引起sudo罢工的解决办法</a></h2>
+                    <div class="well well-sm">
+<footer class="post-info">
+    <span class="label label-default">Date</span>
+    <span class="published">
+        <i class="fa fa-calendar"></i><time datetime="2008-03-02T22:38:04+08:00"> Sun 02 March 2008</time>
+    </span>
+
+
+
+        <span class="label label-default">Category</span>
+        <a href="../category/linux.html">Linux</a>
+
+
+<span class="label label-default">Tags</span>
+	<a href="../tag/linux.html">linux</a>
+        /
+	<a href="../tag/sudo.html">sudo</a>
+        /
+	<a href="../tag/error.html">error</a>
+        /
+	<a href="../tag/system.html">system</a>
+        /
+	<a href="../tag/time.html">time</a>
+    
+</footer><!-- /.post-info -->                    </div>
+                <div class="summary"><p>青蛙今天使用sudo之后，把系统时间往回调了几小时，
+然后sudo就罢工了，提示下面的信息：</p>
+<blockquote>
+<p>sudo: timestamp too far in the future</p>
+</blockquote>
+<p>改时间竟然还能改出毛病，这个sudo真是太fz了。
+青蛙拿着这个出错信息一google，发现了俩解决方法。</p>
+<p>第一个，不黄很暴力，用root权限删除/var/run/sudo目录。</p>
+<p>第二个，执行sudo -k，这个命令是用来清除sudo的时间戳，
+下次执行sudo的时候它会跟你重新要密码。</p>
+                    <a class="btn btn-default btn-xs" href="../2008/03/solution-of-system-time-changes-cause-sudo-error/">more ...</a>
+                </div>
+            </article>
+            <hr/>
+            <article>
                 <h2><a href="../2008/03/solution-of-qq-null-group-name-in-pidgin/">pidgin中群名称变为NULL的解决办法</a></h2>
                     <div class="well well-sm">
 <footer class="post-info">
@@ -259,39 +300,6 @@ My Life, My Love!            </a>
 例如gcc、gdb、tar、patch等等。
 再加上KDE自身的应用程序，就构成了现在的windows版KDE …</p>
                     <a class="btn btn-default btn-xs" href="../2008/01/kde-beyond-linux-windows-and-mac-os-x-desktop-environment/">more ...</a>
-                </div>
-            </article>
-            <hr/>
-            <article>
-                <h2><a href="../2008/01/linux-kernel-2-6-24-released/">Linux kernel 2.6.24 发布</a></h2>
-                    <div class="well well-sm">
-<footer class="post-info">
-    <span class="label label-default">Date</span>
-    <span class="published">
-        <i class="fa fa-calendar"></i><time datetime="2008-01-26T13:51:28+08:00"> Sat 26 January 2008</time>
-    </span>
-
-
-
-        <span class="label label-default">Category</span>
-        <a href="../category/linux.html">Linux</a>
-
-
-<span class="label label-default">Tags</span>
-	<a href="../tag/linux.html">linux</a>
-        /
-	<a href="../tag/kernel.html">kernel</a>
-        /
-	<a href="../tag/release.html">release</a>
-    
-</footer><!-- /.post-info -->                    </div>
-                <div class="summary"><p>嗯，两句话。</p>
-<p>第一，Linux内核2.6系列最新稳定版2.6.24正式发布。</p>
-<p>第二，不知道在
-<a href="http://kernel.org/pub/linux/kernel/v2.6/ChangeLog-2.6.24">这份5.7M的Changelog</a></p>
-<p>里面，包不包含修复vmware6.0无法安装这个错误的记录。</p>
-<p><a href="http://kernel.org/"> </a><a href="http://kernel.org/"><img alt="1" src="http://kernel.org/images/korg10yr.gif"></a></p>
-                    <a class="btn btn-default btn-xs" href="../2008/01/linux-kernel-2-6-24-released/">more ...</a>
                 </div>
             </article>
             <hr/>
