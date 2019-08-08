@@ -81,6 +81,98 @@ My Life, My Love!            </a>
     <div class="row">
         <div class="col-sm-9">
             <article>
+                <h2><a href="./2012/07/split-pdf-doc-with-pypdf-module/">使用pyPdf切割pdf文档</a></h2>
+                    <div class="well well-sm">
+<footer class="post-info">
+    <span class="label label-default">Date</span>
+    <span class="published">
+        <i class="fa fa-calendar"></i><time datetime="2012-07-30T22:43:51+08:00"> Mon 30 July 2012</time>
+    </span>
+
+
+
+        <span class="label label-default">Category</span>
+        <a href="./category/misc.html">Misc</a>
+
+
+<span class="label label-default">Tags</span>
+	<a href="./tag/ptyhon.html">ptyhon</a>
+        /
+	<a href="./tag/coding.html">coding</a>
+        /
+	<a href="./tag/script.html">script</a>
+        /
+	<a href="./tag/pdf.html">pdf</a>
+        /
+	<a href="./tag/modification.html">modification</a>
+    
+</footer><!-- /.post-info -->                    </div>
+                <div class="summary"><p>青蛙拿到一份扫描版的pdf文档，每个pdf页包含了两页实际书籍页面，
+这种文档放在6寸Kindle上基本就是杯具了。于是青蛙试图找工具把他们切割掉。
+根据<a href="http://note1day.com/">铄日博客</a>的推荐试验了
+<a href="http://note1day.com/2012/01/paper4kindle/">paper4kindle</a>
+和
+<a href="http://note1day.com/2011/12/k2pdfopt/">k2pdfopt</a>，
+但是papaer4kindle切割出来的文档页面错乱了，而且也没有修正pdf歪斜的功能，
+剪裁输出的文档很难看。
+k2pdfopt就更没法看了，从image识别文档的技术先进，
+但是对于每页pdf包含2页实际页面的文档，k2pdfopt基本无能为力。</p>
+<p>青蛙本想探索一下paper4kindle输出之后页面错乱的问题，
+结果这玩意竟然不开源，又看到作者说花了几小时就搞出来了，
+那青蛙也看看pypdf包，试试能不能直接写代码自己搞定。</p>
+<p>花了半下午时间看了下pypdf（ http://pybrary.net/pyPdf/ ）的API，
+然后直接把例子代码复制下来改吧改吧，
+咱也基本实现了paper4kindle的核心功能了，成功把那份文档处理掉了。
+至于那些花哨的界面啥的，有空再玩吧。
+代码先贴在这里，没有整理，暂时先不贴到github了，
+准备下一步尝试添加旋转页面的功能。</p>
+<p>编码的时候发现了两个问题，</p>
+<ul>
+<li>设置mediaBox的位置之前需要先copy一份page对象，
+    否则设置right的mediaBox的时候竟然会影响left的值，
+    猜测是pypdf模块内部直接返回了page对象的引用，并没有复制一份返回。</li>
+<li>这份文档无法用paper4kindle编辑的原因是实际上文档的四个角坐标是反的，
+    大概文档扫描之后被顺时针旋转了90度。</li>
+</ul>
+<p>最后小小鄙视一下用python、用开源库写代码竟然不继续开源的某些软件作者。</p>
+<div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/env python …</span></pre></div>
+                    <a class="btn btn-default btn-xs" href="./2012/07/split-pdf-doc-with-pypdf-module/">more ...</a>
+                </div>
+            </article>
+            <hr/>
+            <article>
+                <h2><a href="./2012/07/3-pics-beijng-after-storm/">三张流：雨后的帝都</a></h2>
+                    <div class="well well-sm">
+<footer class="post-info">
+    <span class="label label-default">Date</span>
+    <span class="published">
+        <i class="fa fa-calendar"></i><time datetime="2012-07-22T20:02:55+08:00"> Sun 22 July 2012</time>
+    </span>
+
+
+
+        <span class="label label-default">Category</span>
+        <a href="./category/pictures.html">Pictures</a>
+
+
+<span class="label label-default">Tags</span>
+	<a href="./tag/beijing.html">beijing</a>
+        /
+	<a href="./tag/pictures.html">pictures</a>
+    
+</footer><!-- /.post-info -->                    </div>
+                <div class="summary"><p>帝都经历了61年以来最大的暴雨之后，空气质量真是好到爆。难得见到帝都的蓝天白云啊，赶快出去拍几张照片。</p>
+<p>先从窗口看看，久违的蓝天。</p>
+<p><img alt="2012-07-22_08-42-08_661" src="http://lh4.ggpht.com/-TZ5teX41PC8/UAwmf1S8EuI/AAAAAAAAHf4/med0ogYQh3I/w800/2012-07-22_08-42-08_661.jpg"></p>
+<p>出门在路边：</p>
+<p><img alt="2012-07-22_10-39-01_174" src="http://lh5.ggpht.com/-Xw9WS5j_XHA/UAwsRgsyNvI/AAAAAAAAHhg/y3-qtXKqNKc/w800/2012-07-22_10-39-01_174.jpg"></p>
+<p>傍晚的云：</p>
+<p><img alt="2012-07-22_18-27-00_322" src="http://lh4.ggpht.com/-IF_acs9R9_4/UAwtpzh8dVI/AAAAAAAAHiU/5WyPGI7z51I/w800/2012-07-22_18-27-00_322.jpg"></p>
+                    <a class="btn btn-default btn-xs" href="./2012/07/3-pics-beijng-after-storm/">more ...</a>
+                </div>
+            </article>
+            <hr/>
+            <article>
                 <h2><a href="./2012/05/riding-olympic-park-0508/">折叠党之奥园笔记20120508</a></h2>
                     <div class="well well-sm">
 <footer class="post-info">
@@ -274,101 +366,6 @@ G7到北清路转向G6，路过昌平西关环岛，差一点又迷路了，
 <p><img alt="2" src="https://lh6.googleusercontent.com/-FUrpXhflyU4/T4rre8Q4zaI/AAAAAAAAHZg/gVcoB-_GXEU/s800/2012-04-15_10-40-35_56.jpg"></p>
 <p>看花的新鲜劲过了之后就是无比痛苦的爬坡，今年的见坡死状态依旧没改变 …</p>
                     <a class="btn btn-default btn-xs" href="./2012/04/riding-chanfang-0415/">more ...</a>
-                </div>
-            </article>
-            <hr/>
-            <article>
-                <h2><a href="./2012/04/riding-tanzhe-temple-0414/">骑行潭柘寺 20120414</a></h2>
-                    <div class="well well-sm">
-<footer class="post-info">
-    <span class="label label-default">Date</span>
-    <span class="published">
-        <i class="fa fa-calendar"></i><time datetime="2012-04-14T23:30:24+08:00"> Sat 14 April 2012</time>
-    </span>
-
-
-
-        <span class="label label-default">Category</span>
-        <a href="./category/cyclone.html">Cyclone</a>
-
-
-<span class="label label-default">Tags</span>
-	<a href="./tag/bicycle.html">bicycle</a>
-        /
-	<a href="./tag/riding.html">riding</a>
-    
-</footer><!-- /.post-info -->                    </div>
-                <div class="summary"><p>本来想去潭柘寺看花，结果山里花都落了。
-回来的路上在昆玉河边上倒是看到很多刚开的桃花。</p>
-<p>车子码表距离突破4000KM，突破3000KM的时候还是去年夏天，
-这1000KM中间拖的时间够久。争取今年能再骑出一个3000-4000KM。</p>
-<p>总结：</p>
-<ol>
-<li>长途依旧屁股很麻</li>
-<li>9速指拨配8速飞轮完全就是坑爹，必须要破财换飞轮了。</li>
-<li>爬坡的时候保持均匀的功率输出很重要，也就是踏频要稳定，一旦节奏打乱了，就很难恢复了。</li>
-<li>今年骑车的妹纸真多，路上看到了好多个</li>
-<li>潭柘寺的香火真旺，山门前汽车狂堵车。不过看过山门真身之后，是不想再去了，真没意思。</li>
-<li>潭柘寺脚底下的饭店真心坑爹</li>
-</ol>
-<p>数据：</p>
-<blockquote>
-<p>Trip dist：114.14 <br />
-Trip time：6:00:23 <br />
-Avg speed： 19.00 <br />
-Max speed：45.18 <br />
-avg cad： 58 （踏频好低……）</p>
-</blockquote>
-                    <a class="btn btn-default btn-xs" href="./2012/04/riding-tanzhe-temple-0414/">more ...</a>
-                </div>
-            </article>
-            <hr/>
-            <article>
-                <h2><a href="./2012/03/riding-shisanling-reservoir-0324/">十三陵水库绕圈 20120324</a></h2>
-                    <div class="well well-sm">
-<footer class="post-info">
-    <span class="label label-default">Date</span>
-    <span class="published">
-        <i class="fa fa-calendar"></i><time datetime="2012-03-24T23:24:54+08:00"> Sat 24 March 2012</time>
-    </span>
-
-
-
-        <span class="label label-default">Category</span>
-        <a href="./category/cyclone.html">Cyclone</a>
-
-
-<span class="label label-default">Tags</span>
-	<a href="./tag/bicycle.html">bicycle</a>
-        /
-	<a href="./tag/riding.html">riding</a>
-    
-</footer><!-- /.post-info -->                    </div>
-                <div class="summary"><p><em>（不想写流水帐式的日记了，简短结说算了。）</em></p>
-<p>早上趴窗看天气似乎不错，于是收拾打扮出发去十三陵水库。
-8点半清华西门接到众人，稍事休息，出发上路。
-第一次带队，无比的累，需要看路看车小心逆行不要跑的太快，
-这时候才体会到去年每次出去都有人领骑的日子是多么舒心。</p>
-<p>去程一切状况良好，按步就班，
-沙河大桥休息一次，昌平城里放水一次补水一次，没有吃饭就开始水库绕圈。
-继续见坡死，不过在绕圈到水库西边的水坝上坐着休息了一会望风景，
-蓝蓝的天蓝蓝的水，虽然没有绿草，但是遍地金黄色的草也还满耐看。
-总之一个字： <strong>舒心</strong>。</p>
-<p><img alt="1" src="https://lh6.googleusercontent.com/-2114Zl8Sj3k/T29Dwwz3s6I/AAAAAAAAHW8/mUDnDtTLhEE/s800/2012-03-24_11-41-24_233.jpg"></p>
-<p>坐着看够了，后边的人也追上来，爬起来继续爬水库北路，
-似乎之前休息的那一会挺起作用的，这段路爬的很顺，
-第一个坡挠上去之后，借助下坡的速度相当轻松的冲过了剩下的坡，
-感觉水库北路的爬坡路比南路简单的多。。。
-爬到坡顶等人，结果发现把Casper给丢了，后来才知道他绕了一个大圈，
-还在其他人之前回到了水库大坝。
-其实大家路都不熟，青蛙自己傻乎乎的一个人在前面狂爬太不应该了，
-应该留下来给大家指路才对。</p>
-<p>放坡下来回到水库大坝接到Casper，已经12点半了，大家都饿的不行，
-于是赶紧杀奔昌平城里开饭，在政法大学边上的小路里找到家四川馆子，
-7个人一桌子菜，吃的很爽。
-Kaka给大家买了水果，Adam给大家买了湿巾，真是体贴啊。</p>
-<p>吃饱喝足放水补水完毕，大家开拔回城 …</p>
-                    <a class="btn btn-default btn-xs" href="./2012/03/riding-shisanling-reservoir-0324/">more ...</a>
                 </div>
             </article>
             <hr/>

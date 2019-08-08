@@ -81,6 +81,96 @@ My Life, My Love!            </a>
     <div class="row">
         <div class="col-sm-9">
             <article>
+                <h2><a href="./2010/12/setup-https-in-nginx/">在NGINX上开启https</a></h2>
+                    <div class="well well-sm">
+<footer class="post-info">
+    <span class="label label-default">Date</span>
+    <span class="published">
+        <i class="fa fa-calendar"></i><time datetime="2010-12-18T15:45:25+08:00"> Sat 18 December 2010</time>
+    </span>
+
+
+
+        <span class="label label-default">Category</span>
+        <a href="./category/linux.html">Linux</a>
+
+
+<span class="label label-default">Tags</span>
+	<a href="./tag/linux.html">linux</a>
+        /
+	<a href="./tag/server.html">server</a>
+        /
+	<a href="./tag/nginx.html">nginx</a>
+        /
+	<a href="./tag/setup.html">setup</a>
+        /
+	<a href="./tag/vps.html">vps</a>
+        /
+	<a href="./tag/site.html">site</a>
+    
+</footer><!-- /.post-info -->                    </div>
+                <div class="summary"><p>青蛙的新VPS是基于nginx的，仅仅是因为传言nginx在小内存，大压力的时候表现好一些。</p>
+<p>当然，为了获得这点好处，还是要付出一些代价的。
+例如nginx没有apache的htaccess，对每个目录的控制都需要写到nginx的配置文件中，
+这样对普通用户来说十分的不方便。</p>
+<p>哦，有点跑题，继续说https的问题，其实给nginx配置https也不复杂，
+按照网上现成的模板，改一下自己的域名和目录位置就好了。</p>
+<p>下面是一个完整的示例[1][2]：（来自<a href="http://sudone.com/nginx/nginx_ssl.html">这里</a>）</p>
+<div class="highlight"><pre><span></span><span class="nv">upstream</span> <span class="nv">test</span>.<span class="nv">com</span> {
+    <span class="nv">server</span> <span class="mi">192</span>.<span class="mi">168</span>.<span class="mi">1</span>.<span class="mi">2</span>:<span class="mi">80</span><span class="c1">;</span>
+}
+
+<span class="nv">server</span> {
+    <span class="nv">server_name</span> <span class="nv">test</span>.<span class="nv">com</span><span class="c1">;</span>
+    <span class="k">include</span> <span class="nv">port</span>.<span class="nv">conf</span><span class="c1">;</span>
+
+    <span class="nv">ssl</span> <span class="nv">on</span><span class="c1">;</span>
+    <span class="nv">ssl_certificate</span> <span class="nv">server</span>.<span class="nv">crt</span><span class="c1">; # ${nginx_install_dir}/conf/server.crt</span>
+    <span class="nv">ssl_certificate_key</span> <span class="nv">server</span>.<span class="nv">key</span><span class="c1">; # ${nginx_install_dir}/conf …</span></pre></div>
+                    <a class="btn btn-default btn-xs" href="./2010/12/setup-https-in-nginx/">more ...</a>
+                </div>
+            </article>
+            <hr/>
+            <article>
+                <h2><a href="./2010/12/photography-sansu-in-china/">摄影三俗</a></h2>
+                    <div class="well well-sm">
+<footer class="post-info">
+    <span class="label label-default">Date</span>
+    <span class="published">
+        <i class="fa fa-calendar"></i><time datetime="2010-12-16T21:20:01+08:00"> Thu 16 December 2010</time>
+    </span>
+
+
+
+        <span class="label label-default">Category</span>
+        <a href="./category/misc.html">Misc</a>
+
+
+<span class="label label-default">Tags</span>
+	<a href="./tag/picture.html">picture</a>
+    
+</footer><!-- /.post-info -->                    </div>
+                <div class="summary"><p>自己拍照的时候，一定要记得避开这些俗物，XD。</p>
+<p>本来青蛙计划去扫一下后海和老北京的胡同的，看来要pass掉重新选题了。</p>
+<p>帝都冬天还有什么值得拍的呢？哪里有庙会？哈</p>
+<blockquote>
+<p>中国摄影有三俗 <br />
+人像三俗：芦苇，后海，798 <br />
+夜景三俗：浦东，建外，太平山 <br />
+建筑三俗：鸟巢，巨蛋，明珠塔 <br />
+纪实三俗：老太，胡同，石库门 <br />
+旅行三俗：马代，瑞士，梅里山 <br />
+静物三俗：酒杯，水果，紫砂壶 <br />
+小品三俗：荷花，水珠，自行车 <br />
+自然风光三俗：坝上，亚丁，喀纳斯 <br />
+人文风光三俗：丽江，水乡，和土楼 <br />
+名胜古迹三俗：长城，外滩，嘉峪关 <br />
+民俗风情三俗 …</p></blockquote>
+                    <a class="btn btn-default btn-xs" href="./2010/12/photography-sansu-in-china/">more ...</a>
+                </div>
+            </article>
+            <hr/>
+            <article>
                 <h2><a href="./2010/12/nowhere-to-place-the-pictures/">无处安放的图片</a></h2>
                     <div class="well well-sm">
 <footer class="post-info">
@@ -255,79 +345,6 @@ vps上就需要自己搞定web服务器，数据库，等等一大堆。</p>
 <p>绿色出行，我选单车。</p>
 <p><img alt="1" src="https://lh3.googleusercontent.com/-WP-zLUwjhts/Tg6Z0tEqpGI/AAAAAAAAGjo/rWdH7xgP2O4/s800/IMG_20101106_171444.jpg"></p>
                     <a class="btn btn-default btn-xs" href="./2010/11/environmental-type-of-year/">more ...</a>
-                </div>
-            </article>
-            <hr/>
-            <article>
-                <h2><a href="./2010/11/shadow-of-trees/">树影</a></h2>
-                    <div class="well well-sm">
-<footer class="post-info">
-    <span class="label label-default">Date</span>
-    <span class="published">
-        <i class="fa fa-calendar"></i><time datetime="2010-11-02T20:10:59+08:00"> Tue 02 November 2010</time>
-    </span>
-
-
-
-        <span class="label label-default">Category</span>
-        <a href="./category/pictures.html">Pictures</a>
-
-
-<span class="label label-default">Tags</span>
-	<a href="./tag/picture.html">picture</a>
-    
-</footer><!-- /.post-info -->                    </div>
-                <div class="summary"><p>中午的阳光照在草坪上，是无论用神马相机都没法表现的动人色彩。</p>
-<p><img alt="1" src="https://lh6.googleusercontent.com/-1njCF7smCtE/Tg6jYdeqp5I/AAAAAAAAGjo/E08iiEQWkYs/s800/IMG_20101102_092700.jpg"></p>
-                    <a class="btn btn-default btn-xs" href="./2010/11/shadow-of-trees/">more ...</a>
-                </div>
-            </article>
-            <hr/>
-            <article>
-                <h2><a href="./2010/08/install-openvpn-on-moto-milestone/">在Milestone上安装openvpn</a></h2>
-                    <div class="well well-sm">
-<footer class="post-info">
-    <span class="label label-default">Date</span>
-    <span class="published">
-        <i class="fa fa-calendar"></i><time datetime="2010-08-18T11:20:04+08:00"> Wed 18 August 2010</time>
-    </span>
-
-
-
-        <span class="label label-default">Category</span>
-        <a href="./category/mobile.html">Mobile</a>
-
-
-<span class="label label-default">Tags</span>
-	<a href="./tag/android.html">android</a>
-        /
-	<a href="./tag/vpn.html">vpn</a>
-        /
-	<a href="./tag/mobile.html">mobile</a>
-        /
-	<a href="./tag/openvpn.html">openvpn</a>
-        /
-	<a href="./tag/client.html">client</a>
-        /
-	<a href="./tag/setup.html">setup</a>
-    
-</footer><!-- /.post-info -->                    </div>
-                <div class="summary"><p><em>青蛙注：恨死ScribeFire，青蛙这篇日志写了一上午，
-结果马上要写完了，浏览器崩溃。杯具就是这么产生的。</em></p>
-<p><em>重写的话，就不啰嗦了，直接写主要的。</em></p>
-<p>青蛙目前使用的是机锋
-<a href="http://bbs.gfan.com/space-uid-41092.html">fancies</a>
-大大制作的PLUS9 FINAL系统，可能其他的系统会有所区别，安装的时候需要注意。
-假设milestone已经获得了root，已经安装好了busybox，并且系统里已经带有tun.ko。</p>
-<p>首先，要
-<a href="http://github.com/downloads/fries/android-external-openvpn/openvpn-static-2.1.1.bz2">下载一个openvpn</a>
-，解压并上传到手机上，
-青蛙偏好使用adb push，这样不需要来回切换存储卡，插上usb就可以用。</p>
-<p><code>sudo adb push openvpn-static-2.1.1 /sdcard/openvpn</code></p>
-<p>使用<code>sudo adb shell</code>命令连到手机的shell，注意以下命令都需要root权限。</p>
-<p>因为/system 是只读的，需要先挂载成可写的模式：</p>
-<p><code># mount -o remount,rw -t …</code></p>
-                    <a class="btn btn-default btn-xs" href="./2010/08/install-openvpn-on-moto-milestone/">more ...</a>
                 </div>
             </article>
             <hr/>

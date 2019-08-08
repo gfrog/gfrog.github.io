@@ -67,6 +67,109 @@ My Life, My Love!            </a>
     <div class="row">
         <div class="col-sm-9">
             <article>
+                <h2><a href="../2008/03/install-eva-in-debian/">在debian sid上面安装eva</a></h2>
+                    <div class="well well-sm">
+<footer class="post-info">
+    <span class="label label-default">Date</span>
+    <span class="published">
+        <i class="fa fa-calendar"></i><time datetime="2008-03-26T01:03:12+08:00"> Wed 26 March 2008</time>
+    </span>
+
+
+
+        <span class="label label-default">Category</span>
+        <a href="../category/linux.html">Linux</a>
+
+
+<span class="label label-default">Tags</span>
+	<a href="../tag/linux.html">linux</a>
+        /
+	<a href="../tag/desktop.html">desktop</a>
+        /
+	<a href="../tag/installation.html">installation</a>
+        /
+	<a href="../tag/debian.html">debian</a>
+        /
+	<a href="../tag/ubuntu.html">ubuntu</a>
+        /
+	<a href="../tag/eva.html">eva</a>
+        /
+	<a href="../tag/qq.html">qq</a>
+    
+</footer><!-- /.post-info -->                    </div>
+                <div class="summary"><p><img alt="debian-ubuntu" src="http://haokanbu.s3.amazonaws.com/picture/external/c8b6c8df6df744f7af186747f25a35b3.jpeg"></p>
+<p>自从青蛙人品爆发，在pidgin上面死活登录不上QQ以后，青蛙都是在wine上面跑QQ。
+在wine上面速度慢不说，QQ时不时的来一下非法操作就把青蛙折磨的死去活来。
+据说最近eva又升级了，于是青蛙决定换用eva。</p>
+<p>Debian的apt里面是没有eva的。
+青蛙上网搜了一圈，也没有发现eva的升级包，连
+<a href="http://sourceforge.net/projects/evaq">它的主页</a>
+上也都还是很久很久以前的版本（大概eva已经转入地下了）。</p>
+<p>青蛙最后在ubuntu的源里面终于翻倒了eva的deb包了。</p>
+<p>eva在ubuntu源的universe里面，随便找一个ubuntu的镜像（青蛙用的是
+<a href="http://debian.ustc.edu.cn/ubuntu">中科大的源</a>
+），在/pool/universe/e/eva目录里找到
+<a href="http://debian.ustc.edu.cn/ubuntu/pool/universe/e/eva/eva_0.4.9+svn20080215-0ubuntu1_i386.deb">eva_0.4.9+svn20080215-0ubuntu1_i386.deb</a>
+，下载回来备用。</p>
+<p>在正式安装eva之前，青蛙还要搞定它的依赖性问题。</p>
+<p>ubuntu里面的eva是依赖于kdelibs4c2a这个包的。
+但是debian里面的kdelibs4c2a存在一个依赖性的bug：</p>
+<p>它依赖于包libopenexr2ldbl，但是这个包在debian的i386源里面竟然没有。</p>
+<p>于是青蛙再从ubuntu源里把
+<a href="http://debian.ustc.edu.cn/ubuntu/pool/main/o/openexr/libopenexr2ldbl_1.2.2-4.4ubuntu1_i386.deb">libopenexr2ldbl</a>
+给抓回来，<code>dpkg -i</code>安装之，然后执行<code># aptitude install kdelibs4c2a</code>，安装一系列的依赖包。</p>
+<p>顺便说一句，debian跟ubuntu这两个兄弟有时候还真不错，互相谁也不挑谁的 …</p>
+                    <a class="btn btn-default btn-xs" href="../2008/03/install-eva-in-debian/">more ...</a>
+                </div>
+            </article>
+            <hr/>
+            <article>
+                <h2><a href="../2008/03/picotux-tiny-linux-device/">世界上最小的linux</a></h2>
+                    <div class="well well-sm">
+<footer class="post-info">
+    <span class="label label-default">Date</span>
+    <span class="published">
+        <i class="fa fa-calendar"></i><time datetime="2008-03-23T21:50:56+08:00"> Sun 23 March 2008</time>
+    </span>
+
+
+
+        <span class="label label-default">Category</span>
+        <a href="../category/linux.html">Linux</a>
+
+
+<span class="label label-default">Tags</span>
+	<a href="../tag/linux.html">linux</a>
+        /
+	<a href="../tag/mini.html">mini</a>
+        /
+	<a href="../tag/board.html">board</a>
+        /
+	<a href="../tag/arm.html">arm</a>
+        /
+	<a href="../tag/device.html">device</a>
+    
+</footer><!-- /.post-info -->                    </div>
+                <div class="summary"><p><img alt="picotux" src="http://www.picotux.com/pt100a.jpg"></p>
+<p><img alt="2" src="http://www.picotux.com/pt112a.jpg"></p>
+<p>上面的图片就是号称世界上最小的linux：</p>
+<p><a href="http://www.picotux.com/techdatae.html">picotux 100</a></p>
+<p>（右侧为picotux 112）。</p>
+<p>这个小东西只有35mm×19mm×19mm大小，只比一个RJ45接口大了那么一点点。</p>
+<p>它使用32-bit ARM 7 Netsilicon NS7520处理器，主频55MHz，
+搭载2M~4M Flash和8M SDRAM，带有一个10/100M网卡，
+一个可以达到230.400 bps的串口，还有5个I/O针脚。
+使用3.3V电压供电。</p>
+<p>软件方面，它使用uClinux 2.4.27系统，系统大小最少720KB。</p>
+<p>Shell可以使用Busybox，使用CRAMFS、JFFS2文件系统,
+还可以使用NFS，有Webserver、Telnet等等程序。</p>
+<p>开发工具使用GUN Toolchain，使用GCC3.4.4以上版本和ulibc0.9.26以上版本。</p>
+<p>这东东售价最低99欧元。</p>
+                    <a class="btn btn-default btn-xs" href="../2008/03/picotux-tiny-linux-device/">more ...</a>
+                </div>
+            </article>
+            <hr/>
+            <article>
                 <h2><a href="../2008/03/install-bugzilla-in-dreamhost/">在Dreamhost主机上安装bugzilla</a></h2>
                     <div class="well well-sm">
 <footer class="post-info">
@@ -312,96 +415,6 @@ My Life, My Love!            </a>
 <span class="o">/[^</span>
 <span class="n">mawk</span><span class="o">:</span> <span class="n">scripts</span><span class="o">/</span><span class="n">gen</span><span class="o">-</span><span class="n">sorted</span><span class="o">.</span><span class="na">awk</span><span class="o">:</span> <span class="n">line</span> <span class="mi">19 …</span></pre></div>
                     <a class="btn btn-default btn-xs" href="../2008/03/glinux-setup-compile-environment/">more ...</a>
-                </div>
-            </article>
-            <hr/>
-            <article>
-                <h2><a href="../2008/03/network-protocol-learning-notes-1-basic-knowledge-of-dns/">网络协议学习笔记（1） -- DNS基础知识</a></h2>
-                    <div class="well well-sm">
-<footer class="post-info">
-    <span class="label label-default">Date</span>
-    <span class="published">
-        <i class="fa fa-calendar"></i><time datetime="2008-03-09T22:42:23+08:00"> Sun 09 March 2008</time>
-    </span>
-
-
-
-        <span class="label label-default">Category</span>
-        <a href="../category/networking.html">Networking</a>
-
-
-<span class="label label-default">Tags</span>
-	<a href="../tag/network.html">network</a>
-        /
-	<a href="../tag/rfc.html">rfc</a>
-        /
-	<a href="../tag/dns.html">dns</a>
-        /
-	<a href="../tag/protocol.html">protocol</a>
-        /
-	<a href="../tag/note.html">note</a>
-    
-</footer><!-- /.post-info -->                    </div>
-                <div class="summary"><p>---下列 RFC 包含用来设计和实施 DNS 服务器和客户端服务的规范：</p>
-<p>RFC     标题</p>
-<p>1034    域名 - 概念和工具</p>
-<p>1035    域名 - 实现和规范</p>
-<p>1123    Internet 主机 - 应用和支持的要求</p>
-<p>1886    支持 IP 版本 6 的 DNS 扩展名</p>
-<p>1995    DNS 中的增量区域传输</p>
-<p>1996    提示通知区域更改的机制 (DNS NOTIFY)</p>
-<p>2136    域名系统中的动态更新 (DNS UPDATE)</p>
-<p>2181    对 DNS 规范的说明</p>
-<p>2308    DNS 查询的负缓存 (DNS NCACHE)</p>
-<p>2535    域名系统安全扩展 (DNSSEC)</p>
-<p>2671    DNS …</p>
-                    <a class="btn btn-default btn-xs" href="../2008/03/network-protocol-learning-notes-1-basic-knowledge-of-dns/">more ...</a>
-                </div>
-            </article>
-            <hr/>
-            <article>
-                <h2><a href="../2008/03/vmware6-installation-in-2-6-24-kernel/">历经坎坷，安装VMWARE6</a></h2>
-                    <div class="well well-sm">
-<footer class="post-info">
-    <span class="label label-default">Date</span>
-    <span class="published">
-        <i class="fa fa-calendar"></i><time datetime="2008-03-04T00:43:44+08:00"> Tue 04 March 2008</time>
-    </span>
-
-
-
-        <span class="label label-default">Category</span>
-        <a href="../category/linux.html">Linux</a>
-
-
-<span class="label label-default">Tags</span>
-	<a href="../tag/linux.html">linux</a>
-        /
-	<a href="../tag/kernel.html">kernel</a>
-        /
-	<a href="../tag/source.html">source</a>
-        /
-	<a href="../tag/vmware.html">vmware</a>
-        /
-	<a href="../tag/installation.html">installation</a>
-    
-</footer><!-- /.post-info -->                    </div>
-                <div class="summary"><p>青蛙被vmware郁闷了整整一晚上，遇到问题无数，
-google了一大把关键字，看了一大叠邮件列表，
-终于把它在2.6.24内核上给装上了。</p>
-<p>赶紧写下来，免得以后遇到类似的问题再抓瞎。</p>
-<p>（请注意青蛙给出命令的提示符，$表示不要求root权限，#表示必须用root权限执行）</p>
-<ul>
-<li>到
-<a href="http://www.vmware.com/download/ws/">http://www.vmware.com/download/ws/</a>
-这里vmware6的安装包下载回来，总共有200多M。</li>
-<li>下载安装包的同时，还需要准备一些包：
-<code># aptitude install linux-source gcc-4.1 g++-4.1 libncurses5-dev</code>
-这些是linux源码包，还有gcc跟g++，待会编译模块会用到。</li>
-<li>解压vmware6的安装文件
-<code>$ tar zxvf VMware-workstation-6.0.2-59824.i386.tar.gz</code>。</li>
-<li><code># cd  vmware-distrib &amp;&amp; ./vmware-install.pl</code>。一路回车，到提示是否执行 …</li></ul>
-                    <a class="btn btn-default btn-xs" href="../2008/03/vmware6-installation-in-2-6-24-kernel/">more ...</a>
                 </div>
             </article>
             <hr/>

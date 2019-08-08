@@ -81,6 +81,106 @@ My Life, My Love!            </a>
     <div class="row">
         <div class="col-sm-9">
             <article>
+                <h2><a href="./2009/06/ultravpn-a-free-vpn/">UltraVPN - A Free VPN</a></h2>
+                    <div class="well well-sm">
+<footer class="post-info">
+    <span class="label label-default">Date</span>
+    <span class="published">
+        <i class="fa fa-calendar"></i><time datetime="2009-06-04T20:48:45+08:00"> Thu 04 June 2009</time>
+    </span>
+
+
+
+        <span class="label label-default">Category</span>
+        <a href="./category/networking.html">Networking</a>
+
+
+<span class="label label-default">Tags</span>
+	<a href="./tag/network.html">network</a>
+        /
+	<a href="./tag/vpn.html">vpn</a>
+        /
+	<a href="./tag/openvpn.html">openvpn</a>
+        /
+	<a href="./tag/windows.html">windows</a>
+        /
+	<a href="./tag/linux.html">linux</a>
+        /
+	<a href="./tag/client.html">client</a>
+    
+</footer><!-- /.post-info -->                    </div>
+                <div class="summary"><p>最近功夫网发飙，所以各种翻墙术也层出不穷，
+在twitter上看到有人推荐UltraVPN，很好很强大，在这里也推荐一下。
+UltraVPN基于Openvpn，简单易用，
+除了在windows上可以使用，在linnux和macox同样都用客户端。</p>
+<p>通过UltraVPN，你可以：</p>
+<ul>
+<li>从企业网中访问被过滤的web网站</li>
+<li>在MSN被过滤的情况下访问MSN</li>
+<li>在被过滤的情况下使用VoIP软件（例如Skype）</li>
+<li>保护你的邮件和浏览隐私</li>
+<li>避免在internet中被记录</li>
+</ul>
+<p>当然，对国人最重要的一条，就是可以穿墙。</p>
+<p>UltraVPN使用也很简单。</p>
+<p>首先，在<a href="http://www.ultravpn.fr/account.htm">这里</a>注册帐号，下载客户端后就可以直接使用了。</p>
+<p>客户端下载：</p>
+<p><a href="http://www.ultravpn.fr/download/ultravpn-install.exe">Windows</a>，</p>
+<p><a href="http://www.ultravpn.fr/download/ultravpn-install-macosx.exe">MacOS</a>，</p>
+<p><a href="http://gfrog.net/wp-content/uploads/2009/06/ultravpn.zip">Linux</a>
+（只包含配置文件，openvpn客户端在<a href="http://www.openvpn.net/release/openvpn-2.1_rc17.tar.gz">这里</a>）。</p>
+                    <a class="btn btn-default btn-xs" href="./2009/06/ultravpn-a-free-vpn/">more ...</a>
+                </div>
+            </article>
+            <hr/>
+            <article>
+                <h2><a href="./2009/04/test-debian-boot-time-with-bootchart/">测试linux系统的启动速度</a></h2>
+                    <div class="well well-sm">
+<footer class="post-info">
+    <span class="label label-default">Date</span>
+    <span class="published">
+        <i class="fa fa-calendar"></i><time datetime="2009-04-08T20:13:36+08:00"> Wed 08 April 2009</time>
+    </span>
+
+
+
+        <span class="label label-default">Category</span>
+        <a href="./category/linux.html">Linux</a>
+
+
+<span class="label label-default">Tags</span>
+	<a href="./tag/debian.html">debian</a>
+        /
+	<a href="./tag/linux.html">linux</a>
+        /
+	<a href="./tag/boot.html">boot</a>
+        /
+	<a href="./tag/bootchart.html">bootchart</a>
+        /
+	<a href="./tag/ubuntu.html">ubuntu</a>
+    
+</footer><!-- /.post-info -->                    </div>
+                <div class="summary"><p>今天看到blog一则，话说
+<a href="http://linuxdesktop.cn/2009/04/08/ubuntu-904-fast-boot.html">ubuntu9.04竟然可以在14秒内启动</a>
+。</p>
+<p>于是青蛙拿<a href="http://www.bootchart.org">bootchart</a>测了一下自己的debian。</p>
+<p>青蛙自己的系统用了33秒，其中有启动vmware和virtualbox的服务的时间，
+还有启动ntfs-3g、lighttpd、transmission、wicd的，比较起来，成绩还不算太差。</p>
+<p>不过wicd是用python写的，加载确实比较耗时，
+但是network-manager的可定制性实在不高，不知道还有没有同类的软件可以替换。</p>
+<p>另外，bootchart加载之前的一段时间应该是内核加载的时间，看来青蛙还要继续精简内核才行。</p>
+<p>顺便记录一下bootchart的使用方法。说起来也很简单，统共分3步。</p>
+<ol>
+<li>装好bootchart之后，配置自己的bootloader，例如grub，在内核选项里面加上一句： init=/sbin/bootchartd。</li>
+<li>重启，bootchart自己就会在后台记录启动信息，默认保存在/var/log/bootchart.tgz中。</li>
+<li>完成启动后，运行bootchart命令，它就会把启动信息转化为下面这张图啦。</li>
+</ol>
+<p><a href="http://gfrog.net/wp-content/uploads/2009/04/bootchart.png"><img alt="bootchart" src="http://gfrog.net/wp-content/uploads/2009/04/bootchart-thumb.png"></a></p>
+                    <a class="btn btn-default btn-xs" href="./2009/04/test-debian-boot-time-with-bootchart/">more ...</a>
+                </div>
+            </article>
+            <hr/>
+            <article>
                 <h2><a href="./2009/04/lost-passion-on-weblog-update/">没有了更新blog的激情</a></h2>
                     <div class="well well-sm">
 <footer class="post-info">
@@ -277,75 +377,6 @@ keymap的设置有一个默认不做任何改变的选项，
 <p>第三件，开放一个折扣号，"GUAGUA"，$50的折扣，有需要的尽管拿去吧。：P</p>
 <p>好了，就这么多。另外给自己定个目标，以后争取每天更新。</p>
                     <a class="btn btn-default btn-xs" href="./2008/12/announce-this-blog-has-paid-for-next-year/">more ...</a>
-                </div>
-            </article>
-            <hr/>
-            <article>
-                <h2><a href="./2008/11/biological-clock-like-a-mouse/">跟耗子接近的生物钟</a></h2>
-                    <div class="well well-sm">
-<footer class="post-info">
-    <span class="label label-default">Date</span>
-    <span class="published">
-        <i class="fa fa-calendar"></i><time datetime="2008-11-09T23:36:49+08:00"> Sun 09 November 2008</time>
-    </span>
-
-
-
-        <span class="label label-default">Category</span>
-        <a href="./category/misc.html">Misc</a>
-
-
-    
-</footer><!-- /.post-info -->                    </div>
-                <div class="summary"><p>哦，对不起，这篇日志标题党了。</p>
-<p>青蛙最近经常熬灯写文档，搞得作息时间毫无规律。
-经常是凌晨上床，然后早上还要爬起来上班，
-于是整天都没有精神，哈气连天，
-然后晚上的时候倒是神采奕奕，很晚都不想睡觉。</p>
-<p>一个接近于昼伏夜出的动物产生了！</p>
-<p>PS.貌似最近到了青蛙冬眠的时节了，难道青蛙成天犯困也跟没去冬眠有关？ ：P</p>
-<p><a href="http://hi.baidu.com/aeon_studio/blog/item/3bef7036fc6d9c340a55a9b0.html"><img alt="耗子" src="http://gfrog.net/wp-content/uploads/2008/11/80d144fde90b6550d6887d59.jpg"></a></p>
-<p>（文中图片来自Google，请大家猛击</p>
-<p><a href="http://hi.baidu.com/aeon_studio/blog/item/3bef7036fc6d9c340a55a9b0.html">http://hi.baidu.com/aeon_studio/blog/item/3bef7036fc6d9c340a55a9b0.html</a></p>
-<p>观看更多超盟的老鼠，图片版权为原作者所有。）</p>
-                    <a class="btn btn-default btn-xs" href="./2008/11/biological-clock-like-a-mouse/">more ...</a>
-                </div>
-            </article>
-            <hr/>
-            <article>
-                <h2><a href="./2008/11/javascript-performance-test/">无聊时的消遣：JavaScript性能测试</a></h2>
-                    <div class="well well-sm">
-<footer class="post-info">
-    <span class="label label-default">Date</span>
-    <span class="published">
-        <i class="fa fa-calendar"></i><time datetime="2008-11-05T22:52:38+08:00"> Wed 05 November 2008</time>
-    </span>
-
-
-
-        <span class="label label-default">Category</span>
-        <a href="./category/misc.html">Misc</a>
-
-
-<span class="label label-default">Tags</span>
-	<a href="./tag/desktop.html">desktop</a>
-        /
-	<a href="./tag/browser.html">browser</a>
-        /
-	<a href="./tag/performance.html">performance</a>
-        /
-	<a href="./tag/javascript.html">javascript</a>
-    
-</footer><!-- /.post-info -->                    </div>
-                <div class="summary"><p>闲着无聊，在某邮件列表上发现一个测试js脚本性能的网页。
-用Chrome进去一试，85ms。Google浏览器的js性能还真是彪悍。</p>
-<p>多余的不说，上图。</p>
-<p><a href="http://gfrog.net/wp-content/uploads/2008/11/jsperformancechrome.jpg"><img alt="js-performance-chrome" src="http://gfrog.net/wp-content/uploads/2008/11/jsperformancechrome-thumb.jpg"></a></p>
-<p>Google Chrome的测试结果。</p>
-<p><a href="http://gfrog.net/wp-content/uploads/2008/11/jsperformanceie6.jpg"><img alt="js-performance-ie6" src="http://gfrog.net/wp-content/uploads/2008/11/jsperformanceie6-thumb.jpg"></a></p>
-<p>IE6的测试结果，中间还弹出了脚本执行时间过长的警告。</p>
-<p>差距，就是这么明显。</p>
-                    <a class="btn btn-default btn-xs" href="./2008/11/javascript-performance-test/">more ...</a>
                 </div>
             </article>
             <hr/>
